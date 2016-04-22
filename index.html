@@ -26,12 +26,6 @@
 		background-size: cover;
 		z-index: -100;
 	}
-	#blurBackground {
-		-moz-filter: blur(10px);
-  		-o-filter: blur(10px);
-  		-ms-filter: blur(10px);
-  		filter: blur(10px);
-	}
 	h1 {
 		font-family: 'Roboto', sans-serif;
 		font-weight: 300;
@@ -50,7 +44,7 @@
     	white-space: nowrap;
 	}
 	#centerBelowName {
-		position: relative;
+		position: absolute;
 		transform: translate(-50%, -50%);
 		top: 50%;
 		left: 50%;
@@ -91,7 +85,6 @@
 	}*/
 
 	</style>
-	<div id="blurBackground"></div>
     <nav class="navbar navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
