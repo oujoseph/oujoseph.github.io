@@ -98,14 +98,20 @@
 		font-weight: 300;
 	}
 	#cover {
-		visibility:hidden;
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		top:0;
+		left: 0; 
+		background: #000;
+		z-index:9999;}
 	}
 
 	</style>
 	<div id="cover"></div>
 	<script>
-	$(document).ready(function() {
-  		document.getElementsByTagName("cover")[0].style.visibility = "visible";
+	$(window).on('load', function() {
+   		$("#cover").hide();
 	});
 	</script>
 
