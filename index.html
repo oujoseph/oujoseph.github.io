@@ -23,8 +23,22 @@
 		width: auto;
 		height: auto;
 		background: url(/images/greyhound_rock.jpg) no-repeat center center fixed;
-		background-size: cover;
+		-webkit-background-size: cover;
+  		-moz-background-size: cover;
+  		-o-background-size: cover;
+  		background-size: cover;
+		-webkit-filter: blur(5px);
+		-moz-filter: blur(5px);
+		-o-filter: blur(5px);
+		-ms-filter: blur(5px);
+		filter: blur(5px);
+
 		z-index: -100;
+	}
+
+	img.bak {
+    -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+    filter: grayscale(100%);
 	}
 
 		h1 {
@@ -84,10 +98,6 @@
 		font-family: 'Roboto', sans-serif;
 		font-weight: 300;
 	}
-
-/*	.active {
-		background: rgba(200,200,200, .4);
-	}*/
 
 	</style>
     <nav class="navbar navbar-fixed-top">
