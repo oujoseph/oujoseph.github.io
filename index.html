@@ -27,7 +27,12 @@
 		background-size: cover;
 		z-index: -100;
 	}
-	
+	#blurBackground {
+		-moz-filter: blur(10px);
+  		-o-filter: blur(10px);
+  		-ms-filter: blur(10px);
+  		filter: blur(10px);
+	}
 	h1 {
 		font-family: 'Roboto', sans-serif;
 		font-weight: 300;
@@ -87,7 +92,7 @@
 	}*/
 
 	</style>
-
+	<div class="blurBackground"></div>
     <nav class="navbar navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
