@@ -158,13 +158,7 @@
                     <div class="carousel-caption">
                         <p>Greyhound Rock County Park & Beach, Davenport, CA</p>
                     </div>
-<script>
-  $( document ).ready(function() {
-    $('#myCarousel').on('slid.bs.carousel', function() {
-    	$('.background-img').css('background-image', 'url(' + $('img').attr('src') + ')'); //pass image address to be background image
-    });
- });
-</script>  
+
 
                 </div>
             </div>
@@ -173,20 +167,6 @@
                 <div class="container">
                     <div class="carousel-caption">
                         <p>Greyhound Rock County Park & Beach, Davenport, CA</p>
-
-
-<script>
-  $( document ).ready(function() {
-    $('#myCarousel').on('slid.bs.carousel', function() {
-    	$('.background-img').css('background-image', 'url(' + $('img').attr('src') + ')'); //pass image address to be background image
-    });
- });
-</script>  
-
-
-
-
-
                     </div>
                 </div>
             </div>
@@ -195,23 +175,6 @@
                 <div class="container">
                     <div class="carousel-caption">
                         <p>Greyhound Rock County Park & Beach, Davenport, CA</p>
-
-
-
-<script>
-  $( document ).ready(function() {
-    $('#myCarousel').on('slid.bs.carousel', function() {
-    	$('.background-img').css('background-image', 'url(' + $('img').attr('src') + ')'); //pass image address to be background image
-    });
- });
-</script>  
-
-
-
-
-
-
-
                     </div>
                 </div>
             </div>
@@ -220,23 +183,6 @@
                 <div class="container">
                     <div class="carousel-caption">
                         <p>Bear Lake, Rocky Mountain National Park, Colorado</p>
-
-
-
-
-<script>
-  $( document ).ready(function() {
-    $('#myCarousel').on('slid.bs.carousel', function() {
-    	$('.background-img').css('background-image', 'url(' + $('img').attr('src') + ')'); //pass image address to be background image
-    });
- });
-</script>  
-
-
-
-
-
-
                     </div>
                 </div>
             </div>
@@ -244,26 +190,6 @@
                 <img class="third-slide" src="/images/clouds.jpg" alt="p6">
                 <div class="container">
                     <div class="carousel-caption">
-
-
-
-<script>
-  $( document ).ready(function() {
-    $('#myCarousel').on('slid.bs.carousel', function() {
-    	$('.background-img').css('background-image', 'url(' + $('img').attr('src') + ')'); //pass image address to be background image
-    });
- });
-</script>  
-
-
-
-
-
-
-
-
-
-                    	
                         <p>UCSC,Oakes College</p>
                     </div>
                 </div>
@@ -287,10 +213,14 @@
     });
  });
 </script>  
+<script>
+$("#myCarousel").on('slide.bs.carousel', function(evt) {
+  alert("slide transition started")
+  alert('current slide = ', $(this).find('.active').index())
+  alert('next slide = ', $(evt.relatedTarget).index())
+})
 
-
-
-
+</script> 
 
 
 
