@@ -217,9 +217,8 @@
 <script>
   $( document ).ready(function() {
     $('#myCarousel').on('slid.bs.carousel', function(evt) {
-    	var currItem = Number$(evt.relatedTarget).index() + 1);
-
-    	$('.background-img').css('background-image', 'url(' + $('img' + currItem).attr('src') + ')'); //pass image address to be background image
+    	$('#myCarousel').on('slid.bs.carousel', function(evt) {
+    	$('.background-img').css('background-image', 'url(' + $('img' + $(evt.relatedTarget).index()).attr('src') + ')'); //pass image address to be background image
     });
  });
 </script>  
