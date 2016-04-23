@@ -24,8 +24,8 @@
   		background-repeat: no-repeat;
   		background-size : cover;
   		display: block;
-  		filter: blur(5px);
-  		-webkit-filter: blur(5px);
+/*  		filter: blur(5px);
+  		-webkit-filter: blur(5px);*/
   		height: 100vh;
   		width: auto;
 		min-width:300px;
@@ -101,15 +101,10 @@
 		animation-delay: 2s;
 	}
 
-	body {
-		opacity: 1;
-		transition: 5s opacity;
+	.glass::before {
+		background-image: url(/images/greyhound_rock.jpg);
+		filter: blur(5px);
 	}
-	body.fade {
-		opacity: 0;
-		transition: none;
-	}
-
 
 	</style>
 	<script>
@@ -121,7 +116,7 @@
 	<div class="animated fadeIn" class="delay1">
 		<div class="background-img"></div>
 	</div>
-    <nav class="navbar navbar-fixed-top" id: blur>
+    <nav class="navbar navbar-fixed-top glass">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
