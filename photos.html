@@ -50,14 +50,6 @@
 		left: 29%;
     	white-space: nowrap;
 	}
-	#centerBelowName {
-		position: relative;
-		transform: translate(-50%, -50%);
-		top: 50%;
-		left: 50%;
-    	white-space: nowrap;
-	}
-
 	.navbar-default {
   		background: rgba(255,255,255, .4);
 	}
@@ -99,7 +91,7 @@
     	margin-right: auto;
 	}
 
-	body {
+	#myCarousel {
 		padding-top: 70px;
 	}
 
@@ -134,15 +126,6 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-
-<script>
-  $( document ).ready(function() {
-    $('#myCarousel').on('slid.bs.carousel', function(evt) {
-    	$('.background-img').css('background-image', 'url(' + $('img' + $(evt.relatedTarget).index()).attr('src') + ')'); //pass image address to be background image
-    });
- });
-</script>
-
 
 <!-- CAROUSEL -------------------------------------- -->
 <body>
@@ -227,6 +210,15 @@
      </div><!-- /.carousel -->
 </div>
 </body>
+
+<!-- Display background -->
+<script>
+  $( document ).ready(function() {
+    $('#myCarousel').on('slid.bs.carousel', function(evt) {
+    	$('.background-img').css('background-image', 'url(' + $('img' + $(evt.relatedTarget).index()).attr('src') + ')'); //pass image address to be background image
+    });
+ });
+</script>
 
 
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
