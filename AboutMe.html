@@ -99,6 +99,20 @@
 		padding-right: 40px;
 	}
 
+	#fadeInRight1 {
+		animation-duration: 3s;
+		-webkit-animation-duration: 3s;
+		animation-delay: 1.5s;
+  		-webkit-animation-delay: 1.5s;
+	}
+	#fadeInRight4 {
+		animation-duration: 3s;
+		-webkit-animation-duration: 3s;
+		animation-delay: 2s;
+  		-webkit-animation-delay: 2s;
+	}
+
+
 
 	</style>
 	<div class="background-img"></div>
@@ -135,20 +149,20 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="row">
-				<div class="col-md-2">
+				<div class="col-md-2 animated fadeIn">
 					<h3>About Me</h3>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-4 animated fadeInLeft fadeInRight1">
 					<p>Hi! I'm Joseph Ou. I'm a college senior 6 weeks from graduating UCSC with a degree in Computer Science. I enjoy road trips and adventures, and I love bringing my trusty DSLR to capture memories at places I go. When I am not traveling, I live in Milpitas, California, at the heart of the Silicon Valley. Though it's a work in progress, I hope you enjoy my website!</p>
 				</div>
-				<div class="col-md-4">
-					<img src="/images/mugshot.JPG" style="width:600px;height:auto;">
+				<div class="col-md-4 animated fadeInRight fadeInRight1">
+					<img src="/images/mugshot.JPG" style="width:400px;height:auto;">
 				</div>
 			</div>
 
-			<div class="row">
+			<div class="row animated fadeIn">
 				<h3>About This Website</h3>
-				<div class="col-md-12">
+				<div class="col-md-12 animated fadeInBottom">
 						<p>This website was built using the basic HTML, CSS, and Javascript, With the help of Twitter Bootstrap and Dan Eden's animate.css library.</p>
 				</div>
 			</div>
