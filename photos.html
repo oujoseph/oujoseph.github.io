@@ -211,7 +211,7 @@
 <script>
   $( document ).ready(function() {
     $('#myCarousel').on('slid.bs.carousel', function() {
-    	alert($(this).attr('src'));
+    	alert($(evt.relatedTarget)[4].attr('src'));
     	$('.background-img').css('background-image', 'url(' + $($(evt.relatedTarget)[4].attr('src') + ')'); //pass image address to be background image
     });
  });
