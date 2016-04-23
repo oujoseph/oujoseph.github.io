@@ -216,9 +216,9 @@
 
 <script>
   $( document ).ready(function() {
-    $('#myCarousel').on('slid.bs.carousel', function(evt) {
+    $('#myCarousel').on('slid.bs.carousel', function() {
     	$('#myCarousel').on('slid.bs.carousel', function(evt) {
-    	$('.background-img').css('background-image', 'url(' + $('img' + $(evt.relatedTarget).index()).attr('src') + ')'); //pass image address to be background image
+    	$('.background-img').css('background-image', 'url(' + $('img' + $(evt.relatedTarget).index())).attr('src') + ')'); //pass image address to be background image
     });
  });
 </script>  
