@@ -102,7 +102,7 @@
 /*NAV BAR ----------------------------------------------*/
 
 	</style>
-	<div class="background-img no-pad"></div>
+	<div class="background-img"></div>
     <nav class="navbar navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -132,8 +132,7 @@
     </nav>
 
 <!-- CAROUSEL -------------------------------------- -->
-<body class="pad">
-<div class="container-fluid">
+<div class="container-fluid pad">
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -212,14 +211,14 @@
         </a>
      </div><!-- /.carousel -->
 </div>
-</body>
 
 <!-- Display background -->
 <script>
   $( document ).ready(function() {
     $('#myCarousel').on('slid.bs.carousel', function(evt) {
     	$('.background-img').css('background-image', 'url(' + $('img' + $(evt.relatedTarget).index()).attr('src') + ')');
-    	$('animated fadeIn'); //pass image address to be background image
+    	$('animated');
+    	$('fadeIn'); //pass image address to be background image
     });
  });
 </script>
