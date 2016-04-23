@@ -31,7 +31,6 @@
   		position: fixed;
   		right: 0;
   		z-index: -50;
-  		padding-top: 0px;
 	}
 
 	h1 {
@@ -219,7 +218,8 @@
 <script>
   $( document ).ready(function() {
     $('#myCarousel').on('slid.bs.carousel', function(evt) {
-    	$('.background-img').css('background-image', 'url(' + $('img' + $(evt.relatedTarget).index()).attr('src') + ')'); //pass image address to be background image
+    	$('.background-img').css('background-image', 'url(' + $('img' + $(evt.relatedTarget).index()).attr('src') + ')');
+    	$('fadeIn'); //pass image address to be background image
     });
  });
 </script>
