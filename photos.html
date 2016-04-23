@@ -33,8 +33,6 @@
   		z-index: -50;
 	}
 
-
-
 	h1 {
 		font-family: 'Roboto', sans-serif;
 		font-weight: 300;
@@ -101,6 +99,8 @@
     	margin-right: auto;
 	}
 
+/*NAV BAR ----------------------------------------------*/
+
 	</style>
 	<div class="background-img"></div>
     <nav class="navbar navbar-fixed-top">
@@ -130,6 +130,8 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+
+<!-- CAROUSEL -------------------------------------- -->
 
 <div class="container-fluid">
 	<div><p>hi</p></div>
@@ -209,7 +211,7 @@
 <script>
   $( document ).ready(function() {
     $('#myCarousel').on('slid.bs.carousel', function() {
-    	$('.background-img').css('background-image', 'url(' + $('img').attr('src') + ')'); //pass image address to be background image
+    	$('.background-img').css('background-image', 'url(' + $(this).attr('src') + ')'); //pass image address to be background image
     });
  });
 </script>  
