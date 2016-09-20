@@ -101,18 +101,6 @@
   		background-size: cover;
 	}
 
-	.vertical-center-row {
-    	display: table-cell;
-    	vertical-align: middle;
-	}
-
-	.vertical-center {
-  		display: flex;
-  		align-items: center;
-	}
-
-	
-
 	#fadeInRight1 {
 		animation-duration: 5s;
 		-webkit-animation-duration: 3s;
@@ -155,9 +143,10 @@
 
 
 <body>
-<div class="jumbotron vertical-center">
+	<div class="container-fluid">
+	<div class="col-md-2"></div>
+	<div class="jumbotron col-md-8">
 
-	<div class="container-fluid vertical-center-row">
 		<div class="row">
 <!-- 			<div class="col-md-4"></div> -->
 			<div class="col-md-4 animated fadeIn mug">
@@ -211,6 +200,8 @@
 
 	</div>
 </div>
+</div>
+
 
 </body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
