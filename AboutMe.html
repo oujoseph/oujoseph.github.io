@@ -95,7 +95,7 @@
 
 	#mug {
 	  	max-width:100%;
-
+		margin: auto;
   		border-radius: 50%;
   		background-position: center center;
   		background-size: cover;
@@ -109,7 +109,9 @@
   		/*delays and duration are broken at the moment.*/
 	}
 
-
+	.center-text{
+    	text-align: center;
+	}
 
 	</style>
 	<div class="background-img"></div>
@@ -149,7 +151,7 @@
 
 		<div class="row center">
 <!-- 			<div class="col-md-4"></div> -->
-			<div class="col-md-4 animated fadeIn mug">
+			<div class="col-md-8 animated fadeIn mug">
 				<img id="mug" src="/images/mugshot.JPG">
 			</div>
 			<!-- <div class="col-md-4"></div> -->
@@ -158,8 +160,9 @@
 		<!-- Space between profile photo and text -->
 		<div class="row"><p></p></div>
 
-		
-		<div class="row center">
+		<hr class="m-y-2">
+
+		<div class="row center-text">
 			<!-- <div class="col-md-5"></div> -->
 			<div class="col-md-12 animated fadeIn">
 				<p>Email Address: j0u@outlook.com
