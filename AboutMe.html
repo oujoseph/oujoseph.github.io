@@ -100,8 +100,13 @@
   		background-image: url("/images/mugshot.JPG");
   		background-position: center center;
   		background-size: cover;
-}
 	}
+	.vertical-center-row {
+    	display: table-cell;
+    	vertical-align: middle;
+	}
+
+	
 
 	#fadeInRight1 {
 		animation-duration: 5s;
@@ -146,9 +151,11 @@
 
 <body>
 	<div class="container-fluid">
-		<div class="animated fadeIn mug">
-					<img id="mug" src="/images/mugshot.JPG">
-				</div>
+		<div class="row vertical-center-row">
+			<div class="animated fadeIn mug">
+						<img id="mug" src="/images/mugshot.JPG">
+					</div>
+		</div>
 		<div class="row">
 
 			<div class="row">
