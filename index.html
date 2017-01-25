@@ -177,7 +177,9 @@
 
 
 	<script>
-		$(document).ready(function(){
+	$(document).ready(function(){
+		$('h2').text("height: " + $('nav').scrollTop());
+		
     	$("h1").click(function(){
         	$(this).hide();
     	});
