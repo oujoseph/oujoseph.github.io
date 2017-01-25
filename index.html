@@ -181,13 +181,19 @@
         	$(this).hide();
     	});
     	$(window).scroll(function() {
-
-			if ($(window).scrollTop() >= 100) {
-	    	//if ($(window).scrollTop() <= hPage.height()) {
-    	    	$('nav').addClass('navbar-fixed-top');
+    		if ($('nav').scrollTop() < 1) {
+    			$('nav').addClass('navbar-fixed-top');
     		} else {
-        		$('nav').removeClass('navbar-fixed-top');
-	    	}
+    			$('nav').removeClass('navbar-fixed-top');
+    		}
+
+
+			// if ($(window).scrollTop() >= 100) {
+	  //   	//if ($(window).scrollTop() <= hPage.height()) {
+   //  	    	$('nav').addClass('navbar-fixed-top');
+   //  		} else {
+   //      		$('nav').removeClass('navbar-fixed-top');
+	  //   	}
     	})
 	});
 	</script>
