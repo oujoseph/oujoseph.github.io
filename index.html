@@ -162,6 +162,7 @@
         	$(this).hide();
     	});
     	$(window).scroll(function() {
+    		$('navbar').addClass('navbar-fixed-top');
     		if ($(window).scrollTop() <= 100) {
 	    //if ($(window).scrollTop() <= hPage.height()) {
     	    	$('navbar').addClass('navbar-fixed-top');
