@@ -186,8 +186,8 @@
 
 
     		$('h1').text("height: " + $(window).scrollTop());
-			$("'h2'").text("height: " + $('#nameText').outerHeight());
-    		if ($(this).scrollTop() > 1) {
+			$("'h2'").text("height: " + $(window).outerHeight());
+    		if ($(window).scrollTop() > 1) {
     			$('nav').addClass('navbar-fixed-top');
     		} else {
     			$('nav').removeClass('navbar-fixed-top');
