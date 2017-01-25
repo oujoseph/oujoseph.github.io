@@ -183,8 +183,10 @@
         	$(this).hide();
     	});
     	$(window).scroll(function() {
+
+
     		$('h1').text("height: " + $(window).scrollTop());
-			$("'h2'").text("height: " + $('#nav').scrollTop());
+			$("'h2'").text("height: " + $('#topOfPage').outerHeight());
     		if ($(window).scrollTop() >= 100) {
     			$('nav').addClass('navbar-fixed-top');
     		} else {
