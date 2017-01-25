@@ -164,12 +164,12 @@
 	// 	document.getElementById("centerOfPage").innerHTML=hPage.height().toString();
 	// 	document.getElementById("centerOfPage").innerHTML="asdf";
 	// 	$('navbar').addClass('navbar-fixed-top');
-	// 	if ($(window).scrollTop() >= 100) {
-	//     //if ($(window).scrollTop() <= hPage.height()) {
- //    	    $('navbar').addClass('navbar-fixed-top');
- //    	} else {
- //        	$('navbar').removeClass('navbar-fixed-top');
-	//     }
+		if ($(window).scrollTop() >= 100) {
+	    //if ($(window).scrollTop() <= hPage.height()) {
+    	    $('navbar').addClass('navbar-fixed-top');
+    	} else {
+        	$('navbar').removeClass('navbar-fixed-top');
+	    }
 	// });
 	// </script>
 
@@ -181,9 +181,13 @@
         	$(this).hide();
     	});
     	$(window).scroll(function() {
-    		$('navbar').addClass('navbar-fixed-top');
-    		$('nav').addClass('navbar-fixed-top');
 
+			if ($(window).scrollTop() >= 100) {
+	    	//if ($(window).scrollTop() <= hPage.height()) {
+    	    	$('nav').addClass('navbar-fixed-top');
+    		} else {
+        		$('nav').removeClass('navbar-fixed-top');
+	    	}
     	})
 	});
 	</script>
