@@ -182,25 +182,20 @@
 	</body>
 
 	<script>
-	$(document).ready(function()){
-	
-		$(window).scroll(function() {
-			var $hPage = $('headerPage');
-			
-	
-			#('#centerOfPage').text(hPage.height());
-			
-			document.getElementById("centerOfPage").innerHTML=hPage.height();
-	
-			$('navbar').addClass('navbar-fixed-top');
-			if ($(window).scrollTop() >= 100) {
-		    //if ($(window).scrollTop() <= hPage.height()) {
-    		    $('navbar').addClass('navbar-fixed-top');
-    		} else {
-    	    	$('navbar').removeClass('navbar-fixed-top');
-	    	}
+	$(window).scroll(function() {
+		var $hPage = $('headerPage');
+		$('#zeez').text('New Word');
+		
+		document.getElementById("centerOfPage").innerHTML=hPage.height().toString();
 
-		});
+		$('navbar').addClass('navbar-fixed-top');
+		if ($(window).scrollTop() >= 100) {
+	    //if ($(window).scrollTop() <= hPage.height()) {
+    	    $('navbar').addClass('navbar-fixed-top');
+    	} else {
+        	$('navbar').removeClass('navbar-fixed-top');
+	    }
+
 	});
 	</script>
 
