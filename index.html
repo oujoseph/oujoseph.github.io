@@ -187,7 +187,8 @@
 		document.getElementById("centerOfPage").innerHTML='hey';
 		
 		document.getElementById("centerOfPage").innerHTML=hPage.height();
-
+		
+		$('topNav').addClass('navbar-fixed-top');
 		if ($(window).scrollTop() >= 100) {
 	    //if ($(window).scrollTop() <= hPage.height()) {
     	    $('topNav').addClass('navbar-fixed-top');
