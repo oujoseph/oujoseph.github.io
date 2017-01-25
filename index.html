@@ -49,15 +49,6 @@
 		font-weight: 300;
 		font-size: 5vw;
 	}
-
-	#centerOfPage {
-		color: gray;
-		position: absolute;
-		top: 10%;
-		left: 10%;
-    	white-space: nowrap;
-	}
-
 	#centerOfPage {
 		color: black;
 		position: absolute;
@@ -111,24 +102,11 @@
 	}
 
 	</style>
-
-	<body>
-		<div class="animated fadeIn">
-			<div id="headerPage">
-				<h1>Joseph Ou<h1>
-			</div>
-		</div>
-	</body>
-
-
-	<!-- <div class="animated fadeIn" class="delay1">
+	<div class="animated fadeIn" class="delay1">
 		<div class="background-img"></div>
-	</div> -->
-
-
-<!--     <nav class="navbar" id: topNav>
+	</div>
+    <nav class="navbar navbar-fixed-top" id: blur>
       <div class="container-fluid">
-
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -150,7 +128,7 @@
         </li>
           </ul>
 
-        </div>
+        </div><!--/.nav-collapse -->
       </div>
     </nav>
 
@@ -160,23 +138,6 @@
 				<h1>Joseph Ou<h1>
 			</div>
 		</div>
-	</body> -->
-
-	<body>
-		<p1>bhee<p1>
-		<p1>bhee<p1>
-			<p1>bhee<p1>
-	</body>
-
-	<body>
-		<h1>hay<h1>
-		<h1>hay<h1>
-		<h1>hay<h1>
-	</body>
-
-	<body>
-		<p1>bhee<p1>
-		<p1>bhee<p1><p1>bhee<p1>
 	</body>
 
 	<script>
@@ -197,21 +158,13 @@
 	});
 	</script>
 
-<script>
-$(document).ready(function(){
-    $("p1").click(function(){
-        $(this).hide();
-    });
-
-    $("h1").click(function(){
-        $(this).hide();
-    });
-
-    $("nav").click(function(){
-        $(this).hide();
-    });
-});
-</script>
+	<script>
+		$(document).ready(function(){
+    	$("centerOfPage").click(function(){
+        	$(this).hide();
+    	});
+	});
+	</script>
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
