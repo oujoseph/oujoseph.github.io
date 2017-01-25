@@ -186,7 +186,7 @@
 
 
     		$('h1').text("height: " + $(window).scrollTop());
-			$("h2").text("height: " + $(window).outerHeight(true));
+			$("h2").text("height: " + $("#topOfPage").outerHeight(true));
     		if ($(window).scrollTop() > $("h1").height(true)) {
     			$('nav').addClass('navbar-fixed-top');
     		} else {
