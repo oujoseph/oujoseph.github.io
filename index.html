@@ -157,24 +157,6 @@
 		<p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p>
 	</body>
 
-	// <script>
-	// $(window).scroll(function() {
-	// 	var $hPage = $('headerPage');
-	// 	$('#h1').text('New Word');
-		
-	// 	document.getElementById("centerOfPage").innerHTML=hPage.height().toString();
-	// 	document.getElementById("centerOfPage").innerHTML="asdf";
-	// 	$('navbar').addClass('navbar-fixed-top');
-		// if ($(window).scrollTop() >= 100) {
-	 //    //if ($(window).scrollTop() <= hPage.height()) {
-  //   	    $('navbar').addClass('navbar-fixed-top');
-  //   	} else {
-  //       	$('navbar').removeClass('navbar-fixed-top');
-	 //    }
-	// });
-	// </script>
-
-
 
 	<script>
 	$(document).ready(function(){
@@ -184,22 +166,16 @@
     	});
     	$(window).scroll(function() {
 
+    		//debug code だ
+    		// $('h1').text("height: " + $(window).scrollTop());
+			// $("h2").text("height: " + $("#nameText").outerHeight(true));
+    		//debug code だ
 
-    		$('h1').text("height: " + $(window).scrollTop());
-			$("h2").text("height: " + $("#nameText").outerHeight(true));
     		if ($(window).scrollTop() > $("#nameText").outerHeight(true)) {
     			$('nav').addClass('navbar-fixed-top');
     		} else {
     			$('nav').removeClass('navbar-fixed-top');
     		}
-
-
-			// if ($(window).scrollTop() >= 100) {
-	  //   	//if ($(window).scrollTop() <= hPage.height()) {
-   //  	    	$('nav').addClass('navbar-fixed-top');
-   //  		} else {
-   //      		$('nav').removeClass('navbar-fixed-top');
-	  //   	}
     	})
 	});
 	</script>
