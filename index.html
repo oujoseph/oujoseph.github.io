@@ -114,7 +114,7 @@
 	</head>
 
 	<div class="topOfPage">
-		<h2>Joseph Ou</h2>
+		<h2 id="nameText">Joseph Ou</h2>
 	</div>
 
 	<div class="animated fadeIn" class="delay1">
@@ -164,12 +164,12 @@
 	// 	document.getElementById("centerOfPage").innerHTML=hPage.height().toString();
 	// 	document.getElementById("centerOfPage").innerHTML="asdf";
 	// 	$('navbar').addClass('navbar-fixed-top');
-		if ($(window).scrollTop() >= 100) {
-	    //if ($(window).scrollTop() <= hPage.height()) {
-    	    $('navbar').addClass('navbar-fixed-top');
-    	} else {
-        	$('navbar').removeClass('navbar-fixed-top');
-	    }
+		// if ($(window).scrollTop() >= 100) {
+	 //    //if ($(window).scrollTop() <= hPage.height()) {
+  //   	    $('navbar').addClass('navbar-fixed-top');
+  //   	} else {
+  //       	$('navbar').removeClass('navbar-fixed-top');
+	 //    }
 	// });
 	// </script>
 
@@ -182,9 +182,9 @@
     	});
     	$(window).scroll(function() {
     		if ($('nav').scrollTop() < 1) {
-    			$('nav').removeClass('navbar-fixed-top');
-    		} else {
     			$('nav').addClass('navbar-fixed-top');
+    		} else {
+    			$('nav').removeClass('navbar-fixed-top');
     		}
 
 
