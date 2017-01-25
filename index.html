@@ -187,13 +187,13 @@
 		document.getElementById("centerOfPage").innerHTML='hey';
 		
 		document.getElementById("centerOfPage").innerHTML=hPage.height();
-		
-		$('topNav').addClass('navbar-fixed-top');
+
+		$('navbar').addClass('navbar-fixed-top');
 		if ($(window).scrollTop() >= 100) {
 	    //if ($(window).scrollTop() <= hPage.height()) {
-    	    $('topNav').addClass('navbar-fixed-top');
+    	    $('navbar').addClass('navbar-fixed-top');
     	} else {
-        	$('topNav').removeClass('navbar-fixed-top');
+        	$('navbar').removeClass('navbar-fixed-top');
 	    }
 
 	});
