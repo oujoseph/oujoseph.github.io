@@ -125,7 +125,7 @@
 		<div class="background-img"></div>
 	</div> -->
 
-	
+
     <nav class="navbar" id: topNav>
       <div class="container-fluid">
 
@@ -183,30 +183,32 @@
 		<h1>hay<h1>
 	</body>
 
-	<script>
-	$(window).scroll(function() {
-		var $hPage = $('headerPage');
-		$('#zeez').text('New Word');
+	// <script>
+	// $(window).scroll(function() {
+	// 	var $hPage = $('headerPage');
+	// 	$('#zeez').text('New Word');
 		
-		document.getElementById("centerOfPage").innerHTML=hPage.height().toString();
-		document.getElementById("centerOfPage").innerHTML="asdf";
-		$('navbar').addClass('navbar-fixed-top');
-		if ($(window).scrollTop() >= 100) {
-	    //if ($(window).scrollTop() <= hPage.height()) {
-    	    $('navbar').addClass('navbar-fixed-top');
-    	} else {
-        	$('navbar').removeClass('navbar-fixed-top');
-	    }
+	// 	document.getElementById("centerOfPage").innerHTML=hPage.height().toString();
+	// 	document.getElementById("centerOfPage").innerHTML="asdf";
+	// 	$('navbar').addClass('navbar-fixed-top');
+	// 	if ($(window).scrollTop() >= 100) {
+	//     //if ($(window).scrollTop() <= hPage.height()) {
+ //    	    $('navbar').addClass('navbar-fixed-top');
+ //    	} else {
+ //        	$('navbar').removeClass('navbar-fixed-top');
+	//     }
 
-	});
-	</script>
+	// });
+	// </script>
+
+
 
 	<script>
 	$(document).ready(function(){
-    	var num = 15;
-    	var n = num.toString();
-    	document.getElementById("centerOfPage").innerHTML = n;
-	}
+    $("h1").click(function(){
+        $(this).hide();
+    });
+});
 	</script>
 
 
