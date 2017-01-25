@@ -156,16 +156,19 @@
 		<p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p><p>hay</p>
 	</body>
 
-
-
-
 	<script>
 		$(document).ready(function(){
     	$("h1").click(function(){
         	$(this).hide();
     	});
     	$(window).scroll(function() {
-    		$('nav').addClass('navbar-fixed-top');
+    		if ($(window).scrollTop() >= 100) {
+	    //if ($(window).scrollTop() <= hPage.height()) {
+    	    	$('navbar').addClass('navbar-fixed-top');
+    		} else {
+        		$('navbar').removeClass('navbar-fixed-top');
+	    	}
+
     	})
 	});
 	</script>
