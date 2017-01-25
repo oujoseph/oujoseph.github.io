@@ -181,7 +181,7 @@
         	$(this).hide();
     	});
     	$(window).scroll(function() {
-    		if ($('nav').scrollTop() < 1) {
+    		if ($(window).height() > 100) {
     			$('nav').addClass('navbar-fixed-top');
     		} else {
     			$('nav').removeClass('navbar-fixed-top');
