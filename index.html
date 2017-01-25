@@ -124,7 +124,7 @@
 	<div class="animated fadeIn" class="delay1">
 		<div class="background-img"></div>
 	</div>
-    <nav class="navbar navbar-fixed-top" id: blur>
+    <nav class="navbar" id: blur>
       <div class="container-fluid">
 
         <div class="navbar-header">
@@ -188,10 +188,10 @@
 		document.getElementById("centerOfPage").innerHTML=hPage.height();
 
 		if ($(window).scrollTop() <= 100) {
-	    if ($(window).scrollTop() <= hPage.height()) {
-    	    $('nav').addClass('fixed');
+	    //if ($(window).scrollTop() <= hPage.height()) {
+    	    $('nav').addClass('navbar-fixed-top');
     	} else {
-        	$('nav').removeClass('fixed');
+        	$('nav').removeClass('navbar-fixed-top');
 	    }
 
 	});
