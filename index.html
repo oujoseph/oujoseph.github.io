@@ -18,13 +18,15 @@
 	<style>
 	html {
 	}
-	.background-img {
+	.parallax {
   		background-image: url(/images/darksolder.jpg);
-  		background-repeat: no-repeat;
-  		background-size : cover;
+  		background-attachment: fixed;
+    	background-position: center;
+    	background-repeat: no-repeat;
+    	background-size: cover;
   		display: block;
-  		filter: blur(5px);
-  		-webkit-filter: blur(5px);
+  		/*filter: blur(5px);
+  		-webkit-filter: blur(5px);*/
   		height: 102vh;
   		width: auto;
 		min-width:300px;
@@ -32,7 +34,7 @@
     	right:-15px;
     	top:-15px;
     	bottom:-15px;
-    	position: fixed;
+    	/*position: fixed;*/
   		z-index: -50;
 	}
 
@@ -108,6 +110,15 @@
 		font-family: 'Roboto', sans-serif;
 		font-weight: 300;
 	}
+
+	#invis {
+		display: hidden;
+	}
+
+	#vis {
+		display: block;
+	}
+
 	#fadeIn.delay1{
 		animation-delay: 2s;
 	}
@@ -164,7 +175,7 @@
 		<div class="animated fadeIn">
 			<div id="centerOfPage">
 				<h1>Joseph Ou<h1>
-<!-- 				<h2> WERTY </h2> -->
+				<h2> WERTY </h2><h2> WERTY </h2><h2> WERTY </h2><h2> WERTY </h2><h2> WERTY </h2><h2> WERTY </h2><h2> WERTY </h2>
 			</div>
 		</div>
 	</body>
@@ -186,7 +197,7 @@
     		//debug code だ
 
     		if ($(window).scrollTop() > $("#nameText").outerHeight(true)) {
-    			$('nav').addClass('navbar-fixed-top');
+    			$('nav').addClass('navbar-fixed-top visible');
     		} else {
     			$('nav').removeClass('navbar-fixed-top');
     		}
