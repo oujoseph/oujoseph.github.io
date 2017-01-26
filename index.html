@@ -169,6 +169,15 @@
     	$("h1").click(function(){
         	$(this).hide();
     	});
+
+		$('nav').affix({
+  			offset: {
+    		top: function() { 
+    			return $(window).height();
+    		}
+  		}
+		});
+
     	$(window).scroll(function() {
 
     		//debug code だ
@@ -178,9 +187,9 @@
 			$('nav').attr('data-offset-top', $(window).height());
 
     		if ($(window).scrollTop() > $(window).height()) {
-    			$('nav').addClass('affix');
+    			// $('nav').addClass('affix');
     		} else {
-    			$('nav').removeClass('affix');
+    			// $('nav').removeClass('affix');
     		}
     	})
 	});
