@@ -108,8 +108,12 @@
 		display: block;
 	}
 
-	#fadeIn.delay1{
+	#fadeIn.delay1 {
 		animation-delay: 2s;
+	}
+
+	#fadeIn.nav {
+		-vendor-animation-iteration-count: infinite;
 	}
 
 	</style>
@@ -176,9 +180,9 @@
     		//debug code だ
 
     		if ($(window).scrollTop() > $(window).height()) {
-    			$('nav').addClass('animated fadeIn');
+    			$('nav').fadeIn();
     		} else {
-    			$('nav').removeClass('animated fadeOut');
+    			$('nav').fadeOut();
     		}
     	})
 	});
