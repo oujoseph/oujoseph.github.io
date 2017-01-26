@@ -172,14 +172,16 @@
     	$(window).scroll(function() {
 
     		//debug code だ
-    		$('h1').text("height: " + $(window).scrollTop());
-			$("h2").text("height: " + $(window).height());
+    		// $('h1').text("height: " + $(window).scrollTop());
+			// $("h2").text("height: " + $(window).height());
     		//debug code だ
 
     		if ($(window).scrollTop() > $(window).height()) {
     			$('nav').addClass('navbar-fixed-top visible');
+    			$('nav').removeClass('navbar-static-top');
     		} else {
     			$('nav').removeClass('navbar-fixed-top');
+				$('nav').addClass('navbar-static-top');
     		}
     	})
 	});
