@@ -119,7 +119,7 @@
 	<div class="parallaxSplash animated fadeIn delay1"></div>
 	<div class="animated fadeIn" class="delay1"></div>
 
-    <nav class="navbar" data-spy="affix" data-offset-top='500' id: blur>
+    <nav class="navbar" id: blur>
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -169,15 +169,6 @@
     	$("h1").click(function(){
         	$(this).hide();
     	});
-
-		$('nav').affix({
-  			offset: {
-    		top: function() { 
-    			return $(window).height();
-    		}
-  		}
-		});
-
     	$(window).scroll(function() {
 
     		//debug code だ
@@ -185,13 +176,13 @@
 			// $("h2").text("height: " + $(window).height());
     		//debug code だ
 
-
-			// $('nav').attr('data-offset-top', $(window).height());
-
     		if ($(window).scrollTop() > $(window).height()) {
-    			// $('nav').addClass('affix');
+    			$('nav').addClass('navbar-fixed-top');
+
+    			$('nav').removeClass('navbar-default');
     		} else {
-    			// $('nav').removeClass('affix');
+    			$('nav').removeClass('navbar-fixed-top');
+    			$('nav').addClass('navbar-default');
     		}
     	})
 	});
