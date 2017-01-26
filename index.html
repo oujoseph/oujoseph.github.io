@@ -17,7 +17,7 @@
 	<style>
 	html {
 	}
-	.parallaxFull {
+	.parallaxSplash {
   		background-image: url(/images/darksolder.jpg);
 
     	height: 100vh; 
@@ -116,7 +116,7 @@
 	</style>
 	</head>
 	
-	<div class="parallaxFull animated fadeIn delay1"></div>
+	<div class="parallaxSplash animated fadeIn delay1"></div>
 	<div class="animated fadeIn" class="delay1"></div>
 
 	<div class="centerOfPage">
@@ -184,7 +184,7 @@
 			// $("h2").text("height: " + $("#nameText").outerHeight(true));
     		//debug code だ
 
-    		if ($(window).scrollTop() > $(window).outerHeight(true)) {
+    		if ($(window).scrollTop() > $("#parallaxSplash").outerHeight(true)) {
     			$('nav').addClass('navbar-fixed-top visible');
     		} else {
     			$('nav').removeClass('navbar-fixed-top');
