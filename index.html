@@ -121,7 +121,7 @@
 	<div class="parallaxSplash animated fadeIn delay1"></div>
 	<div class="animated fadeIn" class="delay1"></div>
 
-    <nav class="navbar" id: blur>
+    <nav class="navbar navbar-fixed-top" id: blur>
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -179,9 +179,9 @@
     		//debug code だ
 
     		if ($(window).scrollTop() > $(window).height()) {
-    			$('nav').addClass('navbar-fixed-top');
+    			$('nav').addClass('animated fadeIn');
     		} else {
-    			$('nav').removeClass('navbar-fixed-top');
+    			$('nav').removeClass('animated fadeOut');
     		}
     	})
 	});
