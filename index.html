@@ -72,12 +72,9 @@
   		background: rgba(255,255,255, .4);
 	}
 
-	.nav-abs {
-		position: absolute;
-	}
-
 	.navbar {
 		background: rgba(255,255,255, .5);
+		position: absolute;
 	}
 
 	.navbar-toggle:hover .icon-bar {
@@ -123,7 +120,7 @@
 	<div class="parallaxSplash animated fadeIn delay1"></div>
 	<div class="animated fadeIn" class="delay1"></div>
 
-    <nav class="navbar nav-abs" id: blur>
+    <nav class="navbar" id: blur>
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -183,10 +180,10 @@
     		if ($(window).scrollTop() > $(window).height()) {
     			$('nav').addClass('navbar-fixed-top');
 
-    			$('nav').removeClass('navbar-default');
+    			$('nav').removeClass('navbar-static');
     		} else {
     			$('nav').removeClass('navbar-fixed-top');
-    			$('nav').addClass('navbar-default');
+    			$('nav').addClass('navbar-static');
     		}
     	})
 	});
