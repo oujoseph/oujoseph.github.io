@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+	<meta name="description" content="Main Page">
+    <meta name="author" content="Joseph Ou">
+
+	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="animate_css/animate.min.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+	<style>
+	html {
+	}
+	.parallaxSplash {
+  		background-image: url(/images/darksolder.jpg);
+
+    	height: 100vh; 
+
+    	background-attachment: fixed;
+    	background-position: center;
+    	background-repeat: no-repeat;
+    	background-size: cover;
+	}
+
+	.parallaxHalf {
+		background-image: url(/images/tidepoolBirds2.jpg);
+		height: 100vh; 
+
+		
+
+		opacity:0;
+
+
+
+    	background-attachment: fixed;
+    	background-position: center;
+    	background-repeat: no-repeat;
+    	background-size: cover;
+	}
+
+	.navbar.blur:before{
+		filter: blur(5px);
+  		-webkit-filter: blur(5px);
+	}
+
+	h1 {
+		font-family: 'Roboto', sans-serif;
+		font-weight: 300;
+		font-size: 15vw;
+	}
+	h2 {
+		font-family: 'Roboto', sans-serif;
+		font-weight: 300;
+		font-size: 2.5vw;
+	}
+	#centerOfPage {
+		color: #E1E1E1;
+		position: absolute;
+		transform: translate(-50%, -50%);
+		top: 50%;
+		left: 50%;
+    	white-space: nowrap;
+	}
+	#scrollText {
+		color: #E1E1E1;
+		position: absolute;
+		text-align: center;
+		bottom: 0%;
+		left: 1%;
+    	white-space: nowrap;
+	}
+
+	.navbar-default {
+  		background: rgba(255,255,255, .4);
+	}
+	.navbar {
+		background: rgba(255,255,255, .5);
+	}
+
+	.navbar-toggle:hover .icon-bar {
+		background: rgba(255,255,255, 1);
+	}
+
+	.navbar-toggle .icon-bar {
+		background: rgba(255,255,255, .8);
+	}
+
+	.navbar-nav {
+		color: black;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 300;
+	}
+	.navbar-brand {
+		color: black;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 400;
+	}
+
+	a.type {
+		color: black;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 300;
+	}
+
+	#invis {
+		display: hidden;
+	}
+
+	#vis {
+		display: block;
+	}
+
+	#fadeIn.delay1 {
+		animation-delay: 2s;
+	}
+
+	#fadeIn.nav {
+		-vendor-animation-iteration-count: infinite;
+	}
+
+	</style>
+	</head>
+	
+	<body style="background-color:#000000;">
+	</body>
+
+	<div class="parallaxSplash animated fadeIn delay1"></div>
+	<div class="animated fadeIn" class="delay1"></div>
+
+    <nav class="navbar navbar-fixed-top" id: blur>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="">HOME</a>
+        </div>
+
+
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a class="type" href="index.html">Home</a></li>
+            <li><a class="type" href="AboutMe.html">About</a></li>
+            <li><a class="type" href="photos.html">My Photos</a></li>
+          </ul>
+        </li>
+          </ul>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+	<body>
+		<div class="animated fadeIn">
+			<div id="centerOfPage">
+				<h1>Joseph Ou<h1>
+				<!-- <h2> WERTY </h2> -->
+			</div>
+			<div id="scrollText">
+				<h2>Website renovation in progress until 1/30/17... Scroll to the bottom to activate the menu<h2>
+				<!-- <h2> WERTY </h2> -->
+			</div>
+		</div>
+	</body>
+
+
+<body>
+	<div class="container-fluid">
+	<div class="col-md-1"></div>
+	<div class="jumbotron col-md-10" id="jumbostyle">
+
+		<div class="row center">
+			<div class="col-md-2"></div>
+			<div class="col-md-8 animated fadeIn mug">
+				<img id="mug" src="/images/mugshot.JPG">
+			</div>
+		</div>
+
+
+		<!-- Space between profile photo and text -->
+		<div class="row"><p></p></div>
+
+		<hr class="m-y-2">
+
+		<div class="row center-text">
+			<div class="col-md-12 animated fadeIn">
+				<p>j0u@outlook.com
+				</p>
+				<p>(831) 295-4053
+				</p>
+				<p>linkedin.in.com/josephou/
+				</p>
+			</div>
+		</div>
+
+
+
+		<hr class="m-y-2">
+
+		<div class="row">
+			<div class="col-md-4 animated fadeIn">
+				<h3>ABOUT ME</h3>
+			</div>
+			<div class="col-md-8 animated fadeIn">
+				<p>Hi! I'm Joseph Ou. I'm a college graduate from UCSC with a degree in Computer Science. I live in Milpitas, California, at the heart of the Silicon Valley. Though it's a work in progress, I hope you enjoy my website!
+				</p>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-md-4 animated fadeIn">
+				<h3>ABOUT THE WEBSITE</h3>
+			</div>
+			<div class="col-md-8 animated fadeIn">
+					<p>This website was built using HTML, CSS, and Javascript/Jquery, With the help of Twitter Bootstrap and Dan Eden's animate.css library.</p>
+			</div>
+		</div>
+
+
+	</div>
+</div>
+</div>
+
+
+
+	<div class="parallaxHalf"></div>
+
+
+
+	<script>
+	$(document).ready(function(){
+		$('nav').hide();
+
+    	$("h1").click(function(){
+        	$(this).hide();
+    	});
+    	$(window).scroll(function() {
+
+    		//debug code だ
+    		// $('h1').text("height: " + $(window).scrollTop());
+			// $("h2").text("height: " + $(window).height());
+    		//debug code だ
+
+    		if ($(window).scrollTop() >= $(window).height()) {
+    			$('nav').fadeIn();
+    		} else {
+    			$('nav').fadeOut();
+    		}
+    	})
+	});
+	</script>
+
+
+
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+
+</html>
