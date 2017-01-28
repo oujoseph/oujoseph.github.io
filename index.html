@@ -186,6 +186,20 @@
 		position: relative;
 		height: 100%;
 	}
+
+	.image-container .img {
+	  	max-width:100%;
+  		border-radius: 50%;
+  		background-position: center center;
+  		background-size: cover;
+		text-align: center;
+
+		display:block;
+  		margin-left:auto;
+ 		margin-right:auto;
+ 	}
+
+
 	.image-container:hover .content {
 		display: block;
 		background: rgba(1,1,1,.5);
@@ -296,12 +310,16 @@
 
 			<div class="row">
 				<div class="col-md-1"></div>
-				<div class="col-md-4 image-container">
+				<div class="col-md-4 image-container img">
 					<img id="gallery" src="/images/gallery.JPG">
+					<div class="content">
+						<p>One of my hobbies is landscape photography. Here's a particularly resource heavy image gallery comprised of some of my shots (performance and visual improvements are forthcoming)<p>
 				</div>
 				<div class="col-md-2"></div>
-				<div class="col-md-4 image-container">
+				<div class="col-md-4 image-container img">
 					<img id="leds" src="/images/leds.JPG">
+					<div class="content">
+						<p>A work in progress! This page will detail my current and pat projects, as well as provide insight on the way I approach them.<p>
 				</div>
 
 
