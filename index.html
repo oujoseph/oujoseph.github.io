@@ -182,7 +182,20 @@
     	background: -webkit-gradient(linear, 0 0, 100% 0, from(#B0BEC5), to(#B0BEC5), color-stop(50%, #616161));
 	}
 
-	.image-container {
+	.image-container-gallery {
+		display: block;
+
+		max-width: 80%;
+    	height: auto;
+
+		background-position: center center;
+  		background-size: cover;
+		text-align: center;
+
+		position: relative;
+	}
+
+	.image-container-projects {
 		display: block;
 
 		max-width: 80%;
@@ -198,6 +211,10 @@
  	.hidden-text {
 		visibility: hidden;
 		position: absolute;
+		top: 0;
+  		bottom: 0;
+  		left: 0;
+  		right: 0;
 		z-index: 1;
 	}
 
@@ -335,7 +352,7 @@
 
 			<div class="row">
 				<div class="col-md-1"></div>
-				<div class="col-md-4 image-container image-container-gallery">
+				<div class="col-md-4 image-container-gallery">
 					<img id="gallery" src="/images/gallery.jpg">
 					<!-- <h2 class="center-text">Image Gallery<h2> -->
 					<div class="hidden-text">
@@ -343,11 +360,11 @@
 					</div>
 				</div>
 				<div class="col-md-2"></div>
-				<div class="col-md-4 image-container image-container-projects">
+				<div class="col-md-4 image-container-projects">
 					<img id="leds" src="/images/leds.jpg">
 					<!-- <h2 class="center-text">Projects<h2> -->
 					<div class="hidden-text">
-						<p>A work in progress! This page will detail my current and pat projects, as well as provide insight on the way I approach them.<p>
+						<p>A work in progress! This page will detail my current and past projects, as well as provide insight on the way I approach them.<p>
 					</div>
 				</div>
 				<div class="col-md-1"></div>
