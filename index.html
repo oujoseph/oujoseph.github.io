@@ -27,7 +27,13 @@
     	background-repeat: no-repeat;
     	background-size: cover;
     	z-index: 0;
-    	display: none;
+    	
+
+    	-webkit-transition: opacity 2s ease-in;
+    	-moz-transition: opacity 2s ease-in;
+    	-o-transition: opacity 2s ease-in;
+    	-ms-transition: opacity 2s ease-in;
+    	transition: opacity 2s ease-in;
 	}
 
 	.parallaxSplash.opa {
@@ -285,13 +291,7 @@
 
 	<script>
 	$(document).ready(function(){
-		setTimeout(function(){
-        	$('#parallaxSplash').fadeIn(500);
-    	}, 2000);
-
-
-
-    	$('a[href^="#"]').on('click',function (e) {
+		 $('a[href^="#"]').on('click',function (e) {
 	    	e.preventDefault();
 
 	    	var target = this.hash;
