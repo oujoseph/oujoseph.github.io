@@ -187,7 +187,7 @@
 		height: 100%;
 	}
 
-	.image-container .text {
+	.image-container .hidden-text {
 		visibility: hidden;
 	}
 
@@ -205,8 +205,14 @@
  		background: rgba(0,0,0,.3);
  	}
 
+/*Separate contents so only one activates when moused over*/
+	.image-container:hover .content1 {
+		display: block;
+		background: rgba(1,1,1,.5);
+		visibility: visible;
+	}
 
-	.image-container:hover .content {
+	.image-container:hover .content2 {
 		display: block;
 		background: rgba(1,1,1,.5);
 		visibility: visible;
@@ -318,18 +324,20 @@
 			<div class="row">
 				<div class="col-md-1"></div>
 				<div class="col-md-4 image-container img">
-					<img id="gallery" src="/images/gallery.jpg">
 					<h2 class="center-text">Image Gallery<h2>
-					<div class="content text">
+					<img id="gallery" src="/images/gallery.jpg">
+					<div class="content hidden-text">
 						<p>One of my hobbies is landscape photography. Here's a particularly resource heavy image gallery comprised of some of my shots (performance and visual improvements are forthcoming)<p>
 				</div>
 				<div class="col-md-2"></div>
 				<div class="col-md-4 image-container img">
 					<img id="leds" src="/images/leds.jpg">
 					<h2 class="center-text">Projects<h2>
-					<div class="content text">
+					<div class="content hidden-text">
 						<p>A work in progress! This page will detail my current and pat projects, as well as provide insight on the way I approach them.<p>
+					</div>
 				</div>
+				<div class="col-md-1"></div>
 
 
 		</div>
