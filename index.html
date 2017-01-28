@@ -187,10 +187,6 @@
 		height: 100%;
 	}
 
-	.image-container .hidden-text {
-		visibility: hidden;
-		position: absolute;
-	}
 
 	.image-container .img {
 	  	max-width:100%;
@@ -198,26 +194,31 @@
   		background-position: center center;
   		background-size: cover;
 		text-align: center;
-
 		display:block;
   		margin-left:auto;
  		margin-right:auto;
-
  		background: rgba(0,0,0,.3);
  	}
 
+ 	.hidden-text {
+		visibility: hidden;
+		position: absolute;
+	}
+
 /*Separate contents so only one activates when moused over*/
-	.image-container .content-one:hover {
+	.image-container-gallery:hover {
 		display: block;
 		background: rgba(1,1,1,.5);
 		position:absolute;
 		visibility: visible;
 	}
 
-	.image-container:hover .content-two:hover {
+
+
+	.image-container-projects:hover {
 		display: block;
 		background: rgba(1,1,1,.5);
-		position:absolute;
+		position:;
 		visibility: visible;
 	}
 
@@ -329,14 +330,14 @@
 				<div class="col-md-4 image-container img">
 					<h2 class="center-text">Image Gallery<h2>
 					<img id="gallery" src="/images/gallery.jpg">
-					<div class="content-one hidden-text">
+					<div class="image-container-gallery hidden-text">
 						<p>One of my hobbies is landscape photography. Here's a particularly resource heavy image gallery comprised of some of my shots (performance and visual improvements are forthcoming)<p>
 				</div>
 				<div class="col-md-2"></div>
 				<div class="col-md-4 image-container img">
 					<img id="leds" src="/images/leds.jpg">
 					<h2 class="center-text">Projects<h2>
-					<div class="content-two hidden-text">
+					<div class="image-container-projects hidden-text">
 						<p>A work in progress! This page will detail my current and pat projects, as well as provide insight on the way I approach them.<p>
 					</div>
 				</div>
