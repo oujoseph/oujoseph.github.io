@@ -182,6 +182,15 @@
     	background: -webkit-gradient(linear, 0 0, 100% 0, from(#B0BEC5), to(#B0BEC5), color-stop(50%, #616161));
 	}
 
+	.image-container {
+		position: relative;
+		height: 100%;
+	}
+	.image-container:hover .content {
+		display: block;
+		background: rgba(1,1,1,.5);
+	}
+
 	</style>
 	</head>
 	
@@ -285,10 +294,23 @@
 				</div>
 			</div>
 
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-4 image-container">
+					<img id="gallery" src="/images/gallery.JPG">
+				</div>
+				<div class="col-md-2"></div>
+				<div class="col-md-4 image-container">
+					<img id="leds" src="/images/leds.JPG">
+				</div>
+
+
 		</div>
-	<div class="parallaxHalf first"></div>	
+	<!-- <div class="parallaxHalf first"></div>	 -->
 
 	</body>
+
+
 	<script>
 	$(document).ready(function(){
 		$('nav').fadeOut();
