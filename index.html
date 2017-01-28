@@ -27,13 +27,7 @@
     	background-repeat: no-repeat;
     	background-size: cover;
     	z-index: 0;
-    	
-
-    	-webkit-transition: opacity 2s ease-in;
-    	-moz-transition: opacity 2s ease-in;
-    	-o-transition: opacity 2s ease-in;
-    	-ms-transition: opacity 2s ease-in;
-    	transition: opacity 2s ease-in;
+    	opacity: 0;
 	}
 
 	.parallaxSplash.opa {
@@ -229,7 +223,7 @@
 		<div class="row">
 
 
-			<div class="col-md-4 animated fadeIn mug">
+			<div class="col-md-4 mug">
 				<img id="mug" src="/images/mugPortrait.JPG">
 			</div>
 
@@ -291,7 +285,10 @@
 
 	<script>
 	$(document).ready(function(){
-		 $('a[href^="#"]').on('click',function (e) {
+		$("#parallaxSplash").delay(1000).animate({ opacity: 1 }, 700);​
+
+
+		$('a[href^="#"]').on('click',function (e) {
 	    	e.preventDefault();
 
 	    	var target = this.hash;
