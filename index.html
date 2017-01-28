@@ -29,8 +29,14 @@
     	z-index: 0;
 	}
 
+
+	/*ensures proper spacing*/
+	.parallaxHalfBlank {
+		height: 50vh; 
+	}
+
 	.parallaxHalf {
-		background-image: url(/images/tidepoolBirds2.jpg);
+		
 		height: 50vh; 
 
 		opacity:0;
@@ -43,12 +49,17 @@
     	position: relative;
 	}
 
-	/*ensures proper spacing*/
-	.parallaxHalfBlank {
-		height: 50vh; 
+	.parallaxHalf.first {
+		background-image: url(/images/tidepoolBirds2.jpg);
 	}
 
+	.parallaxHalf.second {
+		background-image: url(/images/milky_way.jpg);
+	}
 
+	.parallaxHalf.third {
+		background-image: url(/images/mirror.jpg);
+	}
 
 	.navbar.blur:before{
 		filter: blur(5px);
@@ -216,7 +227,7 @@
 		<div class="row">
 
 
-			<div class="col-md-4 animated fadeIn mug">
+			<div class="col-md-4 animated fadeIn mug center">
 				<img id="mug" src="/images/mugPortrait.JPG">
 			</div>
 
@@ -227,14 +238,14 @@
 				<div class="row">
 					
 					<div class="col-md-12 animated fadeIn">
-						<p>Hi! I'm Joseph Ou. I'm a new grad ready to launch myself into the computing industry here in the Silicon Valley. I'm interested in the way technology guides and improves our lives, and am always looking for ways to use technology to simplify the world around us.</p>
+						<p>Hello, reader! My name is Joseph Ou, and I'm a new grad ready to launch myself into the computer science industry here in the Silicon Valley. I'm interested in the way technology guides and improves our lives, and am always looking for ways to use technology to simplify the world around us.</p>
 					</div>
 				</div>
 	
 				<div class="row">
 
 					<div class="col-md-12 animated fadeIn">
-							<p>I spent a year of my undergraduate studies doing research for UCSC. During that time, my team and I built a smarthome sensor network. Our project showed me a glimpse of the future, and it is definitely a future I would love to create.</p>
+							<p>I spent a year of my undergraduate studies doing research for UCSC. During that time, my team and I built our product from the ground up, giving us exposure to both design and reality. Our project showed me a glimpse of the future, and it is definitely a future I would love to create.</p>
 					</div>
 				</div>
 
