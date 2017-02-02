@@ -4,10 +4,10 @@
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 	<meta name="description" content="Main Page">
     <meta name="author" content="Joseph Ou">
 
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link rel="stylesheet" href="animate_css/animate.min.css">
@@ -15,10 +15,12 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
 	<style>
+
+	<body style="style="background-color:#81C784"></body>
 	html {
 	}
-	.parallaxSplash {
-  		background-image: url(/images/darksolder.jpg);
+	.introSplash {
+  		background-image: url(/video/loadBuffer.jpg);
 
     	height: 100vh; 
 
@@ -26,28 +28,11 @@
     	background-position: center;
     	background-repeat: no-repeat;
     	background-size: cover;
-    	z-index: 0;
 	}
 
-	.parallaxHalf {
-		background-image: url(/images/tidepoolBirds2.jpg);
-		height: 50vh; 
-
-		opacity:0;
-
-    	background-attachment: fixed;
-    	background-position: center;
-    	background-repeat: no-repeat;
-    	background-size: cover;
-    	z-index: 0;
+	.parallaxSplash.opa {
+		opacity: 0;
 	}
-
-	/*ensures proper spacing*/
-	.parallaxHalfBlank {
-		height: 50vh; 
-	}
-
-
 
 	.navbar.blur:before{
 		filter: blur(5px);
@@ -59,11 +44,7 @@
 		font-weight: 300;
 		font-size: 10vw;
 	}
-	h2 {
-		font-family: 'Roboto', sans-serif;
-		font-weight: 300;
-		font-size: 4vw;
-	}
+
 	#titleText {
 		color: #E1E1E1;
 		position: absolute;
@@ -72,16 +53,7 @@
 		left: 30%;
     	white-space: nowrap;
 	}
-	#scrollIcon {
-		position: absolute;
-		text-align: center;
-		bottom: 0%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-    	white-space: nowrap;
 
-    	max-width: 50%;
-	}
 
 	.navbar-default {
   		background: rgba(255,255,255, .4);
@@ -115,13 +87,6 @@
 		font-weight: 300;
 	}
 
-	#invis {
-		display: hidden;
-	}
-
-	#vis {
-		display: block;
-	}
 
 	#fadeIn.delay1 {
 		animation-delay: 2s;
@@ -131,167 +96,100 @@
 		-vendor-animation-iteration-count: infinite;
 	}
 
-	#mug {
-	  	max-width:100%;
-		margin: auto;
-  		border-radius: 50%;
-  		background-position: center center;
-  		background-size: cover;
-	}
-
-	.center-text{
-    	text-align: center;
-	}
-
-	.jumbotron {
-    background-color:transparent !important;
-    margin-top: 16px;
-	}
-
-    p {
-    	text-indent: 50px;
-    	z-index: 1;
-    }
-
     #contactIcon {
     	text-align: center;
     	max-width: 50%;
     }
 
+    .zero-padding {
+   		padding: 0px;
+	}
+
+	.boxMargins {
+		padding-top: 64px;
+		padding-bottom: 32px;
+	}
+
+	.gradient-line {
+	    margin: 25px 0;
+    	height: 2px;
+	    background: black;
+    	background: -webkit-gradient(linear, 0 0, 100% 0, from(#B0BEC5), to(#B0BEC5), color-stop(50%, #616161));
+	}
+
+	.title-text {
+		max-width:100%;
+ 		display: inline-block;
+		position: absolute;
+		top: 0;
+  		bottom: 0;
+
+  		text-align: center;
+  		vertical-align: middle;
+		z-index: 1;
+		color: #E1E1E1;
+	}
+
+/*Separate contents so only one activates when moused over*/
+	.image-container-gallery:hover .hidden-text{
+		background-size: cover;
+		background: rgba(1,1,1,.5);
+		visibility: visible;
+	}
+
+
+
+	.image-container-projects:hover .hidden-text{
+		
+		background-size: cover;
+		background: rgba(1,1,1,.5);
+		visibility: visible;
+	}
+
 	</style>
 	</head>
 	
-	<body style="background-color:#ffffff;">
-	</body>
-
-	<div class="parallaxSplash animated fadeIn delay1"></div>
-	<div class="animated fadeIn" class="delay1"></div>
-
-    <nav class="navbar navbar-fixed-top" id: blur>
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="">HOME</a>
-        </div>
-
-
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a class="type" href="index.html">Home</a></li>
-            <li><a class="type" href="photos.html">My Photos</a></li>
-          </ul>
-        </li>
-          </ul>
-
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
-
-	<body>
-		<div class="animated fadeIn">
-			<div id="titleText">
-				<h1>Joseph Ou<h1>
-				<h2>Software Developer<h2>
-			</div>
-			<div id="scrollIcon">
-				<a href="#introJumbotron"><img src="/icons/ic_expand_more_white_48dp.png" width="128" height="128"></a>
-			</div>
-		</div>
-	</body>
-
-
-<body>
-	<div class="container-fluid">
-	<div class="col-md-1"></div>
-	<div class="jumbotron col-md-10" id="introJumbotron">
-
-		<div class="row">
-
-
-			<div class="col-md-4 animated fadeIn mug">
-				<img id="mug" src="/images/mugPortrait.JPG">
-			</div>
-
-			<div class="col-md-1"></div>
-
-			<div class="col-md-7 animated fadeIn">
-
-				<div class="row">
-					
-					<div class="col-md-12 animated fadeIn">
-						<p>Hi! I'm Joseph Ou. I'm a new grad ready to launch myself into the computing industry here in the Silicon Valley. I'm interested in the way technology guides and improves our lives, and am always looking for ways to use technology to simplify the world around us.</p>
-					</div>
-				</div>
+	<body style="background-color:#B0BEC5;">
 	
-				<div class="row">
 
-					<div class="col-md-12 animated fadeIn">
-							<p>I spent a year of my undergraduate studies doing research for UCSC. During that time, my team and I built a smarthome sensor network. Our project showed me a glimpse of the future, and it is definitely a future I would love to create.</p>
-					</div>
-				</div>
+    	<nav class="navbar navbar-fixed-top" id: blur>
+    	  <div class="container-fluid">
+    	    <div class="navbar-header">
+    	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="	false" aria-controls="navbar">
+    	        <span class="sr-only">Toggle navigation</span>
+    	        <span class="icon-bar"></span>
+    	        <span class="icon-bar"></span>
+    	        <span class="icon-bar"></span>
+    	        <span class="icon-bar"></span>
+    	      </button>
+    	      <a class="navbar-brand" href="">HOME</a>
+    	    </div>
+	
+	
+    	    <div id="navbar" class="collapse navbar-collapse">
+    	      <ul class="nav navbar-nav">
+    	        <li><a class="type" href="index.html">Home</a></li>
+    	        <li><a class="type" href="photos.html">My Photos</a></li>
+    	      </ul>
+    	    </li>
+    	      </ul>
+	
+    	    </div><!--/.nav-collapse -->
+    	  </div>
+    	</nav>
 
-				<div class="row">
-					<div class="col-md-1"></div>
-					<div class="col-md-12 animated fadeIn">
-							<p>If you know of an opportunity that offers to improve the world through technology, I would love to hear it! Please check out my <a target="_blank" href="/resume.pdf">RESUME</a> here, and definitely let me know how we can work together to design the future!</p>
-					</div>
-				</div>
-
-				<div class="row center-text">
-					<div class="col-md-4 animated fadeIn contactIcon">
-						<a href="mailto:j0u@outlook.com"><img src="/icons/envelope-closed-8x.png" width="64" height="64"></a>
-					</div>
-					<div class="col-md-4">
-					</div>
-					<div class="col-md-4 animated fadeIn">
-						<a href="https://www.linkedin.com/in/josephou"><img src="/icons/In-Black-128px-TM.png" width="64" height="64"></a>
-					</div>
-				</div>
-
-
-			<div>
-
+		<div class="introSplash">
+			<video preload="auto" autoplay="true" loop="true" muted="true" volume="0" poster="/video/loadInPlace.jpg">
+				<source src="/video/timeLapse.mp4" type="video/mp4"></source>
+			</video>
 		</div>
-
-
-
-
-		
-
-
-	</div>
-</div>
-</div>
-
-
-
-	<div class="parallaxHalfBlank"></div>
-	<div class="parallaxHalfBlank"></div>
+	<!-- <div class="parallaxHalf first"></div>	 -->
+	<div class="gradient-line"></div>
+	</body>
 
 
 	<script>
 	$(document).ready(function(){
-		$('nav').hide();
-
-    	$('a[href^="#"]').on('click',function (e) {
-	    	e.preventDefault();
-
-	    	var target = this.hash;
-	    	var $target = $(target);
-
-	    	$('html, body').stop().animate({
-	        	'scrollTop': $target.offset().top
-	    	}, 900, 'swing', function () {
-	        	window.location.hash = target;
-	    	});
-		});
     	$(window).scroll(function() {
 
     		//debug code だ
