@@ -19,14 +19,27 @@
 	<body style="style="background-color:#81C784"></body>
 	html {
 	}
-	.introSplash {
-    	height: 100vh; 
 
-    	background-attachment: fixed;
-    	background-position: center;
-    	background-repeat: no-repeat;
-    	background-size: cover;
+	video 
+	{
+    	width: 100%;
+    	height: auto;
 	}
+
+	.video-container 
+	{
+    	position:absolute;
+    	height:100%;
+    	width:100%;
+    	overflow: hidden;
+	}
+
+	.video-container video
+	{
+	    min-width: 100%;
+	    min-height: 100%;
+	}
+
 
 	.parallaxSplash.opa {
 		opacity: 0;
@@ -128,21 +141,7 @@
 		color: #E1E1E1;
 	}
 
-/*Separate contents so only one activates when moused over*/
-	.image-container-gallery:hover .hidden-text{
-		background-size: cover;
-		background: rgba(1,1,1,.5);
-		visibility: visible;
-	}
 
-
-
-	.image-container-projects:hover .hidden-text{
-		
-		background-size: cover;
-		background: rgba(1,1,1,.5);
-		visibility: visible;
-	}
 
 	</style>
 	</head>
@@ -176,7 +175,7 @@
     	  </div>
     	</nav>
 
-		<div class="introSplash">
+		<div class="video-container">
 			<video zoom="3" preload="auto" autoplay="true" loop="true" muted="true" volume="0" poster="/video/loadInPlace.jpg">
 				<source src="/video/timelapse.mp4" type="video/mp4"></source>
 			</video>
