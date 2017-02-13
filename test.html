@@ -1,152 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Main Page">
+    <meta name="description" content="Main Page">
     <meta name="author" content="Joseph Ou">
 
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
-	<link rel="stylesheet" href="animate_css/animate.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="animate_css/animate.min.css">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
-	<style>
-
-	<body style="style="background-color:#FFECB3"></body>
-	html {
-	}
-
-	video 
-	{
-    	width: auto;
-    	height: auto;
-
-	}
-
-	.video-container 
-	{
-    	position:absolute;
-    	height:100%;
-    	width:100%;
-    	overflow: hidden;
-    	z-index: -1;
-        top: 0px;
-        opacity: .5;
-	}
+    <style>
+        <body style="style="background-color:#FFECB3"></body>
         
+        video 
+        {
+            width: auto;
+            height: auto;
+        }
+        .pad-half-page {
+            height: 50vh;
+        }
 
-	.video-container video
-	{
-	    min-width: 100%;
-	    min-height: 100%;
-	}
-
-    #scrollIcon {
-		position: absolute;
-		text-align: center;
-		bottom: -5%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-    	white-space: nowrap;
-
-    	max-width: 50%;
-    }
-
-	h1 {
-		font-family: 'Roboto', sans-serif;
-		font-weight: 300;
-		font-size: 10vw;
-	}
-
-	#titleText {
-		color: #37474F;
-		position: absolute;
-		transform: translate(-50%, -50%);
-		top: 30%;
-		left: 50%;
-        opacity: .95;
-        background: #C5E1A5;
-        padding: 20px;
-        box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.5);
-	}
+        .video-container 
+        {
+            position:absolute;
+            height: 50vh; 
+            width:100%;
+            overflow: hidden;
+            z-index: -1;
+            top: 0px;
+            opacity: .6;
+        }
 
 
-	a.type {
-		color: black;
-		font-family: 'Roboto', sans-serif;
-		font-weight: 300;
-	}
+        .video-container video
+        {
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 10vw;
+        }
+        
+        p1 {
+
+    	z-index: 1;
+    	font-size: calc(16px + .5vw);
+        }
+
+        #titleText {
+            color: #37474F;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 25%;
+            left: 50%;
+            opacity: .95;
+            background: #C5E1A5;
+            padding: 20px;
+            box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.5);
+        }
 
 
-	#fadeIn.delay1 {
-		animation-delay: 2s;
-	}
-
-	#fadeIn.nav {
-		-vendor-animation-iteration-count: infinite;
-	}
-
-    #contactIcon {
-    	text-align: center;
-    	max-width: 50%;
-    }
-
-    .zero-padding {
-   		padding: 0px;
-	}
-
-	.boxMargins {
-		padding-top: 64px;
-		padding-bottom: 32px;
-	}
-
-	.gradient-line {
-	    margin: 25px 0;
-    	height: 2px;
-	    background: black;
-    	background: -webkit-gradient(linear, 0 0, 100% 0, from(#B0BEC5), to(#B0BEC5), color-stop(50%, #616161));
-	}
+        a.type {
+            color: black;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+        }
 
 
+        #fadeIn.delay1 {
+            animation-delay: 2s;
+        }
 
+        #fadeIn.nav {
+            -vendor-animation-iteration-count: infinite;
+        }
 
+        #contactIcon {
+            text-align: center;
+            max-width: 50%;
+        }
 
-	</style>
-	</head>
-	
-	<body style="background-color:#FFECB3;">
+        .zero-padding {
+            padding: 0px;
+        }
 
+        .boxMargins {
+            padding-top: 64px;
+            padding-bottom: 32px;
+        }
 
-    	
-		<div class="video-container">
-			<video zoom="3" preload="auto" autoplay="true" loop="true" muted="true" volume="0" poster="/video/loadInPlace.jpg">
-				<source src="/video/timelapse.mp4" type="video/mp4"; codecs="avc1.42E01E, mp4a.40.2"></source>
-			</video>
-		</div>
+        .gradient-line {
+            margin: 25px 0;
+            height: 2px;
+            background: black;
+            background: -webkit-gradient(linear, 0 0, 100% 0, from(#B0BEC5), to(#B0BEC5), color-stop(50%, #616161));
+        }
+
+        </style>
+    </head>
+    
+
+    <body style="background-color:#FFECB3;">
+        
         <div>
-    		<h1 id="titleText">Adventures<h1>
-    	</div>
-        <h1>Adventures<h1>
-            <h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1>
-	</body>
+            <h1 id="titleText">Adventures</h1>
+        </div>
+        <div class="video-container">
+            <video zoom="3" preload="auto" autoplay="true" loop="true" muted="true" volume="0" poster="/video/loadInPlace.jpg">
+                <source src="/video/timelapse.mp4" type="video/mp4"; codecs="avc1.42E01E, mp4a.40.2"></source>
+            </video>
+        </div>
+        <div class="pad-half-page"></div>
+        <div>
+            <div class="col-md-12">
+                <p1>This page is still under construction. I am in middle of crash-coursing enough PHP to be able to create a dynamic image gallery that will retrieve all images from a directory, responsively display a thumbnail of the image, and, when the thumbnail is clicked, provide an enlarged (~80%) image. I plan to be functional in PHP by 2/20/17.</p1>
+            </div>
+            <div class="col-md-12">
+                <p1>The Adventures page will be version 2.0 of my existing image gallery, which is a Bootstrap carousel with some custom jquery that updates the background image when the carousel image changes. It is an interesting effect I'd like to play with some more and hopefully make work better in the future.</p1>
+            </div>
+            <div class="col-md-12">
+                <p1>As with everything on this website, it is responsive and functions on mobile devices, but as my target user is likely using a professional device to view this website, it is designed first and foremost for a desktop form-factor.</p1>
+            </div>
+            <div class="col-md-12">
+                <p1>To view the old gallery, <a target="_blank" href="/gallery.html">please click here!</a></p1>
+        </div>
+            
+    </body>
+    
         
-	<script>
-	$(document).ready(function(){
-        $('video').css({'opacity':50});
         
-    	$(window).scroll(function() {
-            var scroll = $(window).scrollTop(),
-            $('video').css({'opacity':(( 100-scroll)/400)+0.4});
+    <script>
+    $(document).ready(function(){
+        $(window).scroll(function() {
+            var scroll = $(window).scrollTop();
+            $('video').css({'opacity':(( 250-scroll)/1000)+.6});
         });
-	});
-	</script>
-
-
-
+    });
+    </script>
+        
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
 
