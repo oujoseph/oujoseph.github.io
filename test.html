@@ -24,6 +24,7 @@
 	{
     	width: auto;
     	height: auto;
+
 	}
 
 	.video-container 
@@ -34,7 +35,9 @@
     	overflow: hidden;
     	z-index: -1;
         top: 0px;
+        opacity: .5;
 	}
+        
 
 	.video-container video
 	{
@@ -42,10 +45,16 @@
 	    min-height: 100%;
 	}
 
-	.navbar.blur:before{
-		filter: blur(5px);
-  		-webkit-filter: blur(5px);
-	}
+    #scrollIcon {
+		position: absolute;
+		text-align: center;
+		bottom: -5%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+    	white-space: nowrap;
+
+    	max-width: 50%;
+    }
 
 	h1 {
 		font-family: 'Roboto', sans-serif;
@@ -60,37 +69,11 @@
 		top: 30%;
 		left: 50%;
         opacity: .95;
-        background: #FF5722;
+        background: #C5E1A5;
         padding: 20px;
         box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.5);
 	}
 
-
-	.navbar-default {
-  		background: rgba(255,255,255, .4);
-	}
-	.navbar {
-		background: rgba(255,255,255, .5);
-	}
-
-	.navbar-toggle:hover .icon-bar {
-		background: rgba(255,255,255, 1);
-	}
-
-	.navbar-toggle .icon-bar {
-		background: rgba(255,255,255, .8);
-	}
-
-	.navbar-nav {
-		color: black;
-		font-family: 'Roboto', sans-serif;
-		font-weight: 300;
-	}
-	.navbar-brand {
-		color: black;
-		font-family: 'Roboto', sans-serif;
-		font-weight: 400;
-	}
 
 	a.type {
 		color: black;
@@ -136,33 +119,7 @@
 	</head>
 	
 	<body style="background-color:#FFECB3;">
-	
 
-    	<nav class="navbar navbar-fixed-top" id: blur>
-    	  <div class="container-fluid">
-    	    <div class="navbar-header">
-    	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="	false" aria-controls="navbar">
-    	        <span class="sr-only">Toggle navigation</span>
-    	        <span class="icon-bar"></span>
-    	        <span class="icon-bar"></span>
-    	        <span class="icon-bar"></span>
-    	        <span class="icon-bar"></span>
-    	      </button>
-    	      <a class="navbar-brand" href="">HOME</a>
-    	    </div>
-	
-	
-    	    <div id="navbar" class="collapse navbar-collapse">
-    	      <ul class="nav navbar-nav">
-    	        <li><a class="type" href="index.html">Home</a></li>
-    	        <li><a class="type" href="photos.html">My Photos</a></li>
-    	      </ul>
-    	    </li>
-    	      </ul>
-	
-    	    </div><!--/.nav-collapse -->
-    	  </div>
-    	</nav>
 
     	
 		<div class="video-container">
@@ -170,26 +127,21 @@
 				<source src="/video/timelapse.mp4" type="video/mp4"; codecs="avc1.42E01E, mp4a.40.2"></source>
 			</video>
 		</div>
-        
-	</body>
-<div>
+        <div>
     		<h1 id="titleText">Adventures<h1>
     	</div>
+        <h1>Adventures<h1>
+            <h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1><h1>Adventures<h1>
+	</body>
+        
 	<script>
 	$(document).ready(function(){
+        $('video').css({'opacity':50});
+        
     	$(window).scroll(function() {
-
-    		//debug code だ
-    		// $('h1').text("height: " + $(window).scrollTop());
-			// $("h2").text("height: " + $(window).height());
-    		//debug code だ
-
-    		// if ($(window).scrollTop() >= $(window).height()) {
-    		// 	$('nav').fadeIn();
-    		// } else {
-    		// 	$('nav').fadeOut();
-    		// }
-    	})
+            var scroll = $(window).scrollTop(),
+            $('video').css({'opacity':(( 100-scroll)/400)+0.4});
+        });
 	});
 	</script>
 
