@@ -52,8 +52,8 @@
             font-family: 'Roboto', sans-serif;
             font-weight: 300;
             font-size: 10vw;
-
-        }     
+        }
+    
         p1 {
 
     	z-index: 1;
@@ -72,6 +72,20 @@
             box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.5);
             border-radius: 25px;
             opacity: .95;
+            margin:0;
+        }
+        
+        #titleTextMarker {
+            color: #37474F;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            top: 23%;
+            left: 50%;
+            background: #C5E1A5;
+            margin:0;
+            padding:20px;
+
+            opacity: .3;
         }
         
         #pad-half-page {
@@ -114,15 +128,19 @@
     
 
     <body style="background-color:#FFECB3;">
+        
         <div>
-            <h1 id="titleText">Adventures</h1>
+            <h1-hidden id="titleTextMarker">Adventures</h1-hidden>
         </div>
-
         <div class="video-container">
             <video zoom="3" preload="auto" autoplay="true" loop="true" muted="true" volume="0" poster="/video/loadInPlace.jpg">
                 <source src="/video/timelapse.mp4" type="video/mp4"; codecs="avc1.42E01E, mp4a.40.2"></source>
             </video>
         </div>
+        <div>
+            <h1 id="titleText">Adventures</h1>
+        </div>
+
         <div id="pad-half-page">
         </div>
         <div class="container-fluid" id="introContainer">
@@ -163,22 +181,47 @@
         
     <script>
     $(document).ready(function(){
-        $(window).scroll(function() {
+        var title = $("h1");
+        var titlePos = $("h1-hidden");
+        var titlePercentage = (titlePos.position().top + titlePos.outerHeight(false)) / $(window).height();
+        
+        //When resize happens, update the titlePercentage
+        //titlePercentage is the position of the bottom surface of titleText as a percentage of screen height
+        $(window).resize(function() {
+            titlePercentage = (titlePos.position().top + titlePos.outerHeight(false)) / $(window).height();
+        });
+        var mark = true;
+        $(window).on('resize scroll',function() {
             var scroll = $(window).scrollTop();
-            var title = $("h1");
-            var video = $("video");
             var pad = $("HeightMarker");
+            var video = $("video");
             
-            var titleBottomValue = title.position().top + title.outerHeight(true);
+            var titleBottomValue = titlePos.position().top + titlePos.outerHeight(false);
             var introHeight = pad.offset().top - scroll;
+            var titleHeight = titleBottomValue - titlePos.position().top;
             
             
             if (titleBottomValue > introHeight) {
-                title.text(introHeight);
-//                title.css({
-//                    'box-shadow': 0px 0px 0px 0px rgba(0,0,0,1),
-//                    'opacity': 0;
-//                });
+                $("#titleText").css({
+                    'box-shadow': '0px 0px 0px 0px rgba(0,0,0,1)',
+                    'border-radius': '0',
+                    'opacity': '1',
+                    'position': 'absolute',
+                    'top': (titlePercentage * $(window).height()),
+                    'background': '#FFECB3'
+                });
+                mark = false;
+            }//If unlocked, update title percentage and reset to fixed position
+            else {
+                $("#titleText").css({
+                    'box-shadow': '2px 2px 5px 1px rgba(0,0,0,.5)',
+                    'border-radius': '25px',
+                    'opacity': '.95',
+                    'position': 'fixed',
+                    'top': '24%',
+                    'background': '#C5E1A5'
+                    
+                });
             }
 
             

@@ -163,11 +163,6 @@
     	font-size: calc(16px + .5vw);
     }
 
-    #contactIcon {
-    	text-align: center;
-    	max-width: 50%;
-    }
-
     .zero-padding {
    		padding: 0px;
 	}
@@ -183,6 +178,7 @@
 	    background: black;
     	background: -webkit-gradient(linear, 0 0, 100% 0, from(#B0BEC5), to(#B0BEC5), color-stop(50%, #616161));
 	}
+    
 
 	.image-container-gallery {
 		max-width:100%;
@@ -259,19 +255,16 @@
 		color: #E1E1E1;
 	}
     
-    #contactIcon {
+    .contactIcon {
         -webkit-transition: .5s;
         -moz-transition: .5s;
         -o-transition: .5s;
         transition: .5s;
     }
         
-    #contactIcon:hover {
-        filter: drop-shadow(5px 5px 5px #222);
-        -o- drop-shadow(5px 5px 5px #222);
-        -moz- drop-shadow(5px 5px 5px #222);
-        -webkit- drop-shadow(5px 5px 5px #222);
-        box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.5);
+    .contactIcon:hover {
+        filter: drop-shadow(2px 2px 2px #444444);
+        -webkit-filter: drop-shadow(2px 2px 2px #444444);
     }
 
 /*Separate contents so only one activates when moused over*/
@@ -372,11 +365,11 @@
 	
 							<div class="row center-text">
 								<div class="col-md-4 contactIcon">
-									<a class="contactIcon" href="mailto:j0u@outlook.com"><img src="/icons/envelope-closed-8x.png" width="64"height="	64"></a>
+									<a href="mailto:j0u@outlook.com"><img class="contactIcon" src="/icons/envelope-closed-8x.png" width="64"height="64"></a>
 								</div>
 								<div class="col-md-4"></div>
 								<div class="col-md-4">
-									<a class="contactIcon" href="https://www.linkedin.com/in/josephou"><img src="/icons/In-Black-128px-TM.png"width="	64"height="64"></a>
+									<a href="https://www.linkedin.com/in/josephou"><img class="contactIcon" src="/icons/In-Black-128px-TM.png"width="64"height="64"></a>
 								</div>
 							</div>
 				
