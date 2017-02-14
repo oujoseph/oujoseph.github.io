@@ -65,10 +65,20 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
     	white-space: nowrap;
-
     	max-width: 50%;
+        
+        -webkit-transition: .5s;
+        -moz-transition: .5s;
+        -o-transition: .5s;
+        transition: .5s;
+        
 	}
 
+    #scrollIcon:hover {
+		transform: translate(-50%, -40%);
+	}
+        
+    
 	#more-info {
 		text-align: center;
 	}
@@ -125,8 +135,18 @@
 		display:block;
   		margin-left:auto;
  		margin-right:auto;
+        
+        
+        -webkit-transition: .5s;
+        -moz-transition: .5s;
+        -o-transition: .5s;
+        transition: .5s;
 	}
-
+    
+    #mug:hover {
+        box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.5);
+    }
+    
 	.center-text{
     	text-align: center;
 	}
@@ -196,17 +216,15 @@
   		background-position: center center;
   		background-size: cover;
 		text-align: center;
-
 		display:block;
   		margin-left:auto;
  		margin-right:auto;
-        
 	}
 
  	.hidden-text {
  		max-width:100%;
  		display: inline-block;
-		visibility: hidden;
+		opacity: 0;
 		position: absolute;
 		top: 0;
   		bottom: 0;
@@ -221,6 +239,11 @@
 		color: #E1E1E1;
 
   		padding: 16px;
+        
+        -webkit-transition: .5s;
+        -moz-transition: .5s;
+        -o-transition: .5s;
+        transition: .5s;
 	}
 
 	.image-title-text {
@@ -235,12 +258,27 @@
 		z-index: 1;
 		color: #E1E1E1;
 	}
+    
+    #contactIcon {
+        -webkit-transition: .5s;
+        -moz-transition: .5s;
+        -o-transition: .5s;
+        transition: .5s;
+    }
+        
+    #contactIcon:hover {
+        filter: drop-shadow(5px 5px 5px #222);
+        -o- drop-shadow(5px 5px 5px #222);
+        -moz- drop-shadow(5px 5px 5px #222);
+        -webkit- drop-shadow(5px 5px 5px #222);
+        box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.5);
+    }
 
 /*Separate contents so only one activates when moused over*/
 	.image-container-gallery:hover .hidden-text{
 		background-size: cover;
 		background: rgba(1,1,1,.5);
-		visibility: visible;
+		opacity: 1;
 	}
 
 
@@ -249,7 +287,7 @@
 		
 		background-size: cover;
 		background: rgba(1,1,1,.5);
-		visibility: visible;
+		opacity: 1;
 	}
 
 	</style>
@@ -334,11 +372,11 @@
 	
 							<div class="row center-text">
 								<div class="col-md-4 contactIcon">
-									<a href="mailto:j0u@outlook.com"><img src="/icons/envelope-closed-8x.png" width="64"height="	64"></a>
+									<a class="contactIcon" href="mailto:j0u@outlook.com"><img src="/icons/envelope-closed-8x.png" width="64"height="	64"></a>
 								</div>
 								<div class="col-md-4"></div>
 								<div class="col-md-4">
-									<a href="https://www.linkedin.com/in/josephou"><img src="/icons/In-Black-128px-TM.png"width="	64"height="64"></a>
+									<a class="contactIcon" href="https://www.linkedin.com/in/josephou"><img src="/icons/In-Black-128px-TM.png"width="	64"height="64"></a>
 								</div>
 							</div>
 				
