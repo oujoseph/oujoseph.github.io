@@ -62,10 +62,11 @@
 
         #titleText {
             color: #37474F;
-            position: fixed;
-            transform: translate(-50%, -50%);
+            position: absolute;
             top: 23%;
             left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0 auto; 
             background: #C5E1A5;
             padding: 20px;
             
@@ -76,16 +77,14 @@
         }
         
         #titleTextMarker {
-            color: #37474F;
             position: fixed;
             transform: translate(-50%, -50%);
             top: 23%;
             left: 50%;
-            background: #C5E1A5;
             margin:0;
             padding:20px;
 
-            opacity: .3;
+            opacity: 0;
         }
         
         #pad-half-page {
@@ -94,7 +93,7 @@
 
         a.type {
             color: black;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Product Sans', sans-serif;
             font-weight: 300;
         }
 
@@ -137,11 +136,12 @@
                 <source src="/video/timelapse.mp4" type="video/mp4"; codecs="avc1.42E01E, mp4a.40.2"></source>
             </video>
         </div>
-        <div>
-            <h1 id="titleText">Adventures</h1>
-        </div>
+
 
         <div id="pad-half-page">
+        </div>
+        <div>
+            <h1 id="titleText">Adventures</h1>
         </div>
         <div class="container-fluid" id="introContainer">
             <HeightMarker></HeightMarker>
@@ -173,6 +173,8 @@
                 </div>
                 <div class="col-md-1"></div>
             </div>
+            
+            <h1>z</h1><h1>z</h1><h1>z</h1><h1>z</h1><h1>z</h1><h1>z</h1><h1>z</h1><h1>z</h1><h1>z</h1><h1>z</h1><h1>z</h1><h1>z</h1><h1>z</h1>
         </div>
             
     </body>
@@ -181,57 +183,73 @@
         
     <script>
     $(document).ready(function(){
+        //uses a hidden copy of a title to detach when scrolling back up.
         var title = $("h1");
         var titlePos = $("h1-hidden");
-        var titlePercentage = (titlePos.position().top + titlePos.outerHeight(false)) / $(window).height();
+        
+        
+        //Locks animations to prevent them from canceling each other and spazzing out
+        var scrollMark = true;
+        
+        
+        var titlePercentage = (titlePos.position().top + titlePos.outerHeight(false)) /             $(window).height();
         
         //When resize happens, update the titlePercentage
         //titlePercentage is the position of the bottom surface of titleText as a percentage of screen height
-        $(window).resize(function() {
-            titlePercentage = (titlePos.position().top + titlePos.outerHeight(false)) / $(window).height();
+        
+        var waitResize;
+        $(window).on('resize scroll', function(){
+            clearTimeout(waitResize);
+            waitResize = setTimeout(changeTitle, 50);
         });
-        var mark = true;
-        $(window).on('resize scroll',function() {
+        
+        function changeTitle(){
             var scroll = $(window).scrollTop();
             var pad = $("HeightMarker");
             var video = $("video");
             
             var titleBottomValue = titlePos.position().top + titlePos.outerHeight(false);
+            //realTitleBottomValue checks for resize
+            
+            //Need to differentiate between the height of the hidden marker
+            //as well as the original, because despite having identical code, the margins are different
             var introHeight = pad.offset().top - scroll;
-            var titleHeight = titleBottomValue - titlePos.position().top;
+            var titleHeight = pad.offset().top - (title.outerHeight(false));
             
+//            title.text(introHeight);
             
-            if (titleBottomValue > introHeight) {
-                $("#titleText").css({
-                    'box-shadow': '0px 0px 0px 0px rgba(0,0,0,1)',
-                    'border-radius': '0',
-                    'opacity': '1',
-                    'position': 'absolute',
-                    'top': (titlePercentage * $(window).height()),
-                    'background': '#FFECB3'
+            //adjust height
+            if (titleBottomValue > introHeight)
+                $("#titleText").animate({
+                    'top': (titleHeight + (title.outerHeight(false)/ 2) + 1),
                 });
-                mark = false;
-            }//If unlocked, update title percentage and reset to fixed position
-            else {
-                $("#titleText").css({
-                    'box-shadow': '2px 2px 5px 1px rgba(0,0,0,.5)',
+            if (titleBottomValue > introHeight) {
+                if (!scrollMark){
+                    scrollMark = true;
+                    $("#titleText").animate({
+                        'top': (titleHeight + (title.outerHeight(false)/ 2) + 1),
+                        'border-radius': '0',
+                        'opacity': '1',
+                    });
+                    $("#titleText").css({
+                        'box-shadow': '0px 0px 0px 0px rgba(0,0,0,1)',
+                        'background': '#FFECB3'
+                    });
+                }
+            } else if (scrollMark){
+                scrollMark = false;
+                $("#titleText").animate({
                     'border-radius': '25px',
                     'opacity': '.95',
-                    'position': 'fixed',
-                    'top': '24%',
+                    'position': 'absolute',
+                    'top': '23%'
+                });
+                $("#titleText").css({
+                    'box-shadow': '2px 2px 5px 1px rgba(0,0,0,.5)',
                     'background': '#C5E1A5'
-                    
                 });
             }
-
-            
-            
-            $('video').css({'opacity':(( 250-scroll)/1000)+.6});
-            //if (titleBottomValue > videoHeight){
-                
-            //}
-            
-        });
+        }
     });
     </script>
         
