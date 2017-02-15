@@ -93,6 +93,37 @@
 
         #introContainer {
             background: #C5E1A5;
+            padding: 20px;
+        }
+        
+        #parallaxWrapper {
+            height: 100vh;
+            position: relative;
+        }
+        
+        #parallaxLeft {
+            position: absolute;
+            
+  		    background-image: url(/images/greyhound_rock.jpg);
+            width: 100vw;
+            height: 100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+	    }
+        
+        #parallaxRight {
+            position:absolute;
+            width: 100vw;
+            height: 100vh;
+            background-image: url(/images/greyhound_rock_orig.jpg);
+            
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 1;
         }
         
         a.type {
@@ -149,10 +180,44 @@
         </div>
 <!--    empty heightmarker element for the Adventures tag-->
         <HeightMarker></HeightMarker>
-    
+        
         <div class="container-fluid" id="introContainer">
-            
             <div class="row  padding">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <p1>Photography means different things to different people.</p1>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row  padding">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <p1>To me, photography is the closest thing to time travel. A photograph can not only record experiences, but create new experiences from old ones.</p1>
+                </div>
+            </div>
+            <div class="row  padding">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <p1>Scroll down to join me in an adventure through my time!</p1>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    
+        <HeightMarker2></HeightMarker2>
+        <div id="parallaxWrapper">
+            <div id="parallaxLeft"></div>
+            <div id="parallaxRight"></div>
+        </div>
+    
+        <div class="container-fluid" id="outroContainer">
+            <div class="row  padding">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <p1>...And that's it- for now.</p1>
+                </div>
+            </div>
+            <div class="row padding">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
                     <p1>This page is still under construction. I am in middle of crash-coursing enough PHP to be able to create a dynamic image gallery that will retrieve all images from a directory, responsively display a thumbnail of the image, and, when the thumbnail is clicked, provide an enlarged (~80%) image. I plan to be functional in PHP by 2/20/17.</p1>
@@ -180,14 +245,12 @@
                 </div>
                 <div class="col-md-1"></div>
             </div>
-            
-            
         </div>
-        <div id="pad-half-page">
-        </div>
+        
+
     
-        <div id="pad-half-page">
-        </div>
+<!--        <div id="pad-half-page">-->
+<!--        </div>-->
     </body>
     
         
@@ -198,6 +261,15 @@
         //from the element below, but never scroll past that point.
         //Some of the variables still reflect that original goal and code is slightly more
         //complex than the current version needs to be.
+        
+        $("#parallaxWrapper").mousemove(function(event) {
+            var percentPosition = event.pageX / $(window).width();
+            if (percentPosition > .3 && percentPosition < .7){
+                $("#parallaxRight").css({
+                    'opacity': (percentPosition * 2) - .5,
+                });
+            }
+        });
         
         //uses a hidden copy of a title to detach when scrolling back up.
         var title = $("h1");
@@ -215,9 +287,28 @@
         
         var waitResize;
         $(window).on('resize scroll', function(){
+            scrollThroughImage();
             clearTimeout(waitResize);
             waitResize = setTimeout(changeTitle, 50);
         });
+        
+        function scrollThroughImage(){
+            var scroll = $(window).scrollTop();
+            var imageHeight = $("HeightMarker2");
+            var imageThreshold = imageHeight.offset().top + ($(window).height()/4);
+            
+            if (imageThreshold > scroll){
+                $("#parallaxLeft").stop().animate({
+                    'background-image': 'url(/images/greyhound_rock_orig.jpg)' 
+                });
+            }
+            if (imageThreshold < scroll){
+                $("#parallaxLeft").stop().css({
+                    'background-image': 'url(/images/greyhound_rock.jpg)' 
+                });
+            }
+            
+        }
         
         function changeTitle(){
             var scroll = $(window).scrollTop();
