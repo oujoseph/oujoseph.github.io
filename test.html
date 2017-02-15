@@ -91,6 +91,10 @@
             height: 50vh;
         }
 
+        #introContainer {
+            background: #C5E1A5;
+        }
+        
         a.type {
             color: black;
             font-family: 'Product Sans', sans-serif;
@@ -231,10 +235,15 @@
                         'border-radius': '0',
                         'opacity': '1',
                     });
+                    $("#titleText").animate({
+                        backgroundColor: "#FFECB3"
+                    }, 500);
                     $("#titleText").css({
                         'box-shadow': '0px 0px 0px 0px rgba(0,0,0,1)',
-                        'background': '#FFECB3'
                     });
+                    $("#introContainer").animate({
+                        backgroundColor: "#FFECB3"
+                    }, 500);
                 }
             } else if (scrollMark){
                 scrollMark = false;
@@ -243,17 +252,23 @@
                     'opacity': '.95',
                     'position': 'absolute',
                     'top': '23%'
-                });
+                }, 500);
+                $("#titleText").animate({
+                    backgroundColor: "#C5E1A5"
+                }, 500);
                 $("#titleText").css({
                     'box-shadow': '2px 2px 5px 1px rgba(0,0,0,.5)',
-                    'background': '#C5E1A5'
                 });
+                $("#introContainer").animate({
+                    backgroundColor: "#C5E1A5"
+                }, 500);
             }
         }
     });
     </script>
         
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
 
 
