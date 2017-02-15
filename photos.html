@@ -264,11 +264,9 @@
         
         $("#parallaxWrapper").mousemove(function(event) {
             var percentPosition = event.pageX / $(window).width();
-            if (percentPosition > .3 && percentPosition < .7){
-                $("#parallaxRight").css({
-                    'opacity': (percentPosition * 2) - .5,
-                });
-            }
+            $("#parallaxRight").css({
+                'opacity': (percentPosition * 2) - .5,
+            });
         });
         
         //uses a hidden copy of a title to detach when scrolling back up.
