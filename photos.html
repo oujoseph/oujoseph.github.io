@@ -147,8 +147,9 @@
         <div>
             <h1 id="titleText">Adventures</h1>
         </div>
-        //empty heightmarker element for the Adventures tag
+<!--    empty heightmarker element for the Adventures tag-->
         <HeightMarker></HeightMarker>
+    
         <div class="container-fluid" id="introContainer">
             
             <div class="row  padding">
@@ -198,7 +199,6 @@
         //Some of the variables still reflect that original goal and code is slightly more
         //complex than the current version needs to be.
         
-        
         //uses a hidden copy of a title to detach when scrolling back up.
         var title = $("h1");
         var titlePos = $("h1-hidden");
@@ -234,20 +234,12 @@
             
 //            title.text(introHeight);
             
-            //adjust height when resized
-            if (titleBottomValue > introHeight)
-                $("#titleText").animate({
-                    'top': (titleHeight + (title.outerHeight(false)/ 2) + 1),
-                });
-            
             if (titleBottomValue > introHeight) {
-                if (!scrollMark){
-                    scrollMark = true;
-                    $("#titleText").animate({
+                    $("#titleText").stop().animate({
                         'top': (titleHeight + (title.outerHeight(false)/ 2) + 1),
                         'border-radius': '0',
                         'opacity': '1',
-                    });
+                    }, 500);
                     $("#titleText").animate({
                         backgroundColor: "#FFECB3"
                     }, 500);
@@ -257,16 +249,12 @@
                     $("#introContainer").animate({
                         backgroundColor: "#FFECB3"
                     }, 500);
-                }
-            } else if (scrollMark){
-                scrollMark = false;
-                $("#titleText").animate({
+            } else {
+                $("#titleText").stop().animate({
                     'border-radius': '25px',
                     'opacity': '.95',
                     'position': 'absolute',
-                    'top': '23%'
-                }, 500);
-                $("#titleText").animate({
+                    'top': '23%',
                     backgroundColor: "#C5E1A5"
                 }, 500);
                 $("#titleText").css({
