@@ -16,7 +16,6 @@
 
 	<style>
 
-	<body style="style="background-color:#81C784"></body>
 	html {
 	}
 	.parallaxSplash {
@@ -177,8 +176,7 @@
     	height: 2px;
 	    background: black;
     	background: -webkit-gradient(linear, 0 0, 100% 0, from(#B0BEC5), to(#B0BEC5), color-stop(50%, #616161));
-	}
-    
+	}    
 
 	.image-container-gallery {
 		max-width:100%;
@@ -286,7 +284,7 @@
 	</style>
 	</head>
 	
-	<body style="background-color:#B0BEC5;">
+	<body style="background-color:#E1E1E1;">
 	
 
     	<nav class="navbar navbar-fixed-top" id: blur>
@@ -426,7 +424,9 @@
 	<script>
 	$(document).ready(function(){
 		$('nav').fadeOut();
-
+        $('body').animate({
+            backgroundColor: "#B0BEC5"
+        }, 2000);
 		$('a[href^="#"]').on('click', function (e) {
 	    	e.preventDefault();
 
@@ -458,6 +458,7 @@
 
 
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
 
 

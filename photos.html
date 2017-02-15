@@ -22,9 +22,7 @@
             width: auto;
             height: auto;
         }
-        .pad-half-page {
-            height: 50vh;
-        }
+
 
         .video-container 
         {
@@ -34,7 +32,7 @@
             overflow: hidden;
             z-index: -1;
             top: 0px;
-            opacity: .6;
+            opacity: .85;
         }
 
 
@@ -44,34 +42,62 @@
             min-height: 100%;
         }
 
+        
         h1 {
             font-family: 'Roboto', sans-serif;
             font-weight: 300;
             font-size: 10vw;
         }
-        
+        h1-hidden {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 10vw;
+        }
+    
         p1 {
 
-        z-index: 1;
-        font-size: calc(16px + .5vw);
+    	z-index: 1;
+    	font-size: calc(16px + .5vw);
         }
 
         #titleText {
             color: #37474F;
             position: absolute;
+            top: 23%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0 auto; 
+            background: #C5E1A5;
+            padding: 20px;
+            
+            box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.5);
+            border-radius: 25px;
+            opacity: .95;
+            margin:0;
+        }
+        
+        #titleTextMarker {
+            position: fixed;
             transform: translate(-50%, -50%);
             top: 23%;
             left: 50%;
-            opacity: .95;
-            background: #C5E1A5;
-            padding: 20px;
-            box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.5);
+            margin:0;
+            padding:20px;
+
+            opacity: 0;
+        }
+        
+        #pad-half-page {
+            height: 50vh;
         }
 
-
+        #introContainer {
+            background: #C5E1A5;
+        }
+        
         a.type {
             color: black;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Product Sans', sans-serif;
             font-weight: 300;
         }
 
@@ -89,13 +115,8 @@
             max-width: 50%;
         }
 
-        .zero-padding {
-            padding: 0px;
-        }
-
-        .boxMargins {
-            padding-top: 64px;
-            padding-bottom: 32px;
+        .padding {
+            padding: 20px;
         }
 
         .gradient-line {
@@ -110,62 +131,156 @@
     
 
     <body style="background-color:#FFECB3;">
+        
         <div>
-            <h1 id="titleText">Adventures</h1>
+            <h1-hidden id="titleTextMarker">Adventures</h1-hidden>
         </div>
         <div class="video-container">
             <video zoom="3" preload="auto" autoplay="true" loop="true" muted="true" volume="0" poster="/video/loadInPlace.jpg">
                 <source src="/video/timelapse.mp4" type="video/mp4"; codecs="avc1.42E01E, mp4a.40.2"></source>
             </video>
         </div>
-        <div class="pad-half-page"></div>
-        <div class="container-fluid">
-            <div class="row">
+
+
+        <div id="pad-half-page">
+        </div>
+        <div>
+            <h1 id="titleText">Adventures</h1>
+        </div>
+        //empty heightmarker element for the Adventures tag
+        <HeightMarker></HeightMarker>
+        <div class="container-fluid" id="introContainer">
+            
+            <div class="row  padding">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
                     <p1>This page is still under construction. I am in middle of crash-coursing enough PHP to be able to create a dynamic image gallery that will retrieve all images from a directory, responsively display a thumbnail of the image, and, when the thumbnail is clicked, provide an enlarged (~80%) image. I plan to be functional in PHP by 2/20/17.</p1>
                 </div>
                 <div class="col-md-1"></div>
             </div>
-            <div class="row">
+            <div class="row  padding">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
                     <p1>The Adventures page will be version 2.0 of my existing image gallery, which is a Bootstrap carousel with some custom jquery that updates the background image to be the current carousel image when the carousel image changes. It is an interesting effect I'd like to play with some more and hopefully make work better in the future.</p1>
                 </div>
                 <div class="col-md-1"></div>
             </div>
-            <div class="row">
+            <div class="row  padding">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
                     <p1>As with everything on this website, it is responsive and functions on mobile devices, but as my target user is likely using a professional device to view this website, it is designed first and foremost for a desktop form-factor.</p1>
                 </div>
                 <div class="col-md-1"></div>
             </div>
-            <div class="row">
+            <div class="row  padding">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
                     <p1>To view the old gallery, <a target="_blank" href="/gallery.html">please click here!</a></p1>
                 </div>
                 <div class="col-md-1"></div>
             </div>
-        </div>
             
+            
+        </div>
+        <div id="pad-half-page">
+        </div>
+    
+        <div id="pad-half-page">
+        </div>
     </body>
     
         
         
     <script>
     $(document).ready(function(){
-        $(window).scroll(function() {
-            var scroll = $(window).scrollTop();
-            $('video').css({'opacity':(( 250-scroll)/1000)+.6});
+        //Was designed so that the Adventures element would stick to and unstick
+        //from the element below, but never scroll past that point.
+        //Some of the variables still reflect that original goal and code is slightly more
+        //complex than the current version needs to be.
+        
+        
+        //uses a hidden copy of a title to detach when scrolling back up.
+        var title = $("h1");
+        var titlePos = $("h1-hidden");
+        
+        
+        //Locks animations to prevent them from canceling each other and spazzing out
+        var scrollMark = true;
+        
+        
+        var titlePercentage = (titlePos.position().top + titlePos.outerHeight(false)) / $(window).height();
+        
+        //When resize happens, update the titlePercentage
+        //titlePercentage is the position of the bottom surface of titleText as a percentage of screen height
+        
+        var waitResize;
+        $(window).on('resize scroll', function(){
+            clearTimeout(waitResize);
+            waitResize = setTimeout(changeTitle, 50);
         });
+        
+        function changeTitle(){
+            var scroll = $(window).scrollTop();
+            var pad = $("HeightMarker");
+            var video = $("video");
+            
+            var titleBottomValue = titlePos.position().top + titlePos.outerHeight(false);
+            //realTitleBottomValue checks for resize
+            
+            //Need to differentiate between the height of the hidden marker
+            //as well as the original, because despite having identical code, the margins are different
+            var introHeight = pad.offset().top - scroll;
+            var titleHeight = pad.offset().top - (title.outerHeight(false));
+            
+//            title.text(introHeight);
+            
+            //adjust height when resized
+            if (titleBottomValue > introHeight)
+                $("#titleText").animate({
+                    'top': (titleHeight + (title.outerHeight(false)/ 2) + 1),
+                });
+            
+            if (titleBottomValue > introHeight) {
+                if (!scrollMark){
+                    scrollMark = true;
+                    $("#titleText").animate({
+                        'top': (titleHeight + (title.outerHeight(false)/ 2) + 1),
+                        'border-radius': '0',
+                        'opacity': '1',
+                    });
+                    $("#titleText").animate({
+                        backgroundColor: "#FFECB3"
+                    }, 500);
+                    $("#titleText").css({
+                        'box-shadow': '0px 0px 0px 0px rgba(0,0,0,1)',
+                    });
+                    $("#introContainer").animate({
+                        backgroundColor: "#FFECB3"
+                    }, 500);
+                }
+            } else if (scrollMark){
+                scrollMark = false;
+                $("#titleText").animate({
+                    'border-radius': '25px',
+                    'opacity': '.95',
+                    'position': 'absolute',
+                    'top': '23%'
+                }, 500);
+                $("#titleText").animate({
+                    backgroundColor: "#C5E1A5"
+                }, 500);
+                $("#titleText").css({
+                    'box-shadow': '2px 2px 5px 1px rgba(0,0,0,.5)',
+                }).delay(800);
+                $("#introContainer").animate({
+                    backgroundColor: "#C5E1A5"
+                }, 500);
+            }
+        }
     });
     </script>
         
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-
-
-
 </html>
