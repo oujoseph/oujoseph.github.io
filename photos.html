@@ -63,7 +63,7 @@
         #titleText {
             color: #37474F;
             position: absolute;
-            top: 23%;
+            top: 25%;
             left: 50%;
             transform: translate(-50%, -50%);
             margin: 0 auto; 
@@ -79,7 +79,7 @@
         #titleTextMarker {
             position: fixed;
             transform: translate(-50%, -50%);
-            top: 23%;
+            top: 25%;
             left: 50%;
             margin:0;
             padding:20px;
@@ -328,30 +328,28 @@
                         'top': (titleHeight + (title.outerHeight(false)/ 2) + 1),
                         'border-radius': '0',
                         'opacity': '1',
-                    }, 500);
-                    $("#titleText").animate({
                         backgroundColor: "#FFECB3"
-                    }, 500);
+                    });
                     $("#titleText").css({
                         'box-shadow': '0px 0px 0px 0px rgba(0,0,0,1)',
                     });
                     $("#introContainer").animate({
                         backgroundColor: "#FFECB3"
-                    }, 500);
+                    });
             } else {
                 $("#titleText").stop().animate({
                     'border-radius': '25px',
                     'opacity': '.95',
-                    'position': 'absolute',
-                    'top': '23%',
+//                    'position': 'absolute',
+                    'top': '25%',
                     backgroundColor: "#C5E1A5"
                 }, 500);
-                $("#titleText").css({
+                $("#titleText").delay(200).css({
                     'box-shadow': '2px 2px 5px 1px rgba(0,0,0,.5)',
-                }).delay(800);
+                });
                 $("#introContainer").animate({
                     backgroundColor: "#C5E1A5"
-                }, 500);
+                });
             }
         }
     });
