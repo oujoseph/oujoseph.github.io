@@ -92,10 +92,11 @@
         }
         .absolute-pad-full-page {
             height: 100vh;
+            width: 100%;
             position: absolute;
             z-index: 0;
-            top:0;
-            left:50%;
+            top:0%;
+            left:0%;
             
         }
         
@@ -189,11 +190,13 @@
         }
         
         .circle:hover {
-            width: 100vw;
+            width: 100%;
             height: 50vh;
+            
             top:75%;
             border-radius: 0%;
             border: 0;
+            margin: 0;
             color: black;
             animation: none;
             
@@ -227,31 +230,40 @@
         
         #parallaxWrapper {
             height: 100vh;
+            width: 100%;
+            max-width: 100%;
             position: relative;
+            
         }
         
         #parallaxLeft {
-            position: absolute;
+            position:absolute;
+            width: inherit;
+            height: 100vh;
+            max-width: inherit;
             
   		    background-image: url(/images/greyhound_rock.jpg);
-            width: 100vw;
+            width: inherit;
             height: 100vh;
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+            max-width: 100%;
 	    }
         
         #parallaxRight {
             position:absolute;
-            width: 100vw;
+            width: inherit;
             height: 100vh;
+            max-width: inherit;
             background-image: url(/images/greyhound_rock_orig.jpg);
             
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+            
             opacity: 1;
         }
         
@@ -313,6 +325,7 @@
         <div>
             <h1 id="titleText">Adventures</h1>
         </div>
+    
         <div class="pad-half-page"></div>
 <!--    empty heightmarker element for the Adventures tag-->
         <HeightMarker></HeightMarker>
@@ -374,7 +387,7 @@
             <div class="row  padding">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
-                    <p1>As with everything on this website, it is responsive and functions on mobile devices, but as my target user is likely using a professional device to view this website, it is designed first and foremost for a desktop form-factor.</p1>
+                    <p1>As with everything on this website, it is responsive, but as my target user is likely using a professional device to view this website, it is designed first and foremost for a desktop form-factor. Mobile versions of each page are on the roadmap, but I'm going to implement a finished product first.</p1>
                 </div>
                 <div class="col-md-1"></div>
             </div>
@@ -467,15 +480,16 @@
                     $("#titleText").stop().animate({
                         'top': (titleHeight + (title.outerHeight(false)/ 2) + 1),
                         'border-radius': '0',
-                        'opacity': '1',
+                        'opacity': '.8',
                         backgroundColor: "#FFECB3"
                     });
                     $("#titleText").css({
                         'box-shadow': '0px 0px 0px 0px rgba(0,0,0,1)',
                     });
                     $("#introContainer").animate({
-//                        backgroundColor: "#FFECB3"
+                        backgroundColor: "#FFECB3"
                     });
+                    
             } else {
                 $("#titleText").stop().animate({
                     'border-radius': '25px',
@@ -488,7 +502,7 @@
                     'box-shadow': '2px 2px 5px 1px rgba(0,0,0,.5)',
                 });
                 $("#introContainer").animate({
-//                    backgroundColor: "#C5E1A5"
+                    backgroundColor: "#C5E1A5"
                 });
             }
         }
