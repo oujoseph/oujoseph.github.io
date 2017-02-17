@@ -22,105 +22,80 @@
             width: 100vw;
             height: 100vh;
         }
-        #circle {
-            background: black;
-            width: 20vh;
-            height: 20vh;
+
+        .circle {
+            width: 15vh;
+            height: 15vh;
+            border-radius: 50%;
+            border: .5vh solid #A9A9A9;
+            position: absolute;
+            transform: translate(-50%, -50%);    
+            top: 50%;
+            left: 50%;
+            margin:auto;
+            animation: pulse-custom-begin 2s;
+            animation-delay: .5s;
+            animation-iteration-count: infinite;
+            opacity: 1;
+        }
+        .circle:before {
+            content:"";
+            border: .5vh solid #A9A9A9;
+            width: 15vh;
+            height: 15vh;
             border-radius: 50%;
             
             position: absolute;
             transform: translate(-50%, -50%);
             top: 50%;
-            left: 30%;
+            left: 50%;
             margin:auto;
+            animation: pulse-custom-begin 1s;
+            animation-iteration-count: infinite;
+            opacity: .5;
         }
         
-        #circle-right {
-            background: black;
-            width: 20vh;
-            height: 20vh;
+        @keyframes pulse-custom-begin {
+            5% {transform:translate(-50%, -50%) scale(.9, .9);}
+            25% {transform:translate(-50%, -50%) scale(1.2, 1.2);}
+            50% {transform:translate(-50%, -50%) scale(1, 1);}
+        }
+        .circle:after {
+            content:"";
+            background: #A9A9A9;
+            width: 15vh;
+            height: 15vh;
             border-radius: 50%;
             
             position: absolute;
             transform: translate(-50%, -50%);
             top: 50%;
-            left: 70%;
-            margin:auto;
-        }
-        
-        #crescent {
-            width:25vh;
-            height:25vh;
-            border-bottom: 1vh solid white;
-            border-radius:50%;
-            position: absolute;
-            transform: translate(-50%, -50%);
-            top: 50%;
-            left: 30%;
-            margin:auto;
-            transition: 2s;
-        }
-        
-        #crescent:hover {
-            border-bottom: 35vh solid white;
-        }
-        #crescent-right {
-            width:25vh;
-            height:25vh;
-            border-bottom: 1vh solid white;
-            border-radius:50%;
-            position: absolute;
-            transform: translate(-50%, -50%);
-            top: 50%;
-            left: 70%;
-            margin:auto;
-            transition: 2s;
-        }
-        
-        #crescent-right:hover {
-            border-bottom: 35vh solid white;
-        }
-
-        #crescent-bottom {
-            width:50vh;
-            height:20vh;
-            border-bottom: 1vh solid white;
-            border-radius:50%;
-            position: absolute;
-            transform: translate(-50%, -50%);
-            top: 80%;
             left: 50%;
             margin:auto;
-            transition: 2s;
+            animation: pulse-custom 2s;
+            animation-delay: .2s;
+            animation-iteration-count: infinite; 
+            opacity: 0;
         }
-        #crescent-bottom:hover {
-            width:60vh;
-            border-bottom: 5vh solid white;
-        }
-
-        h {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 400;
-            font-size: 10vw;
-            text-align: center;
-            position: absolute;
-            transform: translate(-50%, -50%);
-            top: 20%;
-            left: 50%;
-            color: black;
-            user-select: none;
+        
+        @keyframes pulse-custom {
+            0% {transform:translate(-50%, -50%) scale(0.1, 0.1);
+                opacity: 1.0;
+            }
+            25% {transform: translate(-50%, -50%);
+                opacity: .5;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2, 1.2);
+                opacity: 0.0;
+            }
         }
         
     </style>
 </head>
     
     <body class="fullPage">
-        <h>DAY</h>
-        <div id="crescent-bottom"></div>
-        <div id="crescent"></div>
-        <div id="crescent-right"></div>
-        <div id="circle" ></div>
-        <div id="circle-right" ></div> 
+        <div class="circle" ></div> 
     </body>
     
         
@@ -129,25 +104,7 @@
     $(document).ready(function(){
         var clickMarker = true;
         $("body").click(function(){
-            if (clickMarker == false){
-                clickMarker = true;
-                $("body").css({
-                    'background-color': 'white',
-                });
-                $("h").text("DAY");
-                $("h").css({
-                    'color': 'black',
-                });
-            } else {
-                clickMarker = false;
-                $("body").css({
-                    'background-color': 'black',
-                });
-                $("h").text("NIGHT");
-                $("h").css({
-                    'color': 'white',
-                });
-            }
+            
         })
     });
     </script>
