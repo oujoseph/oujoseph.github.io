@@ -34,10 +34,10 @@
             left: 50%;
             margin:auto;
             animation-play-state: running;
-            animation:  2s;
+            animation: pulse-custom 2s;
             animation-delay: .5s;
             animation-iteration-count: infinite;
-            opacity: 1;
+            opacity: .5;
             overflow: hidden;
             color: transparent;
 
@@ -74,13 +74,13 @@
         }
         
         @keyframes pulse-custom-begin {
-            5% {transform:translate(-50%, -50%) scale(.9, .9);
+            5% {transform:translate(-50%, -50%) scale(.3, .3);
             opacity: 1}
-            25% {transform:translate(-50%, -50%) scale(1.1, 1.1);}
+            25% {transform:translate(-50%, -50%) scale(.9, .9);}
             50% {transform:translate(-50%, -50%) scale(1, 1);
             opacity: 0}
-            55% {transform:translate(-50%, -50%) scale(.9, .9);}
-            75% {transform:translate(-50%, -50%) scale(1.2, 1.2);
+            55% {transform:translate(-50%, -50%) scale(.5, .5);}
+            75% {transform:translate(-50%, -50%) scale(1.0, 1.0);
             opacity: 0}
         }
         .circle:after {
@@ -112,7 +112,7 @@
             border-radius: 0%;
             border: 0;
             color: black;
-
+            animation: none;
             transition: 
                 width 1s,
                 height 1s,

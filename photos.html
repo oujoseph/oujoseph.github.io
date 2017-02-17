@@ -67,7 +67,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             margin: 0 auto; 
-            background: #C5E1A5;
+            background: #E0E0E0;
             padding: 20px;
             
             box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.5);
@@ -115,7 +115,7 @@
             animation: pulse-custom-second 2s;
             animation-delay: .5s;
             animation-iteration-count: infinite;
-            opacity: .8;
+            opacity: .95;
             overflow: hidden;
             color: transparent;
             z-index: 6;
@@ -125,7 +125,8 @@
                 top 1s .5s,
                 border-radius 1s .5s,
                 border 1s 1.2s,
-                color .3s;
+                color .3s,
+                opacity 1s;
         }        
         
         @keyframes pulse-custom-second {
@@ -199,13 +200,14 @@
             margin: 0;
             color: black;
             animation: none;
-            
+            opacity: 1;
             transition: 
                 width 1s,
                 height 1s,
                 top 1s,
                 border-radius 1s,
-                color .5s 1s;
+                color .5s 1s,
+                opacity 1s;
         }
         
         
@@ -332,6 +334,8 @@
         <div class="pad-half-page"></div>
     
         <div class="absolute-pad-full-page">
+            
+            
             <div class="circle" >
                 <div class="container-fluid" id="introContainer">
                     <div class="row  padding">
@@ -480,7 +484,7 @@
                     $("#titleText").stop().animate({
                         'top': (titleHeight + (title.outerHeight(false)/ 2) + 1),
                         'border-radius': '0',
-                        'opacity': '.8',
+                        'opacity': '1',
                         backgroundColor: "#FFECB3"
                     });
                     $("#titleText").css({
@@ -496,13 +500,13 @@
                     'opacity': '.95',
 //                    'position': 'absolute',
                     'top': '25%',
-                    backgroundColor: "#C5E1A5"
+                    backgroundColor: "#E0E0E0"
                 }, 500);
                 $("#titleText").delay(200).css({
                     'box-shadow': '2px 2px 5px 1px rgba(0,0,0,.5)',
                 });
                 $("#introContainer").animate({
-                    backgroundColor: "#C5E1A5"
+                    backgroundColor: "#E0E0E0"
                 });
             }
         }
