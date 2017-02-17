@@ -30,19 +30,34 @@
             border: .5vh solid #1976D2;
             position: absolute;
             transform: translate(-50%, -50%);    
-            top: 50%;
+            background: #E0E0E0;
+            top: 74%;
             left: 50%;
             margin:auto;
-            animation: pulse-custom-second 2s;
+            animation-play-state: running;
+            animation:  2s;
             animation-delay: .5s;
             animation-iteration-count: infinite;
             opacity: 1;
+            overflow: hidden;
+            color: transparent;
+
+            transition: 
+                width 1s .5s,
+                height 1s .5s,
+                top 1s .5s,
+                border-radius 1s .5s,
+                border 1s .5s,
+                color .3s;
         }
         
+        
+        
+        
         @keyframes pulse-custom-second {
-            5% {transform:translate(-50%, -50%) scale(.9, .9);}
-            35% {transform:translate(-50%, -50%) scale(1.35, 1.35);}
-            75% {transform:translate(-50%, -50%) scale(1, 1);}
+            5% {transform:translate(-50%, -50%)}
+            35% {transform:translate(-50%, -50%)}
+            75% {transform:translate(-50%, -50%)}
         }
         .circle:before {
             content:"";
@@ -56,20 +71,26 @@
             top: 50%;
             left: 50%;
             margin:auto;
-            animation: pulse-custom-begin 1s;
+            animation-play-state: running;
+            animation: pulse-custom-begin 2s;
             animation-iteration-count: infinite;
             opacity: .5;
         }
         
         @keyframes pulse-custom-begin {
-            5% {transform:translate(-50%, -50%) scale(.9, .9);}
-            50% {transform:translate(-50%, -50%) scale(1.1, 1.1);}
-            100% {transform:translate(-50%, -50%) scale(1, 1);}
+            5% {transform:translate(-50%, -50%) scale(.9, .9);
+            opacity: 1}
+            25% {transform:translate(-50%, -50%) scale(1.1, 1.1);}
+            50% {transform:translate(-50%, -50%) scale(1, 1);
+            opacity: 0}
+            55% {transform:translate(-50%, -50%) scale(.9, .9);}
+            75% {transform:translate(-50%, -50%) scale(1.2, 1.2);
+            opacity: 0}
         }
         .circle:after {
             content:"";
-            border: .5vh solid #d32f2f;
-            background: #E0E0E0;
+            border: .5vh solid #FF8A65;
+            
             width: 15vh;
             height: 15vh;
             border-radius: 50%;
@@ -79,11 +100,31 @@
             top: 50%;
             left: 50%;
             margin:auto;
+            
+            
+            animation-play-state: running;
             animation: pulse-custom 1.5s;
             animation-delay: .2s;
             animation-iteration-count: infinite; 
             opacity: 0;
         }
+        
+        .circle:hover {
+            width: 100vw;
+            height: 50vh;
+            top:75%;
+            border-radius: 0%;
+            border: 0;
+            color: black;
+
+            transition: 
+                width 1s,
+                height 1s,
+                top 1s,
+                border-radius 1s,
+                color .5s 1s;
+        }
+        
         
         @keyframes pulse-custom {
             0% {transform:translate(-50%, -50%) scale(0.1, 0.1);
@@ -97,24 +138,47 @@
                 opacity: 0.0;
             }
         }
-        
+        p1 {
+
+    	z-index: 1;
+    	font-size: calc(16px + .5vw);
+        }
     </style>
 </head>
     
     <body class="fullPage">
-        <div class="circle" ></div> 
+        <div class="circle" ><div class="container-fluid" id="introContainer">
+            <div class="row  padding">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <p1>Photography means different things to different people.</p1>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row  padding">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <p1>To me, photography is the closest thing to time travel. A photograph can not only record experiences, but create new experiences from old ones.</p1>
+                </div>
+            </div>
+            <div class="row  padding">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <p1>Scroll down to join me in an adventure through my time!</p1>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div></div> 
     </body>
-    <body class="fullPage">
-        <div class="circle" ></div> 
-    </body>
+
     
         
         
     <script>
     $(document).ready(function(){
+        //Click version for touch screens-- complete this eventually
         var clickMarker = true;
         $("body").click(function(){
-            
         })
     });
     </script>
