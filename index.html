@@ -70,13 +70,18 @@
         -moz-transition: .5s;
         -o-transition: .5s;
         transition: .5s;
+        transform-origin: 0% 0%;
+        animation: wobble 2s infinite;
         
 	}
-
-    #scrollIcon:hover {
-		transform: translate(-50%, -40%);
-	}
-        
+    
+    @keyframes wobble {
+        0% {transform:rotate(5deg) translate(-50%, -50%);}
+        5% {transform:rotate(-5deg) translate(-50%, -50%);}
+        10% {transform:rotate(5deg) translate(-50%, -50%);}
+        15% {transform:rotate(-5deg) translate(-50%, -50%);}
+        25% {transform:rotate(0deg) translate(-50%, -50%);}
+    }
     
 	#more-info {
 		text-align: center;
