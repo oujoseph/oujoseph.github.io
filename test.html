@@ -19,7 +19,6 @@
             background-color: white;
         }
         .fullPage {
-            width: 100vw;
             height: 100vh;
         }
 
@@ -47,12 +46,9 @@
                 height 1s .5s,
                 top 1s .5s,
                 border-radius 1s .5s,
-                border 1s .5s,
+                border 1s 1.2s,
                 color .3s;
-        }
-        
-        
-        
+        }        
         
         @keyframes pulse-custom-second {
             5% {transform:translate(-50%, -50%)}
@@ -143,32 +139,40 @@
     	z-index: 1;
     	font-size: calc(16px + .5vw);
         }
+        
+        .padding {
+            padding: 20px;
+        }
     </style>
 </head>
     
     <body class="fullPage">
-        <div class="circle" ><div class="container-fluid" id="introContainer">
-            <div class="row  padding">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <p1>Photography means different things to different people.</p1>
+        <div class="fullPage">
+            <div class="circle" >
+                <div class="container-fluid" id="introContainer">
+                    <div class="row  padding">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <p1>Photography means different things to different people.</p1>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+                    <div class="row  padding">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <p1>To me, photography is the closest thing to time travel. A photograph can not only record experiences, but create new experiences from old ones.</p1>
+                        </div>
+                    </div>
+                    <div class="row  padding">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <p1>Scroll down to join me in an adventure through my time!</p1>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
                 </div>
-                <div class="col-md-1"></div>
             </div>
-            <div class="row  padding">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <p1>To me, photography is the closest thing to time travel. A photograph can not only record experiences, but create new experiences from old ones.</p1>
-                </div>
-            </div>
-            <div class="row  padding">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <p1>Scroll down to join me in an adventure through my time!</p1>
-                </div>
-                <div class="col-md-1"></div>
-            </div>
-        </div></div> 
+        </div>
     </body>
 
     

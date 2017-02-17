@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Main Page">
+    <meta name="description" content="Photos">
     <meta name="author" content="Joseph Ou">
 
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -27,7 +27,7 @@
         .video-container 
         {
             position:absolute;
-            height: 50vh; 
+            height: 100vh; 
             width:100%;
             overflow: hidden;
             z-index: -1;
@@ -90,9 +90,137 @@
         .pad-half-page {
             height: 50vh;
         }
-
+        .absolute-pad-full-page {
+            height: 100vh;
+            position: absolute;
+            z-index: 0;
+            top:0;
+            left:50%;
+            
+        }
+        
+        .circle {
+            width: 15vh;
+            height: 15vh;
+            border-radius: 50%;
+            border: .5vh solid #FF8A65;
+            position: absolute;
+            transform: translate(-50%, -50%);    
+            background: #E0E0E0;
+            top: 75%;
+            left: 50%;
+            margin:auto;
+            animation-play-state: running;
+            animation: pulse-custom-second 2s;
+            animation-delay: .5s;
+            animation-iteration-count: infinite;
+            opacity: .8;
+            overflow: hidden;
+            color: transparent;
+            z-index: 6;
+            transition: 
+                width 1s .5s,
+                height 1s .5s,
+                top 1s .5s,
+                border-radius 1s .5s,
+                border 1s 1.2s,
+                color .3s;
+        }        
+        
+        @keyframes pulse-custom-second {
+            5% {transform:translate(-50%, -50%) scale(.9, .9);
+            opacity: 1}
+            25% {transform:translate(-50%, -50%) scale(1.1, 1.1);}
+            50% {transform:translate(-50%, -50%) scale(1, 1);
+            opacity: .5}
+            55% {transform:translate(-50%, -50%) scale(.9, .9);}
+            75% {transform:translate(-50%, -50%) scale(1.2, 1.2);
+            opacity: 1}
+        }
+        .circle:before {
+            content:"";
+            border: .5vh solid #388E3C;
+            width: 15vh;
+            height: 15vh;
+            border-radius: 50%;
+            
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            margin:auto;
+            animation-play-state: running;
+            animation: pulse-custom-begin 2s;
+            animation-iteration-count: infinite;
+            opacity: .5;
+            z-index: 6;
+        }
+        
+        @keyframes pulse-custom-begin {
+            5% {transform:translate(-50%, -50%) scale(.3, .3);
+            opacity: 1}
+            25% {transform:translate(-50%, -50%) scale(.9, .9);}
+            50% {transform:translate(-50%, -50%) scale(1, 1);
+            opacity: 0}
+            55% {transform:translate(-50%, -50%) scale(.5, .5);}
+            75% {transform:translate(-50%, -50%) scale(1.0, 1.0);
+            opacity: 0}
+        }
+        .circle:after {
+            content:"";
+            border: .5vh solid #1976D2;
+            
+            width: 15vh;
+            height: 15vh;
+            border-radius: 50%;
+            
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            margin:auto;
+            z-index: 6;
+            
+            animation-play-state: running;
+            animation: pulse-custom 1.5s;
+            animation-delay: .2s;
+            animation-iteration-count: infinite; 
+            opacity: 0;
+        }
+        
+        .circle:hover {
+            width: 100vw;
+            height: 50vh;
+            top:75%;
+            border-radius: 0%;
+            border: 0;
+            color: black;
+            animation: none;
+            
+            transition: 
+                width 1s,
+                height 1s,
+                top 1s,
+                border-radius 1s,
+                color .5s 1s;
+        }
+        
+        
+        @keyframes pulse-custom {
+            0% {transform:translate(-50%, -50%) scale(0.1, 0.1);
+                opacity: 1.0;
+            }
+            50% {transform: translate(-50%, -50%);
+                opacity: .5;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.2, 1.2);
+                opacity: 0.0;
+            }
+        }
+        
         #introContainer {
-            background: #C5E1A5;
+            background: #E0E0E0;
             padding: 20px;
             height: 50vh;
         }
@@ -157,6 +285,12 @@
             background: black;
             background: -webkit-gradient(linear, 0 0, 100% 0, from(#B0BEC5), to(#B0BEC5), color-stop(50%, #616161));
         }
+        
+        #introContainer {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
 
         </style>
     </head>
@@ -174,33 +308,39 @@
         </div>
 
 
-        <div class="pad-half-page">
-        </div>
+
+        
         <div>
             <h1 id="titleText">Adventures</h1>
         </div>
+        <div class="pad-half-page"></div>
 <!--    empty heightmarker element for the Adventures tag-->
         <HeightMarker></HeightMarker>
-        <div class="container-fluid" id="introContainer">
-            <div class="row  padding">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <p1>Photography means different things to different people.</p1>
+        <div class="pad-half-page"></div>
+    
+        <div class="absolute-pad-full-page">
+            <div class="circle" >
+                <div class="container-fluid" id="introContainer">
+                    <div class="row  padding">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <p1>Photography means different things to different people.</p1>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+                    <div class="row  padding">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <p1>To me, photography is the closest thing to time travel. A photograph can not only record experiences, but create new experiences from old ones.</p1>
+                        </div>
+                    </div>
+                    <div class="row  padding">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <p1>Scroll down to join me in an adventure through my time!</p1>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-1"></div>
-            </div>
-            <div class="row  padding">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <p1>To me, photography is the closest thing to time travel. A photograph can not only record experiences, but create new experiences from old ones.</p1>
-                </div>
-            </div>
-            <div class="row  padding">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
-                    <p1>Scroll down to join me in an adventure through my time!</p1>
-                </div>
-                <div class="col-md-1"></div>
             </div>
         </div>
     
@@ -334,7 +474,7 @@
                         'box-shadow': '0px 0px 0px 0px rgba(0,0,0,1)',
                     });
                     $("#introContainer").animate({
-                        backgroundColor: "#FFECB3"
+//                        backgroundColor: "#FFECB3"
                     });
             } else {
                 $("#titleText").stop().animate({
@@ -348,7 +488,7 @@
                     'box-shadow': '2px 2px 5px 1px rgba(0,0,0,.5)',
                 });
                 $("#introContainer").animate({
-                    backgroundColor: "#C5E1A5"
+//                    backgroundColor: "#C5E1A5"
                 });
             }
         }
