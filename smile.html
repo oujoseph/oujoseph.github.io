@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Smile">
+    <meta name="author" content="Joseph Ou">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="animate_css/animate.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <style>
+        body {
+            background-color: white;
+        }
+        .fullPage {
+            width: 100vw;
+            height: 100vh;
+        }
+        #circle {
+            background: black;
+            width: 20vh;
+            height: 20vh;
+            border-radius: 50%;
+            
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 30%;
+            margin:auto;
+        }
+        
+        #circle-right {
+            background: black;
+            width: 20vh;
+            height: 20vh;
+            border-radius: 50%;
+            
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 70%;
+            margin:auto;
+        }
+        
+        #crescent {
+            width:25vh;
+            height:25vh;
+            border-bottom: 1vh solid white;
+            border-radius:50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 30%;
+            margin:auto;
+            transition: 2s;
+        }
+        
+        #crescent:hover {
+            border-bottom: 35vh solid white;
+        }
+        #crescent-right {
+            width:25vh;
+            height:25vh;
+            border-bottom: 1vh solid white;
+            border-radius:50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 70%;
+            margin:auto;
+            transition: 2s;
+        }
+        
+        #crescent-right:hover {
+            border-bottom: 35vh solid white;
+        }
+
+        #crescent-bottom {
+            width:50vh;
+            height:20vh;
+            border-bottom: 1vh solid white;
+            border-radius:50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 80%;
+            left: 50%;
+            margin:auto;
+            transition: 2s;
+        }
+        #crescent-bottom:hover {
+            width:60vh;
+            border-bottom: 5vh solid white;
+        }
+
+        h {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 10vw;
+            text-align: center;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 20%;
+            left: 50%;
+            color: black;
+            user-select: none;
+        }
+        
+    </style>
+</head>
+    
+    <body class="fullPage">
+        <h>DAY</h>
+        <div id="crescent-bottom"></div>
+        <div id="crescent"></div>
+        <div id="crescent-right"></div>
+        <div id="circle" ></div>
+        <div id="circle-right" ></div> 
+    </body>
+    
+        
+        
+    <script>
+    $(document).ready(function(){
+        var clickMarker = true;
+        $("body").click(function(){
+            if (clickMarker == false){
+                clickMarker = true;
+                $("body").css({
+                    'background-color': 'white',
+                });
+                $("h").text("DAY");
+                $("h").css({
+                    'color': 'black',
+                });
+            } else {
+                clickMarker = false;
+                $("body").css({
+                    'background-color': 'black',
+                });
+                $("h").text("NIGHT");
+                $("h").css({
+                    'color': 'white',
+                });
+            }
+        })
+    });
+    </script>
+        
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+
+</html>
