@@ -219,11 +219,6 @@
                 opacity 1s;
         }
         
-        #introContainer {
-            background: #E0E0E0;
-            padding: 20px;
-            height: 50vh;
-        }
         
         #parallaxWrapper {
             height: 100vh;
@@ -446,22 +441,38 @@
 //        Code is required to prevent text from overflow
 //        Since overflow:hidden would cut off the before and after elements 
 //        as well as the text
-        $("#circle").on('mouseenter', function(){
+        $("#circle").hover(
+        function(){
             setTimeout(function(){
                 $("#introContainer").css({
                     'display': 'block',
                 })
-            },1000);
-        });
-        
-        $("#circle").on('mouseleave', function(){
+            },799);
+        },
+        function(){
             setTimeout(function(){
                 $("#introContainer").css({
                     'display': 'none',
                 })
-            },500);
-        });
+            },800);
+        })
         
+//        $("#circle").on('mouseenter', function(){
+//            setTimeout(function(){
+//                $("#introContainer").css({
+//                    'display': 'block',
+//                })
+//            },1000);
+//        });
+//        
+//        $("#circle").on('mouseleave', function(){
+//            setTimeout(function(){
+//                $("#introContainer").css({
+//                    'display': 'none',
+//                })
+//            },500);
+//        });
+//        
         
         function scrollThroughImage(){
             var scroll = $(window).scrollTop();
