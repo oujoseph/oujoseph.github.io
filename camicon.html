@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Smile">
+    <meta name="author" content="Joseph Ou">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="animate_css/animate.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <style>
+        body {
+            background-color: black;
+        }
+        
+        #parallaxSplash {
+/*            background-image: url(/images/darksolder.jpg);*/
+
+            height: 100vh; 
+
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .h-title-base {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            position: absolute;
+            color:azure;
+        }
+        
+        h-title-name {
+            font-size: 10vw;
+            top: 10%;
+            left: 10%;
+        }
+        h-title-title {
+            font-size: 4vw;
+            top: 30%;
+            left: 10%;
+        }
+        
+        .compass {
+            background: #E0E0E0;
+            border-radius: 1%;
+/*            border: 2px solid #fff;*/
+            transition: .05s;
+            
+        }
+        
+        .compass.dimensions {
+            width: 50vh;
+            height: 25vh;
+            position: absolute;
+            left: 25%;
+            top :25%;
+        }
+        
+        .compass.trapezoid {
+/*            override .compass border*/
+            border: 0px;
+/*          scaling border based on percentage is not a function in css*/
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            left: 30%;
+            top: -40%;
+            
+            border-left: 3vh solid transparent;
+            border-right: 3vh solid transparent;
+            border-bottom: 5vh solid #E0E0E0;
+            
+            background: transparent;
+            border-radius: 0%;
+            
+            box-shadow: 0 0 0 0;
+            
+        }
+        .compass.trapezoid:hover {
+            box-shadow: 0 0 0 0;
+        }
+        
+        .compass.line {
+            border: 0;
+            position: absolute;
+            height: 10%;
+            top: 10%;
+            width: 20%;
+            left: 75%;
+            background: black;
+        }
+        .compass.line:.hover {
+            box-shadow: 0 0 0 0;
+        }
+        
+        .compass.lens {
+            position: absolute;
+            border: 0px;
+            height: 80%;
+            width: 40%;
+            background: black;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 100%;
+            transition: .25s;
+            z-index: 0;
+        }
+        
+        .compass.lens:active {
+            height: 0%;
+            width: 0%;
+        }
+        .compass.lens:hover {
+            box-shadow: 0 0 0 0;
+        }
+        
+        .compass:hover {
+            box-shadow: -3vh -20vh 30vh 20vh rgba(255,255,255,.8);
+        }
+        
+    </style>
+</head>
+    
+    
+    <body>
+        <div class="compass dimensions">
+            <div class="compass trapezoid"></div>
+            <div class="compass line"></div>
+            <div class="compass lens"></div>
+
+        </div>
+    </body>
+
+    
+        
+        
+    <script>
+    $(document).ready(function(){
+    });
+    </script>
+        
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+
+</html>
