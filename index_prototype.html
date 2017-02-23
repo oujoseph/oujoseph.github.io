@@ -20,7 +20,7 @@
             background-color: black;
         }
         
-        #parallaxSplash {
+        .parallaxSplash {
             background-image: url(/images/darksolder.jpg);
 
             height: 100vh; 
@@ -30,7 +30,9 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
-        
+        #halfPage {
+            height: 50%;
+        }
         .fullPage {
             height: 100vh;
             position: relative;
@@ -56,30 +58,39 @@
             font-weight: 100;
             opacity: 1;
         }
+        h-leading-text {
+            font-family: 'Roboto', sans-serif;
+            font-size 10vw;
+            top: 50%;
+            left: 50%;
+            font-weight: 300;
+            opacity: 1;
+        }
     </style>
 </head>
     
     <body>
-        <div id="parallaxSplash">
+        <div class="parallaxSplash">
             <h-title-name class="h-title-base">Joseph Ou</h-title-name>
             <h-title-title class="h-title-base">Software Developer</h-title-title>
-        </div>
-        <scrollMarker0></scrollMarker0>
-        <div class="fullPage">
-            <h-title-name class="h-title-base"> </h-title-name>
+            <div id="halfPage"></div>
+            <scrollMarker0></scrollMarker0>
         </div>
         <scrollMarker1></scrollMarker1>
-        <div class="fullPage">
-            <h-title-name class="h-title-base"> </h-title-name>
+        <div class="parallaxSplash">
+            <h-title-name class="h-title-base"></h-title-name>
+            <div id="halfPage"></div>
+            <scrollMarker2></scrollMarker2>
         </div>
-        <scrollMarker2></scrollMarker2>
-        <div class="fullPage">
+        
+        <div class="parallaxSplash">
             <h-title-name class="h-title-base"> </h-title-name>
         </div>
         <scrollMarker3></scrollMarker3>
         <div class="fullPage">
             <h-title-name class="h-title-base"> </h-title-name>
         </div>
+        <scrollMarker4></scrollMarker4>
     </body>
 
     
@@ -110,9 +121,9 @@
                         'opacity': '1',
                         'top': '10%',
                     });
-                    $("#parallaxSplash").css({
-                        'background-image': 'url(/images/darksolder.jpg)',
-                    });
+                    $(".parallaxSplash").animate({
+                        'opacity': '1',
+                    })
                 }
                 else {
 //                    window.alert("IN PAGE0: entre false");
@@ -124,15 +135,18 @@
                         'opacity': '0',
                         'top': '-100%',
                     });
-                    $("#parallaxSplash").css({
-                        'background-image': 'none',
-                    });
                 }
             }
             pageArray.page1 = function (entre) {
 //                window.alert("IN PAGE1");
                 if (entre){
-                    
+                }
+                else {
+                }
+            }
+            pageArray.page2 = function (entre) {
+//                window.alert("IN PAGE2");
+                if (entre){
                 }
                 else {
                 }
@@ -145,7 +159,6 @@
             
             function pageManager(newpage){
                 if (newpage == currentpage)return;
-                
 //                If the new state and current state are different, transition out current state
 //                and transition in new state
                 var currfunc = ('page' + currentpage);
@@ -169,6 +182,21 @@
                         break;
                     case ((scrollMarker > $("scrollMarker0").offset().top) && (scrollMarker < $("scrollMarker1").offset().top)):
                         pageManager(1);
+                        break;
+                    case ((scrollMarker > $("scrollMarker1").offset().top) && (scrollMarker < $("scrollMarker2").offset().top)):
+                        pageManager(2);
+                        break;
+                    case ((scrollMarker > $("scrollMarker2").offset().top) && (scrollMarker < $("scrollMarker3").offset().top)):
+                        pageManager(3);
+                        break;
+                    case ((scrollMarker > $("scrollMarker3").offset().top) && (scrollMarker < $("scrollMarker4").offset().top)):
+                        pageManager(4);
+                        break;
+                    case ((scrollMarker > $("scrollMarker4").offset().top) && (scrollMarker < $("scrollMarker1").offset().top)):
+                        pageManager(5);
+                        break;
+                    case ((scrollMarker > $("scrollMarker5").offset().top) && (scrollMarker < $("scrollMarker1").offset().top)):
+                        pageManager(6);
                         break;
                 }
 

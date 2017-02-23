@@ -180,7 +180,7 @@
             top: 50%;
             left: 50%;
             margin:auto;
-            z-index: 6;
+            z-index: 0;
             
             animation-play-state: running;
             animation: pulse-custom-end 2s;
@@ -296,6 +296,8 @@
             top: 50%;
             transform: translateY(-50%);
             display: none;
+            opacity: 1;
+            z-index: 1;
         }
         
         </style>
@@ -406,6 +408,11 @@
         
     <script>
     $(document).ready(function(){
+        $("#introContainer").css({
+            'z=index': '1',
+        })
+        
+        
         //Was designed so that the Adventures element would stick to and unstick
         //from the element below, but never scroll past that point.
         //Some of the variables still reflect that original goal and code is slightly more
@@ -448,14 +455,14 @@
                 $("#introContainer").css({
                     'display': 'block',
                 })
-            },799);
+            },599);
         },
         function(){
             setTimeout(function(){
                 $("#introContainer").css({
                     'display': 'none',
                 })
-            },800);
+            },600);
         })
         
         
