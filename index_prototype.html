@@ -61,19 +61,19 @@
         </div>
         <scrollMarker0></scrollMarker0>
         <div id="parallaxSplash">
-            <h-title-name class="h-title-base">Joseph Ou</h-title-name>
+            <h-title-name class="h-title-base"> </h-title-name>
         </div>
         <scrollMarker1></scrollMarker1>
         <div id="parallaxSplash">
-            <h-title-name class="h-title-base">Joseph Ou</h-title-name>
+            <h-title-name class="h-title-base"> </h-title-name>
         </div>
         <scrollMarker2></scrollMarker2>
         <div id="parallaxSplash">
-            <h-title-name class="h-title-base">Joseph Ou</h-title-name>
+            <h-title-name class="h-title-base"> </h-title-name>
         </div>
         <scrollMarker3></scrollMarker3>
         <div id="parallaxSplash">
-            <h-title-name class="h-title-base">Joseph Ou</h-title-name>
+            <h-title-name class="h-title-base"> </h-title-name>
         </div>
     </body>
 
@@ -87,27 +87,39 @@
         });
         
         $(document).ready(function(){
-//            pageMarker used to mark whether or not in a page
-            var pageMarker = [false, false, false, false, false, false];
-
             var scrollMarker = $(window).scrollTop();
             
+            //page of functions that makes each individual page easier to address
+            var pageArray = {};
+            
 //            Each page is a function that either transitions in or transitions out
-            function page0(enter) {
+            pageArray.page0 = function (entre) {
+//                window.alert("IN PAGE0");
                 if (entre){
+//                    window.alert("IN PAGE0: entre true");
+                    $("h-title-title").stop().animate({
+                        'opacity': '1',
+                        'top': '20%',
+                    });
                     $("h-title-name").stop().animate({
                         'opacity': '1',
-                        'top': '80%',
+                        'top': '20%',
                     });
                 }
                 else {
+//                    window.alert("IN PAGE0: entre false");
+                    $("h-title-title").stop().animate({
+                        'opacity': '0',
+                        'top': '-100%',
+                    });
                     $("h-title-name").stop().animate({
                         'opacity': '0',
                         'top': '-100%',
                     });
                 }
             }
-            function page1(enter) {
+            pageArray.page1 = function (entre) {
+//                window.alert("IN PAGE1");
                 if (entre){
                     $("h-title-title").stop().animate({
                         'opacity': '0',
@@ -120,19 +132,25 @@
                         'top': '-100%',
                     });
                 }
-            }            
+            }
             var currentpage = 0;
             
+//            pageManager allows each state to run only once when needed
+//            instead of being on all the time
+//            Secondly, it allows finer control to entry and exit transitions per state
             
             function pageManager(newpage){
                 if (newpage == currentpage)return;
+                
 //                If the new state and current state are different, transition out current state
 //                and transition in new state
                 var currfunc = ('page' + currentpage);
                 var newfunc = ('page' + newpage);
-                window.alert("current state:" + currfunc + "next state:" newfunc);
-                window[currfunc](false);
-                window[newfunc](true);
+//                window.alert("current state: " + currfunc + " next state: " + newfunc);
+                currentpage = newpage;
+                
+                pageArray[currfunc](false);
+                pageArray[newfunc](true);
                 
             }
             
