@@ -31,6 +31,11 @@
             background-size: cover;
         }
         
+        .fullPage {
+            height: 100vh;
+            position: relative;
+        }
+        
         .h-title-base {
             font-family: 'Roboto', sans-serif;
             position: fixed;
@@ -60,19 +65,19 @@
             <h-title-title class="h-title-base">Software Developer</h-title-title>
         </div>
         <scrollMarker0></scrollMarker0>
-        <div id="parallaxSplash">
+        <div class="fullPage">
             <h-title-name class="h-title-base"> </h-title-name>
         </div>
         <scrollMarker1></scrollMarker1>
-        <div id="parallaxSplash">
+        <div class="fullPage">
             <h-title-name class="h-title-base"> </h-title-name>
         </div>
         <scrollMarker2></scrollMarker2>
-        <div id="parallaxSplash">
+        <div class="fullPage">
             <h-title-name class="h-title-base"> </h-title-name>
         </div>
         <scrollMarker3></scrollMarker3>
-        <div id="parallaxSplash">
+        <div class="fullPage">
             <h-title-name class="h-title-base"> </h-title-name>
         </div>
     </body>
@@ -99,11 +104,14 @@
 //                    window.alert("IN PAGE0: entre true");
                     $("h-title-title").stop().animate({
                         'opacity': '1',
-                        'top': '20%',
+                        'top': '30%',
                     });
                     $("h-title-name").stop().animate({
                         'opacity': '1',
-                        'top': '20%',
+                        'top': '10%',
+                    });
+                    $("#parallaxSplash").css({
+                        'background-image': 'url(/images/darksolder.jpg)',
                     });
                 }
                 else {
@@ -116,21 +124,17 @@
                         'opacity': '0',
                         'top': '-100%',
                     });
+                    $("#parallaxSplash").css({
+                        'background-image': 'none',
+                    });
                 }
             }
             pageArray.page1 = function (entre) {
 //                window.alert("IN PAGE1");
                 if (entre){
-                    $("h-title-title").stop().animate({
-                        'opacity': '0',
-                        'top': '-100%',
-                    });
+                    
                 }
                 else {
-                    $("h-title-title").stop().animate({
-                        'opacity': '0',
-                        'top': '-100%',
-                    });
                 }
             }
             var currentpage = 0;
