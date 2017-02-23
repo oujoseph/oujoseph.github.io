@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="prototype of future index.html">
+    <meta name="author" content="Joseph Ou">
+
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400|VT323" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="animate_css/animate.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <style>
+        body {
+            background-color: black;
+        }
+        
+        #parallaxSplash {
+            background-image: url(/images/darksolder.jpg);
+
+            height: 100vh; 
+
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .h-title-base {
+            font-family: 'Roboto', sans-serif;
+            position: fixed;
+            color:azure;
+        }
+        
+        h-title-name {
+            font-size: 10vw;
+            top: 10%;
+            left: 10%;
+            font-weight: 300;
+            opacity: 1;
+        }
+        h-title-title {
+            font-size: 4vw;
+            top: 30%;
+            left: 10%;
+            font-weight: 100;
+            opacity: 1;
+        }
+    </style>
+</head>
+    
+    <body>
+        <div id="parallaxSplash">
+            <h-title-name class="h-title-base">Joseph Ou</h-title-name>
+            <h-title-title class="h-title-base">Software Developer</h-title-title>
+        </div>
+        <scrollMarker0></scrollMarker0>
+        <div id="parallaxSplash">
+            <h-title-name class="h-title-base">Joseph Ou</h-title-name>
+        </div>
+        <scrollMarker1></scrollMarker1>
+        <div id="parallaxSplash">
+            <h-title-name class="h-title-base">Joseph Ou</h-title-name>
+        </div>
+        <scrollMarker2></scrollMarker2>
+        <div id="parallaxSplash">
+            <h-title-name class="h-title-base">Joseph Ou</h-title-name>
+        </div>
+        <scrollMarker3></scrollMarker3>
+        <div id="parallaxSplash">
+            <h-title-name class="h-title-base">Joseph Ou</h-title-name>
+        </div>
+    </body>
+
+    
+        
+        
+    <script>
+//        reset page on scroll
+        $(window).on('beforeunload', function(){
+            $(window).scrollTop(0);
+        });
+        
+        $(document).ready(function(){
+//            pageMarker used to mark whether or not in a page
+            var pageMarker = [false, false, false, false, false, false];
+
+            var scrollMarker = $(window).scrollTop();
+            
+//            Each page is a function that either transitions in or transitions out
+            function page0(enter) {
+                if (entre){
+                    $("h-title-name").stop().animate({
+                        'opacity': '1',
+                        'top': '80%',
+                    });
+                }
+                else {
+                    $("h-title-name").stop().animate({
+                        'opacity': '0',
+                        'top': '-100%',
+                    });
+                }
+            }
+            function page1(enter) {
+                if (entre){
+                    $("h-title-title").stop().animate({
+                        'opacity': '0',
+                        'top': '-100%',
+                    });
+                }
+                else {
+                    $("h-title-title").stop().animate({
+                        'opacity': '0',
+                        'top': '-100%',
+                    });
+                }
+            }            
+            var currentpage = 0;
+            
+            
+            function pageManager(newpage){
+                if (newpage == currentpage)return;
+//                If the new state and current state are different, transition out current state
+//                and transition in new state
+                var currfunc = ('page' + currentpage);
+                var newfunc = ('page' + newpage);
+                window.alert("current state:" + currfunc + "next state:" newfunc);
+                window[currfunc](false);
+                window[newfunc](true);
+                
+            }
+            
+            $(window).on('resize scroll', function(){
+                scrollMarker = $(window).scrollTop();
+
+                
+//                Switch pagement determines what page to load on scroll and sends to pageManager()
+                switch(true){
+                    case ((scrollMarker > 0) && (scrollMarker < $("scrollMarker0").offset().top)):
+                        pageManager(0);
+                        break;
+                    case ((scrollMarker > $("scrollMarker0").offset().top) && (scrollMarker < $("scrollMarker1").offset().top)):
+                        pageManager(1);
+                        break;
+                }
+
+            });
+        });
+    </script>
+        
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+
+</html>
