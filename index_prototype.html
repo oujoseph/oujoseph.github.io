@@ -23,15 +23,18 @@
         .parallaxSplash {
             background-image: url(/images/darksolder.jpg);
 
-            height: 100vh; 
+            height: 200vh;
 
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+            position: absolute;
+            top: 0px;
+            width: 100%;
         }
-        #halfPage {
-            height: 50%;
+        .halfPage {
+            height: 50vh;
         }
         .fullPage {
             height: 100vh;
@@ -58,39 +61,67 @@
             font-weight: 100;
             opacity: 1;
         }
-        h-leading-text {
-            font-family: 'Roboto', sans-serif;
-            font-size 10vw;
+        h-leading-text {        
+            font-size: 4vw;
             top: 50%;
             left: 50%;
-            font-weight: 300;
-            opacity: 1;
+            transform: translate(-50%,-50%);
+            font-weight: 100;
+            opacity: 0;
         }
+        
+        #mug {
+            zoom: 1;
+            width: 50vh;
+            height: 50vh;
+            max-height: 50vw;
+            max-width: 50vw;
+            
+            border-radius: 50%;
+            background-position: center center;
+            background-size: cover;
+            text-align: center;
+            
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            opacity: 0;
+        }
+
+        
     </style>
 </head>
     
     <body>
+        <div class="halfPage"></div>
+        <scrollMarker0></scrollMarker0>
+        <div class="halfPage"></div>
+        <scrollMarker1></scrollMarker1>
+        <div class="halfPage"></div>
+        <scrollMarker2></scrollMarker2>
+        <div class="halfPage"></div>
+        <scrollMarker3></scrollMarker3>
+        <div class="halfPage"></div>
+        <scrollMarker4></scrollMarker4>
+        <div class="halfPage"></div>
+        <scrollMarker5></scrollMarker5>
+        <div class="halfPage"></div>
+        <scrollMarker6></scrollMarker6>
+        <div class="halfPage"></div>
+        <scrollMarker7></scrollMarker7>
+        <div class="halfPage"></div>
+        <scrollMarker8></scrollMarker8>
+<!--        Needs a separate div to enable opacity fade in and out-->
         <div class="parallaxSplash">
             <h-title-name class="h-title-base">Joseph Ou</h-title-name>
             <h-title-title class="h-title-base">Software Developer</h-title-title>
-            <div id="halfPage"></div>
-            <scrollMarker0></scrollMarker0>
-        </div>
-        <scrollMarker1></scrollMarker1>
-        <div class="parallaxSplash">
-            <h-title-name class="h-title-base"></h-title-name>
-            <div id="halfPage"></div>
-            <scrollMarker2></scrollMarker2>
         </div>
         
-        <div class="parallaxSplash">
-            <h-title-name class="h-title-base"> </h-title-name>
-        </div>
-        <scrollMarker3></scrollMarker3>
-        <div class="fullPage">
-            <h-title-name class="h-title-base"> </h-title-name>
-        </div>
-        <scrollMarker4></scrollMarker4>
+
+        <h-leading-text class="h-title-base">Who Am I?</h-leading-text>
+        <img id="mug" src="/images/mugPortrait.JPG">
+
     </body>
 
     
@@ -108,11 +139,13 @@
             //page of functions that makes each individual page easier to address
             var pageArray = {};
             
+//            isEnter has three states: 0 = entering, 1 = currently in, 2 = exiting
+            
 //            Each page is a function that either transitions in or transitions out
-            pageArray.page0 = function (entre) {
+            pageArray.page0 = function (isEnter) {
 //                window.alert("IN PAGE0");
-                if (entre){
-//                    window.alert("IN PAGE0: entre true");
+                if (isEnter == 0){
+//                    window.alert("IN PAGE0: isEnter 0");
                     $("h-title-title").stop().animate({
                         'opacity': '1',
                         'top': '30%',
@@ -121,84 +154,125 @@
                         'opacity': '1',
                         'top': '10%',
                     });
-                    $(".parallaxSplash").animate({
+                    $("h-leading-text").stop().animate({
+                        'opacity': '0',
+                        'top': '-10%',
+                    });
+                    $(".parallaxSplash").stop().animate({
                         'opacity': '1',
-                    })
+                    });
                 }
-                else {
-//                    window.alert("IN PAGE0: entre false");
+                if (isEnter == 2){
+//                    window.alert("IN PAGE0: isEnter 2");
                     $("h-title-title").stop().animate({
                         'opacity': '0',
-                        'top': '-100%',
+                        'top': '-20%',
                     });
                     $("h-title-name").stop().animate({
                         'opacity': '0',
-                        'top': '-100%',
+                        'top': '-20%',
                     });
                 }
             }
-            pageArray.page1 = function (entre) {
+            pageArray.page1 = function (isEnter) {
 //                window.alert("IN PAGE1");
-                if (entre){
-                }
-                else {
+                if (isEnter == 0){
+                    $("h-leading-text").stop().animate({
+                        'opacity': '1',
+                        'top': '50%',
+                    });
+                    $(".parallaxSplash").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("#mug").stop().animate({
+                        'opacity': '0',
+                    });
                 }
             }
-            pageArray.page2 = function (entre) {
+            pageArray.page2 = function (isEnter) {
 //                window.alert("IN PAGE2");
-                if (entre){
+                if (isEnter == 0){
+                    $("h-leading-text").stop().animate({
+                        'opacity': '1',
+                        'top': '5%',
+                    });
+                    $("#mug").stop().delay(1000).animate({
+                        'opacity': '1',
+                    });
                 }
-                else {
+
+            }
+            pageArray.page3 = function (isEnter) {
+//                window.alert("IN PAGE3");
+                if (isEnter == 0){
+//                    some repeat code is required for scrolling back up
+                    $("h-leading-text").stop().animate({
+                        'opacity': '1',
+                        'top': '5%',
+                    });
+                    $("#mug").stop().delay(500).animate({
+                        'opacity': '1',
+                    });
+                    
+                }
+                
+                if (isEnter == 2) {
+                    $("#mug").stop().animate({
+                        'opacity': '0',
+                    });
                 }
             }
             var currentpage = 0;
             
-//            pageManager allows each state to run only once when needed
-//            instead of being on all the time
-//            Secondly, it allows finer control to entry and exit transitions per state
+//           page manager allows finer control to entry and exit transitions per state
             
             function pageManager(newpage){
-                if (newpage == currentpage)return;
+                
 //                If the new state and current state are different, transition out current state
 //                and transition in new state
                 var currfunc = ('page' + currentpage);
                 var newfunc = ('page' + newpage);
 //                window.alert("current state: " + currfunc + " next state: " + newfunc);
+                if (newpage == currentpage){
+                    pageArray[currfunc](1);
+                    return;
+                };
                 currentpage = newpage;
                 
-                pageArray[currfunc](false);
-                pageArray[newfunc](true);
+                pageArray[currfunc](2);
+                pageArray[newfunc](0);
                 
             }
             
             $(window).on('resize scroll', function(){
-                scrollMarker = $(window).scrollTop();
+                    
+                    scrollMarker = $(window).scrollTop();
 
-                
-//                Switch pagement determines what page to load on scroll and sends to pageManager()
-                switch(true){
-                    case ((scrollMarker > 0) && (scrollMarker < $("scrollMarker0").offset().top)):
-                        pageManager(0);
-                        break;
-                    case ((scrollMarker > $("scrollMarker0").offset().top) && (scrollMarker < $("scrollMarker1").offset().top)):
-                        pageManager(1);
-                        break;
-                    case ((scrollMarker > $("scrollMarker1").offset().top) && (scrollMarker < $("scrollMarker2").offset().top)):
-                        pageManager(2);
-                        break;
-                    case ((scrollMarker > $("scrollMarker2").offset().top) && (scrollMarker < $("scrollMarker3").offset().top)):
-                        pageManager(3);
-                        break;
-                    case ((scrollMarker > $("scrollMarker3").offset().top) && (scrollMarker < $("scrollMarker4").offset().top)):
-                        pageManager(4);
-                        break;
-                    case ((scrollMarker > $("scrollMarker4").offset().top) && (scrollMarker < $("scrollMarker1").offset().top)):
-                        pageManager(5);
-                        break;
-                    case ((scrollMarker > $("scrollMarker5").offset().top) && (scrollMarker < $("scrollMarker1").offset().top)):
-                        pageManager(6);
-                        break;
-                }
+
+    //                Switch pagement determines what page to load on scroll and sends to pageManager()
+                    switch(true){
+                        case ((scrollMarker > 0) && (scrollMarker < $("scrollMarker0").offset().top)):
+                            pageManager(0);
+                            break;
+                        case ((scrollMarker > $("scrollMarker0").offset().top) && (scrollMarker < $("scrollMarker1").offset().top)):
+                            pageManager(1);
+                            break;
+                        case ((scrollMarker > $("scrollMarker1").offset().top) && (scrollMarker < $("scrollMarker2").offset().top)):
+                            pageManager(2);
+                            break;
+                        case ((scrollMarker > $("scrollMarker2").offset().top) && (scrollMarker < $("scrollMarker3").offset().top)):
+                            pageManager(3);
+                            break;
+                        case ((scrollMarker > $("scrollMarker3").offset().top) && (scrollMarker < $("scrollMarker4").offset().top)):
+                            pageManager(4);
+                            break;
+                        case ((scrollMarker > $("scrollMarker4").offset().top) && (scrollMarker < $("scrollMarker1").offset().top)):
+                            pageManager(5);
+                            break;
+                        case ((scrollMarker > $("scrollMarker5").offset().top) && (scrollMarker < $("scrollMarker1").offset().top)):
+                            pageManager(6);
+                            break;
+                    }
 
             });
         });
