@@ -48,24 +48,37 @@
             left: 10%;
         }
         
-        .compass {
+        .camiconContainer {
+            width: 20vh;
+            height: 20vh;
+            overflow: hidden;
+            position: absolute;
+            border-radius: 100%;
+            background: #455A64;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        
+        .camicon {
             background: #E0E0E0;
             border-radius: 1%;
-/*            border: 2px solid #fff;*/
             transition: .05s;
+            opacity: 1;
             
         }
         
-        .compass.dimensions {
-            width: 50vh;
-            height: 25vh;
-            position: absolute;
-            left: 25%;
-            top :25%;
+        .camicon.dimensions {
+            width: 10vh;
+            height: 5vh;
+            left: 50%;
+            top :50%;
+            transform: translate(-50%,-50%);
+            position: relative;
         }
         
-        .compass.trapezoid {
-/*            override .compass border*/
+        .camicon.trapezoid {
             border: 0px;
 /*          scaling border based on percentage is not a function in css*/
             position: absolute;
@@ -74,9 +87,9 @@
             left: 30%;
             top: -40%;
             
-            border-left: 3vh solid transparent;
-            border-right: 3vh solid transparent;
-            border-bottom: 5vh solid #E0E0E0;
+            border-left: 1vh solid transparent;
+            border-right: 1vh solid transparent;
+            border-bottom: 1vh solid #E0E0E0;
             
             background: transparent;
             border-radius: 0%;
@@ -84,11 +97,11 @@
             box-shadow: 0 0 0 0;
             
         }
-        .compass.trapezoid:hover {
+        .camicon.trapezoid:hover {
             box-shadow: 0 0 0 0;
         }
         
-        .compass.line {
+        .camicon.line {
             border: 0;
             position: absolute;
             height: 10%;
@@ -97,11 +110,11 @@
             left: 75%;
             background: black;
         }
-        .compass.line:.hover {
-            box-shadow: 0 0 0 0;
+        .camicon.line:hover {
+            box-shadow: -1vh -1vh 10vh 7vh rgba(255,255,0,.3);
         }
         
-        .compass.lens {
+        .camicon.lens {
             position: absolute;
             border: 0px;
             height: 80%;
@@ -115,16 +128,28 @@
             z-index: 0;
         }
         
-        .compass.lens:active {
+        .camicon.lens:active {
             height: 0%;
             width: 0%;
         }
-        .compass.lens:hover {
+        .camicon.lens:hover {
             box-shadow: 0 0 0 0;
         }
         
-        .compass:hover {
-            box-shadow: -3vh -20vh 30vh 20vh rgba(255,255,255,.8);
+        .camicon:hover {
+            box-shadow: -1vh -7vh 10vh 7vh rgba(255,255,200,.8);
+        }
+        
+        .iconText {
+            font-family: 'Roboto', sans-serif;
+            position: fixed;
+            color:azure;
+            font-size: 2vh;
+            top: 150%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-weight: 100;
+            opacity: 1;
         }
         
     </style>
@@ -132,12 +157,15 @@
     
     
     <body>
-        <div class="compass dimensions">
-            <div class="compass trapezoid"></div>
-            <div class="compass line"></div>
-            <div class="compass lens"></div>
-
+        <div class="camiconContainer">
+            <div class="camicon dimensions">
+                <div class="iconText">Photographer</div>
+                <div class="camicon trapezoid"></div>
+                <div class="camicon line"></div>
+                <div class="camicon lens"></div>
+            </div>
         </div>
+        
     </body>
 
     

@@ -87,9 +87,179 @@
             left: 50%;
             transform: translate(-50%,-50%);
             opacity: 0;
+            z-index: 1;
+        }
+
+        .camiconContainer {
+            width: 20vh;
+            height: 20vh;
+            max-height: 20vw;
+            max-width: 20vw;
+            overflow: hidden;
+            position: absolute;
+            border-radius: 100%;
+            background: #455A64;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            opacity: 0;
+        }
+        
+        .camicon {
+            background: #E0E0E0;
+            border-radius: 1%;
+            transition: .05s;
+            opacity: 1;
+            
+        }
+        
+        .camicon.dimensions {
+            width: 10vh;
+            height: 5vh;
+            max-width: 10vw;
+            max-height: 5vw;
+            
+            left: 50%;
+            top :50%;
+            transform: translate(-50%,-50%);
+            position: relative;
+        }
+        
+        .camicon.trapezoid {
+            border: 0px;
+/*          scaling border based on percentage is not a function in css*/
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            left: 30%;
+            top: -40%;
+            
+            border-left: 1vh solid transparent;
+            border-right: 1vh solid transparent;
+            border-bottom: 1vh solid #E0E0E0;
+            
+            background: transparent;
+            border-radius: 0%;
+            
+            box-shadow: 0 0 0 0;
+            
+        }
+        .camicon.trapezoid:hover {
+            box-shadow: 0 0 0 0;
+        }
+        
+        .camicon.line {
+            border: 0;
+            position: absolute;
+            height: 10%;
+            top: 10%;
+            width: 20%;
+            left: 75%;
+            background: black;
+        }
+        .camicon.line:hover {
+            box-shadow: -1vh -1vh 10vh 7vh rgba(255,255,0,.3);
+        }
+        
+        .camicon.lens {
+            position: absolute;
+            border: 0px;
+            height: 80%;
+            width: 40%;
+            background: black;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 100%;
+            transition: .25s;
+            z-index: 0;
+        }
+        
+        .camicon.lens:active {
+            height: 0%;
+            width: 0%;
+        }
+        .camicon.lens:hover {
+            box-shadow: 0 0 0 0;
+        }
+        
+        .camicon:hover {
+            box-shadow: -1vh -7vh 10vh 7vh rgba(255,255,200,.8);
+        }
+        
+        .compassContainer {
+            height: 20vh;
+            width: 20vh;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            max-height: 20vw;
+            max-width: 20vw;
+            
+            transform: translate(-50%,-50%);
+            overflow: hidden;
+            border-radius: 100%;
+            background: #1B5E20;
+            opacity: 0;
+        }
+        
+        .compass {
+            position: relative;
+            background: #E0E0E0;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            transition: 1s;
+            width: 60%;
+            height: 60%;
+            position: absolute;
+            left: 20%;
+            top :10%;
+
         }
 
         
+        .compass.needle {
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            left: 31%;
+            top: 31%;
+            transform: rotate(90deg) skew(30deg, 30deg);
+            background: #000;
+            border-radius: 5%;
+            border: 0px solid #fff;
+            transition: 1s;
+        }
+        
+        /*
+        Since needle is nested inside the main circle, need to override hover
+        or else the needle gets reset into a square (looks cool but not what i want)
+        */
+        .compass.needle:hover {
+            transform: rotate(90deg) skew(30deg, 30deg);
+            box-shadow: 0px 0px 0px 5px rgba(0,0,0,0);
+            background: #000;
+        }
+        
+        
+        .compass:hover {
+            box-shadow: 0px 0px 50px 5px rgba(255,255,255,.7);
+            transform: rotate(720deg);
+            background: #fff;
+        }
+        
+        .iconText {
+            font-family: 'Roboto', sans-serif;
+            position: absolute;
+            color:azure;
+            font-size: 2vh;
+            top:80%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-weight: 100;
+            opacity: 1;
+        }
     </style>
 </head>
     
@@ -122,6 +292,20 @@
         <h-leading-text class="h-title-base">Who Am I?</h-leading-text>
         <img id="mug" src="/images/mugPortrait.JPG">
 
+        <div class="camiconContainer">
+            <div class="iconText">Photographer</div>
+            <div class="camicon dimensions">
+                <div class="camicon trapezoid"></div>
+                <div class="camicon line"></div>
+                <div class="camicon lens"></div>
+            </div>
+        </div>
+        <div class="compassContainer">
+            <div class="iconText">Adventurer</div>
+                <div class="compass dimensions">
+                <div class="compass needle"></div>
+            </div>
+        </div>
     </body>
 
     
@@ -201,26 +385,41 @@
                         'opacity': '1',
                     });
                 }
-
-            }
-            pageArray.page3 = function (isEnter) {
-//                window.alert("IN PAGE3");
-                if (isEnter == 0){
-//                    some repeat code is required for scrolling back up
+                if (isEnter == 2){
                     $("h-leading-text").stop().animate({
                         'opacity': '1',
                         'top': '5%',
                     });
-                    $("#mug").stop().delay(200).animate({
-                        'opacity': '1',
-                    });
                     
                 }
                 
+            }
+            pageArray.page3 = function (isEnter) {
+//                window.alert("IN PAGE3");
+                if (isEnter == 0){  
+                    $(".camiconContainer").stop().animate({
+                        'opacity': '1',
+                        'top': '75%',
+                        'left': '25%',
+                    });
+                    $(".compassContainer").stop().animate({
+                        'opacity': '1',
+                        'top': '75%',
+                        'left': '75%',
+                    });
+                }
+                
                 if (isEnter == 2) {
-//                    $("#mug").stop().animate({
-//                        'opacity': '0',
-//                    });
+                    $(".camiconContainer").stop().animate({
+                        'opacity': '0',
+                        'top': '50%',
+                        'left': '50%',
+                    });
+                    $(".compassContainer").stop().animate({
+                        'opacity': '0',
+                        'top': '50%',
+                        'left': '50%',
+                    });
                 }
             }
             var currentpage = 0;

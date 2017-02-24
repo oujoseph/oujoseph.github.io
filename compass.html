@@ -48,6 +48,15 @@
             left: 10%;
         }
         
+        .compassContainer {
+            height: 20vh;
+            width: 20vh;
+            position: fixed;
+            overflow: hidden;
+            border-radius: 100%;
+            background: #1B5E20;
+        }
+        
         .compass {
             position: relative;
             background: #E0E0E0;
@@ -58,11 +67,11 @@
         }
         
         .compass.dimensions {
-            width: 50vh;
-            height: 50vh;
+            width: 60%;
+            height: 60%;
             position: absolute;
-            left: 25%;
-            top :25%;
+            left: 20%;
+            top :10%;
         }
         
         .compass.needle {
@@ -95,14 +104,30 @@
             background: #fff;
         }
         
+        .iconText {
+            font-family: 'Roboto', sans-serif;
+            position: absolute;
+            color:azure;
+            font-size: 2vh;
+            top:80%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-weight: 100;
+            opacity: 1;
+        }
+        
     </style>
 </head>
     
     
     <body>
-        <div class="compass dimensions">
-            <div class="compass needle"></div>
+        <div class="compassContainer">
+            <div class="iconText">Adventurer</div>
+            <div class="compass dimensions">
+                <div class="compass needle"></div>
+            </div>
         </div>
+        
     </body>
 
     
