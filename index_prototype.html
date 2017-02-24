@@ -177,6 +177,9 @@
             pageArray.page1 = function (isEnter) {
 //                window.alert("IN PAGE1");
                 if (isEnter == 0){
+                    $("#mug").stop().animate({
+                        'opacity': '0',
+                    });
                     $("h-leading-text").stop().animate({
                         'opacity': '1',
                         'top': '50%',
@@ -184,9 +187,7 @@
                     $(".parallaxSplash").stop().animate({
                         'opacity': '0',
                     });
-                    $("#mug").stop().animate({
-                        'opacity': '0',
-                    });
+                    
                 }
             }
             pageArray.page2 = function (isEnter) {
@@ -196,7 +197,7 @@
                         'opacity': '1',
                         'top': '5%',
                     });
-                    $("#mug").stop().delay(1000).animate({
+                    $("#mug").stop().delay(500).animate({
                         'opacity': '1',
                     });
                 }
@@ -217,9 +218,9 @@
                 }
                 
                 if (isEnter == 2) {
-                    $("#mug").stop().animate({
-                        'opacity': '0',
-                    });
+//                    $("#mug").stop().animate({
+//                        'opacity': '0',
+//                    });
                 }
             }
             var currentpage = 0;
