@@ -497,6 +497,11 @@
             <div class="iconText">Coder</div>
         </div>
         
+        <h-trailing-text1 class="h-title-base">I do a lot of things...</h-trailing-text1>
+        <h-trailing-text2 class="h-title-base">but I am defined by two traits:</h-trailing-text2>
+        <h-trailing-text3 class="h-title-base">I yearn to understand how things work</h-trailing-text3>
+        <h-trailing-text3 class="h-title-base">and </h-trailing-text3>
+        
     </body>
 
     
@@ -565,7 +570,6 @@
                     $(".parallaxSplash").stop().animate({
                         'opacity': '0',
                     });
-                    
                 }
             }
             pageArray.page2 = function (isEnter) {
@@ -578,15 +582,33 @@
                     $("#mug").stop().delay(200).animate({
                         'opacity': '1',
                     });
+                    $(".camiconContainer").stop().animate({
+                        'opacity': '0',
+                        'top': '50%',
+                        'left': '50%',
+                    });
+                    $(".compassContainer").stop().animate({
+                        'opacity': '0',
+                        'top': '50%',
+                        'left': '50%',
+                    });
+                    $(".musicContainer").stop().animate({
+                        'opacity': '0',
+                        'top': '50%',
+                        'left': '50%',
+                    });
+                    $(".codeiconContainer").stop().animate({
+                        'opacity': '0',
+                        'top': '50%',
+                        'left': '50%',
+                    });
                 }
                 if (isEnter == 2){
                     $("h-leading-text").stop().animate({
                         'opacity': '1',
                         'top': '5%',
                     });
-                    
                 }
-                
             }
             pageArray.page3 = function (isEnter) {
 //                window.alert("IN PAGE3");
@@ -614,26 +636,6 @@
                 }
                 
                 if (isEnter == 2) {
-                    $(".camiconContainer").stop().animate({
-                        'opacity': '0',
-                        'top': '50%',
-                        'left': '50%',
-                    });
-                    $(".compassContainer").stop().animate({
-                        'opacity': '0',
-                        'top': '50%',
-                        'left': '50%',
-                    });
-                    $(".musicContainer").stop().animate({
-                        'opacity': '0',
-                        'top': '50%',
-                        'left': '50%',
-                    });
-                    $(".codeiconContainer").stop().animate({
-                        'opacity': '0',
-                        'top': '50%',
-                        'left': '50%',
-                    });
                 }
             }
             var currentpage = 0;
@@ -659,10 +661,8 @@
             }
             
             $(window).on('resize scroll', function(){
-                    
                     scrollMarker = $(window).scrollTop();
-
-
+                
     //                Switch pagement determines what page to load on scroll and sends to pageManager()
                     switch(true){
                         case ((scrollMarker > 0) && (scrollMarker < $("scrollMarker0").offset().top)):
