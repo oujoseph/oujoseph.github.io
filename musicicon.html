@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Smile">
+    <meta name="author" content="Joseph Ou">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="animate_css/animate.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <style>
+        body {
+            background-color: black;
+        }
+        
+        #parallaxSplash {
+/*            background-image: url(/images/darksolder.jpg);*/
+
+            height: 100vh; 
+
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .h-title-base {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            position: absolute;
+            color:azure;
+        }
+        
+        h-title-name {
+            font-size: 10vw;
+            top: 10%;
+            left: 10%;
+        }
+        h-title-title {
+            font-size: 4vw;
+            top: 30%;
+            left: 10%;
+        }
+        
+        .musicContainer {
+            width: 20vh;
+            height: 20vh;
+            overflow: hidden;
+            position: fixed;
+            border-radius: 100%;
+            background: #455A64;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        
+        .whitekey {
+            background: #ffffff;
+            width:2vh;
+            height: 8vh;
+            opacity: 1;
+            position: absolute;
+            transition: 1s;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            z-index: -1;
+        }
+        .blackkey {
+            background: #444444;
+            width:1vh;
+            height: 5vh;
+            opacity: 1;
+            position: absolute;
+            transition: 1s;
+            transform: translate(-50%,-50%);
+            top: 42.5%;
+            z-index: -1;
+        }
+        .blackkey:hover {
+            background:#000000;
+            transition: .1s;
+        }
+        .whitekey:hover {
+            background:#bbbbbb;
+            transition: .1s;
+        }
+        #note-e-low {
+            left: 0%;
+
+        }
+        #note-f-low {
+            left: 10%;
+        }
+        #note-g-low {
+            left: 20%;
+        }
+        #note-a-low {
+            left: 30%;
+        }
+        #note-b-low {
+            left: 40%;
+        }
+        #note-c {
+            left: 50%;
+        }
+        #note-d {
+            left: 60%;
+        }
+        #note-e {
+            left: 70%;
+        }
+        #note-f {
+            left: 80%;
+        }
+        #note-g {
+            left: 90%;
+        }
+        #note-a {
+            left: 100%;
+        }
+        #note-fls {
+            left: 15%;
+        }
+        #note-gls {
+            left: 25%;
+        }
+        #note-als {
+            left: 35%;
+        }
+        #note-cs {
+            left: 55%;
+        }
+        #note-ds {
+            left: 65%;
+        }
+        #note-fs {
+            left: 85%;
+        }
+        #note-gs {
+            left: 95%;
+        }
+        
+        .iconText {
+            font-family: 'Roboto', sans-serif;
+            position: absolute;
+            color:azure;
+            font-size: 2vh;
+            top:80%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-weight: 100;
+            opacity: 1;
+        }
+    </style>
+</head>
+    
+    
+    <body>
+        <div class="musicContainer">
+            <div id="note-e-low" class="whitekey"></div>
+            <div id="note-f-low" class="whitekey"></div>
+            <div id="note-g-low" class="whitekey"></div>
+            <div id="note-a-low" class="whitekey"></div>
+            <div id="note-b-low" class="whitekey"></div>
+            
+            <div id="note-c" class="whitekey"></div>
+            <div id="note-d" class="whitekey"></div>
+            <div id="note-e" class="whitekey"></div>
+            <div id="note-f" class="whitekey"></div>
+            <div id="note-g" class="whitekey"></div>
+            <div id="note-a" class="whitekey"></div>
+            
+            <div id="note-fls" class="blackkey"></div>
+            <div id="note-gls" class="blackkey"></div>
+            <div id="note-als" class="blackkey"></div>
+            <div id="note-cs" class="blackkey"></div>
+            <div id="note-ds" class="blackkey"></div>
+            <div id="note-fs" class="blackkey"></div>
+            <div id="note-gs" class="blackkey"></div>
+            <div class="iconText">Musician</div>
+        </div>
+        
+    </body>
+
+    
+        
+        
+    <script>
+    $(document).ready(function(){
+    });
+    </script>
+        
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+
+</html>
