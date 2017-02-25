@@ -257,9 +257,8 @@
             
             opacity: 0;
             overflow: hidden;
-            position: fixed;
             border-radius: 100%;
-            background: #ff9900
+            background: #ff9900;
 ;
             position: fixed;
             top: 50%;
@@ -356,6 +355,58 @@
         #note-gs {
             left: 95%;
         }
+        
+        .codeiconContainer {
+            height: 20vh;
+            width: 20vh;
+            max-height: 20vw;
+            max-width: 20vw;
+            
+            opacity: 0;
+            overflow: hidden;
+            border-radius: 100%;
+            background: #333333;
+            
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        
+        input {
+            background: none;
+            border: none;
+            outline: none;
+            
+            position: absolute;
+            transition: 1s;
+            font-family: 'VT323', monospace;
+            font-size: 2vmin;
+            color: #00ff00;
+            top: 50%;
+            left: 45%;
+            transform: translate(0,-50%);
+            display:inline-block;
+            width: 52%;
+        }
+
+        .codeiconContent {
+            background: none;
+            border: none;
+            outline: none;
+            
+            position: absolute;
+            transition: 1s;
+            font-family: 'VT323', monospace;
+            font-size: 2vmin;
+            color: #00ff00;
+            top: 50%;
+            left: 3%;
+            transform: translate(0,-50%);
+            display:inline-block;
+            width: 50%;
+        }
+        
         .iconText {
             font-family: 'Roboto', sans-serif;
             position: absolute;
@@ -437,6 +488,15 @@
             <div id="note-gs" class="blackkey"></div>
             <div class="iconText">Musician</div>
         </div>
+        
+        <div class="codeiconContainer">
+            <div class="codeiconContent">hi@unix:⁓$</div>div>
+            <form>
+                <input>
+            </form>
+            <div class="iconText">Coder</div>
+        </div>
+        
     </body>
 
     
@@ -475,6 +535,9 @@
                     });
                     $(".parallaxSplash").stop().animate({
                         'opacity': '1',
+                    });
+                    $("#mug").stop().animate({
+                        'opacity': '0',
                     });
                 }
                 if (isEnter == 2){
@@ -540,8 +603,13 @@
                     });
                     $(".musicContainer").stop().animate({
                         'opacity': '1',
-                        'top': '87.5%',
-                        'left': '50%',
+                        'top': '25%',
+                        'left': '75%',
+                    });
+                    $(".codeiconContainer").stop().animate({
+                        'opacity': '1',
+                        'top': '25%',
+                        'left': '25%',
                     });
                 }
                 
@@ -557,6 +625,11 @@
                         'left': '50%',
                     });
                     $(".musicContainer").stop().animate({
+                        'opacity': '0',
+                        'top': '50%',
+                        'left': '50%',
+                    });
+                    $(".codeiconContainer").stop().animate({
                         'opacity': '0',
                         'top': '50%',
                         'left': '50%',

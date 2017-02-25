@@ -33,10 +33,18 @@
         .codeiconContainer {
             height: 20vh;
             width: 20vh;
-            position: fixed;
+            max-height: 20vw;
+            max-width: 20vw;
+            
+            opacity: 1;
             overflow: hidden;
             border-radius: 100%;
             background: #333333;
+            
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
         }
         
         input {
@@ -47,7 +55,7 @@
             position: absolute;
             transition: 1s;
             font-family: 'VT323', monospace;
-            font-size: 2vh;
+            font-size: 2vmin;
             color: #00ff00;
             top: 50%;
             left: 45%;
@@ -64,7 +72,7 @@
             position: absolute;
             transition: 1s;
             font-family: 'VT323', monospace;
-            font-size: 2vh;
+            font-size: 2vmin;
             color: #00ff00;
             top: 50%;
             left: 3%;
@@ -95,7 +103,6 @@
             <form>
                 <input>
             </form>
-            
             <div class="iconText">Coder</div>
         </div>
         
