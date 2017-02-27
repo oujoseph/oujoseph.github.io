@@ -48,21 +48,21 @@
         }
         
         h-title-name {
-            font-size: 10vw;
+            font-size: 15vmin;
             top: 10%;
             left: 10%;
             font-weight: 300;
             opacity: 1;
         }
         h-title-title {
-            font-size: 4vw;
+            font-size: 6vmin;
             top: 30%;
             left: 10%;
             font-weight: 100;
             opacity: 1;
         }
         h-leading-text {        
-            font-size: 4vw;
+            font-size: 4vmin;
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
@@ -72,10 +72,8 @@
         
         #mug {
             zoom: 1;
-            width: 50vh;
-            height: 50vh;
-            max-height: 50vw;
-            max-width: 50vw;
+            width: 50vmin;
+            height: 50vmin;
             
             border-radius: 50%;
             background-position: center center;
@@ -91,10 +89,8 @@
         }
 
         .camiconContainer {
-            width: 20vh;
-            height: 20vh;
-            max-height: 20vw;
-            max-width: 20vw;
+            width: 20vmin;
+            height: 20vmin;
             overflow: hidden;
             position: absolute;
             border-radius: 100%;
@@ -115,10 +111,9 @@
         }
         
         .camicon.dimensions {
-            width: 10vh;
-            height: 5vh;
-            max-width: 10vw;
-            max-height: 5vw;
+            width: 10vmin;
+            height: 5vmin;
+
             
             left: 50%;
             top :50%;
@@ -135,9 +130,9 @@
             left: 30%;
             top: -40%;
             
-            border-left: 1vh solid transparent;
-            border-right: 1vh solid transparent;
-            border-bottom: 1vh solid #E0E0E0;
+            border-left: 1vmin solid transparent;
+            border-right: 1vmin solid transparent;
+            border-bottom: 1vmin solid #E0E0E0;
             
             background: transparent;
             border-radius: 0%;
@@ -159,7 +154,7 @@
             background: black;
         }
         .camicon.line:hover {
-            box-shadow: -1vh -1vh 10vh 7vh rgba(255,255,0,.3);
+            box-shadow: -1vmin -1vmin 10vmin 7vmin rgba(255,255,0,.3);
         }
         
         .camicon.lens {
@@ -185,12 +180,12 @@
         }
         
         .camicon:hover {
-            box-shadow: -1vh -7vh 10vh 7vh rgba(255,255,200,.8);
+            box-shadow: -1vmin -7vmin 10vmin 7vmin rgba(255,255,200,.8);
         }
         
         .compassContainer {
-            height: 20vh;
-            width: 20vh;
+            height: 20vmin;
+            width: 20vmin;
             position: fixed;
             top: 50%;
             left: 50%;
@@ -250,10 +245,8 @@
         }
         
         .musicContainer {
-            width: 20vh;
-            height: 20vh;
-            max-height: 20vw;
-            max-width: 20vw;
+            width: 20vmin;
+            height: 20vmin;
             
             opacity: 0;
             overflow: hidden;
@@ -268,10 +261,8 @@
         
         .whitekey {
             background: #ffffff;
-            width:2vh;
-            height: 8vh;
-            max-width:2vw;
-            max-height: 8vw;
+            width:2vmin;
+            height: 8vmin;
             opacity: 1;
             position: absolute;
             transition: 1s;
@@ -281,10 +272,8 @@
         }
         .blackkey {
             background: #444444;
-            width:1vh;
-            height: 5vh;
-            max-height: 5vw;
-            max-width: 1vw;
+            width:1vmin;
+            height: 5vmin;
             opacity: 1;
             position: absolute;
             transition: 1s;
@@ -357,10 +346,8 @@
         }
         
         .codeiconContainer {
-            height: 20vh;
-            width: 20vh;
-            max-height: 20vw;
-            max-width: 20vw;
+            height: 20vmin;
+            width: 20vmin;
             
             opacity: 0;
             overflow: hidden;
@@ -407,11 +394,135 @@
             width: 50%;
         }
         
+        .techiconContainer {
+            height: 20vmin;
+            width: 20vmin;
+            opacity: 0;
+            overflow: hidden;
+            border-radius: 100%;
+            background: #337c3f;
+            
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        
+/*        skewing a right angle results in smoother, well, angles*/
+/*        tradeoff is ugly code-- border does not support percent size*/
+/*        .70711 = .5 when slanted 45 degrees... thanks, Pythagoras*/
+        
+        .angle-base {
+            border-bottom: .70711vmin solid #000;
+            border-left: .5vmin solid #000;
+            transform: translate(-50%);
+            position: absolute;
+        }
+        .angle-base:hover {
+            border-bottom: .70711vmin solid #fff;
+            border-left: .5vmin solid #fff;
+            
+        }
+        #angle-1 {
+            top: 20%;
+            left: 10%;
+            width: 30%;
+            height: 30%;
+            transform: skewY(30deg);
+        }
+        
+        #angle-2 {
+            top: 65%;
+            left: 15%;
+            height: 36%;
+        }
+        
+        #angle-3 {
+            top: 0%;
+            left: 40%;
+            height: 35%;
+        }
+        
+        #angle-4 {
+            top: 0%;
+            left: 60%;
+            height: 15%;
+        }
+        #angle-5 {
+            border-bottom: 0;
+            border-top: .70711vmin solid #000;
+            top: 60%;
+            left: 40%;
+            width: 35%;
+            height: 40%;
+            transform: skewY(-45deg);
+        }
+        
+        #angle-5:hover {
+            border-top: .70711vmin solid #fff;
+        }
+        
+        #angle-6 {
+            border-bottom: 0;
+            border-left: 0;
+            border-top: .70711vmin solid #000;
+            top: 50%;
+            left: 70%;
+            width: 35%;
+            height: 40%;
+            transform: skewY(-45deg);
+        }
+        #angle-6:hover {
+            border-top: .70711vmin solid #fff;
+        }
+        
+        .joint-base {
+            background: #000;
+            border-radius: 100%;
+            position: absolute;
+            width: 10%;
+            height: 10%;
+        }
+        
+        .joint-base:hover {
+            background: white;
+            box-shadow: 0px 0px 50px 5px rgba(255,255,255,.7);
+        }
+        
+        #joint-1 {
+
+            top: 52%;
+            left: 35%;
+        }
+        
+        #joint-2 {
+            top: 57%;
+            left: 10%;
+        }
+        #joint-3 {
+            top: 30%;
+            left: 35%;
+        }
+        
+        #joint-4 {
+            top: 10%;
+            left: 55%;
+        }
+        
+        #joint-5 {
+            top: 38.5%;
+            left: 70%;
+        }
+        #joint-6 {
+            top: 65%;
+            left: 65%;
+        }
+        
         .iconText {
             font-family: 'Roboto', sans-serif;
             position: absolute;
             color:azure;
-            font-size: calc(8px + 1vh);
+            font-size: calc(8px + 1vmin);
             top:80%;
             left: 50%;
             transform: translate(-50%,-50%);
@@ -497,16 +608,30 @@
             <div class="iconText">Coder</div>
         </div>
         
+        <div class="techiconContainer">
+            <div id="angle-1" class="angle-base"></div>
+            <div id="angle-2" class="angle-base"></div>
+            <div id="angle-3" class="angle-base"></div>
+            <div id="angle-4" class="angle-base"></div>
+            <div id="angle-5" class="angle-base"></div>
+            <div id="angle-6" class="angle-base"></div>
+            <div id="joint-1" class="joint-base"></div>
+            <div id="joint-2" class="joint-base"></div>
+            <div id="joint-3" class="joint-base"></div>
+            <div id="joint-4" class="joint-base"></div>
+            <div id="joint-5" class="joint-base"></div>
+            <div id="joint-6" class="joint-base"></div>
+            <div class="iconText">Techie</div>
+        </div>
+        
         <h-trailing-text1 class="h-title-base">I do a lot of things...</h-trailing-text1>
         <h-trailing-text2 class="h-title-base">but I am defined by two traits:</h-trailing-text2>
-        <h-trailing-text3 class="h-title-base">I yearn to understand how things work</h-trailing-text3>
+        <h-trailing-text3 class="h-title-base">I love figuring out how things work</h-trailing-text3>
         <h-trailing-text3 class="h-title-base">and I love building things.</h-trailing-text3>
         
     </body>
 
     
-        
-        
     <script>
 //        reset page on scroll
         $(window).on('beforeunload', function(){
@@ -602,6 +727,11 @@
                         'top': '50%',
                         'left': '50%',
                     });
+                    $(".techiconContainer").stop().animate({
+                        'opacity': '0',
+                        'top': '50%',
+                        'left': '50%',
+                    });
                 }
                 if (isEnter == 2){
                     $("h-leading-text").stop().animate({
@@ -632,6 +762,11 @@
                         'opacity': '1',
                         'top': '25%',
                         'left': '25%',
+                    });
+                    $(".techiconContainer").stop().animate({
+                        'opacity': '1',
+                        'top': '87.5%',
+                        'left': '50%',
                     });
                 }
                 

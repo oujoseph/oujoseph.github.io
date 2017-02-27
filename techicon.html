@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Smile">
+    <meta name="author" content="Joseph Ou">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400|VT323" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="animate_css/animate.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <style>
+        body {
+            background-color: black;
+        }
+        
+        #parallaxSplash {
+/*            background-image: url(/images/darksolder.jpg);*/
+
+            height: 100vh; 
+
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        
+        .techiconContainer {
+            height: 20vmin;
+            width: 20vmin;
+            opacity: 1;
+            overflow: hidden;
+            border-radius: 100%;
+            background: #337c3f;
+            
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        
+/*        skewing a right angle results in smoother, well, angles*/
+/*        tradeoff is ugly code-- border does not support percent size*/
+/*        .70711 = .5 when slanted 45 degrees... thanks, Pythagoras*/
+        
+        .angle-base {
+            border-bottom: .70711vmin solid #000;
+            border-left: .5vmin solid #000;
+            transform: translate(-50%);
+            position: absolute;
+        }
+        .angle-base:hover {
+            border-bottom: .70711vmin solid #fff;
+            border-left: .5vmin solid #fff;
+            
+        }
+        #angle-1 {
+            top: 20%;
+            left: 10%;
+            width: 30%;
+            height: 30%;
+            transform: skewY(30deg);
+        }
+        
+        #angle-2 {
+            top: 65%;
+            left: 15%;
+            height: 36%;
+        }
+        
+        #angle-3 {
+            top: 0%;
+            left: 40%;
+            height: 35%;
+        }
+        
+        #angle-4 {
+            top: 0%;
+            left: 60%;
+            height: 15%;
+        }
+        #angle-5 {
+            border-bottom: 0;
+            border-top: .70711vmin solid #000;
+            top: 60%;
+            left: 40%;
+            width: 35%;
+            height: 40%;
+            transform: skewY(-45deg);
+        }
+        
+        #angle-5:hover {
+            border-top: .70711vmin solid #fff;
+        }
+        
+        #angle-6 {
+            border-bottom: 0;
+            border-left: 0;
+            border-top: .70711vmin solid #000;
+            top: 50%;
+            left: 70%;
+            width: 35%;
+            height: 40%;
+            transform: skewY(-45deg);
+        }
+        #angle-6:hover {
+            border-top: .70711vmin solid #fff;
+        }
+        
+        .joint-base {
+            background: #000;
+            border-radius: 100%;
+            position: absolute;
+            width: 10%;
+            height: 10%;
+        }
+        
+        .joint-base:hover {
+            background: white;
+            box-shadow: 0px 0px 50px 5px rgba(255,255,255,.7);
+        }
+        
+        #joint-1 {
+
+            top: 52%;
+            left: 35%;
+        }
+        
+        #joint-2 {
+            top: 57%;
+            left: 10%;
+        }
+        #joint-3 {
+            top: 30%;
+            left: 35%;
+        }
+        
+        #joint-4 {
+            top: 10%;
+            left: 55%;
+        }
+        
+        #joint-5 {
+            top: 38.5%;
+            left: 70%;
+        }
+        #joint-6 {
+            top: 65%;
+            left: 65%;
+        }
+        .iconText {
+            font-family: 'Roboto', sans-serif;
+            position: absolute;
+            color:azure;
+            font-size: calc(8px + .75vmax);
+            top:80%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-weight: 100;
+            opacity: 1;
+        }
+        
+    </style>
+</head>
+    
+    
+    <body>
+        <div class="techiconContainer">
+            <div id="angle-1" class="angle-base"></div>
+            <div id="angle-2" class="angle-base"></div>
+            <div id="angle-3" class="angle-base"></div>
+            <div id="angle-4" class="angle-base"></div>
+            <div id="angle-5" class="angle-base"></div>
+            <div id="angle-6" class="angle-base"></div>
+            <div id="joint-1" class="joint-base"></div>
+            <div id="joint-2" class="joint-base"></div>
+            <div id="joint-3" class="joint-base"></div>
+            <div id="joint-4" class="joint-base"></div>
+            <div id="joint-5" class="joint-base"></div>
+            <div id="joint-6" class="joint-base"></div>
+            <div class="iconText">Techie</div>
+        </div>
+        
+    </body>
+
+    
+        
+        
+    <script>
+    $(document).ready(function(){
+    });
+    </script>
+        
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+
+</html>
