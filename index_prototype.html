@@ -61,6 +61,16 @@
             font-weight: 100;
             opacity: 1;
         }
+        h-title-debug {
+            font-family: 'Roboto', sans-serif;
+            position: fixed;
+            color:azure;
+            font-size: 6vmin;
+            top: 0%;
+            left: 80%;
+            font-weight: 100;
+            opacity: 1;
+        }
         h-leading-text {        
             font-size: 4vmin;
             top: 50%;
@@ -557,6 +567,7 @@
             <h-title-title class="h-title-base">Software Developer</h-title-title>
         </div>
         
+        <h-title-debug>Stage 0</h-title-debug>
 
         <h-leading-text class="h-title-base">Who Am I?</h-leading-text>
         <img id="mug" src="/images/mugPortrait.JPG">
@@ -704,7 +715,7 @@
                         'opacity': '1',
                         'top': '5%',
                     });
-                    $("#mug").stop().delay(200).animate({
+                    $("#mug").stop().animate({
                         'opacity': '1',
                     });
                     $(".camiconContainer").stop().animate({
@@ -788,10 +799,35 @@
                     pageArray[currfunc](1);
                     return;
                 };
+                
+                
+//                compensate for multipage jumps during the event of window resize
+//                as well as scrolls too fast for listener polling rate to handle
+                var diff = Math.abs(currentpage - newpage);
+                if (diff == 1){
+                    pageArray[currfunc](2);
+                    pageArray[newfunc](0);
+                } else {
+                    $("h-title-debug").text("Stage " + newpage + "<=" + currentpage);
+//                    one or the other of these while loops will trigger
+//                    will iterate from currentpage to newpage to prevent gaps in animation
+                    while(currentpage < newpage){
+                        currfunc = ('page' + currentpage);
+                        currentpage++;
+                        newfunc = ('page' + currentpage);
+                        pageArray[currfunc](2);
+                        pageArray[newfunc](0);
+                    }
+                    while(currentpage > newpage){
+                        currfunc = ('page' + currentpage);
+                        currentpage--;
+                        newfunc = ('page' + currentpage);
+                        pageArray[currfunc](2);
+                        pageArray[newfunc](0);
+                    }
+                }
                 currentpage = newpage;
                 
-                pageArray[currfunc](2);
-                pageArray[newfunc](0);
                 
             }
             
