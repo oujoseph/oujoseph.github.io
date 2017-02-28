@@ -78,7 +78,31 @@
             font-weight: 100;
             opacity: 0;
         }
-        
+        .trailing-text-base {
+            font-size: 4vmin;
+            font-weight: 100;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            width: 100%;
+            text-align: center;
+            
+        }
+        h-trailing-text1 {
+            opacity: 0;
+            top: 45%;
+        }
+        h-trailing-text2 {
+            opacity: 0;
+            top: 50%;
+        }
+        h-trailing-text3 {
+            opacity: 0;
+            top: 55%;
+        }
+        h-trailing-text4 {
+            opacity: 0;
+            top: 60%;
+        }
         #mug {
             zoom: 1;
             width: 50vmin;
@@ -560,6 +584,7 @@
         <scrollMarker7></scrollMarker7>
         <div class="halfPage"></div>
         <scrollMarker8></scrollMarker8>
+        <div class="fullPage"></div>
 <!--        Needs a separate div to enable opacity fade in and out-->
         <div class="parallaxSplash">
             <h-title-name class="h-title-base">Joseph Ou</h-title-name>
@@ -633,12 +658,12 @@
             <div id="joint-6" class="joint-base"></div>
             <div class="iconText">Techie</div>
         </div>
-        
-        <h-trailing-text1 class="h-title-base">I do a lot of things...</h-trailing-text1>
-        <h-trailing-text2 class="h-title-base">but I am defined by two traits:</h-trailing-text2>
-        <h-trailing-text3 class="h-title-base">I love figuring out how things work</h-trailing-text3>
-        <h-trailing-text3 class="h-title-base">and I love building things.</h-trailing-text3>
-        
+        <div class="fullage">
+            <h-trailing-text1 class="h-title-base trailing-text-base">I do a lot...</h-trailing-text1>
+            <h-trailing-text2 class="h-title-base trailing-text-base">but I am defined by two traits:</h-trailing-text2>
+            <h-trailing-text3 class="h-title-base trailing-text-base">I love figuring out how things work</h-trailing-text3>
+            <h-trailing-text4 class="h-title-base trailing-text-base">and I love building things.</h-trailing-text4>
+        </div>
     </body>
 
     
@@ -717,31 +742,6 @@
                     $("#mug").stop().animate({
                         'opacity': '1',
                     });
-                    $(".camiconContainer").stop().animate({
-                        'opacity': '0',
-                        'top': '50%',
-                        'left': '50%',
-                    });
-                    $(".compassContainer").stop().animate({
-                        'opacity': '0',
-                        'top': '50%',
-                        'left': '50%',
-                    });
-                    $(".musicContainer").stop().animate({
-                        'opacity': '0',
-                        'top': '50%',
-                        'left': '50%',
-                    });
-                    $(".codeiconContainer").stop().animate({
-                        'opacity': '0',
-                        'top': '50%',
-                        'left': '50%',
-                    });
-                    $(".techiconContainer").stop().animate({
-                        'opacity': '0',
-                        'top': '50%',
-                        'left': '50%',
-                    });
                 }
                 if (isEnter == 2){
                     $("h-leading-text").stop().animate({
@@ -778,11 +778,91 @@
                         'top': '87.5%',
                         'left': '50%',
                     });
+                    $("h-trailing-text1").stop().animate({
+                        'opacity': '0',
+                        'top': '45%',
+                    });
+                    $("h-trailing-text2").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("h-trailing-text3").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("h-trailing-text4").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("#mug").stop().animate({
+                        'opacity': '1',
+                    });
                 }
                 
                 if (isEnter == 2) {
+                    $(".camiconContainer").stop().animate({
+                        'opacity': '0',
+                        'top': '50%',
+                        'left': '50%',
+                    });
+                    $(".compassContainer").stop().animate({
+                        'opacity': '0',
+                        'top': '50%',
+                        'left': '50%',
+                    });
+                    $(".musicContainer").stop().animate({
+                        'opacity': '0',
+                        'top': '50%',
+                        'left': '50%',
+                    });
+                    $(".codeiconContainer").stop().animate({
+                        'opacity': '0',
+                        'top': '50%',
+                        'left': '50%',
+                    });
+                    $(".techiconContainer").stop().animate({
+                        'opacity': '0',
+                        'top': '50%',
+                        'left': '50%',
+                    });
                 }
             }
+        
+            pageArray.page4 = function (isEnter) {
+                if (isEnter == 0){
+                    $("h-leading-text").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("h-trailing-text1").stop().animate({
+                        'opacity': '1',
+                    });
+                    $("#mug").stop().animate({
+                        'opacity': '0',
+                    });
+                }
+            }
+            
+            pageArray.page5 = function (isEnter) {
+                if (isEnter == 0){
+                    $("h-trailing-text2").stop().animate({
+                        'opacity': '1',
+                    });
+                }
+            }
+            
+            pageArray.page6 = function (isEnter) {
+                if (isEnter == 0){
+                    $("h-trailing-text3").stop().animate({
+                        'opacity': '1',
+                    });
+                }
+            }
+            
+            pageArray.page7 = function (isEnter) {
+                if (isEnter == 0){
+                    $("h-trailing-text4").stop().animate({
+                        'opacity': '1',
+                    });
+                }
+            }
+            
             var currentpage = 0;
             
 //           page manager allows finer control to entry and exit transitions per state
@@ -851,11 +931,14 @@
                         case ((scrollMarker > $("scrollMarker3").offset().top) && (scrollMarker < $("scrollMarker4").offset().top)):
                             pageManager(4);
                             break;
-                        case ((scrollMarker > $("scrollMarker4").offset().top) && (scrollMarker < $("scrollMarker1").offset().top)):
+                        case ((scrollMarker > $("scrollMarker4").offset().top) && (scrollMarker < $("scrollMarker5").offset().top)):
                             pageManager(5);
                             break;
-                        case ((scrollMarker > $("scrollMarker5").offset().top) && (scrollMarker < $("scrollMarker1").offset().top)):
+                        case ((scrollMarker > $("scrollMarker5").offset().top) && (scrollMarker < $("scrollMarker6").offset().top)):
                             pageManager(6);
+                            break;
+                        case ((scrollMarker > $("scrollMarker6").offset().top) && (scrollMarker < $("scrollMarker7").offset().top)):
+                            pageManager(7);
                             break;
                     }
             });
