@@ -32,7 +32,10 @@
             top: 0px;
             width: 100%;
         }
-        .halfPage {
+        .eighthPage {
+            height: 12.5vh;
+        }
+        .quarterPage {
             height: 25vh;
         }
         .fullPage {
@@ -89,19 +92,19 @@
         }
         h-trailing-text1 {
             opacity: 0;
-            top: 45%;
+            top: 42.5%;
         }
         h-trailing-text2 {
             opacity: 0;
-            top: 50%;
+            top: 47.5%;
         }
         h-trailing-text3 {
             opacity: 0;
-            top: 55%;
+            top: 52.5%;
         }
         h-trailing-text4 {
             opacity: 0;
-            top: 60%;
+            top: 57.5%;
         }
         #mug {
             zoom: 1;
@@ -566,24 +569,25 @@
 </head>
     
     <body>
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
         <scrollMarker0></scrollMarker0>
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
         <scrollMarker1></scrollMarker1>
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
         <scrollMarker2></scrollMarker2>
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
         <scrollMarker3></scrollMarker3>
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
         <scrollMarker4></scrollMarker4>
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
         <scrollMarker5></scrollMarker5>
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
         <scrollMarker6></scrollMarker6>
-        <div class="halfPage"></div>
+        <div class="eighthPage"></div>
         <scrollMarker7></scrollMarker7>
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
         <scrollMarker8></scrollMarker8>
+        <div class="fullPage"></div>
         <div class="fullPage"></div>
 <!--        Needs a separate div to enable opacity fade in and out-->
         <div class="parallaxSplash">
@@ -780,7 +784,6 @@
                     });
                     $("h-trailing-text1").stop().animate({
                         'opacity': '0',
-                        'top': '45%',
                     });
                     $("h-trailing-text2").stop().animate({
                         'opacity': '0',
@@ -862,6 +865,22 @@
                     });
                 }
             }
+            pageArray.page8 = function (isEnter) {
+                if (isEnter == 0){
+                    $("h-trailing-text1").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("h-trailing-text2").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("h-trailing-text3").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("h-trailing-text4").stop().animate({
+                        'opacity': '0',
+                    });
+                }
+            }
             
             var currentpage = 0;
             
@@ -939,6 +958,9 @@
                             break;
                         case ((scrollMarker > $("scrollMarker6").offset().top) && (scrollMarker < $("scrollMarker7").offset().top)):
                             pageManager(7);
+                            break;
+                        case ((scrollMarker > $("scrollMarker7").offset().top) && (scrollMarker < $("scrollMarker8").offset().top)):
+                            pageManager(8);
                             break;
                     }
             });
