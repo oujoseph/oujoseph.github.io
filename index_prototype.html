@@ -93,22 +93,24 @@
             text-align: center;
             
         }
-        h-trailing-text1 {
+        h-content-text1 {
             opacity: 0;
             top: 42.5%;
         }
-        h-trailing-text2 {
+        h-content-text2 {
             opacity: 0;
             top: 47.5%;
         }
-        h-trailing-text3 {
+        h-content-text3 {
             opacity: 0;
             top: 52.5%;
         }
-        h-trailing-text4 {
+        h-content-text4 {
             opacity: 0;
             top: 57.5%;
         }
+        
+        
         #mug {
             zoom: 1;
             width: 50vmin;
@@ -588,9 +590,17 @@
         <scrollMarker6></scrollMarker6>
         <div class="eighthPage"></div>
         <scrollMarker7></scrollMarker7>
+        
         <div class="quarterPage"></div>
         <scrollMarker8></scrollMarker8>
-        <div class="fullPage"></div>
+        <div class="quarterPage"></div>
+        <scrollMarker9></scrollMarker9>
+        <div class="quarterPage"></div>
+        <scrollMarker10></scrollMarker10>
+        <div class="quarterPage"></div>
+        <scrollMarker11></scrollMarker11>
+        <div class="quarterPage"></div>
+        <scrollMarker12></scrollMarker12>
         <div class="fullPage"></div>
 <!--        Needs a separate div to enable opacity fade in and out-->
         <div class="parallaxSplash">
@@ -666,10 +676,10 @@
             <div class="iconText">Techie</div>
         </div>
         <div class="fullage">
-            <h-trailing-text1 class="h-title-base trailing-text-base">I do a lot...</h-trailing-text1>
-            <h-trailing-text2 class="h-title-base trailing-text-base">but I am defined by two traits:</h-trailing-text2>
-            <h-trailing-text3 class="h-title-base trailing-text-base">I love figuring out how things work</h-trailing-text3>
-            <h-trailing-text4 class="h-title-base trailing-text-base">and I love building things.</h-trailing-text4>
+            <h-content-text1 class="h-title-base trailing-text-base">I do a lot...</h-content-text1>
+            <h-content-text2 class="h-title-base trailing-text-base">but I am defined by two traits:</h-content-text2>
+            <h-content-text3 class="h-title-base trailing-text-base">I love figuring out how things work</h-content-text3>
+            <h-content-text4 class="h-title-base trailing-text-base">and I love building things.</h-content-text4>
         </div>
     </body>
 
@@ -785,19 +795,22 @@
                         'top': '87.5%',
                         'left': '50%',
                     });
-                    $("h-trailing-text1").stop().animate({
+                    $("h-content-text1").stop().animate({
                         'opacity': '0',
                     });
-                    $("h-trailing-text2").stop().animate({
+                    $("h-content-text2").stop().animate({
                         'opacity': '0',
                     });
-                    $("h-trailing-text3").stop().animate({
+                    $("h-content-text3").stop().animate({
                         'opacity': '0',
                     });
-                    $("h-trailing-text4").stop().animate({
+                    $("h-content-text4").stop().animate({
                         'opacity': '0',
                     });
                     $("#mug").stop().animate({
+                        'opacity': '1',
+                    });
+                    $("h-leading-text").stop().animate({
                         'opacity': '1',
                     });
                 }
@@ -836,7 +849,7 @@
                     $("h-leading-text").stop().animate({
                         'opacity': '0',
                     });
-                    $("h-trailing-text1").stop().animate({
+                    $("h-content-text1").stop().animate({
                         'opacity': '1',
                     });
                     $("#mug").stop().animate({
@@ -847,7 +860,7 @@
             
             pageArray.page5 = function (isEnter) {
                 if (isEnter == 0){
-                    $("h-trailing-text2").stop().animate({
+                    $("h-content-text2").stop().animate({
                         'opacity': '1',
                     });
                 }
@@ -855,7 +868,7 @@
             
             pageArray.page6 = function (isEnter) {
                 if (isEnter == 0){
-                    $("h-trailing-text3").stop().animate({
+                    $("h-content-text3").stop().animate({
                         'opacity': '1',
                     });
                 }
@@ -863,28 +876,33 @@
             
             pageArray.page7 = function (isEnter) {
                 if (isEnter == 0){
-                    $("h-trailing-text4").stop().animate({
+                    $("h-content-text4").stop().animate({
                         'opacity': '1',
                     });
                 }
             }
             pageArray.page8 = function (isEnter) {
                 if (isEnter == 0){
-                    $("h-trailing-text1").stop().animate({
+                    $("h-content-text1").stop().animate({
                         'opacity': '0',
                     });
-                    $("h-trailing-text2").stop().animate({
+                    $("h-content-text2").stop().animate({
                         'opacity': '0',
                     });
-                    $("h-trailing-text3").stop().animate({
+                    $("h-content-text3").stop().animate({
                         'opacity': '0',
                     });
-                    $("h-trailing-text4").stop().animate({
+                    $("h-content-text4").stop().animate({
                         'opacity': '0',
                     });
                 }
             }
             
+            pageArray.page9 = function (isEnter) {}
+            pageArray.page10 = function (isEnter) {}
+            pageArray.page11 = function (isEnter) {}
+            pageArray.page12 = function (isEnter) {}
+
             var currentpage = 0;
             
 //           page manager allows finer control to entry and exit transitions per state
@@ -965,6 +983,18 @@
                         case ((scrollMarker > $("scrollMarker7").offset().top) && (scrollMarker < $("scrollMarker8").offset().top)):
                             pageManager(8);
                             break;
+                        case ((scrollMarker > $("scrollMarker8").offset().top) && (scrollMarker < $("scrollMarker9").offset().top)):
+                            pageManager(9);
+                            break;
+                        case ((scrollMarker > $("scrollMarker9").offset().top) && (scrollMarker < $("scrollMarker10").offset().top)):
+                            pageManager(10);
+                            break;
+                        case ((scrollMarker > $("scrollMarker10").offset().top) && (scrollMarker < $("scrollMarker11").offset().top)):
+                            pageManager(11);
+                            break;
+                        case ((scrollMarker > $("scrollMarker11").offset().top) && (scrollMarker < $("scrollMarker12").offset().top)):
+                            pageManager(12);
+                            break;
                     }
             });
         });
@@ -973,7 +1003,4 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script type="text/javascript" src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-
-
-
 </html>
