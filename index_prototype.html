@@ -808,10 +808,11 @@
                     pageArray[currfunc](2);
                     pageArray[newfunc](0);
                 } else {
-                    $("h-title-debug").text("Stage " + newpage + "<=" + currentpage);
+                    
 //                    one or the other of these while loops will trigger
 //                    will iterate from currentpage to newpage to prevent gaps in animation
                     while(currentpage < newpage){
+                        $("h-title-debug").text("Stage " + currentpage);
                         currfunc = ('page' + currentpage);
                         currentpage++;
                         newfunc = ('page' + currentpage);
@@ -819,6 +820,7 @@
                         pageArray[newfunc](0);
                     }
                     while(currentpage > newpage){
+                        $("h-title-debug").text("Stage " + currentpage);
                         currfunc = ('page' + currentpage);
                         currentpage--;
                         newfunc = ('page' + currentpage);
@@ -827,8 +829,7 @@
                     }
                 }
                 currentpage = newpage;
-                
-                
+                $("h-title-debug").text("Stage " + currentpage);
             }
             
             $(window).on('resize scroll', function(){
