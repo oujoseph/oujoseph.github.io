@@ -7,7 +7,7 @@
     <meta name="description" content="Smile">
     <meta name="author" content="Joseph Ou">
 
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+<!--    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>-->
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="animate_css/animate.min.css">
@@ -22,7 +22,7 @@
             width: 100vw;
             height: 100vh;
         }
-        #circle {
+        .circle {
             background: black;
             width: 20vh;
             height: 20vh;
@@ -34,21 +34,16 @@
             left: 30%;
             margin:auto;
         }
-        
+        #circle-left {
+            top: 50%;
+            left: 30%;
+        }
         #circle-right {
-            background: black;
-            width: 20vh;
-            height: 20vh;
-            border-radius: 50%;
-            
-            position: absolute;
-            transform: translate(-50%, -50%);
             top: 50%;
             left: 70%;
-            margin:auto;
         }
         
-        #crescent {
+        .crescent {
             width:25vh;
             height:25vh;
             border-bottom: 1vh solid white;
@@ -61,37 +56,22 @@
             transition: 1s;
         }
         
-        #crescent:hover {
+        .crescent:hover {
             border-bottom: 35vh solid white;
         }
         #crescent-right {
-            width:25vh;
-            height:25vh;
-            border-bottom: 1vh solid white;
-            border-radius:50%;
-            position: absolute;
-            transform: translate(-50%, -50%);
             top: 50%;
             left: 70%;
-            margin:auto;
-            transition: 1s;
         }
-        
-        #crescent-right:hover {
-            border-bottom: 35vh solid white;
+        #crescent-left {
+            top: 50%;
+            left: 30%;
         }
-
         #crescent-bottom {
             width:50vh;
             height:20vh;
-            border-bottom: 1vh solid white;
-            border-radius:50%;
-            position: absolute;
-            transform: translate(-50%, -50%);
             top: 80%;
             left: 50%;
-            margin:auto;
-            transition: 1s;
         }
         #crescent-bottom:hover {
             width:60vh;
@@ -116,11 +96,11 @@
     
     <body class="fullPage">
         <h>DAY</h>
-        <div id="crescent-bottom"></div>
-        <div id="crescent"></div>
-        <div id="crescent-right"></div>
-        <div id="circle" ></div>
-        <div id="circle-right" ></div> 
+        <div id="crescent-bottom" class="crescent"></div>
+        <div id="crescent-left" class="crescent"></div>
+        <div id="crescent-right" class="crescent"></div>
+        <div id="circle-left" class="circle" ></div>
+        <div id="circle-right" class="circle" ></div> 
     </body>
     
     <script>
