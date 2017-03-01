@@ -46,6 +46,41 @@
             position: relative;
         }
         
+        #sidebar {
+            width: 48px;
+            height: 100vh;
+            background: #757575;
+            top:0%;
+            position: fixed;
+            overflow: hidden;
+            z-index: 100;
+        }
+        #sidebar-cover {
+            height: 100%;
+            width: 48px;
+            background: #2c3e50;
+            position: absolute;
+            top:-100%;
+            z-index: -1;
+        }
+        img {
+            width: 48px;
+            height: 48px;
+            z-index: 102;
+            padding: 6px;
+        }
+        #img-in {
+            width: 58px;
+        }
+        #img-res {
+            border-radius: 50%;
+            border: 1px solid white;
+            padding: 3px;
+            width: 36px;
+            height: 36px;
+            margin: 6px;            
+        }
+        
         .h-title-base {
             font-family: 'Roboto', sans-serif;
             position: fixed;
@@ -603,6 +638,16 @@
         <scrollMarker12></scrollMarker12>
         <div class="fullPage"></div>
 <!--        Needs a separate div to enable opacity fade in and out-->
+        
+        <div id="sidebar">
+            <div id="sidebar-cover"></div>
+            <a href="mailto:j0u@outlook.com"><img src="icons/white-envelope.png"></a>
+            <a href="https://github.com/oujoseph"><img src="/icons/GitHub-Mark-Light-64px.png"></a>
+            <a href="https://www.linkedin.com/in/josephou"><img id="img-in" src="/icons/In-White-48px-R.png"></a>
+
+            <a href="resume.pdf"><img id="img-res" src="/icons/human.png"></a>
+        </div>
+        
         <div class="parallaxSplash">
             <h-title-name class="h-title-base">Joseph Ou</h-title-name>
             <h-title-title class="h-title-base">Software Developer</h-title-title>
@@ -692,7 +737,7 @@
         
         $(document).ready(function(){
             var scrollMarker = $(window).scrollTop();
-            
+            var sidebarCoverHeight = ('-' + 100 + '%');
             //page of functions that makes each individual page easier to address
             var pageArray = {};
             
@@ -721,7 +766,24 @@
                     $("#mug").stop().animate({
                         'opacity': '0',
                     });
+                    $("#sidebar-cover").css({
+                        'top': '-100%',
+                    });
                 }
+                
+//                ((scrollMarker > $("scrollMarker0").offset().top) && (scrollMarker < $("scrollMarker1").offset().top)):
+//                
+//                
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker0").offset().top);
+                    divHeight = ($("scrollMarker1").offset().top - $("scrollMarker0").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
+                }
+                
                 if (isEnter == 2){
 //                    window.alert("IN PAGE0: isEnter 2");
                     $("h-title-title").stop().animate({
@@ -747,6 +809,20 @@
                     $(".parallaxSplash").stop().animate({
                         'opacity': '0',
                     });
+                     $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#16a085',
+                    });
+                    
+                }
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker1").offset().top);
+                    divHeight = ($("scrollMarker2").offset().top - $("scrollMarker1").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
                 }
             }
             pageArray.page2 = function (isEnter) {
@@ -759,6 +835,19 @@
                     $("#mug").stop().animate({
                         'opacity': '1',
                     });
+                     $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#2980b9',
+                    });
+                }
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker2").offset().top);
+                    divHeight = ($("scrollMarker3").offset().top - $("scrollMarker2").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
                 }
                 if (isEnter == 2){
                     $("h-leading-text").stop().animate({
@@ -813,8 +902,20 @@
                     $("h-leading-text").stop().animate({
                         'opacity': '1',
                     });
+                     $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#8e44ad',
+                    });
                 }
-                
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker3").offset().top);
+                    divHeight = ($("scrollMarker4").offset().top - $("scrollMarker3").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
+                }
                 if (isEnter == 2) {
                     $(".camiconContainer").stop().animate({
                         'opacity': '0',
@@ -855,6 +956,10 @@
                     $("#mug").stop().animate({
                         'opacity': '0',
                     });
+                     $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#33691E',
+                    });
                 }
             }
             
@@ -862,6 +967,10 @@
                 if (isEnter == 0){
                     $("h-content-text2").stop().animate({
                         'opacity': '1',
+                    });
+                     $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#BF360C',
                     });
                 }
             }
@@ -871,6 +980,10 @@
                     $("h-content-text3").stop().animate({
                         'opacity': '1',
                     });
+                     $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#4A148C',
+                    });
                 }
             }
             
@@ -878,6 +991,10 @@
                 if (isEnter == 0){
                     $("h-content-text4").stop().animate({
                         'opacity': '1',
+                    });
+                     $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#d32f2f',
                     });
                 }
             }
@@ -894,6 +1011,10 @@
                     });
                     $("h-content-text4").stop().animate({
                         'opacity': '0',
+                    });
+                     $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#FBC02D',
                     });
                 }
             }
