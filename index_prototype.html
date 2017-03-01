@@ -35,7 +35,7 @@
         .eighthPage {
             height: 12.5vh;
         }
-        .halfPage {
+        .quarterPage {
             height: 25vh;
         }
         .halfPage {
@@ -609,32 +609,32 @@
 </head>
     
     <body>
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
         <scrollMarker0></scrollMarker0>
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
         <scrollMarker1></scrollMarker1>
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
         <scrollMarker2></scrollMarker2>
         <div class="halfPage"></div>
         <scrollMarker3></scrollMarker3>
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
         <scrollMarker4></scrollMarker4>
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
         <scrollMarker5></scrollMarker5>
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
         <scrollMarker6></scrollMarker6>
-        <div class="halfPage"></div>
+        <div class="eighthPage"></div>
         <scrollMarker7></scrollMarker7>
         
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
         <scrollMarker8></scrollMarker8>
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
         <scrollMarker9></scrollMarker9>
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
         <scrollMarker10></scrollMarker10>
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
         <scrollMarker11></scrollMarker11>
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
         <scrollMarker12></scrollMarker12>
         <div class="fullPage"></div>
 <!--        Needs a separate div to enable opacity fade in and out-->
@@ -768,10 +768,12 @@
                     });
                     $("#sidebar-cover").css({
                         'top': '-100%',
-                        'background': '#2c3e50',
                     });
                 }
-                             
+                
+//                ((scrollMarker > $("scrollMarker0").offset().top) && (scrollMarker < $("scrollMarker1").offset().top)):
+//                
+//                
                 if (isEnter == 1){
                     distanceFromTop = (scrollMarker - $("scrollMarker0").offset().top);
                     divHeight = ($("scrollMarker1").offset().top - $("scrollMarker0").offset().top);
@@ -959,15 +961,6 @@
                          'background': '#33691E',
                     });
                 }
-                if (isEnter == 1){
-                    distanceFromTop = (scrollMarker - $("scrollMarker4").offset().top);
-                    divHeight = ($("scrollMarker5").offset().top - $("scrollMarker4").offset().top);
-                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
-                    sidebarCoverHeight = (sidebarPercent + '%');
-                    $("#sidebar-cover").css({
-                        'top': sidebarCoverHeight,
-                    })
-                }
             }
             
             pageArray.page5 = function (isEnter) {
@@ -979,15 +972,6 @@
                         'top': '-100%',
                          'background': '#BF360C',
                     });
-                }
-                if (isEnter == 1){
-                    distanceFromTop = (scrollMarker - $("scrollMarker5").offset().top);
-                    divHeight = ($("scrollMarker6").offset().top - $("scrollMarker5").offset().top);
-                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
-                    sidebarCoverHeight = (sidebarPercent + '%');
-                    $("#sidebar-cover").css({
-                        'top': sidebarCoverHeight,
-                    })
                 }
             }
             
@@ -1001,15 +985,6 @@
                          'background': '#4A148C',
                     });
                 }
-                if (isEnter == 1){
-                    distanceFromTop = (scrollMarker - $("scrollMarker6").offset().top);
-                    divHeight = ($("scrollMarker7").offset().top - $("scrollMarker6").offset().top);
-                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
-                    sidebarCoverHeight = (sidebarPercent + '%');
-                    $("#sidebar-cover").css({
-                        'top': sidebarCoverHeight,
-                    })
-                }
             }
             
             pageArray.page7 = function (isEnter) {
@@ -1021,15 +996,6 @@
                         'top': '-100%',
                          'background': '#d32f2f',
                     });
-                }
-                if (isEnter == 1){
-                    distanceFromTop = (scrollMarker - $("scrollMarker7").offset().top);
-                    divHeight = ($("scrollMarker8").offset().top - $("scrollMarker7").offset().top);
-                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
-                    sidebarCoverHeight = (sidebarPercent + '%');
-                    $("#sidebar-cover").css({
-                        'top': sidebarCoverHeight,
-                    })
                 }
             }
             pageArray.page8 = function (isEnter) {
@@ -1050,15 +1016,6 @@
                         'top': '-100%',
                          'background': '#FBC02D',
                     });
-                }
-                if (isEnter == 1){
-                    distanceFromTop = (scrollMarker - $("scrollMarker8").offset().top);
-                    divHeight = ($("scrollMarker9").offset().top - $("scrollMarker8").offset().top);
-                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
-                    sidebarCoverHeight = (sidebarPercent + '%');
-                    $("#sidebar-cover").css({
-                        'top': sidebarCoverHeight,
-                    })
                 }
             }
             
