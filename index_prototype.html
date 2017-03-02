@@ -214,7 +214,7 @@
             left: 50%;
             transform: translate(-50%,-50%);
             font-weight: 100;
-            opacity: 1;
+            opacity: 0;
         }
         
         #mug {
@@ -820,7 +820,7 @@
             <h-content-text4 class="h-title-base trailing-text-base">and I love building things.</h-content-text4>
         </div>
         
-<!--        <h-trailing-text class="h-title-base trailing-text-base">Here are some things that I'm building.</h-trailing-text>-->
+        <h-trailing-text class="h-title-base trailing-text-base">Here are some things that I'm building.</h-trailing-text>
     </body>
 
     
@@ -1116,6 +1116,9 @@
                         'top': '-100%',
                          'background': '#d32f2f',
                     });
+                    $("h-trailing-text").css({
+                        'opacity': '0',
+                    });
                 }
                 if (isEnter == 1){
                     distanceFromTop = (scrollMarker - $("scrollMarker7").offset().top);
@@ -1141,11 +1144,11 @@
                     $("h-content-text4").stop().animate({
                         'opacity': '0',
                     });
-                     $("#sidebar-cover").css({
+                    $("#sidebar-cover").css({
                         'top': '-100%',
                          'background': '#FBC02D',
                     });
-                    $("h-trailing-text")({
+                    $("h-trailing-text").stop().animate({
                         'opacity': '1',
                     });
                 }
@@ -1158,15 +1161,80 @@
                         'top': sidebarCoverHeight,
                     })
                 }
+                if (isEnter == 2){
+                    $("h-trailing-text").stop().animate({
+                        'opacity': '0',
+                    });
+                }
             }
             pageArray.page9 = function (isEnter) {
                 if (isEnter == 0){
-                    
+                    $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#c62828',
+                    });
                 };
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker9").offset().top);
+                    divHeight = ($("scrollMarker10").offset().top - $("scrollMarker9").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
+                }
             }
-            pageArray.page10 = function (isEnter) {}
-            pageArray.page11 = function (isEnter) {}
-            pageArray.page12 = function (isEnter) {}
+            pageArray.page10 = function (isEnter) {
+                if (isEnter == 0){
+                    $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#8BC34A',
+                    });
+                }
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker10").offset().top);
+                    divHeight = ($("scrollMarker11").offset().top - $("scrollMarker10").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
+                }
+            }
+            pageArray.page11 = function (isEnter) {
+                if (isEnter == 0){
+                    $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#0277BD',
+                    });
+                }
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker11").offset().top);
+                    divHeight = ($("scrollMarker12").offset().top - $("scrollMarker11").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
+                }
+            }
+            pageArray.page12 = function (isEnter) {
+                if (isEnter == 0){
+                    $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#1B5E20',
+                    });
+                }
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker11").offset().top);
+                    divHeight = ($("scrollMarker12").offset().top - $("scrollMarker11").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
+                }
+            }
 
             var currentpage = 0;
             
