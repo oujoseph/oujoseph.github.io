@@ -20,16 +20,21 @@
         
         #sidebar {
             width: 48px;
+            
             height: 100vh;
             background: #757575;
             top:0%;
             position: fixed;
             overflow: hidden;
             z-index: 100;
+            transition: .25s ease-out;
+        }
+        #sidebar:hover {
+            width: calc(64px + 10vw);
         }
         #sidebar-cover {
             height: 100%;
-            width: 48px;
+            width: 100%;
             background: #2c3e50;
             position: absolute;
             top:-100%;
@@ -41,8 +46,31 @@
             z-index: 102;
             padding: 6px;
         }
+        
+        #img-mail:hover {
+            filter: drop-shadow(0px 0px 10px #fff);
+        }
+        #img-in:hover {
+            filter: drop-shadow(0px 0px 10px #fff);
+        }
+        #img-res:hover {
+            filter: drop-shadow(0px 0px 10px #fff);
+        }
+        #img-git:hover {
+            filter: drop-shadow(0px 0px 10px #fff);
+        }
+        #img-mail {
+            top: 0px;
+            position: absolute;
+        }
+        #img-git {
+            top: 48px;
+            position: absolute;
+        }
         #img-in {
+            top: 96px;
             width: 58px;
+            position: absolute;
         }
         #img-res {
             border-radius: 50%;
@@ -50,22 +78,45 @@
             padding: 3px;
             width: 36px;
             height: 36px;
-            margin: 6px;            
+            margin: 6px;
+            top: 144px;
+            position: absolute;
         }
-/*
-        #c0392b
-        #d35400
-        #16a085
-        #2980b9
-        #8e44ad
-        #33691E
-        #BF360C
-        #757575
-        #4A148C
-        #d32f2f
-        #FBC02D
-*/
-
+        .sb-text {
+            left: calc(0% + 48px);
+            width: calc(100% - 48px);
+            height: 48px;
+            
+            font-family: 'Roboto', sans-serif;
+            font-size: calc(8px + .5vmin);
+            font-weight: 100;
+            color:azure;
+            
+            position: absolute;
+            text-align: center;
+            padding-top: 16px;
+            padding-bottom: 16px;
+        }
+        #sb-mail {
+            height: 100%;
+            position: relative;
+            
+        }
+        #sb-git {
+            top: 48px;
+            height: 100%;
+            position: relative;
+        }
+        #sb-in {
+            top: 96px;
+            height: 100%;
+            position: relative;
+        }
+        #sb-res {
+            top: 144px;
+            height: 100%;
+            position: relative;
+        }
         
     </style>
 </head>
@@ -75,11 +126,32 @@
     <body>
         <div id="sidebar">
             <div id="sidebar-cover"></div>
-            <a href="mailto:j0u@outlook.com"><img src="icons/white-envelope.png"></a>
-            <a href="https://github.com/oujoseph"><img src="/icons/GitHub-Mark-Light-64px.png"></a>
-            <a href="https://www.linkedin.com/in/josephou"><img id="img-in" src="/icons/In-White-48px-R.png"></a>
-
-            <a href="resume.pdf"><img id="img-res" src="/icons/human.png"></a>
+            <a href="mailto:j0u@outlook.com">
+                <img id="img-mail" src="icons/white-envelope.png">
+                
+                <div class="sb-text">
+                    <div id="sb-mail">Mail</div>
+                </div>
+            </a>
+            <a href="https://github.com/oujoseph">
+                <img id="img-git" src="/icons/GitHub-Mark-Light-64px.png">
+                
+                <div class="sb-text">
+                    <div id="sb-git">Github</div>
+                </div>
+            </a>
+            <a href="https://www.linkedin.com/in/josephou">
+                <img id="img-in" src="/icons/In-White-48px-R.png">
+                <div class="sb-text">
+                    <div id="sb-in">Linkedin</div>
+                </div>
+            </a>
+            <a href="resume.pdf">
+                <img id="img-res" src="/icons/human.png">
+                <div class="sb-text">
+                    <div id="sb-res">Resume</div>
+                </div>
+            </a>
         </div>
     </body>
 
