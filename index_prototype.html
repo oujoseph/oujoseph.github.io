@@ -216,9 +216,20 @@
             font-weight: 100;
             opacity: 0;
         }
+        h-final-text1 {
+            opacity: 0;
+            top: 45%;
+        }
+        h-final-text2 {
+            opacity: 0;
+            top: 50%;
+        }
+        h-final-text3 {
+            opacity: 0;
+            top: 55%;
+        }
         
         #mug {
-            zoom: 1;
             width: 50vmin;
             height: 50vmin;
             
@@ -246,7 +257,6 @@
             left: 50%;
             transform: translate(-50%,-50%);
             opacity: 0;
-            z-index: -1;
         }
         
         .camicon {
@@ -315,7 +325,6 @@
             transform: translate(-50%, -50%);
             border-radius: 100%;
             transition: .25s;
-            z-index: 0;
         }
         
         .camicon.lens:active {
@@ -782,7 +791,7 @@
             left: 50%;
             transform: translate(-50%,-50%);
             font-weight: 100;
-            opacity: 0;
+            opacity: 1;
         }
         a {
             color: azure;
@@ -818,7 +827,9 @@
         <scrollMarker11></scrollMarker11>
         <div class="halfPage"></div>
         <scrollMarker12></scrollMarker12>
-        <div class="fullPage"></div>
+        <div class="halfPage"></div>
+        <scrollMarker13></scrollMarker13>
+        <div class="halfPage"></div>
 <!--        Needs a separate div to enable opacity fade in and out-->
         
         <div id="sidebar">
@@ -851,13 +862,13 @@
                 <div id="sb-res">Resume</div>
             </div>
         </div>
-        
+
         <div class="parallaxSplash">
             <h-title-name class="h-title-base">Joseph Ou</h-title-name>
             <h-title-title class="h-title-base">Software Developer</h-title-title>
         </div>
         
-        <h-title-debug>Stage 0</h-title-debug>
+<!--        <h-title-debug>Stage 0</h-title-debug>-->
 
         <h-leading-text class="h-title-base">Who Am I?</h-leading-text>
         <img id="mug" src="/images/mugPortrait.JPG">
@@ -924,12 +935,11 @@
             <div id="joint-6" class="joint-base"></div>
             <div class="iconText">Techie</div>
         </div>
-        <div class="fullage">
-            <h-content-text1 class="h-title-base trailing-text-base">I do a lot...</h-content-text1>
-            <h-content-text2 class="h-title-base trailing-text-base">but I am defined by two traits:</h-content-text2>
-            <h-content-text3 class="h-title-base trailing-text-base">I love figuring out how things work</h-content-text3>
-            <h-content-text4 class="h-title-base trailing-text-base">and I love building things.</h-content-text4>
-        </div>
+        
+        <h-content-text1 class="h-title-base trailing-text-base">I do a lot...</h-content-text1>
+        <h-content-text2 class="h-title-base trailing-text-base">but I am defined by two traits:</h-content-text2>
+        <h-content-text3 class="h-title-base trailing-text-base">I love figuring out how things work</h-content-text3>
+        <h-content-text4 class="h-title-base trailing-text-base">and I love building things.</h-content-text4>
         
         <h-trailing-text class="h-title-base trailing-text-base">Here are some things that I'm building.</h-trailing-text>
         
@@ -964,6 +974,9 @@
             </div>
         </div>
         
+        <h-final-text1 class="h-title-base trailing-text-base">And that's all, folks!</h-final-text1>
+        <h-final-text2 class="h-title-base trailing-text-base">If you liked what you saw, let me know!</h-final-text2>
+        <h-final-text3 class="h-title-base trailing-text-base">I'm open for business.</h-final-text3>
     </body>
 
     
@@ -1332,6 +1345,15 @@
                         'opacity': '1',
                         'z-index':'1',
                     });
+                    $("h-final-text1").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("h-final-text2").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("h-final-text3").stop().animate({
+                        'opacity': '0',
+                    });
                 };
                 if (isEnter == 1){
                     distanceFromTop = (scrollMarker - $("scrollMarker9").offset().top);
@@ -1367,6 +1389,9 @@
                         'top': '-100%',
                          'background': '#8BC34A',
                     });
+                    $("h-final-text1").stop().animate({
+                        'opacity': '1',
+                    });
                 }
                 if (isEnter == 1){
                     distanceFromTop = (scrollMarker - $("scrollMarker10").offset().top);
@@ -1384,6 +1409,9 @@
                         'top': '-100%',
                          'background': '#0277BD',
                     });
+                    $("h-final-text2").stop().animate({
+                        'opacity': '1',
+                    });
                 }
                 if (isEnter == 1){
                     distanceFromTop = (scrollMarker - $("scrollMarker11").offset().top);
@@ -1400,6 +1428,9 @@
                     $("#sidebar-cover").css({
                         'top': '-100%',
                          'background': '#1B5E20',
+                    });
+                    $("h-final-text3").stop().animate({
+                        'opacity': '1',
                     });
                 }
                 if (isEnter == 1){
@@ -1458,7 +1489,7 @@
                     }
                 }
                 currentpage = newpage;
-                $("h-title-debug").text("Stage " + currentpage);
+//                $("h-title-debug").text("Stage " + currentpage);
             }
             
             $(window).on('resize scroll', function(){
