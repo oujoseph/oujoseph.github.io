@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Smile">
+    <meta name="author" content="Joseph Ou">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <style>
+        body {
+            background-color: grey;
+        }
+        
+        .worksContainer {
+            opacity: 1;
+            width: 50vmin;
+            height: 35vmin;
+            position: absolute;
+            overflow: hidden;
+            border-radius: 1vmin;
+            transition: .25s;
+            border-top: 1vmin solid #FBF5E6;
+            border-left: 1vmin solid #FBF5E6;
+            border-right: 1vmin solid #FBF5E6;
+            border-bottom: 0;
+            
+        }
+        
+        .worksContainer:hover {
+            width: 51vmin;
+            height: 36vmin;
+            border-top: 0vmin solid #FBF5E6;
+            border-left: 0vmin solid #FBF5E6;
+            border-right: 0vmin solid #FBF5E6;
+        }
+        
+        .worksContainer:hover > .captionContainer{
+            top: 50%;
+        }
+        
+        .captionContainer {
+            width: 100%;
+            height: 50%;
+            top: 85%;
+            position: absolute;
+            transition: .25s;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 100;
+        }
+        
+        .captionTitle {
+            width: 60%;
+            height: 31%;
+            left: 20%;
+            position: absolute;
+            text-align: center;
+            background: #FBF5E6;
+            font-size: 4vmin;
+            border-radius: 20px 20px 0% 0%;
+        }
+        
+        .captionContent {
+            width: 100%;
+            height: 70%;
+            top: 30%;
+            text-align: center;
+            position: absolute;
+            background: #FBF5E6;
+            font-size: calc(8px + .75vmin);
+            padding: 16px;
+        }
+        
+        
+        #projectsImage {
+            background: url("images/leds.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            top: 35%;
+            left: 25%;
+            transform: translate(-50%,-50%);
+            opacity: 1;
+        }
+        #galleryImage {
+            background: url("images/gallery.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            top: 35%;
+            left: 75%;
+            transform: translate(-50%,-50%);
+            opacity: 1;
+        }
+        
+        #AdventuresImage {
+            background: url("images/flowers.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            top: 75%;
+            left: 75%;
+            transform: translate(-50%,-50%);
+            opacity: 1;
+        }
+        #PastLivesImage {
+            background: url("images/milky_way.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            top: 75%;
+            left: 25%;
+            transform: translate(-50%,-50%);
+            opacity: 1;
+        }
+        
+    </style>
+</head>
+    
+    
+    
+    <body>
+        
+        <div id="projectsImage" class="worksContainer">
+            <div class="captionContainer">
+                <div class="captionTitle">Projects</div>
+                <div class="captionContent">Under Construction! The project I am focusing on right now is this website.</div>
+            </div>
+        </div>
+        <a href="gallery.html">
+            <div id="galleryImage" class="worksContainer">
+                <div id="galleryImage"></div>
+                <div class="captionContainer">
+                    <div class="captionTitle">Gallery</div>
+                    <div class="captionContent">One of my hobbies is landscape photography. Here's a particularly resource heavy image gallery comprised of some of my shots (performance and visual improvements are forthcoming)</div>
+                </div>
+            </div>
+        </a>
+        <a href="adventures.html">
+            <div id="AdventuresImage" class="worksContainer">
+                <div class="captionContainer">
+                    <div class="captionTitle">Adventures</div>
+                    <div class="captionContent">A page I'm making to showcase some of the places I've been.</div>
+                </div>
+            </div>
+        </a>
+        
+        <div id="PastLivesImage" class="worksContainer">
+            <div class="captionContainer">
+                <div class="captionTitle">Past Lives...</div>
+                <div class="captionContent">...Of this website! In the coming weeks, I'll be making a short writeup of my progress as a web developer.</div>
+            </div>
+        </div>
+    </body>
+
+    
+        
+        
+    <script>
+    $(document).ready(function(){
+        
+    });
+    </script>
+        
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+
+</html>
