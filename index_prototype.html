@@ -48,31 +48,7 @@
             height: 100vh;
             position: relative;
         }
-        #scrollIcon {
-            position: absolute;
-            text-align: center;
-            bottom: -5%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            white-space: nowrap;
-            max-width: 50%;
-
-            -webkit-transition: .5s;
-            -moz-transition: .5s;
-            -o-transition: .5s;
-            transition: .5s;
-            transform-origin: 0% 0%;
-            animation: wobble 2s infinite;
-
-        }
-
-        @keyframes wobble {
-            0% {transform:rotate(5deg) translate(-50%, -50%);}
-            5% {transform:rotate(-5deg) translate(-50%, -50%);}
-            10% {transform:rotate(5deg) translate(-50%, -50%);}
-            15% {transform:rotate(-5deg) translate(-50%, -50%);}
-            25% {transform:rotate(0deg) translate(-50%, -50%);}
-        }
+        
         #sidebar {
             width: 48px;
             
@@ -204,7 +180,7 @@
         
         .anchorContainer {
             background: azure;
-            right: 5%;
+            right: 2.5%;
             position: fixed;
             transform: translate(50%,-50%);
             -webkit-transition: .2s;
@@ -212,7 +188,7 @@
             -o-transition: .2s;
             transition: .2s;
             border: 1px solid white;
-            z-index:1;
+            z-index:2;
         }
         .anchorContainer:hover {
             border-radius: 50%;
@@ -270,7 +246,32 @@
             position: fixed;
             color:azure;
         }
+        h-title-scroll {
+            font-size: 3vmin;
+            top: 95%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-weight: 100;
+            -webkit-transition: .5s;
+        -moz-transition: .5s;
+        -o-transition: .5s;
+        transition: .5s;
+        transform-origin: 0% 0%;
+        animation: wobble 2s infinite;
+        }
         
+        @keyframes wobble {
+            0% {transform:rotate(5deg) translate(-50%, -50%);}
+            10% {transform:rotate(-5deg) translate(-50%, -50%);
+                top:90%;
+            }
+            15% {transform:rotate(5deg) translate(-50%, -50%);}
+            20% {transform:rotate(-5deg) translate(-50%, -50%);}
+            25% {transform:rotate(0deg) translate(-50%, -50%);}
+            30% {transform:rotate(-5deg) translate(-50%, -50%);}
+            35% {transform:rotate(0deg) translate(-50%, -50%);}
+            50% {top:98%;}
+        }
         h-title-name {
             font-size: 15vmin;
             top: 10%;
@@ -991,12 +992,11 @@
             </div>
         </div>
 
-        <div class="parallaxSplash">
-            <h-title-name class="h-title-base">Joseph Ou</h-title-name>
-            <h-title-title class="h-title-base">Software Developer</h-title-title>
-        </div>
-        
-<!--        <h-title-debug>Stage 0</h-title-debug>-->
+        <div class="parallaxSplash"></div>
+        <h-title-name class="h-title-base">Joseph Ou</h-title-name>
+        <h-title-title class="h-title-base">Software Developer</h-title-title>
+        <h-title-scroll class="h-title-base">Scroll</h-title-scroll>
+        <h-title-debug>Stage 0</h-title-debug>
 
         <h-leading-text class="h-title-base">Who Am I?</h-leading-text>
         <img id="mug" src="/images/mugPortrait.JPG">
@@ -1144,6 +1144,10 @@
                         'opacity': '0',
                         'top': '-10%',
                     });
+                    $("h-title-scroll").stop().animate({
+                        'opacity': '1',
+                        'top': '95%',
+                    });
                     $(".parallaxSplash").stop().animate({
                         'opacity': '1',
                     });
@@ -1181,6 +1185,10 @@
                     $("h-title-name").stop().animate({
                         'opacity': '0',
                         'top': '-20%',
+                    });
+                    $("h-title-scroll").stop().animate({
+                        'opacity': '0',
+                        'top': '120%',
                     });
                 }
             }

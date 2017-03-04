@@ -1,473 +1,1718 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Main Page">
+    <meta name="description" content="prototype of future index.html">
     <meta name="author" content="Joseph Ou">
 
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400|VT323" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
-	<style>
-
-	html {
-	}
-	.parallaxSplash {
-  		background-image: url(/images/darksolder.jpg);
-
-    	height: 100vh; 
-
-    	background-attachment: fixed;
-    	background-position: center;
-    	background-repeat: no-repeat;
-    	background-size: cover;
-	}
-
-	.parallaxSplash.opa {
-		opacity: 0;
-	}
-
-	.navbar.blur:before{
-		filter: blur(5px);
-  		-webkit-filter: blur(5px);
-	}
-
-	h1 {
-		font-family: 'Roboto', sans-serif;
-		font-weight: 300;
-		font-size: 10vw;
-	}
-	h2 {
-		font-family: 'Roboto', sans-serif;
-		font-weight: 300;
-		font-size: 4vw;
-	}
-
-	#titleText {
-		color: #E1E1E1;
-		position: absolute;
-		transform: translate(-50%, -50%);
-		top: 30%;
-		left: 30%;
-    	white-space: nowrap;
-	}
-	#scrollIcon {
-		position: absolute;
-		text-align: center;
-		bottom: -5%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-    	white-space: nowrap;
-    	max-width: 50%;
+    <style>
+        body {
+            background-color: black;
+        }
+        ::-webkit-scrollbar { 
+            display: none; 
+        }
         
-        -webkit-transition: .5s;
+        .parallaxSplash {
+            background-image: url(/images/darksolder.jpg);
+
+            height: 100vh;
+
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+        }
+        .eighthPage {
+            height: 12.5vh;
+        }
+        .quarterPage {
+            height: 25vh;
+        }
+        .halfPage {
+            height: 50vh;
+        }
+        .fullPage {
+            height: 100vh;
+            position: relative;
+        }
+        
+        #sidebar {
+            width: 48px;
+            
+            height: 100vh;
+            background: #757575;
+            top:0%;
+            position: fixed;
+            overflow: hidden;
+            z-index: 100;
+            -webkit-transition:  .35s ease-out;
+            -moz-transition:  .35s ease-out;
+            -o-transition:  .35s ease-out;
+            transition: .35s ease-out;
+        }
+        #sidebar:hover {
+            width: calc(64px + 10vw);
+        }
+        #sidebar:hover > .sb-text {
+            opacity: 1;
+            -webkit-transition:  1.5s;
+            -moz-transition:  1.5s;
+            -o-transition:  1.5s;
+            transition: 1.5s;
+        }
+        #sidebar-cover {
+            height: 100%;
+            width: 100%;
+            background: #2c3e50;
+            position: absolute;
+            top:-100%;
+            z-index: -1;
+        }
+        img {
+            width: 48px;
+            height: 48px;
+            padding: 6px;
+        }
+        
+        #img-mail:hover {
+            filter: drop-shadow(0px 0px 10px #fff);
+        }
+        #img-in:hover {
+            filter: drop-shadow(0px 0px 10px #fff);
+        }
+        #img-res:hover {
+            filter: drop-shadow(0px 0px 10px #fff);
+        }
+        #img-git:hover {
+            filter: drop-shadow(0px 0px 10px #fff);
+        }
+        #img-mail {
+            top: 0px;
+            position: absolute;
+        }
+        #img-git {
+            top: 48px;
+            position: absolute;
+        }
+        #img-in {
+            top: 96px;
+            width: 58px;
+            position: absolute;
+        }
+        #img-res {
+            top: 144px;
+            border-radius: 50%;
+            border: 1px solid white;
+            padding: 3px;
+            width: 36px;
+            height: 36px;
+            margin: 6px;
+            position: absolute;
+        }
+        #img-call {
+            top: 192px;
+            width: 48px;
+            position: absolute;
+        }
+        .sb-text {
+            left: calc(0% + 48px);
+            width: calc(100% - 48px);
+            height: 48px;
+            
+            font-family: 'Roboto', sans-serif;
+            font-size: calc(8px + .5vmin);
+            font-weight: 100;
+            color:azure;
+            
+            position: absolute;
+            text-align: center;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            opacity: 0;
+            -webkit-transition: .5s;
+            -moz-transition: .5s;
+            -o-transition: .5s;
+            transition: .5s;
+        }
+        #sb-mail {
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            
+        }
+        #sb-git {
+            top: 48px;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        #sb-in {
+            top: 96px;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        #sb-res {
+            top: 144px;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        #sb-call {
+            top: 192px;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .anchorContainer {
+            background: azure;
+            right: 2.5%;
+            position: fixed;
+            transform: translate(50%,-50%);
+            -webkit-transition: .2s;
+            -moz-transition: .2s;
+            -o-transition: .2s;
+            transition: .2s;
+            border: 1px solid white;
+            z-index:2;
+        }
+        .anchorContainer:hover {
+            border-radius: 50%;
+        }
+        #firstAnchor {
+            width: 1.5vmin;
+            height: 1.5vmin;
+            top: 42.5%;
+            background:azure;
+            
+        }
+        #firstAnchor:hover {
+            width: 2vmin;
+            height: 2vmin;
+            background:azure;
+        }
+        #secondAnchor {
+            width: 1.5vmin;
+            height: 1.5vmin;
+            top: 47.5%;
+            background:transparent;
+        }
+        #secondAnchor:hover {
+            width: 2vmin;
+            height: 2vmin;
+            background:azure;
+        }
+        #thirdAnchor {
+            width: 1.5vmin;
+            height: 1.5vmin;
+            top: 52.5%;
+            background:transparent;
+        }
+        #thirdAnchor:hover {
+            width: 2vmin;
+            height: 2vmin;
+            background:azure;
+        }
+        #fourthAnchor {
+            width: 1.5vmin;
+            height: 1.5vmin;
+            top: 57.5%;
+            background:transparent;
+            
+        }
+        #fourthAnchor:hover {
+            width: 2vmin;
+            height: 2vmin;
+            background:azure;
+        }
+
+        
+        .h-title-base {
+            font-family: 'Roboto', sans-serif;
+            position: fixed;
+            color:azure;
+        }
+        h-title-scroll {
+            font-size: 3vmin;
+            top: 95%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-weight: 100;
+            -webkit-transition: .5s;
         -moz-transition: .5s;
         -o-transition: .5s;
         transition: .5s;
         transform-origin: 0% 0%;
         animation: wobble 2s infinite;
-        
-	}
-    
-    @keyframes wobble {
-        0% {transform:rotate(5deg) translate(-50%, -50%);}
-        5% {transform:rotate(-5deg) translate(-50%, -50%);}
-        10% {transform:rotate(5deg) translate(-50%, -50%);}
-        15% {transform:rotate(-5deg) translate(-50%, -50%);}
-        25% {transform:rotate(0deg) translate(-50%, -50%);}
-    }
-    
-	#more-info {
-		text-align: center;
-	}
-
-	.navbar-default {
-  		background: rgba(255,255,255, .4);
-	}
-	.navbar {
-		background: rgba(255,255,255, .5);
-	}
-
-	.navbar-toggle:hover .icon-bar {
-		background: rgba(255,255,255, 1);
-	}
-
-	.navbar-toggle .icon-bar {
-		background: rgba(255,255,255, .8);
-	}
-
-	.navbar-nav {
-		color: black;
-		font-family: 'Roboto', sans-serif;
-		font-weight: 300;
-	}
-	.navbar-brand {
-		color: black;
-		font-family: 'Roboto', sans-serif;
-		font-weight: 400;
-	}
-
-	a.type {
-		color: black;
-		font-family: 'Roboto', sans-serif;
-		font-weight: 300;
-	}
-
-
-	#fadeIn.delay1 {
-		animation-delay: 2s;
-	}
-
-	#fadeIn.nav {
-		-vendor-animation-iteration-count: infinite;
-	}
-
-	#mug {
-		zoom: 2;
-	  	max-width:100%;
-  		border-radius: 50%;
-  		background-position: center center;
-  		background-size: cover;
-		text-align: center;
-
-		display:block;
-  		margin-left:auto;
- 		margin-right:auto;
-        
-        -webkit-transition: .5s;
-        -moz-transition: .5s;
-        -o-transition: .5s;
-        transition: .5s;
-	}
-    
-    #mug:hover {
-        box-shadow: 2px 2px 5px 2px rgba(0,0,0,0.5);
         }
-    
-	.center-text{
-    	text-align: center;
-	}
-
-    p {
-    	text-indent: 50px;
-    	z-index: 1;
-    	font-size: calc(16px + .5vw);
-    }
-
-    p1 {
-
-    	z-index: 1;
-    	font-size: calc(16px + .5vw);
-    }
-
-    .zero-padding {
-   		padding: 0px;
-	}
-
-	.boxMargins {
-		padding-top: 64px;
-		padding-bottom: 32px;
-	}
-
-	.gradient-line {
-	    margin: 25px 0;
-    	height: 2px;
-	    background: black;
-    	background: -webkit-gradient(linear, 0 0, 100% 0, from(#B0BEC5), to(#B0BEC5), color-stop(50%, #616161));
-	}    
-
-	.image-container-gallery {
-		max-width:100%;
-
-		text-align: center;
-
-		display:block;
-  		margin-left:auto;
- 		margin-right:auto;
-	}
-
-	#gallery {
-		zoom: 3;
-		max-width:100%;
-		display:block;
- 		background: rgba(1,1,1,.3);
-        box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.5);
-	}
-
-	#projects {
-		zoom: 3;
-		max-width:100%;
-		display:block;
- 		background: rgba(1,1,1,.3);
-        box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.5);
-	}
-
-	.image-container-projects {
-		max-width:100%;
-
-  		background-position: center center;
-  		background-size: cover;
-		text-align: center;
-		display:block;
-  		margin-left:auto;
- 		margin-right:auto;
-	}
-
- 	.hidden-text {
- 		max-width:100%;
- 		display: inline-block;
-		opacity: 0;
-		position: absolute;
-		top: 0;
-  		bottom: 0;
-
-  		/*right and left compensate for the images' aspect ratios*/
-  		right: 15px;
-  		left: 15px;
-
-  		text-align: center;
-  		vertical-align: middle;
-		z-index: 2;
-		color: #E1E1E1;
-
-  		padding: 16px;
         
-        -webkit-transition: .5s;
-        -moz-transition: .5s;
-        -o-transition: .5s;
-        transition: .5s;
-	}
-
-	.image-title-text {
-		max-width:100%;
- 		display: inline-block;
-		position: absolute;
-		top: 0;
-  		bottom: 0;
-
-  		text-align: center;
-  		vertical-align: middle;
-		z-index: 1;
-		color: #E1E1E1;
-	}
-    
-    .contactIcon {
-        -webkit-transition: .5s;
-        -moz-transition: .5s;
-        -o-transition: .5s;
-        transition: .5s;
-    }
-        
-    .contactIcon:hover {
-        filter: drop-shadow(2px 2px 2px #444444);
-        -webkit-filter: drop-shadow(2px 2px 2px #444444);
-    }
-
-/*Separate contents so only one activates when moused over*/
-	.image-container-gallery:hover .hidden-text{
-		background-size: cover;
-		background: rgba(1,1,1,.5);
-		opacity: 1;
-	}
-
-
-	.image-container-projects:hover .hidden-text{
-		
-		background-size: cover;
-		background: rgba(1,1,1,.5);
-		opacity: 1;
-	}
-        
-    #quarter-page-splash {
-        height: 25vh;
-        margin: auto;
-        background: #4C004C;
-        position: relative;
-    }
-
-	</style>
-	</head>
-	
-	<body style="background-color:#E1E1E1;">
-	
-
-    	<nav class="navbar navbar-fixed-top" id: blur>
-    	  <div class="container-fluid">
-    	    <div class="navbar-header">
-    	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="	false" aria-controls="navbar">
-    	        <span class="sr-only">Toggle navigation</span>
-    	        <span class="icon-bar"></span>
-    	        <span class="icon-bar"></span>
-    	        <span class="icon-bar"></span>
-    	        <span class="icon-bar"></span>
-    	      </button>
-    	      <a class="navbar-brand" href="">HOME</a>
-    	    </div>
-	
-	
-    	    <div id="navbar" class="collapse navbar-collapse">
-    	      <ul class="nav navbar-nav">
-    	        <li><a class="type" href="index.html">Home</a></li>
-    	        <li><a class="type" href="photos.html">My Photos</a></li>
-    	      </ul>
-	
-    	    </div><!--/.nav-collapse -->
-    	  </div>
-    	</nav>
-
-		<div class="parallaxSplash"></div>
-		<div class="container-fluid ">
-
-		
-			<div class="animated fadeIn">
-				<div id="titleText">
-                    <h1>Joseph Ou</h1>
-                    <h2>Software Developer</h2>
-				</div>
-				<div id="scrollIcon">
-					<a href="#introPage"><img src="/icons/ic_expand_more_white_48dp.png" width="128" height="128"></a>
-				</div>
-			</div>
-	
-			<div class="row boxMargins" id="introPage">
-				<div class="col-md-1"></div>
-
-				<div class="col-md-10">
-				
-					<div class="row">
-				
-				
-						<div class="col-md-5 mug">
-							<img id="mug" src="/images/mugPortrait.JPG">
-						</div>
-				
-						<div class="col-md-7">
-				
-							<div class="row">
-								<div class="col-md-12">
-									<p>Hello, reader! My name is Joseph Ou, and I'm a new grad ready to launch myself into the 	computer science industry here in the Silicon Valley. I'm interested in the way 	technology guides and improves our lives, and am always looking for ways to use technology to simplify the world around us.</p>
-								</div>
-							</div>
-				
-							<div class="row">
-								<div class="col-md-12">
-									<p>I spent a year of my undergraduate studies doing research for UCSC. During that time, my team and I built our product from the ground up, giving us exposure to both design and reality. Our project showed me a glimpse of the future, and it is definitely a future I would love to create.</p>
-								</div>
-							</div>
-			
-	
-							<div class="row">
-								<div class="col-md-1"></div>
-								<div class="col-md-12">
-									<p>If you know of an opportunity that offers to improve the world through technology, I would love to hear it! Please check out my <a target="_blank" href="/resume.pdf">RESUME</a>	here, and definitely let me know how we can work together to design the future!</p>
-								</div>
-							</div>
-	
-							<div class="row center-text">
-								<div class="col-md-4 contactIcon">
-									<a href="mailto:j0u@outlook.com"><img class="contactIcon" src="/icons/envelope-closed-8x.png" width="64"height="64"></a>
-								</div>
-								<div class="col-md-4"></div>
-								<div class="col-md-4">
-									<a href="https://www.linkedin.com/in/josephou"><img class="contactIcon" src="/icons/In-Black-128px-TM.png"width="64"height="64"></a>
-								</div>
-							</div>
-				
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-1"></div>
-			</div>
-			<div class="gradient-line"></div>
-			
-			<div class="row">
-				<div class="col-md-12">
-                    <h2 id="more-info">More About Me</h2>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-md-1"></div>
-				<div class="col-md-4 image-container-gallery">
-					<img id="gallery" src="/images/gallery.jpg">
-					<!-- <h2 class="center-text">Image Gallery<h2> -->
-					<a href="adventures.html"><div class="hidden-text">
-                        <p1>One of my hobbies is landscape photography. Here's a particularly resource heavy image gallery comprised of some of my shots (performance and visual improvements are forthcoming)</p1>
-					</div></a>
-					<div class="image-title-text">
-						<h2>Gallery</h2>
-					</div>
-				</div>
-
-				<div class="col-md-2"></div>
-
-				<div class="col-md-4 image-container-projects">
-					<img id="projects" src="/images/leds.jpg">
-					<!-- <h2 class="center-text">Projects<h2> -->
-					<a href="index_prototype.html"><div class="hidden-text">
-                        <p1>I'm working on the next version of this page right now! It's my version of the one-page-scroll design popularized by Apple.</p1>
-                        </div></a>
-					<div class="image-title-text">
-						<h2>Projects</h2>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	<!-- <div class="parallaxHalf first"></div>	 -->
-	   <div class="gradient-line"></div>
-        <div class="quarter-page-splash">
+        @keyframes wobble {
+            0% {transform:rotate(5deg) translate(-50%, -50%);}
+            10% {transform:rotate(-5deg) translate(-50%, -50%);
+                top:90%;
+            }
+            15% {transform:rotate(5deg) translate(-50%, -50%);}
+            20% {transform:rotate(-5deg) translate(-50%, -50%);}
+            25% {transform:rotate(0deg) translate(-50%, -50%);}
+            30% {transform:rotate(-5deg) translate(-50%, -50%);}
+            35% {transform:rotate(0deg) translate(-50%, -50%);}
+            50% {top:98%;}
+        }
+        h-title-name {
+            font-size: 15vmin;
+            top: 10%;
+            left: 10%;
+            font-weight: 300;
+            opacity: 1;
+        }
+        h-title-title {
+            font-size: 6vmin;
+            top: 30%;
+            left: 10%;
+            font-weight: 100;
+            opacity: 1;
+        }
+        h-title-debug {
+            font-family: 'Roboto', sans-serif;
+            position: fixed;
+            color:azure;
+            font-size: 6vmin;
+            top: 0%;
+            left: 80%;
+            font-weight: 100;
+            opacity: 1;
+        }
+        h-leading-text {        
+            font-size: 4vmin;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-weight: 100;
+            opacity: 0;
+        }
+        .trailing-text-base {
+            font-size: 4vmin;
+            font-weight: 100;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            width: 100%;
+            text-align: center;
             
+        }
+        h-content-text1 {
+            opacity: 0;
+            top: 42.5%;
+        }
+        h-content-text2 {
+            opacity: 0;
+            top: 47.5%;
+        }
+        h-content-text3 {
+            opacity: 0;
+            top: 52.5%;
+        }
+        h-content-text4 {
+            opacity: 0;
+            top: 57.5%;
+        }
+        h-trailing-text {
+            font-size: 4vmin;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-weight: 100;
+            opacity: 0;
+        }
+        h-final-text1 {
+            opacity: 0;
+            top: 45%;
+        }
+        h-final-text2 {
+            opacity: 0;
+            top: 50%;
+        }
+        h-final-text3 {
+            opacity: 0;
+            top: 55%;
+        }
+        
+        #mug {
+            width: 50vmin;
+            height: 50vmin;
+            
+            border-radius: 50%;
+            background-position: center center;
+            background-size: cover;
+            text-align: center;
+            
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            opacity: 0;
+        }
+
+        .camiconContainer {
+            width: 20vmin;
+            height: 20vmin;
+            overflow: hidden;
+            position: absolute;
+            border-radius: 100%;
+            background: #455A64;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            opacity: 0;
+        }
+        
+        .camicon {
+            background: #E0E0E0;
+            border-radius: 1%;
+            -webkit-transition: .05s;
+            -moz-transition: .05s;
+            -o-transition: .05s;
+            transition: .05s;
+            opacity: 1;
+            
+        }
+        
+        .camicon.dimensions {
+            width: 10vmin;
+            height: 5vmin;
+
+            
+            left: 50%;
+            top :50%;
+            transform: translate(-50%,-50%);
+            position: relative;
+        }
+        
+        .camicon.trapezoid {
+            border: 0px;
+/*          scaling border based on percentage is not a function in css*/
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            left: 30%;
+            top: -40%;
+            
+            border-left: 1vmin solid transparent;
+            border-right: 1vmin solid transparent;
+            border-bottom: 1vmin solid #E0E0E0;
+            
+            background: transparent;
+            border-radius: 0%;
+            
+            box-shadow: 0 0 0 0;
+            
+        }
+        .camicon.trapezoid:hover {
+            box-shadow: 0 0 0 0;
+        }
+        
+        .camicon.line {
+            border: 0;
+            position: absolute;
+            height: 10%;
+            top: 10%;
+            width: 20%;
+            left: 75%;
+            background: black;
+        }
+        .camicon.line:hover {
+            box-shadow: -1vmin -1vmin 10vmin 7vmin rgba(255,255,0,.3);
+        }
+        
+        .camicon.lens {
+            position: absolute;
+            border: 0px;
+            height: 80%;
+            width: 40%;
+            background: black;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 100%;
+            -webkit-transition: .25s;
+            -moz-transition: .25s;
+            -o-transition: .25s;
+            transition: .25s;
+        }
+        
+        .camicon.lens:active {
+            height: 0%;
+            width: 0%;
+        }
+        .camicon.lens:hover {
+            box-shadow: 0 0 0 0;
+        }
+        
+        .camicon:hover {
+            box-shadow: -1vmin -7vmin 10vmin 7vmin rgba(255,255,200,.8);
+        }
+        
+        .compassContainer {
+            height: 20vmin;
+            width: 20vmin;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            max-height: 20vw;
+            max-width: 20vw;
+            
+            transform: translate(-50%,-50%);
+            overflow: hidden;
+            border-radius: 100%;
+            background: #800000;
+            opacity: 0;
+        }
+        
+        .compass {
+            position: relative;
+            background: #E0E0E0;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            -o-transition: 1s;
+            transition: 1s;
+            width: 60%;
+            height: 60%;
+            position: absolute;
+            left: 20%;
+            top :10%;
+
+        }
+
+        
+        .compass.needle {
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            left: 31%;
+            top: 31%;
+            transform: rotate(90deg) skew(30deg, 30deg);
+            background: #000;
+            border-radius: 5%;
+            border: 0px solid #fff;
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            -o-transition: 1s;
+            transition: 1s;
+        }
+        
+        /*
+        Since needle is nested inside the main circle, need to override hover
+        or else the needle gets reset into a square (looks cool but not what i want)
+        */
+        .compass.needle:hover {
+            transform: rotate(90deg) skew(30deg, 30deg);
+            box-shadow: 0px 0px 0px 5px rgba(0,0,0,0);
+            background: #000;
+        }
+        
+        
+        .compass:hover {
+            box-shadow: 0px 0px 50px 5px rgba(255,255,255,.7);
+            transform: rotate(720deg);
+            background: #fff;
+        }
+        
+        .musicContainer {
+            width: 20vmin;
+            height: 20vmin;
+            
+            opacity: 0;
+            overflow: hidden;
+            border-radius: 100%;
+            background: #ff9900;
+;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        
+        .whitekey {
+            background: #ffffff;
+            width:2vmin;
+            height: 8vmin;
+            opacity: 1;
+            position: absolute;
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            -o-transition: 1s;
+            transition: 1s;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            z-index: -1;
+        }
+        .blackkey {
+            background: #444444;
+            width:1vmin;
+            height: 5vmin;
+            opacity: 1;
+            position: absolute;
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            -o-transition: 1s;
+            transition: 1s;
+            transform: translate(-50%,-50%);
+            top: 42.5%;
+            z-index: -1;
+        }
+        .blackkey:hover {
+            background:#000000;
+            -webkit-transition: .1s;
+            -moz-transition: .1s;
+            -o-transition: .1s;
+            transition: .1s;
+        }
+        .whitekey:hover {
+            background:#bbbbbb;
+            -webkit-transition: .1s;
+            -moz-transition: .1s;
+            -o-transition: .1s;
+            transition: .1s;
+        }
+        #note-e-low {
+            left: 0%;
+
+        }
+        #note-f-low {
+            left: 10%;
+        }
+        #note-g-low {
+            left: 20%;
+        }
+        #note-a-low {
+            left: 30%;
+        }
+        #note-b-low {
+            left: 40%;
+        }
+        #note-c {
+            left: 50%;
+        }
+        #note-d {
+            left: 60%;
+        }
+        #note-e {
+            left: 70%;
+        }
+        #note-f {
+            left: 80%;
+        }
+        #note-g {
+            left: 90%;
+        }
+        #note-a {
+            left: 100%;
+        }
+        #note-fls {
+            left: 15%;
+        }
+        #note-gls {
+            left: 25%;
+        }
+        #note-als {
+            left: 35%;
+        }
+        #note-cs {
+            left: 55%;
+        }
+        #note-ds {
+            left: 65%;
+        }
+        #note-fs {
+            left: 85%;
+        }
+        #note-gs {
+            left: 95%;
+        }
+        
+        .codeiconContainer {
+            height: 20vmin;
+            width: 20vmin;
+            
+            opacity: 0;
+            overflow: hidden;
+            border-radius: 100%;
+            background: #333333;
+            
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        
+        input {
+            background: none;
+            border: none;
+            outline: none;
+            
+            position: absolute;
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            -o-transition: 1s;
+            transition: 1s;
+            font-family: 'VT323', monospace;
+            font-size: 2vmin;
+            color: #00ff00;
+            top: 50%;
+            left: 45%;
+            transform: translate(0,-50%);
+            display:inline-block;
+            width: 52%;
+        }
+
+        .codeiconContent {
+            background: none;
+            border: none;
+            outline: none;
+            
+            position: absolute;
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            -o-transition: 1s;
+            transition: 1s;
+            font-family: 'VT323', monospace;
+            font-size: 2vmin;
+            color: #00ff00;
+            top: 50%;
+            left: 3%;
+            transform: translate(0,-50%);
+            display:inline-block;
+            width: 50%;
+        }
+        
+        body {
+            background-color: black;
+        }
+        
+        .DIYiconContainer {
+            height: 20vmin;
+            width: 20vmin;
+            opacity: 0;
+            overflow: hidden;
+            border-radius: 100%;
+            background: #337c3f;
+            
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        
+        .wrenchContainer {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            
+        }
+        .wrenchContainer:hover {
+            animation: wrench 2s;
+        }
+        @keyframes wrench {
+            5% {transform: rotateZ(45deg);}
+            15% {transform: rotateZ(0deg);}
+            30% {transform: rotateZ(60deg);}
+            48% {transform: rotateZ(0deg);}
+            72% {transform: rotateZ(55deg);}
+            78% {transform: rotateZ(0deg);}
+            85% {transform: rotateZ(20deg);}
+            95% {transform: rotateZ(0deg);}
+        }
+        
+        #wrenchBase {
+            background:white;
+            width: 40%;
+            height: 15%;
+            top: 42.5%;
+            left: 0%;
+            position: absolute;
+            border-radius: 5px;
+            
+        }
+        
+        #wrenchCircle {
+            background:white;
+            width: 33%;
+            height: 33%;
+            top: 50%;
+            left: 45%;
+            transform: translate(-50%,-50%);
+            position: absolute;
+            border-radius: 100%;
+        }
+        
+        #wrenchSquare {
+            background: #337c3f;
+            width: 24%;
+            height: 22%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            position: absolute;
+            border-radius: 5px;
+        }
+        
+        .iconText {
+            font-family: 'Roboto', sans-serif;
+            position: absolute;
+            color:azure;
+            font-size: calc(8px + .75vmax);
+            top:80%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-weight: 100;
+            opacity: 1;
+        }
+        .worksContainer {
+            opacity: 1;
+            width: 50vmin;
+            height: 35vmin;
+            position: fixed;
+            overflow: hidden;
+            display: block;
+            border-radius: 1vmin;
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            -o-transition: 1s;
+            transition: .25s;
+            border-top: 1vmin solid #757575;
+            border-left: 1vmin solid #757575;
+            border-right: 1vmin solid #757575;
+            border-bottom: 0;
+            
+        }
+        
+        .worksContainer:hover {
+            width: 51vmin;
+            height: 36vmin;
+            border-top: 0vmin solid #757575;
+            border-left: 0vmin solid #757575;
+            border-right: 0vmin solid #757575;
+        }
+        
+        .worksContainer:hover > .captionContainer{
+            top: 50%;
+        }
+        
+        .captionContainer {
+            width: 100%;
+            height: 50%;
+            top: 85%;
+            position: absolute;
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            -o-transition: 1s;
+            transition: .25s;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 100;
+        }
+        
+        .captionTitle {
+            width: 60%;
+            height: 31%;
+            left: 20%;
+            position: absolute;
+            text-align: center;
+            background: #757575;
+            font-size: 4vmin;
+            border-radius: 20px 20px 0% 0%;
+            color: azure;
+        }
+        
+        .captionContent {
+            width: 100%;
+            height: 70%;
+            top: 30%;
+            text-align: center;
+            position: absolute;
+            background: #757575;
+            font-size: calc(8px + .75vmin);
+            padding: 16px;
+            color: azure;
+        }
+        
+        
+        #projectsImage {
+            background: url("images/leds.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            top: 35%;
+            left: 25%;
+            transform: translate(-50%,-50%);
+            opacity: 0;
+            z-index:-1;
+        }
+        #galleryImage {
+            background: url("images/gallery.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            top: 35%;
+            left: 75%;
+            transform: translate(-50%,-50%);
+            opacity: 0;
+            z-index:-1;
+        }
+        
+        #AdventuresImage {
+            background: url("images/flowers.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            top: 75%;
+            left: 75%;
+            transform: translate(-50%,-50%);
+            opacity: 0;
+            z-index:-1;
+        }
+        #PastLivesImage {
+            background: url("images/milky_way.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            top: 75%;
+            left: 25%;
+            transform: translate(-50%,-50%);
+            opacity: 0;
+            z-index:-1;
+        }
+        
+        .iconText {
+            font-family: 'Roboto', sans-serif;
+            position: absolute;
+            color:azure;
+            font-size: calc(8px + 1vmin);
+            top:80%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-weight: 100;
+            opacity: 1;
+        }
+        a {
+            color: azure;
+        }
+    </style>
+</head>
+    
+    <body>
+        <div id="firstAnchorMark" class="halfPage">x</div>
+        <scrollMarker0></scrollMarker0>
+        <div class="halfPage"></div>
+        <scrollMarker1></scrollMarker1>
+        <div class="halfPage"></div>
+        <scrollMarker2></scrollMarker2>
+        <div class="quarterPage"></div>
+        <div class="quarterPage" id="secondAnchorMark" ></div>
+        <scrollMarker3></scrollMarker3>
+        <div class="halfPage"></div>
+        <scrollMarker4></scrollMarker4>
+        <div class="halfPage"></div>
+        <scrollMarker5></scrollMarker5>
+        <div class="halfPage"></div>
+        <scrollMarker6></scrollMarker6>
+        <div class="halfPage"></div>
+        <scrollMarker7></scrollMarker7>
+        <div class="halfPage"></div>
+        <scrollMarker8></scrollMarker8>
+        <div class="quarterPage"></div>
+        <div class="quarterPage" id="thirdAnchorMark"></div>
+        <scrollMarker9></scrollMarker9>
+        <div class="quarterPage"></div>
+        <div class="quarterPage" id="fourthAnchorMark" ></div>
+        <scrollMarker10></scrollMarker10>
+        <div class="halfPage"></div>
+        <scrollMarker11></scrollMarker11>
+        <div class="halfPage"></div>
+        <scrollMarker12></scrollMarker12>
+        <div class="halfPage"></div>
+        <scrollMarker13></scrollMarker13>
+        <div class="halfPage"></div>
+        
+        
+        <a href="#firstAnchorMark"><div id="firstAnchor" class="anchorContainer"></div></a>
+        <a href="#secondAnchorMark"><div id="secondAnchor" class="anchorContainer"></div></a>
+        <a href="#thirdAnchorMark"><div id="thirdAnchor" class="anchorContainer"></div></a>
+        <a href="#fourthAnchorMark"><div id="fourthAnchor" class="anchorContainer"></div></a>
+        
+        
+        <div id="sidebar">
+            <div id="sidebar-cover"></div>
+            <a href="mailto:j0u@outlook.com">
+                <img id="img-mail" src="icons/white-envelope.png">
+            </a>
+            <div class="sb-text">
+                <div id="sb-mail">Mail</div>
+            </div>
+            
+            <a href="https://github.com/oujoseph">
+                <img id="img-git" src="/icons/GitHub-Mark-Light-64px.png">
+            </a>
+            <div class="sb-text">
+                <div id="sb-git">Github</div>
+            </div>
+            
+            <a href="https://www.linkedin.com/in/josephou">
+                <img id="img-in" src="/icons/In-White-48px-R.png">
+            </a>
+            <div class="sb-text">
+                <div id="sb-in">Linkedin</div>
+            </div>
+            
+            <a href="resume.pdf">
+                <img id="img-res" src="/icons/human.png">
+            </a>
+            <div class="sb-text">
+                <div id="sb-res">Resume</div>
+            </div>
+            
+            <img id="img-call" src="/icons/call.png">
+            <div class="sb-text">
+                <div id="sb-call">(831) 295-4053</div>
+            </div>
         </div>
-	</body>
 
+        <div class="parallaxSplash"></div>
+        <h-title-name class="h-title-base">Joseph Ou</h-title-name>
+        <h-title-title class="h-title-base">Software Developer</h-title-title>
+        <h-title-scroll class="h-title-base">Scroll</h-title-scroll>
+        <h-title-debug>Stage 0</h-title-debug>
 
-	<script>
-	$(document).ready(function(){
-		$('nav').fadeOut();
-        $('body').animate({
-            backgroundColor: "#B0BEC5"
-        }, 2000);
-		$('a[href^="#"]').on('click', function (e) {
-	    	e.preventDefault();
+        <h-leading-text class="h-title-base">Who Am I?</h-leading-text>
+        <img id="mug" src="/images/mugPortrait.JPG">
 
-	    	var target = this.hash;
-	    	var $target = $(target);
+        <div class="camiconContainer">
+            <div class="iconText">Photographer</div>
+            <div class="camicon dimensions">
+                <div class="camicon trapezoid"></div>
+                <div class="camicon line"></div>
+                <div class="camicon lens"></div>
+            </div>
+        </div>
+        <div class="compassContainer">
+            <div class="iconText">Adventurer</div>
+            <div class="compass dimensions">
+                <div class="compass needle"></div>
+            </div>
+        </div>
+        
+        <div class="musicContainer">
+            <div id="note-e-low" class="whitekey"></div>
+            <div id="note-f-low" class="whitekey"></div>
+            <div id="note-g-low" class="whitekey"></div>
+            <div id="note-a-low" class="whitekey"></div>
+            <div id="note-b-low" class="whitekey"></div>
+            
+            <div id="note-c" class="whitekey"></div>
+            <div id="note-d" class="whitekey"></div>
+            <div id="note-e" class="whitekey"></div>
+            <div id="note-f" class="whitekey"></div>
+            <div id="note-g" class="whitekey"></div>
+            <div id="note-a" class="whitekey"></div>
+            
+            <div id="note-fls" class="blackkey"></div>
+            <div id="note-gls" class="blackkey"></div>
+            <div id="note-als" class="blackkey"></div>
+            <div id="note-cs" class="blackkey"></div>
+            <div id="note-ds" class="blackkey"></div>
+            <div id="note-fs" class="blackkey"></div>
+            <div id="note-gs" class="blackkey"></div>
+            <div class="iconText">Musician</div>
+        </div>
+        
+        <div class="codeiconContainer">
+            <div class="codeiconContent">hi@unix:⁓$</div>div>
+            <form action="/smile.html">
+                <input>
+            </form>
+            <div class="iconText">Coder</div>
+        </div>
+        
+        <div class="DIYiconContainer">
+            <div class="iconText">DIYer</div>
+            <div class="wrenchContainer">
+                <div id="wrenchBase"></div>
+                <div id="wrenchCircle"></div>
+                <div id="wrenchSquare"></div>
+            </div>
+        </div>
+        
+        <h-content-text1 class="h-title-base trailing-text-base">I do a lot...</h-content-text1>
+        <h-content-text2 class="h-title-base trailing-text-base">but I am defined by two traits:</h-content-text2>
+        <h-content-text3 class="h-title-base trailing-text-base">I love figuring out how things work</h-content-text3>
+        <h-content-text4 class="h-title-base trailing-text-base">and I love building things.</h-content-text4>
+        
+        <h-trailing-text class="h-title-base trailing-text-base">Here are some things that I'm building.</h-trailing-text>
+        
+        <div id="projectsImage" class="worksContainer">
+            <div class="captionContainer">
+                <div class="captionTitle">Projects</div>
+                <div class="captionContent">Under Construction! The project I am focusing on right now is this website.</div>
+            </div>
+        </div>
+        <a href="gallery.html">
+            <div id="galleryImage" class="worksContainer">
+                <div id="galleryImage"></div>
+                <div class="captionContainer">
+                    <div class="captionTitle">Gallery</div>
+                    <div class="captionContent">One of my hobbies is landscape photography. Here's a particularly resource heavy image gallery comprised of some of my shots (performance and visual improvements are forthcoming)</div>
+                </div>
+            </div>
+        </a>
+        <a href="adventures.html">
+            <div id="AdventuresImage" class="worksContainer">
+                <div class="captionContainer">
+                    <div class="captionTitle">Adventures</div>
+                    <div class="captionContent">A page I'm making to showcase some of the places I've been.</div>
+                </div>
+            </div>
+        </a>
+        
+        <div id="PastLivesImage" class="worksContainer">
+            <div class="captionContainer">
+                <div class="captionTitle">Past Lives...</div>
+                <div class="captionContent">...Of this website! In the coming weeks, I'll be making a short writeup of my progress as a web developer.</div>
+            </div>
+        </div>
+        
+        <h-final-text1 class="h-title-base trailing-text-base">And that's all, folks!</h-final-text1>
+        <h-final-text2 class="h-title-base trailing-text-base">If you liked what you saw, let me know!</h-final-text2>
+        <h-final-text3 class="h-title-base trailing-text-base">I'm open for business.</h-final-text3>
+    </body>
 
-	    	$('html, body').stop().animate({
-	        	'scrollTop': $target.offset().top
-	    	}, 900, 'swing', function () {
-	        	window.location.hash = target;
-	    	});
-		});
-    	$(window).scroll(function() {
+    
+    <script>
+//        reset page on scroll
+        $(window).on('beforeunload', function(){
+            $(window).scrollTop(0);
+        });
+        
+        $(document).ready(function(){
+            $('a[href^="#"]').on('click', function (e) {
+                e.preventDefault();
 
-    		//debug code だ
-    		// $('h1').text("height: " + $(window).scrollTop());
-			// $("h2").text("height: " + $(window).height());
-    		//debug code だ
+                var target = this.hash;
+                var $target = $(target);
 
-    		if ($(window).scrollTop() >= $(window).height()) {
-    			$('nav').fadeIn();
-    		} else {
-    			$('nav').fadeOut();
-    		}
-    	})
-	});
-	</script>
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top
+                }, 1500, 'swing', function () {
+                    window.location.hash = target;
+                });
+            });
+            var scrollMarker = $(window).scrollTop();
+            var sidebarCoverHeight = ('-' + 100 + '%');
+            //page of functions that makes each individual page easier to address
+            var pageArray = {};
+            
+//            isEnter has three states: 0 = entering, 1 = currently in, 2 = exiting
+            
+//            Each page is a function that either transitions in or transitions out
+            pageArray.page0 = function (isEnter) {
+//                window.alert("IN PAGE0");
+                if (isEnter == 0){
+//                    window.alert("IN PAGE0: isEnter 0");
+                    $("h-title-title").stop().animate({
+                        'opacity': '1',
+                        'top': '30%',
+                    });
+                    $("h-title-name").stop().animate({
+                        'opacity': '1',
+                        'top': '10%',
+                    });
+                    $("h-leading-text").stop().animate({
+                        'opacity': '0',
+                        'top': '-10%',
+                    });
+                    $("h-title-scroll").stop().animate({
+                        'opacity': '1',
+                        'top': '95%',
+                    });
+                    $(".parallaxSplash").stop().animate({
+                        'opacity': '1',
+                    });
+                    $("#mug").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("#sidebar-cover").css({
+                        'top': '-100%',
+                        'background': '#2c3e50',
+                    });
+                    $("#firstAnchor").css({
+                        'background': 'azure',
+                    });
+                    $("#secondAnchor").css({
+                        'background': 'transparent',
+                    });
+                }
+                             
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker0").offset().top);
+                    divHeight = ($("scrollMarker1").offset().top - $("scrollMarker0").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
+                }
+                
+                if (isEnter == 2){
+//                    window.alert("IN PAGE0: isEnter 2");
+                    $("h-title-title").stop().animate({
+                        'opacity': '0',
+                        'top': '-20%',
+                    });
+                    $("h-title-name").stop().animate({
+                        'opacity': '0',
+                        'top': '-20%',
+                    });
+                    $("h-title-scroll").stop().animate({
+                        'opacity': '0',
+                        'top': '120%',
+                    });
+                }
+            }
+            pageArray.page1 = function (isEnter) {
+//                window.alert("IN PAGE1");
+                if (isEnter == 0){
+                    $("#mug").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("h-leading-text").stop().animate({
+                        'opacity': '1',
+                        'top': '50%',
+                    });
+                    $(".parallaxSplash").stop().animate({
+                        'opacity': '0',
+                    });
+                     $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#16a085',
+                    });
+                    
+                }
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker1").offset().top);
+                    divHeight = ($("scrollMarker2").offset().top - $("scrollMarker1").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
+                }
+            }
+            pageArray.page2 = function (isEnter) {
+//                window.alert("IN PAGE2");
+                if (isEnter == 0){
+                    $("h-leading-text").stop().animate({
+                        'opacity': '1',
+                        'top': '5%',
+                    });
+                    $("#mug").stop().animate({
+                        'opacity': '1',
+                    });
+                     $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#2980b9',
+                    });
+                }
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker2").offset().top);
+                    divHeight = ($("scrollMarker3").offset().top - $("scrollMarker2").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
+                }
+                if (isEnter == 2){
+                    $("h-leading-text").stop().animate({
+                        'opacity': '1',
+                        'top': '5%',
+                    });
+                }
+            }
+            pageArray.page3 = function (isEnter) {
+//                window.alert("IN PAGE3");
+                if (isEnter == 0){  
+                    $(".camiconContainer").stop().animate({
+                        'opacity': '1',
+                        'top': '75%',
+                        'left': '25%',
+                    });
+                    $(".compassContainer").stop().animate({
+                        'opacity': '1',
+                        'top': '75%',
+                        'left': '75%',
+                    });
+                    $(".musicContainer").stop().animate({
+                        'opacity': '1',
+                        'top': '25%',
+                        'left': '75%',
+                    });
+                    $(".codeiconContainer").stop().animate({
+                        'opacity': '1',
+                        'top': '25%',
+                        'left': '25%',
+                    });
+                    $(".DIYiconContainer").stop().animate({
+                        'opacity': '1',
+                        'top': '87.5%',
+                        'left': '50%',
+                    });
+                    $("h-content-text1").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("h-content-text2").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("h-content-text3").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("h-content-text4").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("#mug").stop().animate({
+                        'opacity': '1',
+                    });
+                    $("h-leading-text").stop().animate({
+                        'opacity': '1',
+                    });
+                     $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#8e44ad',
+                    });
+                    $("#firstAnchor").css({
+                        'background': 'transparent',
+                    });
+                    $("#secondAnchor").css({
+                        'background': 'azure',
+                    });
+                    $("#thirdAnchor").css({
+                        'background': 'transparent',
+                    });
+                }
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker3").offset().top);
+                    divHeight = ($("scrollMarker4").offset().top - $("scrollMarker3").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
+                }
+                if (isEnter == 2) {
+                    $(".camiconContainer").stop().animate({
+                        'opacity': '0',
+                        'top': '50%',
+                        'left': '50%',
+                    });
+                    $(".compassContainer").stop().animate({
+                        'opacity': '0',
+                        'top': '50%',
+                        'left': '50%',
+                    });
+                    $(".musicContainer").stop().animate({
+                        'opacity': '0',
+                        'top': '50%',
+                        'left': '50%',
+                    });
+                    $(".codeiconContainer").stop().animate({
+                        'opacity': '0',
+                        'top': '50%',
+                        'left': '50%',
+                    });
+                    $(".DIYiconContainer").stop().animate({
+                        'opacity': '0',
+                        'top': '50%',
+                        'left': '50%',
+                    });
+                }
+            }
+        
+            pageArray.page4 = function (isEnter) {
+                if (isEnter == 0){
+                    $("h-leading-text").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("h-content-text1").stop().animate({
+                        'opacity': '1',
+                    });
+                    $("#mug").stop().animate({
+                        'opacity': '0',
+                    });
+                     $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#33691E',
+                    });
+                }
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker4").offset().top);
+                    divHeight = ($("scrollMarker5").offset().top - $("scrollMarker4").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
+                }
+            }
+            
+            pageArray.page5 = function (isEnter) {
+                if (isEnter == 0){
+                    $("h-content-text2").stop().animate({
+                        'opacity': '1',
+                    });
+                     $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#BF360C',
+                    });
+                }
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker5").offset().top);
+                    divHeight = ($("scrollMarker6").offset().top - $("scrollMarker5").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
+                }
+            }
+            
+            pageArray.page6 = function (isEnter) {
+                if (isEnter == 0){
+                    $("h-content-text3").stop().animate({
+                        'opacity': '1',
+                    });
+                     $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#4A148C',
+                    });
+                }
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker6").offset().top);
+                    divHeight = ($("scrollMarker7").offset().top - $("scrollMarker6").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
+                }
+            }
+            
+            pageArray.page7 = function (isEnter) {
+                if (isEnter == 0){
+                    $("h-content-text4").stop().animate({
+                        'opacity': '1',
+                    });
+                     $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#d32f2f',
+                    });
+                    $("h-trailing-text").css({
+                        'opacity': '0',
+                    });
+                }
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker7").offset().top);
+                    divHeight = ($("scrollMarker8").offset().top - $("scrollMarker7").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
+                }
+            }
+            pageArray.page8 = function (isEnter) {
+                if (isEnter == 0){
+                    $("h-content-text1").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("h-content-text2").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("h-content-text3").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("h-content-text4").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#FBC02D',
+                    });
+                    $("h-trailing-text").stop().animate({
+                        'opacity': '1',
+                    });
+                }
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker8").offset().top);
+                    divHeight = ($("scrollMarker9").offset().top - $("scrollMarker8").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
+                }
+                if (isEnter == 2){
+                    $("h-trailing-text").stop().animate({
+                        'opacity': '0',
+                    });
+                }
+            }
+            pageArray.page9 = function (isEnter) {
+                if (isEnter == 0){
+                    $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#c62828',
+                    });
+                    $("#galleryImage").stop().animate({
+                        'opacity': '1',
+                        'z-index':'1',
+                    });
+                    $("#AdventuresImage").stop().animate({
+                        'opacity': '1',
+                        'z-index':'1',
+                    });
+                    $("#PastLivesImage").stop().animate({
+                        'opacity': '1',
+                        'z-index':'1',
+                    });
+                    $("#projectsImage").stop().animate({
+                        'opacity': '1',
+                        'z-index':'1',
+                    });
+                    $("h-final-text1").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("h-final-text2").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("h-final-text3").stop().animate({
+                        'opacity': '0',
+                    });
+                    $("#secondAnchor").css({
+                        'background': 'transparent',
+                    });
+                    $("#thirdAnchor").css({
+                        'background': 'azure',
+                    });
+                    $("#fourthAnchor").css({
+                        'background': 'transparent',
+                    });
+                };
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker9").offset().top);
+                    divHeight = ($("scrollMarker10").offset().top - $("scrollMarker9").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
+                }
+                if (isEnter == 2){
+                    $("#galleryImage").stop().animate({
+                        'opacity': '0',
+                        'z-index':'-1',
+                    });
+                    $("#AdventuresImage").stop().animate({
+                        'opacity': -'0',
+                        'z-index':'-1',
+                    });
+                    $("#PastLivesImage").stop().animate({
+                        'opacity': '0',
+                        'z-index':'-1',
+                    });
+                    $("#projectsImage").stop().animate({
+                        'opacity': '0',
+                        'z-index':'-1',
+                    });
+                }
+            }
+            pageArray.page10 = function (isEnter) {
+                if (isEnter == 0){
+                    $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#8BC34A',
+                    });
+                    $("h-final-text1").stop().animate({
+                        'opacity': '1',
+                    });
+                    $("#thirdAnchor").css({
+                        'background': 'transparent',
+                    });
+                    $("#fourthAnchor").css({
+                        'background': 'azure',
+                    });
+                }
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker10").offset().top);
+                    divHeight = ($("scrollMarker11").offset().top - $("scrollMarker10").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
+                }
+            }
+            pageArray.page11 = function (isEnter) {
+                if (isEnter == 0){
+                    $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#0277BD',
+                    });
+                    $("h-final-text2").stop().animate({
+                        'opacity': '1',
+                    });
+                }
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker11").offset().top);
+                    divHeight = ($("scrollMarker12").offset().top - $("scrollMarker11").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
+                }
+            }
+            pageArray.page12 = function (isEnter) {
+                if (isEnter == 0){
+                    $("#sidebar-cover").css({
+                        'top': '-100%',
+                         'background': '#1B5E20',
+                    });
+                    $("h-final-text3").stop().animate({
+                        'opacity': '1',
+                    });
+                }
+                if (isEnter == 1){
+                    distanceFromTop = (scrollMarker - $("scrollMarker12").offset().top);
+                    divHeight = ($("scrollMarker13").offset().top - $("scrollMarker12").offset().top);
+                    sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
+                    sidebarCoverHeight = (sidebarPercent + '%');
+                    $("#sidebar-cover").css({
+                        'top': sidebarCoverHeight,
+                    })
+                }
+            }
 
-
-
+            var currentpage = 0;
+            
+//           page manager allows finer control to entry and exit transitions per state
+            
+            function pageManager(newpage){
+                
+//                If the new state and current state are different, transition out current state
+//                and transition in new state
+                var currfunc = ('page' + currentpage);
+                var newfunc = ('page' + newpage);
+//                window.alert("current state: " + currfunc + " next state: " + newfunc);
+                if (newpage == currentpage){
+                    pageArray[currfunc](1);
+                    return;
+                };
+                
+                
+//                compensate for multipage jumps during the event of window resize
+//                as well as scrolls too fast for listener polling rate to handle
+                var diff = Math.abs(currentpage - newpage);
+                if (diff == 1){
+                    pageArray[currfunc](2);
+                    pageArray[newfunc](0);
+                } else {
+                    
+//                    one or the other of these while loops will trigger
+//                    will iterate from currentpage to newpage to prevent gaps in animation
+                    while(currentpage < newpage){
+                        $("h-title-debug").text("Stage " + currentpage);
+                        currfunc = ('page' + currentpage);
+                        currentpage++;
+                        newfunc = ('page' + currentpage);
+                        pageArray[currfunc](2);
+                        pageArray[newfunc](0);
+                    }
+                    while(currentpage > newpage){
+                        $("h-title-debug").text("Stage " + currentpage);
+                        currfunc = ('page' + currentpage);
+                        currentpage--;
+                        newfunc = ('page' + currentpage);
+                        pageArray[currfunc](2);
+                        pageArray[newfunc](0);
+                    }
+                }
+                currentpage = newpage;
+//                $("h-title-debug").text("Stage " + currentpage);
+            }
+            
+            $(window).on('resize scroll', function(){
+                    scrollMarker = $(window).scrollTop();
+                
+    //                Switch pagement determines what page to load on scroll and sends to pageManager()
+                    switch(true){
+                        case ((scrollMarker > 0) && (scrollMarker < $("scrollMarker0").offset().top)):
+                            pageManager(0);
+                            break;
+                        case ((scrollMarker > $("scrollMarker0").offset().top) && (scrollMarker < $("scrollMarker1").offset().top)):
+                            pageManager(1);
+                            break;
+                        case ((scrollMarker > $("scrollMarker1").offset().top) && (scrollMarker < $("scrollMarker2").offset().top)):
+                            pageManager(2);
+                            break;
+                        case ((scrollMarker > $("scrollMarker2").offset().top) && (scrollMarker < $("scrollMarker3").offset().top)):
+                            pageManager(3);
+                            break;
+                        case ((scrollMarker > $("scrollMarker3").offset().top) && (scrollMarker < $("scrollMarker4").offset().top)):
+                            pageManager(4);
+                            break;
+                        case ((scrollMarker > $("scrollMarker4").offset().top) && (scrollMarker < $("scrollMarker5").offset().top)):
+                            pageManager(5);
+                            break;
+                        case ((scrollMarker > $("scrollMarker5").offset().top) && (scrollMarker < $("scrollMarker6").offset().top)):
+                            pageManager(6);
+                            break;
+                        case ((scrollMarker > $("scrollMarker6").offset().top) && (scrollMarker < $("scrollMarker7").offset().top)):
+                            pageManager(7);
+                            break;
+                        case ((scrollMarker > $("scrollMarker7").offset().top) && (scrollMarker < $("scrollMarker8").offset().top)):
+                            pageManager(8);
+                            break;
+                        case ((scrollMarker > $("scrollMarker8").offset().top) && (scrollMarker < $("scrollMarker9").offset().top)):
+                            pageManager(9);
+                            break;
+                        case ((scrollMarker > $("scrollMarker9").offset().top) && (scrollMarker < $("scrollMarker10").offset().top)):
+                            pageManager(10);
+                            break;
+                        case ((scrollMarker > $("scrollMarker10").offset().top) && (scrollMarker < $("scrollMarker11").offset().top)):
+                            pageManager(11);
+                            break;
+                        case ((scrollMarker > $("scrollMarker11").offset().top) && (scrollMarker < $("scrollMarker12").offset().top)):
+                            pageManager(12);
+                            break;
+                    }
+            });
+        });
+    </script>
+        
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script type="text/javascript" src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-
-
-
 </html>
