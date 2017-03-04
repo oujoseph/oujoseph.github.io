@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Smile">
+    <meta name="author" content="Joseph Ou">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400|VT323" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <style>
+        body {
+            background-color: black;
+        }
+        
+        .DIYiconContainer {
+            height: 20vmin;
+            width: 20vmin;
+            opacity: 1;
+            overflow: hidden;
+            border-radius: 100%;
+            background: #337c3f;
+            
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        
+        .wrenchContainer {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            
+        }
+        .wrenchContainer:hover {
+            animation: wrench 2s;
+        }
+        @keyframes wrench {
+            5% {transform: rotateZ(45deg);}
+            15% {transform: rotateZ(0deg);}
+            30% {transform: rotateZ(60deg);}
+            48% {transform: rotateZ(0deg);}
+            72% {transform: rotateZ(55deg);}
+            78% {transform: rotateZ(0deg);}
+            85% {transform: rotateZ(20deg);}
+            95% {transform: rotateZ(0deg);}
+        }
+        
+        #wrenchBase {
+            background:white;
+            width: 40%;
+            height: 15%;
+            top: 42.5%;
+            left: 0%;
+            position: absolute;
+            border-radius: 5px;
+            
+        }
+        
+        #wrenchCircle {
+            background:white;
+            width: 33%;
+            height: 33%;
+            top: 50%;
+            left: 45%;
+            transform: translate(-50%,-50%);
+            position: absolute;
+            border-radius: 100%;
+        }
+        
+        #wrenchSquare {
+            background: #337c3f;
+            width: 23%;
+            height: 23%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            position: absolute;
+            border-radius: 5px;
+        }
+        
+        .iconText {
+            font-family: 'Roboto', sans-serif;
+            position: absolute;
+            color:azure;
+            font-size: calc(8px + .75vmax);
+            top:80%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-weight: 100;
+            opacity: 1;
+        }
+        
+    </style>
+</head>
+    
+    
+    <body>
+        <div class="DIYiconContainer">
+            <div class="iconText">DIYer</div>
+            <div class="wrenchContainer">
+                <div id="wrenchBase"></div>
+                <div id="wrenchCircle"></div>
+                <div id="wrenchSquare"></div>
+            </div>
+            
+        </div>
+        
+    </body>
+
+    
+        
+        
+    <script>
+    $(document).ready(function(){
+    });
+    </script>
+        
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+
+</html>

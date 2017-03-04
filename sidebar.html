@@ -27,10 +27,14 @@
             position: fixed;
             overflow: hidden;
             z-index: 100;
-            transition: .25s ease-out;
+            transition: .35s ease-out;
         }
         #sidebar:hover {
             width: calc(64px + 10vw);
+        }
+        #sidebar:hover > .sb-text {
+            opacity: 1;
+            transition: 1.5s;
         }
         #sidebar-cover {
             height: 100%;
@@ -43,7 +47,6 @@
         img {
             width: 48px;
             height: 48px;
-            z-index: 102;
             padding: 6px;
         }
         
@@ -73,18 +76,24 @@
             position: absolute;
         }
         #img-res {
+            top: 144px;
             border-radius: 50%;
             border: 1px solid white;
             padding: 3px;
             width: 36px;
             height: 36px;
             margin: 6px;
-            top: 144px;
+            position: absolute;
+        }
+        #img-call {
+            top: 192px;
+            width: 48px;
             position: absolute;
         }
         .sb-text {
             left: calc(0% + 48px);
             width: calc(100% - 48px);
+            height: 48px;
             
             font-family: 'Roboto', sans-serif;
             font-size: calc(8px + .5vmin);
@@ -95,26 +104,38 @@
             text-align: center;
             padding-top: 16px;
             padding-bottom: 16px;
+            opacity: 0;
+            transition: .5s;
         }
         #sb-mail {
             height: 100%;
             position: relative;
+            overflow: hidden;
             
         }
         #sb-git {
             top: 48px;
             height: 100%;
             position: relative;
+            overflow: hidden;
         }
         #sb-in {
             top: 96px;
             height: 100%;
             position: relative;
+            overflow: hidden;
         }
         #sb-res {
             top: 144px;
             height: 100%;
             position: relative;
+            overflow: hidden;
+        }
+        #sb-call {
+            top: 192px;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
         }
         
     </style>
@@ -151,6 +172,11 @@
             </a>
             <div class="sb-text">
                 <div id="sb-res">Resume</div>
+            </div>
+            
+            <img id="img-call" src="/icons/human.png">
+            <div class="sb-text">
+                <div id="sb-call">(831) 295-4053</div>
             </div>
         </div>
     </body>

@@ -18,17 +18,20 @@
         body {
             background-color: black;
         }
+        ::-webkit-scrollbar { 
+            display: none; 
+        }
         
         .parallaxSplash {
             background-image: url(/images/darksolder.jpg);
 
-            height: 200vh;
+            height: 100vh;
 
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            position: absolute;
+            position: fixed;
             top: 0px;
             width: 100%;
         }
@@ -55,10 +58,14 @@
             position: fixed;
             overflow: hidden;
             z-index: 100;
-            transition: .25s ease-out;
+            transition: .35s ease-out;
         }
         #sidebar:hover {
             width: calc(64px + 10vw);
+        }
+        #sidebar:hover > .sb-text {
+            opacity: 1;
+            transition: 1.5s;
         }
         #sidebar-cover {
             height: 100%;
@@ -100,13 +107,18 @@
             position: absolute;
         }
         #img-res {
+            top: 144px;
             border-radius: 50%;
             border: 1px solid white;
             padding: 3px;
             width: 36px;
             height: 36px;
             margin: 6px;
-            top: 144px;
+            position: absolute;
+        }
+        #img-call {
+            top: 192px;
+            width: 48px;
             position: absolute;
         }
         .sb-text {
@@ -123,27 +135,99 @@
             text-align: center;
             padding-top: 16px;
             padding-bottom: 16px;
+            opacity: 0;
+            transition: .5s;
         }
         #sb-mail {
             height: 100%;
             position: relative;
+            overflow: hidden;
             
         }
         #sb-git {
             top: 48px;
             height: 100%;
             position: relative;
+            overflow: hidden;
         }
         #sb-in {
             top: 96px;
             height: 100%;
             position: relative;
+            overflow: hidden;
         }
         #sb-res {
             top: 144px;
             height: 100%;
             position: relative;
+            overflow: hidden;
         }
+        #sb-call {
+            top: 192px;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .anchorContainer {
+            background: azure;
+            right: 5%;
+            position: fixed;
+            transform: translate(50%,-50%);
+            transition: .2s;
+            border: 1px solid white;
+            z-index:1;
+        }
+        .anchorContainer:hover {
+            border-radius: 50%;
+        }
+        #firstAnchor {
+            width: 1.5vmin;
+            height: 1.5vmin;
+            top: 42.5%;
+            background:azure;
+            
+        }
+        #firstAnchor:hover {
+            width: 2vmin;
+            height: 2vmin;
+            background:azure;
+        }
+        #secondAnchor {
+            width: 1.5vmin;
+            height: 1.5vmin;
+            top: 47.5%;
+            background:transparent;
+        }
+        #secondAnchor:hover {
+            width: 2vmin;
+            height: 2vmin;
+            background:azure;
+        }
+        #thirdAnchor {
+            width: 1.5vmin;
+            height: 1.5vmin;
+            top: 52.5%;
+            background:transparent;
+        }
+        #thirdAnchor:hover {
+            width: 2vmin;
+            height: 2vmin;
+            background:azure;
+        }
+        #fourthAnchor {
+            width: 1.5vmin;
+            height: 1.5vmin;
+            top: 57.5%;
+            background:transparent;
+            
+        }
+        #fourthAnchor:hover {
+            width: 2vmin;
+            height: 2vmin;
+            background:azure;
+        }
+
         
         .h-title-base {
             font-family: 'Roboto', sans-serif;
@@ -550,7 +634,11 @@
             width: 50%;
         }
         
-        .techiconContainer {
+        body {
+            background-color: black;
+        }
+        
+        .DIYiconContainer {
             height: 20vmin;
             width: 20vmin;
             opacity: 0;
@@ -564,114 +652,69 @@
             transform: translate(-50%,-50%);
         }
         
-/*        skewing a right angle results in smoother, well, angles*/
-/*        tradeoff is ugly code-- border does not support percent size*/
-/*        .70711 = .5 when slanted 45 degrees... thanks, Pythagoras*/
-        
-        .angle-base {
-            border-bottom: .70711vmin solid #000;
-            border-left: .5vmin solid #000;
-            transform: translate(-50%);
+        .wrenchContainer {
+            height: 100%;
+            width: 100%;
             position: absolute;
-        }
-        .angle-base:hover {
-            border-bottom: .70711vmin solid #fff;
-            border-left: .5vmin solid #fff;
             
         }
-        #angle-1 {
-            top: 20%;
-            left: 10%;
-            width: 30%;
-            height: 30%;
-            transform: skewY(30deg);
+        .wrenchContainer:hover {
+            animation: wrench 2s;
+        }
+        @keyframes wrench {
+            5% {transform: rotateZ(45deg);}
+            15% {transform: rotateZ(0deg);}
+            30% {transform: rotateZ(60deg);}
+            48% {transform: rotateZ(0deg);}
+            72% {transform: rotateZ(55deg);}
+            78% {transform: rotateZ(0deg);}
+            85% {transform: rotateZ(20deg);}
+            95% {transform: rotateZ(0deg);}
         }
         
-        #angle-2 {
-            top: 65%;
-            left: 15%;
-            height: 36%;
-        }
-        
-        #angle-3 {
-            top: 0%;
-            left: 40%;
-            height: 35%;
-        }
-        
-        #angle-4 {
-            top: 0%;
-            left: 60%;
+        #wrenchBase {
+            background:white;
+            width: 40%;
             height: 15%;
-        }
-        #angle-5 {
-            border-bottom: 0;
-            border-top: .70711vmin solid #000;
-            top: 60%;
-            left: 40%;
-            width: 35%;
-            height: 40%;
-            transform: skewY(-45deg);
-        }
-        
-        #angle-5:hover {
-            border-top: .70711vmin solid #fff;
-        }
-        
-        #angle-6 {
-            border-bottom: 0;
-            border-left: 0;
-            border-top: .70711vmin solid #000;
-            top: 50%;
-            left: 70%;
-            width: 35%;
-            height: 40%;
-            transform: skewY(-45deg);
-        }
-        #angle-6:hover {
-            border-top: .70711vmin solid #fff;
-        }
-        
-        .joint-base {
-            background: #000;
-            border-radius: 100%;
+            top: 42.5%;
+            left: 0%;
             position: absolute;
-            width: 10%;
-            height: 10%;
+            border-radius: 5px;
+            
         }
         
-        .joint-base:hover {
-            background: white;
-            box-shadow: 0px 0px 50px 5px rgba(255,255,255,.7);
+        #wrenchCircle {
+            background:white;
+            width: 33%;
+            height: 33%;
+            top: 50%;
+            left: 45%;
+            transform: translate(-50%,-50%);
+            position: absolute;
+            border-radius: 100%;
         }
         
-        #joint-1 {
-
-            top: 52%;
-            left: 35%;
+        #wrenchSquare {
+            background: #337c3f;
+            width: 24%;
+            height: 22%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            position: absolute;
+            border-radius: 5px;
         }
         
-        #joint-2 {
-            top: 57%;
-            left: 10%;
-        }
-        #joint-3 {
-            top: 30%;
-            left: 35%;
-        }
-        
-        #joint-4 {
-            top: 10%;
-            left: 55%;
-        }
-        
-        #joint-5 {
-            top: 38.5%;
-            left: 70%;
-        }
-        #joint-6 {
-            top: 65%;
-            left: 65%;
+        .iconText {
+            font-family: 'Roboto', sans-serif;
+            position: absolute;
+            color:azure;
+            font-size: calc(8px + .75vmax);
+            top:80%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            font-weight: 100;
+            opacity: 1;
         }
         .worksContainer {
             opacity: 1;
@@ -800,13 +843,14 @@
 </head>
     
     <body>
-        <div class="halfPage"></div>
+        <div id="firstAnchorMark" class="halfPage">x</div>
         <scrollMarker0></scrollMarker0>
         <div class="halfPage"></div>
         <scrollMarker1></scrollMarker1>
         <div class="halfPage"></div>
         <scrollMarker2></scrollMarker2>
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
+        <div class="quarterPage" id="secondAnchorMark" ></div>
         <scrollMarker3></scrollMarker3>
         <div class="halfPage"></div>
         <scrollMarker4></scrollMarker4>
@@ -816,21 +860,27 @@
         <scrollMarker6></scrollMarker6>
         <div class="halfPage"></div>
         <scrollMarker7></scrollMarker7>
-        
         <div class="halfPage"></div>
         <scrollMarker8></scrollMarker8>
-        <div class="halfPage"></div>
+        <div class="quarterPage"></div>
+        <div class="quarterPage" id="thirdAnchorMark"></div>
         <scrollMarker9></scrollMarker9>
         <div class="halfPage"></div>
         <scrollMarker10></scrollMarker10>
-        <div class="halfPage"></div>
+        <div id="fourthAnchorMark" class="halfPage"></div>
         <scrollMarker11></scrollMarker11>
         <div class="halfPage"></div>
         <scrollMarker12></scrollMarker12>
         <div class="halfPage"></div>
         <scrollMarker13></scrollMarker13>
         <div class="halfPage"></div>
-<!--        Needs a separate div to enable opacity fade in and out-->
+        
+        
+        <a href="#firstAnchorMark"><div id="firstAnchor" class="anchorContainer"></div></a>
+        <a href="#secondAnchorMark"><div id="secondAnchor" class="anchorContainer"></div></a>
+        <a href="#thirdAnchorMark"><div id="thirdAnchor" class="anchorContainer"></div></a>
+        <a href="#fourthAnchorMark"><div id="fourthAnchor" class="anchorContainer"></div></a>
+        
         
         <div id="sidebar">
             <div id="sidebar-cover"></div>
@@ -860,6 +910,11 @@
             </a>
             <div class="sb-text">
                 <div id="sb-res">Resume</div>
+            </div>
+            
+            <img id="img-call" src="/icons/call.png">
+            <div class="sb-text">
+                <div id="sb-call">(831) 295-4053</div>
             </div>
         </div>
 
@@ -920,20 +975,13 @@
             <div class="iconText">Coder</div>
         </div>
         
-        <div class="techiconContainer">
-            <div id="angle-1" class="angle-base"></div>
-            <div id="angle-2" class="angle-base"></div>
-            <div id="angle-3" class="angle-base"></div>
-            <div id="angle-4" class="angle-base"></div>
-            <div id="angle-5" class="angle-base"></div>
-            <div id="angle-6" class="angle-base"></div>
-            <div id="joint-1" class="joint-base"></div>
-            <div id="joint-2" class="joint-base"></div>
-            <div id="joint-3" class="joint-base"></div>
-            <div id="joint-4" class="joint-base"></div>
-            <div id="joint-5" class="joint-base"></div>
-            <div id="joint-6" class="joint-base"></div>
-            <div class="iconText">Techie</div>
+        <div class="DIYiconContainer">
+            <div class="iconText">DIYer</div>
+            <div class="wrenchContainer">
+                <div id="wrenchBase"></div>
+                <div id="wrenchCircle"></div>
+                <div id="wrenchSquare"></div>
+            </div>
         </div>
         
         <h-content-text1 class="h-title-base trailing-text-base">I do a lot...</h-content-text1>
@@ -987,6 +1035,18 @@
         });
         
         $(document).ready(function(){
+            $('a[href^="#"]').on('click', function (e) {
+                e.preventDefault();
+
+                var target = this.hash;
+                var $target = $(target);
+
+                $('html, body').stop().animate({
+                    'scrollTop': $target.offset().top
+                }, 1500, 'swing', function () {
+                    window.location.hash = target;
+                });
+            });
             var scrollMarker = $(window).scrollTop();
             var sidebarCoverHeight = ('-' + 100 + '%');
             //page of functions that makes each individual page easier to address
@@ -1020,6 +1080,12 @@
                     $("#sidebar-cover").css({
                         'top': '-100%',
                         'background': '#2c3e50',
+                    });
+                    $("#firstAnchor").css({
+                        'background': 'azure',
+                    });
+                    $("#secondAnchor").css({
+                        'background': 'transparent',
                     });
                 }
                              
@@ -1128,7 +1194,7 @@
                         'top': '25%',
                         'left': '25%',
                     });
-                    $(".techiconContainer").stop().animate({
+                    $(".DIYiconContainer").stop().animate({
                         'opacity': '1',
                         'top': '87.5%',
                         'left': '50%',
@@ -1154,6 +1220,15 @@
                      $("#sidebar-cover").css({
                         'top': '-100%',
                          'background': '#8e44ad',
+                    });
+                    $("#firstAnchor").css({
+                        'background': 'transparent',
+                    });
+                    $("#secondAnchor").css({
+                        'background': 'azure',
+                    });
+                    $("#thirdAnchor").css({
+                        'background': 'transparent',
                     });
                 }
                 if (isEnter == 1){
@@ -1186,7 +1261,7 @@
                         'top': '50%',
                         'left': '50%',
                     });
-                    $(".techiconContainer").stop().animate({
+                    $(".DIYiconContainer").stop().animate({
                         'opacity': '0',
                         'top': '50%',
                         'left': '50%',
@@ -1354,6 +1429,15 @@
                     $("h-final-text3").stop().animate({
                         'opacity': '0',
                     });
+                    $("#secondAnchor").css({
+                        'background': 'transparent',
+                    });
+                    $("#thirdAnchor").css({
+                        'background': 'azure',
+                    });
+                    $("#fourthAnchor").css({
+                        'background': 'transparent',
+                    });
                 };
                 if (isEnter == 1){
                     distanceFromTop = (scrollMarker - $("scrollMarker9").offset().top);
@@ -1391,6 +1475,12 @@
                     });
                     $("h-final-text1").stop().animate({
                         'opacity': '1',
+                    });
+                    $("#thirdAnchor").css({
+                        'background': 'transparent',
+                    });
+                    $("#fourthAnchor").css({
+                        'background': 'azure',
                     });
                 }
                 if (isEnter == 1){
