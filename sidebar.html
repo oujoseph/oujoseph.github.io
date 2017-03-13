@@ -27,6 +27,9 @@
             position: fixed;
             overflow: hidden;
             z-index: 100;
+            -webkit-transition:  .35s ease-out;
+            -moz-transition:  .35s ease-out;
+            -o-transition:  .35s ease-out;
             transition: .35s ease-out;
         }
         #sidebar:hover {
@@ -34,6 +37,9 @@
         }
         #sidebar:hover > .sb-text {
             opacity: 1;
+            -webkit-transition:  1.5s;
+            -moz-transition:  1.5s;
+            -o-transition:  1.5s;
             transition: 1.5s;
         }
         #sidebar-cover {
@@ -68,26 +74,24 @@
         }
         #img-git {
             top: 48px;
+            left: 2px;
+            width: 44px;
+            height: 44px;
             position: absolute;
         }
         #img-in {
             top: 96px;
-            width: 58px;
+            left: 2px;
+            width: 51px;
+            height: 45px;
             position: absolute;
         }
         #img-res {
             top: 144px;
-            border-radius: 50%;
-            border: 1px solid white;
-            padding: 3px;
-            width: 36px;
-            height: 36px;
-            margin: 6px;
             position: absolute;
         }
         #img-call {
             top: 192px;
-            width: 48px;
             position: absolute;
         }
         .sb-text {
@@ -105,6 +109,9 @@
             padding-top: 16px;
             padding-bottom: 16px;
             opacity: 0;
+            -webkit-transition: .5s;
+            -moz-transition: .5s;
+            -o-transition: .5s;
             transition: .5s;
         }
         #sb-mail {
@@ -147,7 +154,7 @@
         <div id="sidebar">
             <div id="sidebar-cover"></div>
             <a href="mailto:j0u@outlook.com">
-                <img id="img-mail" src="icons/white-envelope.png">
+                <img id="img-mail" src="icons/email.png">
             </a>
             <div class="sb-text">
                 <div id="sb-mail">Mail</div>
@@ -174,7 +181,7 @@
                 <div id="sb-res">Resume</div>
             </div>
             
-            <img id="img-call" src="/icons/human.png">
+            <img id="img-call" src="/icons/call.png">
             <div class="sb-text">
                 <div id="sb-call">(831) 295-4053</div>
             </div>

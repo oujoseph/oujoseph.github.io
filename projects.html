@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Projects Page">
+    <meta name="author" content="Joseph Ou">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <style>
+        body {
+        }
+        .base-text {
+            font-family: 'Roboto', sans-serif;
+            font-size: calc(8px + 2.5vmin);
+            font-weight: 100;
+        }
+        h1{
+            width: 100%;
+            position: relative;
+            margin: 0px;
+            padding: 16px;
+            color: white;
+            background: #34495e;
+        }
+        
+        .worksContainer {
+            width: 100vw;
+
+/*            height: 40vmin;*/
+            position: relative;
+            overflow: hidden;
+            background: white;
+            transition: .3s;
+        }
+        .worksContainer:hover {
+            background: #e6e6e6;
+        }
+        .containerTitle {
+            text-align: center;
+            font-weight: 300;
+            padding: 4px;
+        }
+        
+        .containerText {
+            margin: 2.5vmin;
+            font-size: calc(8px + 1vmin);
+        }
+        
+        .containerImage {
+            opacity: 1;
+            height: 35vmin;
+            margin-left: 2.5vmin;
+            margin-bottom: 2.5vmin;
+        }
+        #experienceImage {
+            background: url("Projects/index-experience.jpg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+        #adventuresImage {
+            background: url("Projects/adventures-experience.JPG");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+        .line {
+            height: 1px;
+            width: 50%;
+            left: 25%;
+            position: relative;
+            background: #cccccc;
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+</head>
+    
+    
+    <body>
+        <h1 class="base-text">Projects I've Worked On</h1>
+        
+        <div class="worksContainer">
+            <div class="row">
+                <div class="base-text containerTitle">Josephou.com - Behind the Scenes</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="experienceImage" class="containerImage"></div>
+                </div>
+                <div class="col-md-8">
+                    <div class="base-text containerText row">
+                        In designing this website, I wanted to build a one-page experience for my viewers. I drew some inspiration from scrolljacking web page designs, and designed a controller in JS that relied on scrolling in order to implement a similar effect.
+                    </div>
+                    
+                    <div class="base-text containerText row">
+                        Within the one-page style, I had to make sacrifices, as cleanliness often came by sacrificing usability. Apple's advertisement page for their iPhone 5s/5c, for example, was themed to transition out a page at a time when triggered, creating a clean look, but also locking the user out of their scroll wheel. On the other hand, a continuous scroll feature, while providing the user more inherent feedback, may be less smooth and less consistent due to factors such as varying scroll speeds.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="line"></div>
+        <div class="worksContainer">
+            <div class="row">
+                <div class="base-text containerTitle">Adventures Page</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="adventuresImage" class="containerImage"></div>
+                </div>
+                <div class="col-md-8">
+                    <div class="base-text containerText row">
+                        One of my main goals of building josephou.com is to improve my web design skills. With my Adventures page came one of my early attempts at building something that would interact with the user, and the knowledge gained from this experiment is what enabled me to write the current index.html.
+                    </div>
+                    
+                    <div class="base-text containerText row">
+                        This page is a desktop viewable site that hinges on animated orbs that beg attention from the user. My original plan was to create many of these and to guide the user to points of interest throughout the page. This page is on hiatus until I figure out an implementation that is satisfactory to my standards.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line"></div>
+    </body>
+        
+        
+    <script>
+    $(document).ready(function(){
+    });
+    </script>
+        
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+</html>

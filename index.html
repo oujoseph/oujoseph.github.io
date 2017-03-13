@@ -10,7 +10,7 @@
     
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400|VT323" rel="stylesheet">
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+<!--    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
@@ -105,26 +105,24 @@
         }
         #img-git {
             top: 48px;
+            left: 2px;
+            width: 44px;
+            height: 44px;
             position: absolute;
         }
         #img-in {
             top: 96px;
-            width: 58px;
+            left: 2px;
+            width: 51px;
+            height: 45px;
             position: absolute;
         }
         #img-res {
             top: 144px;
-            border-radius: 50%;
-            border: 1px solid white;
-            padding: 3px;
-            width: 36px;
-            height: 36px;
-            margin: 6px;
             position: absolute;
         }
         #img-call {
             top: 192px;
-            width: 48px;
             position: absolute;
         }
         .sb-text {
@@ -779,7 +777,7 @@
             font-size: calc(8px + .75vmax);
             top:80%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: perspective(1px) translate(-50%,-50%);
             font-weight: 100;
             opacity: 1;
         }
@@ -791,9 +789,9 @@
             overflow: hidden;
             display: block;
             border-radius: 1vmin;
-            -webkit-transition: 1s;
-            -moz-transition: 1s;
-            -o-transition: 1s;
+            -webkit-transition: .25s;
+            -moz-transition: .25s;
+            -o-transition: .25s;
             transition: .25s;
             border-top: 1vmin solid #757575;
             border-left: 1vmin solid #757575;
@@ -819,9 +817,9 @@
             height: 50%;
             top: 85%;
             position: absolute;
-            -webkit-transition: 1s;
-            -moz-transition: 1s;
-            -o-transition: 1s;
+            -webkit-transition: .25s;
+            -moz-transition: .25s;
+            -o-transition: .25s;
             transition: .25s;
             font-family: 'Roboto', sans-serif;
             font-weight: 100;
@@ -959,7 +957,7 @@
         <div id="sidebar">
             <div id="sidebar-cover"></div>
             <a href="mailto:j0u@outlook.com">
-                <img id="img-mail" src="icons/white-envelope.png">
+                <img id="img-mail" src="icons/email.png">
             </a>
             <div class="sb-text">
                 <div id="sb-mail">Mail</div>
@@ -1063,13 +1061,14 @@
         <h-content-text4 class="h-title-base trailing-text-base">and I love building things.</h-content-text4>
         
         <h-trailing-text class="h-title-base trailing-text-base">Here are some things that I'm building.</h-trailing-text>
-        
-        <div id="projectsImage" class="worksContainer">
-            <div class="captionContainer">
-                <div class="captionTitle">Projects</div>
-                <div class="captionContent">Under Construction! The project I am focusing on right now is this website.</div>
+        <a href="projects.html">
+            <div id="projectsImage" class="worksContainer">
+                <div class="captionContainer">
+                    <div class="captionTitle">Projects</div>
+                    <div class="captionContent">Under Construction! The project I am focusing on right now is this website.</div>
+                </div>
             </div>
-        </div>
+        </a>
         <a href="gallery.html">
             <div id="galleryImage" class="worksContainer">
                 <div id="galleryImage"></div>
