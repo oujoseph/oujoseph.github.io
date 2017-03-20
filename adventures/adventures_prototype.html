@@ -90,7 +90,7 @@
         }
         .t-right {
             top:90%;
-            left:calc(50% + 3px);
+            left:calc(50% + 4px);
             z-index: 1;
             position: absolute;
             text-align: left;
@@ -98,13 +98,13 @@
         .t-middle {
             background: white;
             top:90%;
-            left:50%;
+            left: calc(50%);
             height: 100vh;
-            width: 1px;
+            width: 2px;
             position: absolute;
         }
         br {
-            line-height: 200%;
+            line-height: 175%;
         }
         t0 {
             opacity: 0;
@@ -118,6 +118,12 @@
         t3 {
             opacity: 0;
         }
+        t4 {
+            opacity: 0;
+        }
+        t5 {
+            opacity: 0;
+        }
         p0 {
             color:#BDBDBD;
         }
@@ -128,6 +134,12 @@
             color:#BDBDBD;
         }
         p3 {
+            color:#BDBDBD;
+        }
+        p4 {
+            color:#BDBDBD;
+        }
+        p5 {
             color:#BDBDBD;
         }
     </style>
@@ -176,15 +188,19 @@
         <div class="t-left">
             <p0 class="h-base t-text"><t0>What is </t0><br></p0>
             <p1 class="h-base t-text"><t1>Is photography a</t1><br></p1>
-            <p2 class="h-base t-text"><t2>Is viewing a photograph re</t2><br></p2>
-            <p3 class="h-base t-text"><t3>Or is a photo a re</t3></p3>
+            <p2 class="h-base t-text"><t2>Is viewing a photograph the </t2><br></p2>
+            <p3 class="h-base t-text"><t3>Or is a photo a re</t3><br></p3>
+            <p4 class="h-base t-text"><t4>The <br></t4></p4>
+            <p5 class="h-base t-text"><t5>You have the <br></t5></p5>
         </div>
         <div class="t-middle"></div>
         <div class="t-right">
             <p0 class="h-base t-text"><bold>photography</bold><t0>?</t0><br></p0>
             <p1 class="h-base t-text"><bold>journey</bold> <t1>back in time?</t1><br></p1>
-            <p2 class="h-base t-text"><bold>living</bold> <t2>a beautiful memory?</t2><br></p2>
-            <p3 class="h-base t-text"><bold>imagining</bold> <t3>of a scene in a new light?</t3></p3>
+            <p2 class="h-base t-text"><bold>experience</bold> <t2>of a memory?</t2><br></p2>
+            <p3 class="h-base t-text"><bold>imagination</bold> <t3>of a scene?</t3><br></p3>
+            <p4 class="h-base t-text"><bold>beauty</bold> <t4>of it is...</t4><br></p4>
+            <p5 class="h-base t-text"><bold>freedom</bold> <t5>to decide for yourself.</t5></p5>
         </div>
     </div>
     
@@ -244,7 +260,7 @@
         pageArray.page2 = function (isEnter) {
             if (isEnter == 0){
                 $("#gr_bw, t1").stop().animate({
-                    'opacity': '1',
+                    'opacity': '.9',
                 });
                 $("p1").stop().animate({
                     'color': '#FFFFFF',
@@ -292,7 +308,39 @@
                 });
             }
         }
-
+        pageArray.page5 = function (isEnter) {
+            if (isEnter == 0){
+                $("#gr_warm, t4").stop().animate({
+                    'opacity': '1',
+                });
+                $("p4").stop().animate({
+                    'color': '#FFFFFF',
+                });
+            }
+            if (isEnter == 2){
+                $("#gr_warm").stop().animate({
+                    'opacity': '0',
+                });
+                $("p4").stop().animate({
+                    'color': '#BDBDBD',
+                });
+            }
+        }
+        pageArray.page6 = function (isEnter) {
+            if (isEnter == 0){
+                $("#gr_warm, t5").stop().animate({
+                    'opacity': '1',
+                });
+                $("p5").stop().animate({
+                    'color': '#FFFFFF',
+                });
+            }
+            if (isEnter == 2){
+                $("p5").stop().animate({
+                    'color': '#BDBDBD',
+                });
+            }
+        }
 //           page manager allows finer control to entry and exit transitions per state
 
         function pageManager(newpage){
