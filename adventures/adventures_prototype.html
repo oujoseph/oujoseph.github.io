@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Photos">
+    <meta name="author" content="Joseph Ou">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400|VT323" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!--    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <style>
+        .h-title-base {
+            font-weight: 100;
+            font-family: 'Roboto', sans-serif;
+            position: fixed;
+            color:azure;
+        }
+        
+        h1 {
+            
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            z-index: 1;
+            font-size: calc(32px + 5vw);
+        }
+        
+        .imageRecolor {
+            position:absolute;
+            width: 100vw;
+            height: 100vh;
+            
+/*            background-image: url(/adventures/gr_bw.jpg);*/
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #gr_bw {
+            background-image: url(/adventures/gr_bw.jpg);
+            opacity: 1;
+        }
+        #gr_cool {
+            background-image: url(/adventures/gr_cool.jpg);
+            opacity: 0;
+        }
+        #gr_warm {
+            background-image: url(/adventures/gr_warm.jpg);
+            opacity: 0;
+        }
+        
+    </style>
+    
+</head>
+<body>
+    
+</body>
+    <div class="halfPage"></div>
+    <scrollMarker0></scrollMarker0>
+    <div class="halfPage"></div>
+    <scrollMarker1></scrollMarker1>
+    <div class="halfPage"></div>
+    <scrollMarker2></scrollMarker2>
+    <div class="halfPage"></div>
+    <scrollMarker3></scrollMarker3>
+    <div class="halfPage"></div>
+    <scrollMarker4></scrollMarker4>
+    <div class="halfPage"></div>
+    <scrollMarker5></scrollMarker5>
+    <div class="halfPage"></div>
+    <scrollMarker6></scrollMarker6>
+    <div class="halfPage"></div>
+    <scrollMarker7></scrollMarker7>
+    <div class="halfPage"></div>
+    <scrollMarker8></scrollMarker8>
+    <div class="halfPage"></div>
+    <scrollMarker9></scrollMarker9>
+    <div class="halfPage"></div>
+    <scrollMarker10></scrollMarker10>
+    <div class="halfPage"></div>
+    <scrollMarker11></scrollMarker11>
+    <div class="halfPage"></div>
+    <scrollMarker12></scrollMarker12>
+    <div class="halfPage"></div>
+    <scrollMarker13></scrollMarker13>
+    <div class="halfPage"></div>
+    
+    <h1 class="h-title-base">Adventures</h1>
+    
+    <div class="imageRecolor" id="gr_bw"></div>
+    <div class="imageRecolor" id="gr_cool"></div>
+    <div class="imageRecolor" id="gr_warm"></div>
+    
+<script>
+    $(document).ready(function(){
+//        animate scroll to anchor
+        $('a[href^="#"]').on('click', function (e) {
+            e.preventDefault();
+
+            var target = this.hash;
+            var $target = $(target);
+
+            $('html, body').stop().animate({
+                'scrollTop': $target.offset().top
+            }, 1500, 'swing', function () {
+                window.location.hash = target;
+            });
+        });
+        
+        var currentpage = 0;
+        var scrollMarker = $(window).scrollTop();
+        //page of functions that makes each individual page easier to address
+        var pageArray = {};
+//            isEnter has three states: 0 = entering, 1 = currently in, 2 = exiting
+        
+        pageArray.page0 = function (isEnter) {
+            if (isEnter == 0);
+            if (isEnter == 1);
+            if (isEnter == 2);
+        }
+        
+
+//           page manager allows finer control to entry and exit transitions per state
+
+        function pageManager(newpage){
+
+//                If the new state and current state are different, transition out current state
+//                and transition in new state
+            var currfunc = ('page' + currentpage);
+            var newfunc = ('page' + newpage);
+//                window.alert("current state: " + currfunc + " next state: " + newfunc);
+            if (newpage == currentpage){
+                pageArray[currfunc](1);
+                return;
+            };
+
+
+//                compensate for multipage jumps during the event of window resize
+//                as well as scrolls too fast for listener polling rate to handle
+            var diff = Math.abs(currentpage - newpage);
+            if (diff == 1){
+                pageArray[currfunc](2);
+                pageArray[newfunc](0);
+            } else {
+
+//                    one or the other of these while loops will trigger
+//                    will iterate from currentpage to newpage to prevent gaps in animation
+                while(currentpage < newpage){
+                    $("h-title-debug").text("Stage " + currentpage);
+                    currfunc = ('page' + currentpage);
+                    currentpage++;
+                    newfunc = ('page' + currentpage);
+                    pageArray[currfunc](2);
+                    pageArray[newfunc](0);
+                }
+                while(currentpage > newpage){
+                    $("h-title-debug").text("Stage " + currentpage);
+                    currfunc = ('page' + currentpage);
+                    currentpage--;
+                    newfunc = ('page' + currentpage);
+                    pageArray[currfunc](2);
+                    pageArray[newfunc](0);
+                }
+            }
+            currentpage = newpage;
+//                $("h-title-debug").text("Stage " + currentpage);
+        }
+
+        $(window).on('resize scroll', function(){
+            scrollMarker = $(window).scrollTop();
+
+//                Switch pagement determines what page to load on scroll and sends to pageManager()
+            switch(true){
+                case ((scrollMarker > 0) && (scrollMarker < $("scrollMarker0").offset().top)):
+                    pageManager(0);
+                    break;
+                case ((scrollMarker > $("scrollMarker0").offset().top) && (scrollMarker < $("scrollMarker1").offset().top)):
+                    pageManager(1);
+                    break;
+                case ((scrollMarker > $("scrollMarker1").offset().top) && (scrollMarker < $("scrollMarker2").offset().top)):
+                    pageManager(2);
+                    break;
+                case ((scrollMarker > $("scrollMarker2").offset().top) && (scrollMarker < $("scrollMarker3").offset().top)):
+                    pageManager(3);
+                    break;
+                case ((scrollMarker > $("scrollMarker3").offset().top) && (scrollMarker < $("scrollMarker4").offset().top)):
+                    pageManager(4);
+                    break;
+                case ((scrollMarker > $("scrollMarker4").offset().top) && (scrollMarker < $("scrollMarker5").offset().top)):
+                    pageManager(5);
+                    break;
+                case ((scrollMarker > $("scrollMarker5").offset().top) && (scrollMarker < $("scrollMarker6").offset().top)):
+                    pageManager(6);
+                    break;
+                case ((scrollMarker > $("scrollMarker6").offset().top) && (scrollMarker < $("scrollMarker7").offset().top)):
+                    pageManager(7);
+                    break;
+                case ((scrollMarker > $("scrollMarker7").offset().top) && (scrollMarker < $("scrollMarker8").offset().top)):
+                    pageManager(8);
+                    break;
+                case ((scrollMarker > $("scrollMarker8").offset().top) && (scrollMarker < $("scrollMarker9").offset().top)):
+                    pageManager(9);
+                    break;
+                case ((scrollMarker > $("scrollMarker9").offset().top) && (scrollMarker < $("scrollMarker10").offset().top)):
+                    pageManager(10);
+                    break;
+                case ((scrollMarker > $("scrollMarker10").offset().top) && (scrollMarker < $("scrollMarker11").offset().top)):
+                    pageManager(11);
+                    break;
+                case ((scrollMarker > $("scrollMarker11").offset().top) && (scrollMarker < $("scrollMarker12").offset().top)):
+                    pageManager(12);
+                    break;
+            }
+        });
+    });
+</script>
+        
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="http://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</html>
