@@ -8,7 +8,7 @@
     <meta name="author" content="Joseph Ou">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400|VT323" rel="stylesheet">
-    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!--    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
 <!--    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -45,10 +45,12 @@
         }
         .t-text {
             z-index: 1;
-            font-size: calc(4px + 1vw);
+            font-size: calc(8px + 1vh);
             opacity: 1;
         }
-        
+        br {
+            line-height: calc(8px + 3vh);
+        }
         bold {
             font-weight: 400;
             opacity: 1;
@@ -103,9 +105,7 @@
             width: 2px;
             position: absolute;
         }
-        br {
-            line-height: 175%;
-        }
+        
         t0 {
             opacity: 0;
         }
@@ -124,6 +124,13 @@
         t5 {
             opacity: 0;
         }
+        t6 {
+            opacity: 0;
+        }
+        t7 {
+            opacity: 0;
+        }
+        
         p0 {
             color:#BDBDBD;
         }
@@ -140,6 +147,12 @@
             color:#BDBDBD;
         }
         p5 {
+            color:#BDBDBD;
+        }
+        p6 {
+            color:#BDBDBD;
+        }
+        p7 {
             color:#BDBDBD;
         }
     </style>
@@ -192,6 +205,8 @@
             <p3 class="h-base t-text"><t3>Or is a photo a re</t3><br></p3>
             <p4 class="h-base t-text"><t4>The <br></t4></p4>
             <p5 class="h-base t-text"><t5>You have the <br></t5></p5>
+            <p6 class="h-base t-text"><t6>Whether it's some</t6><br></p6>
+            <p7 class="h-base t-text"><t7>Or witnessing the </t7></p7>
         </div>
         <div class="t-middle"></div>
         <div class="t-right">
@@ -200,7 +215,9 @@
             <p2 class="h-base t-text"><bold>experience</bold> <t2>of a memory?</t2><br></p2>
             <p3 class="h-base t-text"><bold>imagination</bold> <t3>of a scene?</t3><br></p3>
             <p4 class="h-base t-text"><bold>beauty</bold> <t4>of it is...</t4><br></p4>
-            <p5 class="h-base t-text"><bold>freedom</bold> <t5>to decide for yourself.</t5></p5>
+            <p5 class="h-base t-text"><bold>freedom</bold> <t5>to decide for yourself.</t5><br></p5>
+            <p6 class="h-base t-text"><bold>relaxation</bold> <t6>under a field of stars</t6><br></p6>
+            <p7 class="h-base t-text"><bold>majesty</bold> <t7>of a sunrise gradually illuminating the Rockies</t7></p7>
         </div>
     </div>
     
@@ -225,16 +242,39 @@
             });
         });
         
+        var windowHeight = $(window).height();
+        $(window).on('resize', function(){
+            windowHeight = $(window).height();
+        });
+        var currState = 0;
+        function percentScroll(newState){
+            var scrollAmount = (12 + (windowHeight * .025));
+            scrollAmount += 'px';
+            if (currState < newState){
+                $("#first_text_container").animate({
+                    'top': '-=' + scrollAmount,
+                },500);
+            }
+            if (currState > newState){
+                $("#first_text_container").animate({
+                    'top': '+=' + scrollAmount,
+                },500);
+            }
+            currState = newState;
+        };
+                     
         var currentpage = 0;
         var scrollMarker = $(window).scrollTop();
         //page of functions that makes each individual page easier to address
         var pageArray = {};
 //            isEnter has three states: 0 = entering, 1 = currently in, 2 = exiting
         pageArray.page0 = function (isEnter) {
+            percentScroll(0);
             if (isEnter == 0){
                 $("h1").stop().animate({
                     'opacity': '1',
                 });
+                
             }
             if (isEnter == 2){
                 $("h1").stop().animate({
@@ -243,6 +283,7 @@
             }
         }
         pageArray.page1 = function (isEnter) {
+            percentScroll(1);
             if (isEnter == 0){
                 $("t0").stop().animate({
                     'opacity': '1',
@@ -250,6 +291,7 @@
                 $("p0").stop().animate({
                     'color': '#FFFFFF',
                 });
+                
             }
             if (isEnter == 2){
                 $("p0").stop().animate({
@@ -258,6 +300,7 @@
             }
         }
         pageArray.page2 = function (isEnter) {
+            percentScroll(2);
             if (isEnter == 0){
                 $("#gr_bw, t1").stop().animate({
                     'opacity': '.9',
@@ -265,6 +308,7 @@
                 $("p1").stop().animate({
                     'color': '#FFFFFF',
                 });
+                
             }
             if (isEnter == 2){
                 $("p1").stop().animate({
@@ -273,6 +317,7 @@
             }
         }
         pageArray.page3 = function (isEnter) {
+            percentScroll(3);
             if (isEnter == 0){
                 $("#gr_cool, t2").stop().animate({
                     'opacity': '1',
@@ -280,6 +325,7 @@
                 $("p2").stop().animate({
                     'color': '#FFFFFF',
                 });
+                
             }
             if (isEnter == 2){
                 $("#gr_cool").stop().animate({
@@ -291,6 +337,7 @@
             }
         }
         pageArray.page4 = function (isEnter) {
+            percentScroll(4);
             if (isEnter == 0){
                 $("#gr_warm, t3").stop().animate({
                     'opacity': '1',
@@ -298,6 +345,7 @@
                 $("p3").stop().animate({
                     'color': '#FFFFFF',
                 });
+                
             }
             if (isEnter == 2){
                 $("#gr_warm").stop().animate({
@@ -309,34 +357,68 @@
             }
         }
         pageArray.page5 = function (isEnter) {
+            percentScroll(5);
             if (isEnter == 0){
-                $("#gr_warm, t4").stop().animate({
+                $("t4").stop().animate({
                     'opacity': '1',
                 });
                 $("p4").stop().animate({
                     'color': '#FFFFFF',
                 });
+                
             }
             if (isEnter == 2){
-                $("#gr_warm").stop().animate({
-                    'opacity': '0',
-                });
                 $("p4").stop().animate({
                     'color': '#BDBDBD',
                 });
             }
         }
         pageArray.page6 = function (isEnter) {
+            percentScroll(6);
             if (isEnter == 0){
-                $("#gr_warm, t5").stop().animate({
+                $("t5").stop().animate({
                     'opacity': '1',
                 });
                 $("p5").stop().animate({
                     'color': '#FFFFFF',
                 });
+                
             }
             if (isEnter == 2){
                 $("p5").stop().animate({
+                    'color': '#BDBDBD',
+                });
+            }
+        }
+        pageArray.page7 = function (isEnter) {
+            percentScroll(7);
+            if (isEnter == 0){
+                $("t6").stop().animate({
+                    'opacity': '1',
+                });
+                $("p6").stop().animate({
+                    'color': '#FFFFFF',
+                });
+            }
+            if (isEnter == 2){
+                $("p6").stop().animate({
+                    'color': '#BDBDBD',
+                });
+            }
+        }
+        pageArray.page8 = function (isEnter) {
+            percentScroll(8);
+            if (isEnter == 0){
+                $("t7").stop().animate({
+                    'opacity': '1',
+                });
+                $("p7").stop().animate({
+                    'color': '#FFFFFF',
+                });
+                
+            }
+            if (isEnter == 2){
+                $("p7").stop().animate({
                     'color': '#BDBDBD',
                 });
             }
