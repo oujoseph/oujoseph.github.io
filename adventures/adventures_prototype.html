@@ -14,29 +14,51 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
     <style>
-        .h-title-base {
+        body {
+            background-color: black;
+        }
+        .h-base {
             font-weight: 100;
             font-family: 'Roboto', sans-serif;
-            position: fixed;
-            color:azure;
+        }
+        
+        .halfPage{
+            height: 50vh;
         }
         
         h1 {
-            
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            position: absolute;
             z-index: 1;
-            font-size: calc(32px + 5vw);
+            font-size: calc(32px + 2vw);
+            margin: 0;
+            color:white;
         }
         
+        #first_text_container{
+            top: 40%;
+            left: 50%;
+            width: 100%;
+            transform: translate(-50%, 0);
+            z-index: 1;
+            position: fixed;
+            text-align: center;
+            padding: 16px;
+        }
+        .t-text {
+            z-index: 1;
+            font-size: calc(4px + 1vw);
+            opacity: 1;
+        }
+        
+        bold {
+            font-weight: 400;
+            opacity: 1;
+        }
         .imageRecolor {
-            position:absolute;
+            position:fixed;
+            top: 0%;
             width: 100vw;
             height: 100vh;
             
-/*            background-image: url(/adventures/gr_bw.jpg);*/
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
@@ -44,7 +66,7 @@
         }
         #gr_bw {
             background-image: url(/adventures/gr_bw.jpg);
-            opacity: 1;
+            opacity: 0.5;
         }
         #gr_cool {
             background-image: url(/adventures/gr_cool.jpg);
@@ -54,13 +76,66 @@
             background-image: url(/adventures/gr_warm.jpg);
             opacity: 0;
         }
+        .padding {
+            padding-top: 2px;
+            padding-bottom: 2px;
+        }
         
+        .t-left {
+            top:90%;
+            right:calc(50% + 3px);
+            z-index: 1;
+            position: absolute;
+            text-align: right;
+        }
+        .t-right {
+            top:90%;
+            left:calc(50% + 3px);
+            z-index: 1;
+            position: absolute;
+            text-align: left;
+        }
+        .t-middle {
+            background: white;
+            top:90%;
+            left:50%;
+            height: 100vh;
+            width: 1px;
+            position: absolute;
+        }
+        br {
+            line-height: 200%;
+        }
+        t0 {
+            opacity: 0;
+        }
+        t1 {
+            opacity: 0;
+        }
+        t2 {
+            opacity: 0;
+        }
+        t3 {
+            opacity: 0;
+        }
+        p0 {
+            color:#BDBDBD;
+        }
+        p1 {
+            color:#BDBDBD;
+        }
+        p2 {
+            color:#BDBDBD;
+        }
+        p3 {
+            color:#BDBDBD;
+        }
     </style>
     
 </head>
 <body>
     
-</body>
+
     <div class="halfPage"></div>
     <scrollMarker0></scrollMarker0>
     <div class="halfPage"></div>
@@ -91,12 +166,33 @@
     <scrollMarker13></scrollMarker13>
     <div class="halfPage"></div>
     
-    <h1 class="h-title-base">Adventures</h1>
+    
+    
+    <div id="first_text_container">
+        <div>
+            <h1 class="h-base">Adventures</h1>
+        </div>
+        
+        <div class="t-left">
+            <p0 class="h-base t-text"><t0>What is </t0><br></p0>
+            <p1 class="h-base t-text"><t1>Is photography a</t1><br></p1>
+            <p2 class="h-base t-text"><t2>Is viewing a photograph re</t2><br></p2>
+            <p3 class="h-base t-text"><t3>Or is a photo a re</t3></p3>
+        </div>
+        <div class="t-middle"></div>
+        <div class="t-right">
+            <p0 class="h-base t-text"><bold>photography</bold><t0>?</t0><br></p0>
+            <p1 class="h-base t-text"><bold>journey</bold> <t1>back in time?</t1><br></p1>
+            <p2 class="h-base t-text"><bold>living</bold> <t2>a beautiful memory?</t2><br></p2>
+            <p3 class="h-base t-text"><bold>imagining</bold> <t3>of a scene in a new light?</t3></p3>
+        </div>
+    </div>
+    
     
     <div class="imageRecolor" id="gr_bw"></div>
     <div class="imageRecolor" id="gr_cool"></div>
     <div class="imageRecolor" id="gr_warm"></div>
-    
+</body> 
 <script>
     $(document).ready(function(){
 //        animate scroll to anchor
@@ -118,13 +214,84 @@
         //page of functions that makes each individual page easier to address
         var pageArray = {};
 //            isEnter has three states: 0 = entering, 1 = currently in, 2 = exiting
-        
         pageArray.page0 = function (isEnter) {
-            if (isEnter == 0);
-            if (isEnter == 1);
-            if (isEnter == 2);
+            if (isEnter == 0){
+                $("h1").stop().animate({
+                    'opacity': '1',
+                });
+            }
+            if (isEnter == 2){
+                $("h1").stop().animate({
+                    'opacity': '0',
+                });
+            }
         }
-        
+        pageArray.page1 = function (isEnter) {
+            if (isEnter == 0){
+                $("t0").stop().animate({
+                    'opacity': '1',
+                });
+                $("p0").stop().animate({
+                    'color': '#FFFFFF',
+                });
+            }
+            if (isEnter == 2){
+                $("p0").stop().animate({
+                    'color': '#BDBDBD',
+                });
+            }
+        }
+        pageArray.page2 = function (isEnter) {
+            if (isEnter == 0){
+                $("#gr_bw, t1").stop().animate({
+                    'opacity': '1',
+                });
+                $("p1").stop().animate({
+                    'color': '#FFFFFF',
+                });
+            }
+            if (isEnter == 2){
+                $("p1").stop().animate({
+                    'color': '#BDBDBD',
+                });
+            }
+        }
+        pageArray.page3 = function (isEnter) {
+            if (isEnter == 0){
+                $("#gr_cool, t2").stop().animate({
+                    'opacity': '1',
+                });
+                $("p2").stop().animate({
+                    'color': '#FFFFFF',
+                });
+            }
+            if (isEnter == 2){
+                $("#gr_cool").stop().animate({
+                    'opacity': '0',
+                });
+                $("p2").stop().animate({
+                    'color': '#BDBDBD',
+                });
+            }
+        }
+        pageArray.page4 = function (isEnter) {
+            if (isEnter == 0){
+                $("#gr_warm, t3").stop().animate({
+                    'opacity': '1',
+                });
+                $("p3").stop().animate({
+                    'color': '#FFFFFF',
+                });
+            }
+            if (isEnter == 2){
+                $("#gr_warm").stop().animate({
+                    'opacity': '0',
+                });
+                $("p3").stop().animate({
+                    'color': '#BDBDBD',
+                });
+            }
+        }
 
 //           page manager allows finer control to entry and exit transitions per state
 
@@ -172,7 +339,7 @@
 //                $("h-title-debug").text("Stage " + currentpage);
         }
 
-        $(window).on('resize scroll', function(){
+        $(window).on('scroll', function(){
             scrollMarker = $(window).scrollTop();
 
 //                Switch pagement determines what page to load on scroll and sends to pageManager()
