@@ -246,21 +246,17 @@
         $(window).on('resize', function(){
             windowHeight = $(window).height();
         });
-        var currState = 0;
-        function percentScroll(newState){
-            var scrollAmount = (12 + (windowHeight * .025));
-            scrollAmount += 'px';
-            if (currState < newState){
-                $("#first_text_container").animate({
-                    'top': '-=' + scrollAmount,
-                },500);
-            }
-            if (currState > newState){
-                $("#first_text_container").animate({
-                    'top': '+=' + scrollAmount,
-                },500);
-            }
-            currState = newState;
+
+        
+        function percentScroll(currState){
+            var scrollAmount = (12 + (windowHeight * .025)) * currState;
+            var defaultPosition = (windowHeight * .4);
+            defaultPosition -= scrollAmount;
+            defaultPosition += 'px';
+            
+            $("#first_text_container").stop().animate({
+                    'top': defaultPosition,
+            });
         };
                      
         var currentpage = 0;
