@@ -83,12 +83,32 @@
             background-image: url(/adventures/bt.jpg);
             opacity: 0;
         }
-        #tr {
+        #fr_ee {
             background-image: url(/adventures/tr_tr.jpg);
             opacity: 0;
         }
+        #st_oc {
+            background-image: url(/adventures/st_oc.jpg);
+            opacity: 0;
+        }
+        #tw_thou {
+            background-image: url(/adventures/tw_thou.jpg);
+            opacity: 0;
+        }
+        #ps_tor {
+            background-image: url(/adventures/ps_tor.jpg);
+            opacity: 0;
+        }
+        #wa_ve {
+            background-image: url(/adventures/wa_ve.jpg);
+            opacity: 0;
+        }
+        #mu_shi {
+            background-image: url(/adventures/mu_shi.JPG);
+            opacity: 0;
+        }
         #ud_lake {
-            background-image: url(/adventures/upside_down_lake.jpg);
+            background-image: url(/adventures/ud_lake.jpg);
             opacity: 0;
         }
         .padding {
@@ -155,6 +175,9 @@
         t11 {
             opacity: 0;
         }
+        t12 {
+            opacity: 0;
+        }
         p0 {
             color:#BDBDBD;
         }
@@ -190,6 +213,13 @@
         }
         p11 {
             color:#BDBDBD;
+        }
+        p11 {
+            color:#BDBDBD;
+        }
+        p12 {
+            color:#BDBDBD;
+            opacity: 0;
         }
     </style>
     
@@ -242,11 +272,11 @@
             <p4 class="h-base t-text"><t4>The <br></t4></p4>
             <p5 class="h-base t-text"><t5>You have the <br></t5></p5>
             <p6 class="h-base t-text"><t6>Whether it's lying in </t6><br></p6>
-            <p7 class="h-base t-text"><t7>Or witnessing the </t7><br></p7>
-            <p8 class="h-base t-text"><t8>It can be a</t8><br></p8>
+            <p7 class="h-base t-text"><t7>Or basking in the </t7><br></p7>
+            <p8 class="h-base t-text"><t8>Photography can be a</t8><br></p8>
             <p9 class="h-base t-text"><t9>Or the</t9><br></p9>
             <p10 class="h-base t-text"><t10>It's the </t10><br></p10>
-            <p11 class="h-base t-text"><t11>Or something that will turn your</t11><br></p11>
+            <p11 class="h-base t-text"><t11>Yet is something that will turn your</t11><br></p11>
         </div>
         <div class="t-middle"></div>
         <div class="t-right">
@@ -256,12 +286,14 @@
             <p3 class="h-base t-text"><bold>imagination</bold> <t3>of a scene?</t3><br></p3>
             <p4 class="h-base t-text"><bold>beauty</bold> <t4>of it is...</t4><br></p4>
             <p5 class="h-base t-text"><bold>freedom</bold> <t5>to decide for yourself.</t5><br></p5>
-            <p6 class="h-base t-text"><bold>tranquility</bold> <t6>under a field of stars</t6><br></p6>
-            <p7 class="h-base t-text"><bold>majesty</bold> <t7>of a sunrise creeping across the Rockies.</t7><br></p7>
+            <p6 class="h-base t-text"><bold>tranquility</bold> <t6>under an ocean of stars</t6><br></p6>
+            <p7 class="h-base t-text"><bold>majesty</bold> <t7>of a sunrise gently flowing across the Rockies.</t7><br></p7>
             <p8 class="h-base t-text"><bold>pastoral</bold><t8> stroll through the countryside</t8><br></p8>
-            <p9 class="h-base t-text"><bold>visceral</bold><t9>power of nature.</t9><br></p9>
+            <p9 class="h-base t-text"><bold>visceral</bold><t9> power of nature.</t9><br></p9>
             <p10 class="h-base t-text"><bold>perspective</bold><t10> of the smallest critters</t10><br></p10>
-            <p11 class="h-base t-text"><bold>world-view</bold> <t11>upside down.</t11></p11>
+            <p11 class="h-base t-text"><bold>world-view</bold> <t11>upside down.</t11><br></p11>
+            <p12 class="h-base t-text"><t12>Photography can mean anything.</t12></p12>
+            <p12 class="h-base t-text"><t12>And everything.</t12></p12>
         </div>
     </div>
     
@@ -271,7 +303,12 @@
     <div class="imageFixed" id="gr_warm"></div>
     <div class="imageFixed" id="ud_lake"></div>
     <div class="imageFixed" id="bt"></div>
-    <div class="imageFixed" id="tr"></div>
+    <div class="imageFixed" id="fr_ee"></div>
+    <div class="imageFixed" id="st_oc"></div>
+    <div class="imageFixed" id="tw_thou"></div>
+    <div class="imageFixed" id="ps_tor"></div>
+    <div class="imageFixed" id="wa_ve"></div>
+    <div class="imageFixed" id="mu_shi"></div>
 </body> 
 <script>
     $(document).ready(function(){
@@ -335,13 +372,13 @@
                     'opacity': '1',
                 });
                 $("p0").animate({
-                    'color': '#FFFFFF',
+                    'color': '#FFFFFF', 'opacity': '1',
                 });
                 
             }
             if (isEnter == 2){
                 $("p0").animate({
-                    'color': '#BDBDBD',
+                    'color': '#BDBDBD', 'opacity': '.5',
                 });
             }
         }
@@ -349,17 +386,20 @@
             
             if (isEnter == 0){
                 percentScroll(2);
-                $("#gr_bw, t1").animate({
+                $("#gr_bw").animate({
                     'opacity': '.9',
                 });
+                $("t1").animate({
+                    'opacity': '1',
+                });
                 $("p1").stop().animate({
-                    'color': '#FFFFFF',
+                    'color': '#FFFFFF', 'opacity': '1',
                 });
                 
             }
             if (isEnter == 2){
                 $("p1").animate({
-                    'color': '#BDBDBD',
+                    'color': '#BDBDBD', 'opacity': '.5',
                 });
             }
         }
@@ -371,7 +411,7 @@
                     'opacity': '1',
                 });
                 $("p2").animate({
-                    'color': '#FFFFFF',
+                    'color': '#FFFFFF', 'opacity': '1',
                 });
                 
             }
@@ -380,7 +420,7 @@
                     'opacity': '0',
                 });
                 $("p2").animate({
-                    'color': '#BDBDBD',
+                    'color': '#BDBDBD', 'opacity': '.5',
                 });
             }
         }
@@ -388,11 +428,14 @@
             
             if (isEnter == 0){
                 percentScroll(4);
-                $("#gr_warm, t3").animate({
+                $("#gr_warm").animate({
                     'opacity': '.8',
                 });
+                $("t3").animate({
+                    'opacity': '1',
+                });
                 $("p3").animate({
-                    'color': '#FFFFFF',
+                    'color': '#FFFFFF', 'opacity': '1',
                 });
                 $("#gr_bw").animate({
                     'opacity': '0',
@@ -403,7 +446,7 @@
                     'opacity': '0',
                 });
                 $("p3").animate({
-                    'color': '#BDBDBD',
+                    'color': '#BDBDBD', 'opacity': '.5',
                 });
             }
         }
@@ -411,11 +454,14 @@
             
             if (isEnter == 0){
                 percentScroll(5);
-                $("#bt, t4").animate({
+                $("#bt").animate({
                     'opacity': '.7',
                 });
+                $("t4").animate({
+                    'opacity': '1',
+                });
                 $("p4").animate({
-                    'color': '#FFFFFF',
+                    'color': '#FFFFFF', 'opacity': '1',
                 });
                 
             }
@@ -424,7 +470,7 @@
                     'opacity': '0',
                 });
                 $("p4").animate({
-                    'color': '#BDBDBD',
+                    'color': '#BDBDBD', 'opacity': '.5',
                 });
             }
         }
@@ -432,19 +478,19 @@
             
             if (isEnter == 0){
                 percentScroll(6);
-                $("#tr, t5").animate({
-                    'opacity': '1',
+                $("#fr_ee, t5").animate({
+                    'opacity': '.8',
                 });
                 $("p5").stop().animate({
-                    'color': '#FFFFFF',
+                    'color': '#FFFFFF', 'opacity': '1',
                 });
                 
             }
             if (isEnter == 2){
                 $("p5").animate({
-                    'color': '#BDBDBD',
+                    'color': '#BDBDBD', 'opacity': '.5',
                 });
-                $("#tr").animate({
+                $("#fr_ee").animate({
                     'opacity': '0',
                 });
             }
@@ -453,16 +499,22 @@
             
             if (isEnter == 0){
                 percentScroll(7);
+                $("#st_oc").animate({
+                    'opacity': '.7',
+                });
                 $("t6").animate({
                     'opacity': '1',
                 });
                 $("p6").animate({
-                    'color': '#FFFFFF',
+                    'color': '#FFFFFF', 'opacity': '1',
                 });
             }
             if (isEnter == 2){
                 $("p6").animate({
-                    'color': '#BDBDBD',
+                    'color': '#BDBDBD', 'opacity': '.5',
+                });
+                $("#st_oc").animate({
+                    'opacity': '0',
                 });
             }
         }
@@ -470,16 +522,22 @@
             
             if (isEnter == 0){
                 percentScroll(8);
+                $("#tw_thou").animate({
+                    'opacity': '.6',
+                });
                 $("t7").animate({
                     'opacity': '1',
                 });
                 $("p7").animate({
-                    'color': '#FFFFFF',
+                    'color': '#FFFFFF', 'opacity': '1',
                 });
             }
             if (isEnter == 2){
                 $("p7").animate({
-                    'color': '#BDBDBD',
+                    'color': '#BDBDBD', 'opacity': '.5',
+                });
+                $("#tw_thou").animate({
+                    'opacity': '0',
                 });
             }
         }
@@ -487,16 +545,19 @@
             
             if (isEnter == 0){
                 percentScroll(9);
-                $("t8").animate({
+                $("#ps_tor, t8").animate({
                     'opacity': '1',
                 });
                 $("p8").animate({
-                    'color': '#FFFFFF',
+                    'color': '#FFFFFF', 'opacity': '1',
                 });
             }
             if (isEnter == 2){
                 $("p8").animate({
-                    'color': '#BDBDBD',
+                    'color': '#BDBDBD', 'opacity': '.5',
+                });
+                $("#ps_tor").animate({
+                    'opacity': '0',
                 });
             }
         }
@@ -504,16 +565,22 @@
             
             if (isEnter == 0){
                 percentScroll(10);
+                $("#wa_ve").animate({
+                    'opacity': '.6',
+                });
                 $("t9").animate({
                     'opacity': '1',
                 });
                 $("p9").animate({
-                    'color': '#FFFFFF',
+                    'color': '#FFFFFF', 'opacity': '1',
                 });
             }
             if (isEnter == 2){
                 $("p9").animate({
-                    'color': '#BDBDBD',
+                    'color': '#BDBDBD', 'opacity': '.5',
+                });
+                $("#wa_ve").animate({
+                    'opacity': '0',
                 });
             }
         }
@@ -521,16 +588,19 @@
             
             if (isEnter == 0){
                 percentScroll(11);
-                $("t10").animate({
+                $("#mu_shi, t10").animate({
                     'opacity': '1',
                 });
                 $("p10").animate({
-                    'color': '#FFFFFF',
+                    'color': '#FFFFFF', 'opacity': '1',
                 });
             }
             if (isEnter == 2){
                 $("p10").animate({
-                    'color': '#BDBDBD',
+                    'color': '#BDBDBD', 'opacity': '.5',
+                });
+                $("#mu_shi").animate({
+                    'opacity': '0',
                 });
             }
         }
@@ -542,15 +612,32 @@
                     'opacity': '1',
                 });
                 $("p11").animate({
-                    'color': '#FFFFFF',
+                    'color': '#FFFFFF', 'opacity': '1',
                 });
             }
             if (isEnter == 2){
                 $("p11").animate({
-                    'color': '#BDBDBD',
+                    'color': '#BDBDBD', 'opacity': '.5', 'opacity': '.5',
                 });
                 $("#ud_lake").animate({
+                    'opacity': '0',
+                });
+            }
+        }
+        pageArray.page13 = function (isEnter) {
+            
+            if (isEnter == 0){
+                percentScroll(13);
+                $("t12").animate({
                     'opacity': '1',
+                });
+                $("p12").animate({
+                    'color': '#FFFFFF', 'opacity': '1',
+                });
+            }
+            if (isEnter == 2){
+                $("p12").animate({
+                    'color': '#BDBDBD', 'opacity': '.5', 'opacity': '.5',
                 });
             }
         }
@@ -643,6 +730,9 @@
                     break;
                 case ((scrollMarker > $("scrollMarker11").offset().top) && (scrollMarker < $("scrollMarker12").offset().top)):
                     pageManager(12);
+                    break;
+                case ((scrollMarker > $("scrollMarker12").offset().top) && (scrollMarker < $("scrollMarker13").offset().top)):
+                    pageManager(13);
                     break;
             }
         });
