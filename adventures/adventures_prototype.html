@@ -345,6 +345,10 @@
             });
         });
         
+        $(window).on('beforeunload', function(){
+            $(window).scrollTop(0);
+        });
+        
         var windowHeight = $(window).height();
         $(window).on('resize', function(){
             windowHeight = $(window).height();
