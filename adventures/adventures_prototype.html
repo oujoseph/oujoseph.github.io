@@ -46,12 +46,12 @@
         }
         .t-text {
             z-index: 1;
-            font-size: calc(8px + 1vh);
+            font-size: calc(8px + 1vmin);
             opacity: 1;
             white-space: nowrap;
         }
         br {
-            line-height: calc(8px + 3vh);
+            line-height: calc(8px + 3vmin);
         }
         bold {
             font-weight: 400;
@@ -352,6 +352,7 @@
         var windowHeight = $(window).height();
         $(window).on('resize', function(){
             windowHeight = $(window).height();
+            windowWidth = $(window).width();
         });
 
         $(window).keydown(function(e) {
@@ -376,7 +377,12 @@
         
         function percentScroll(currState){
             var scrollAmount = (12 + (windowHeight * .025)) * currState;
-            var defaultPosition = (windowHeight * .4);
+            var defaultPosition = 0;
+            if (windowHeight > windowWidth) {
+                defaultPosition = (windowWidth * .4);
+            } else {
+                defaultPosition = (windowHeight * .4);
+            }
             defaultPosition -= scrollAmount;
             defaultPosition += 'px';
             
