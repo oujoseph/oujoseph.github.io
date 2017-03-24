@@ -350,9 +350,22 @@
         });
         
         var windowHeight = $(window).height();
+        var windowWidth = $(window).width();
+        var windowLess;
+        if (windowHeight > windowWidth){
+            windowLess = windowWidth;
+        } else {
+            windowLess = windowHeight;
+        }
         $(window).on('resize', function(){
             windowHeight = $(window).height();
             windowWidth = $(window).width();
+            
+            if (windowHeight > windowWidth){
+                windowLess = windowWidth;
+            } else {
+                windowLess = windowHeight;
+            }
         });
 
         $(window).keydown(function(e) {
@@ -376,13 +389,8 @@
         });
         
         function percentScroll(currState){
-            var scrollAmount = (12 + (windowHeight * .025)) * currState;
-            var defaultPosition = 0;
-            if (windowHeight > windowWidth) {
-                defaultPosition = (windowWidth * .4);
-            } else {
-                defaultPosition = (windowHeight * .4);
-            }
+            var scrollAmount = (12 + (windowLess * .025)) * currState;
+            var defaultPosition = (windowHeight * .4);
             defaultPosition -= scrollAmount;
             defaultPosition += 'px';
             
@@ -735,7 +743,7 @@
 //                $("h-title-debug").text("Stage " + currentpage);
         }
 
-        $(window).on('scroll', function(){
+        $(window).on('scroll resize', function(){
             scrollMarker = $(window).scrollTop();
 
 //                Switch pagement determines what page to load on scroll and sends to pageManager()
