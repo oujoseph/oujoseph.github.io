@@ -372,19 +372,27 @@
             e.preventDefault();
             if((e.keyCode == 38) || (e.which == 38)){
                 var temp = $(window).scrollTop();
-                $(window).scrollTop(temp - ($(window).height()/2) + 2);
+                $('html, body').stop().animate({
+                    'scrollTop': temp - ($(window).height()/2),
+                },200)
             }//down
             if((e.keyCode == 40) || (e.which == 40)){
                 var temp = $(window).scrollTop();
-                $(window).scrollTop(temp + ($(window).height()/2) + 2);
+                $('html, body').stop().animate({
+                    'scrollTop': temp + ($(window).height()/2),
+                },200)
             }
             if((e.keyCode == 33) || (e.which == 33)){
                 var temp = $(window).scrollTop();
-                $(window).scrollTop(temp - ($(window).height()/2) + 2);
+                $('html, body').stop().animate({
+                    'scrollTop': temp - ($(window).height()/2),
+                },200)
             }
             if((e.keyCode == 34) || (e.which == 34)){
                 var temp = $(window).scrollTop();
-                $(window).scrollTop(temp + ($(window).height()/2) + 2);
+                $('html, body').stop().animate({
+                    'scrollTop': temp + ($(window).height()/2),
+                },200)
             }
         });
         
