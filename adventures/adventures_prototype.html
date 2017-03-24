@@ -60,6 +60,7 @@
         .imageFixed {
             position:fixed;
             top: 0%;
+            left: 0%;
             width: 100vw;
             height: 100vh;
             
@@ -135,7 +136,7 @@
             background: white;
             top:90%;
             left: calc(50%);
-            height: 100vh;
+            height: 200vh;
             width: 2px;
             position: absolute;
         }
@@ -232,7 +233,6 @@
 <body>
     
 
-    <div class="quarterPage"></div>
     <div class="quarterPage" id="a0"></div>
     <scrollMarker0></scrollMarker0>
     <div class="quarterPage"></div>
@@ -354,6 +354,25 @@
             windowHeight = $(window).height();
         });
 
+        $(window).keydown(function(e) {
+            e.preventDefault();
+            if((e.keyCode == 38) || (e.which == 38)){
+                var temp = $(window).scrollTop();
+                $(window).scrollTop(temp - ($(window).height()/2) + 2);
+            }//down
+            if((e.keyCode == 40) || (e.which == 40)){
+                var temp = $(window).scrollTop();
+                $(window).scrollTop(temp + ($(window).height()/2) + 2);
+            }
+            if((e.keyCode == 33) || (e.which == 33)){
+                var temp = $(window).scrollTop();
+                $(window).scrollTop(temp - ($(window).height()/2) + 2);
+            }
+            if((e.keyCode == 34) || (e.which == 34)){
+                var temp = $(window).scrollTop();
+                $(window).scrollTop(temp + ($(window).height()/2) + 2);
+            }
+        });
         
         function percentScroll(currState){
             var scrollAmount = (12 + (windowHeight * .025)) * currState;

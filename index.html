@@ -914,7 +914,7 @@
 </head>
     
     <body>
-        <div id="firstAnchorMark" class="halfPage">x</div>
+        <div id="firstAnchorMark" class="quarterPage">x</div>
         <scrollMarker0></scrollMarker0>
         <div class="halfPage"></div>
         <scrollMarker1></scrollMarker1>
@@ -1124,6 +1124,30 @@
             //page of functions that makes each individual page easier to address
             var pageArray = {};
             
+            $(window).keydown(function(e) {
+                
+                if((e.keyCode == 38) || (e.which == 38)){
+                    e.preventDefault();
+                    var temp = $(window).scrollTop();
+                    $(window).scrollTop(temp - ($(window).height()/2) + 2);
+                }//down
+                if((e.keyCode == 40) || (e.which == 40)){
+                    e.preventDefault();
+                    var temp = $(window).scrollTop();
+                    $(window).scrollTop(temp + ($(window).height()/2) + 2);
+                }
+                if((e.keyCode == 33) || (e.which == 33)){
+                    e.preventDefault();
+                    var temp = $(window).scrollTop();
+                    $(window).scrollTop(temp - ($(window).height()/2) + 2);
+                }
+                if((e.keyCode == 34) || (e.which == 34)){
+                    e.preventDefault();
+                    var temp = $(window).scrollTop();
+                    $(window).scrollTop(temp + ($(window).height()/2) + 2);
+                }
+            });
+            
 //            isEnter has three states: 0 = entering, 1 = currently in, 2 = exiting
             
 //            Each page is a function that either transitions in or transitions out
@@ -1167,7 +1191,7 @@
                              
                 if (isEnter == 1){
                     distanceFromTop = (scrollMarker - $("scrollMarker0").offset().top);
-                    divHeight = ($("scrollMarker1").offset().top - $("scrollMarker0").offset().top);
+                    divHeight = ($("scrollMarker0").offset().top);
                     sidebarPercent = ((distanceFromTop + 1) / divHeight) * 100;
                     sidebarCoverHeight = (sidebarPercent + '%');
                     $("#sidebar-cover").css({
