@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>Simple Map</title>
+        <meta name="viewport" content="initial-scale=1.0">
+        <meta charset="utf-8">
+        
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,200,100' rel='stylesheet' type='text/css'>
+        
+        <style>
+            body{
+                overflow: hidden;
+            }
+            /* Always set the map height explicitly to define the size of the div
+             * element that contains the map. */
+            #map {
+                height: 90%;
+                top: 10%;
+            }
+
+            h1 {
+                font-size: 4vmin;
+                color: #F39C12;
+                font-family: 'Roboto', sans-serif;
+                font-weight: 300;
+                position: relative;
+                text-align: center;
+                width: 100vw;
+            }
+            
+            h2 {
+                font-size: 2vmin;
+                color: #777777;
+                font-family: 'Roboto', sans-serif;
+                font-weight: 300;
+                position: relative;
+                text-align: center;
+                width: 100vw;
+            }
+            
+            input {
+                font-size: 2vmin;
+                font-family: 'Roboto', sans-serif;
+                font-weight: 300;
+                padding: 6px 8px;
+                margin: 8px;
+            }
+            #form-height {
+                position:relative;
+                top:15%;
+                width: 100%;
+            }
+            input[type="address"] {
+                width: 50%;
+                
+                box-sizing: border-box;
+                color: #777777;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-bottom: 1px solid #F39C12;
+                
+                transition: .3s;
+                -webkit-transition: .3s;
+                left: 50%;
+                transform: translateX(-50%);
+                position:relative;
+            }
+            
+            input:focus {
+                width: 50.5%;
+                border-bottom: 2px solid #F39C12;
+            }
+            
+            
+            input[type="submit"] {
+                width: 15%;
+                min-width: 150px;
+                box-sizing: border-box;
+                color: #ffffff;
+                background: #F39C12;
+                border:none;
+                left: 50%;
+                transform: translateX(-50%);
+                position:relative;
+            }
+            
+            .lineseparator {
+                width: 75%;
+                left: 50%;
+                transform: translateX(-50%);
+                color: #777777;
+                height: 0px;
+                position: relative;
+                border-bottom:1px solid #cccccc;
+                padding-top: 8px;
+                padding-bottom: 8px;
+            }
+            
+        </style>
+		
+		
+	</head>
+	<body>
+        <h1>Amne Engineering Assignment</h1>
+        <h2>Enter the two desired addresses below</h2>
+        <form id="form-height">
+            <label for="addr-1"></label>
+            <input type="address" id="addr-1" placeholder="Address 1">
+            <label for="addr-2"></label>
+            <input type="address" id="addr-2" placeholder="Address 2">
+            <p><input type="submit" value="Submit Addresses"></p>
+            <div class=lineseparator></div>
+        </form>
+	</body>
+</html>
