@@ -12,7 +12,7 @@
         
         <style>
             body{
-/*                overflow: hidden;*/
+                overflow: hidden;
                 padding: 0;
                 margin: 0;
             }
@@ -150,9 +150,9 @@
                     transition: width height .25s;
                 }
                 #selectionContainer:hover {
-                    top: 50vh;
+                    top: 48px;
                     width: 100vw;
-                    height: 50vh;
+                    height: calc(100vh-48ox);
                 }
                 
                 #logo-image {
@@ -271,9 +271,8 @@
                 }
             })
         }
-        $("#loadButton").click(function(){
-            getClosestData();
-            $('#outputData').html("loading");
+        $("#selectionContainer").click(function(){
+            
         })
         $(document).on("focusout",function(){
             window.scrollTo(0, 0);
