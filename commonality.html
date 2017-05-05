@@ -12,7 +12,7 @@
         
         <style>
             body{
-                overflow: hidden;
+/*                overflow: hidden;*/
                 padding: 0;
                 margin: 0;
             }
@@ -275,7 +275,9 @@
             getClosestData();
             $('#outputData').html("loading");
         })
-        
+        $(document).on("focusout",function(){
+            window.scrollTo(0, 0);
+        });
         document.ontouchmove = function (e) {
             e.preventDefault();
         }
