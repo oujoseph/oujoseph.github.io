@@ -35,6 +35,13 @@
                 padding-left:8px;
             }
             
+            #img-search {
+                height: 40px;
+                top:4px;
+                right: 6px;
+                position: absolute;
+            }
+            
             #new-selection-title {
                 font-size: 32px;
                 color: #777777;
@@ -50,6 +57,14 @@
             }
             
             input {
+                font-size:  calc(.75vmin + 8px);
+                font-family: 'Roboto', sans-serif;
+                text-align: center;
+                font-weight: 300;
+                padding: 6px 8px;
+                margin: 8px;
+            }
+            #distanceOptions {
                 font-size:  calc(.75vmin + 8px);
                 font-family: 'Roboto', sans-serif;
                 text-align: center;
@@ -148,11 +163,12 @@
             @media only screen and (max-width: 800px){
                 #selectionContainer {
                     transition: width height .25s;
+                    background-color: white;
                 }
                 #selectionContainer:hover {
                     top: 48px;
                     width: 100vw;
-                    height: calc(100vh-48ox);
+                    height: calc(100%);
                 }
                 
                 #logo-image {
@@ -176,6 +192,7 @@
 	</head>
 	<body>
         <img id="logo-image" src="../resources/logo.png">
+        <img id="img-search" src="../resources/ic_search_black_48dp_2x.png">
         
         <script>
             function initMap() {
@@ -227,9 +244,16 @@
                         </form>
                     </div>
                     <div class="col-md-6">
-                        <form id="form-conf" action="/data/" method="post">
-
-                        </form>
+                        <label id="distanceOptions" for="distanceOptions">What's the farthest distance you prefer to go?</label>
+                        <select id="distanceOptions">
+                            <option value="1609.34">1 mile</option>
+                            <option value="3218.69">2 miles</option>
+                            <option value="4828.03">3 miles</option>
+                            <option value="8046.72">5 miles</option>
+                            <option value="16093.4">10 miles</option>
+                            <option value="32186.9">20 miles</option>
+                            <option value="48280.3">30 miles</option>
+                        </select>
                     </div>
                     
                     <div class="col-md-12">
