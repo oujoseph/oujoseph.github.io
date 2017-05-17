@@ -108,7 +108,7 @@
         <h1 class="base-text">Projects I've Worked On</h1>
         <div class="worksContainer">
             <div class="row">
-                <div class="base-text containerTitle">Commonality: an app</div>
+                <div class="base-text containerTitle">Commonality: an App</div>
             </div>
             <div class="row">
                 <div class="col-md-4">
@@ -120,7 +120,7 @@
                     </div>
                     
                     <div class="base-text containerText row">
-                        This is an experiment in expanding my technology stack. I combined technologies that I would prefer to have more experience with-- AWS/EB, NodeJS/NPM, Google Maps API, WebSockets/REST-- technologies that I have not attempted to combine until now. The result is semi-functional, but some core functionality is still missing. Right now, it will only return up to 20 results per address, and place a marker at each location. I am still in the process of implementing a distance checker in the frontend.
+                        My reason for building this app was to expand my technology stack. I have the app deployed on AWS using Elastic Beanstalk. The backend is written using NodeJS, and communicates with the frontend through Websockets. The Google Maps API is used to query locations and information about locations. I have a distance checking function running on the backend, but offloading the calculations onto the frontend client will significantly reduce the number of computing operations per query.
                     </div>
                     <div class="base-text containerText row">
                         I plan to create a login system complete with sessions and Oauth. My current client ID system is quite lacking-- it limits the backend to run on a single core and does not keep track of sessions. Each marker on the Google Maps view will have an info-box giving relevant information such as prices and ratings-- the data is actually already being pushed to the frontend. A client-side mergesort would also be useful in providing nearest-distance information in list-form as well.
