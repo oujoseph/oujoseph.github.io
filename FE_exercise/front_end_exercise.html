@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>title</title>
+    <meta name="author" content="Joseph Ou">
+    <meta name="description" content="front end exercise">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<!--        import open sans font from google fonts-->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            color: #555555;
+            
+        }
+        .news-panel {
+            margin: 50px;
+            position: absolute;
+            
+/*            main panel needs a border-radius and overflow to prevent jquery's slideToggle() from
+            also showing the edges of news-panel-border on click.*/
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .news-panel-border {
+            height: 1247px;
+            width: 647px;
+/*                reduce height/width by 3px to compensate for border size*/
+            border-radius: 15px;
+            border: 1.5px solid #8da8bf;
+            z-index: -1;
+            position: absolute;
+        }
+        .news-panel-header {
+            background-color: #45b7e6;
+            height: 172px;
+            width: 647px;
+            border-radius: 15px;
+            border: 1.5px solid #8da8bf;
+
+            position: relative;
+        }
+        
+        .news-panel-body {
+            height: 1075px;
+            width: 650px;
+            overflow-x:hidden;
+/*            make additional selection boxes viewable by scrolling*/
+/*            overflow-y: scroll;*/
+        }
+        h1 {
+            font-size: 52px;
+/*            google's "Regular" appears to be 300 weight*/
+/*            result is different*/
+            font-weight: 300;
+            color: #ffffff;
+            
+        }
+        #news-header-margins {
+/*            here, vertically centering the text will produce the same result as padding 70px*/
+/*            horizontal alignment actually tends towards the left a little in the original spec*/
+            height: inherit;
+            
+            display: flex;
+            align-items: center;
+            
+            top: 0px;
+            left: 75px;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+        }
+        
+        #news-header-dropdown-icon {
+/*            dropdown icon in spec is slightly off center*/
+            top: 66px;
+            margin: 0;
+            padding: 0;
+            
+            right: 25px;
+            vertical-align: middle;
+            position: absolute;
+            transition: .5s;
+        }
+        
+        #search-font {
+            font-size: 16px;
+            width: 56%;
+            float: right;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            z-index: 1;
+        }
+        
+        #search-bar {
+            width: 75%;
+            height: 26px;
+            margin-left: 4px;
+            border-color: #94aec3;
+            border-width: 1.5px;
+            border-style: solid;
+        }
+        .selection-box {
+/*            margin left to compensate for border size*/
+            margin-left: 1.5px;
+            
+/*            mixing margins and padding to leave gap for hover*/
+            margin-top: 10px;
+            margin-bottom: 10px;
+            
+            padding-top: 10px;
+            padding-bottom: 10px;
+            
+
+            width: 647px;
+            font-size: 26px;
+            position: relative;
+            overflow: hidden;
+/*            slight padding to each selection box*/
+            padding-top: 4px;
+            padding-bottom: 4px;
+            word-wrap: break-word;
+        }
+        .selection-box:hover {
+            background-color: #c4ece4;
+        }
+        .selection-box-title {
+            font-weight: 600;
+            text-decoration: underline;
+            margin-left: 75px;
+
+            margin-right: 75px;
+            width: wrap;
+        }
+        .selection-box-content {
+/*            margin-right is not explicitly stated to be 75px, and if set to match margin-left*/
+/*            the selection box with the image actually will overflow.*/
+            margin-left: 75px;
+            margin-right: 60px;
+            overflow: wrap;
+/*            1.30 line height more closely matches the original spec*/
+            line-height: 1.30;
+/*            max-height: 100px;*/
+        }
+        .selection-box-img {
+            float: left;
+            padding-top: 10px;
+            padding-right: 18px;
+        }
+        .selection-box-new-icon {
+            position: absolute;
+            top: 0px;
+            left: 10px;
+/*            icon is aligned a little bit to the right*/
+        }
+        .dotted-line {
+/*            don't want the dotted line crossing with the border so width = 647px*/
+            width: 647px;
+            border-style: dashed;
+            border-width: .1px;
+            color: #555555;
+        }
+        .read-arrow-position {
+            position: absolute;
+            right: 80px;
+            bottom: -5px;
+        }
+        read-more {
+            font-size: 13px;
+/*            gimp color picker says the green used in the icons is this color*/
+            color: #1abb9c;
+            position: absolute;
+            bottom: 9px;
+            right: 184px;
+/*        }*/
+        
+    </style>
+    </head>
+    <body>
+        
+        <div class="news-panel">
+            <div class="news-panel-border"></div>
+            <div class="news-panel-header">
+                <h1 id="news-header-margins">GET THE 411 NOW!</h1>
+                <img id="news-header-dropdown-icon" src="Expand_Arrow.png">
+            </div>
+            
+            <script>
+                $("#news-header-dropdown-icon").click(function() {
+                    $(".news-panel-body").slideToggle("slow");
+                    $(".news-panel-border").slideToggle("slow");
+                });
+            </script>
+            
+<!--            note: these hyperlinks don't actually go anywhere.-->
+            <div class="news-panel-body">
+                <div id="search-font">Search
+                    <input type="search" id="search-bar">
+                </div>
+                <div class="selection-box">
+                    <img class="selection-box-new-icon" src="NEW_icon.png">
+                    <a href="" class="selection-box-title">Subtitle goes here</a>
+                    <div class="selection-box-content">Lorem ipsum dolor sit amet labore et dolore magna aliqua.
+                    </div>
+                </div>
+                <div class="selection-box">
+                    <img class="selection-box-new-icon" src="NEW_icon.png">
+                    <a href="" class="selection-box-title">Subtitle goes here</a>
+                    <div class="selection-box-content">Lorem ipsum dolor sit amet labore et dolore magna aliqua.
+                    </div>
+                </div>
+                
+                <div class="dotted-line"></div>
+                
+                <div class="selection-box">
+                    <a href="" class="selection-box-title">Subtitle goes here</a>
+                    <div class="selection-box-content">Lorem ipsum dolor sit amet labore et dolore magna aliqua.
+                    </div>
+                </div>
+                <div class="selection-box">
+                    <a href="" class="selection-box-title">Subtitle goes here</a>
+                    <div class="selection-box-content">Lorem ipsum dolor sit amet labore et dolore magna aliqua.
+                    </div>
+                </div>
+                <div class="selection-box">
+                    <a href="" class="selection-box-title">Subtitle goes here</a>
+                    <div class="selection-box-content">
+                        <img class="selection-box-img" src="Data_icon.png">
+                        Lorem ipsum dolor sit amet labore et dolore magna aliqua. Lorem ipsum dolor sit amet labore et...
+                        <read-more><img class="read-arrow-position" src="Read_Arrow.png">Read more</read-more>
+                    </div>
+                </div>
+                <div class="selection-box">
+                    <a href="" class="selection-box-title">Subtitle goes here</a>
+                    <div class="selection-box-content">Lorem ipsum dolor sit amet labore et dolore magna aliqua.
+                    </div>
+                </div>
+                <div class="selection-box">
+                    <a href="" class="selection-box-title">Subtitle goes here</a>
+                    <div class="selection-box-content">Lorem ipsum dolor sit amet labore et dolore magna aliqua.
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    
+    
+    </body>
+</html>
