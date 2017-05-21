@@ -20,7 +20,7 @@
             /* Always set the map height explicitly to define the size of the div
              * element that contains the map. */
             #map {
-                height: calc(100vh - 48px);
+                height: calc(100vh - 64px);
                 top: 48px;
                 width: 100vw;
                 z-index: 0;
@@ -48,8 +48,10 @@
                 font-family: 'Roboto', sans-serif;
                 font-weight: 300;
                 padding: 6px 8px;
-                margin-top: 8px;
-                margin-bottom: 8px;
+                margin: 8px;
+            }
+            .distance {
+                text-align: center;
             }
             #distanceOptions {
                 font-size:  calc(.70vmin + 8px);
@@ -59,14 +61,29 @@
                 padding: 6px 8px;
                 margin: 8px;
             }
+            
+            #distanceFont {
+                font-size: calc(.7vmin + 8px);
+                font-family: 'Roboto', sans-serif;
+                font-weight: 300;
+                margin: 8px;
+            }
+            
             #form-conf {
                 position:relative;
-                width: 95%;
+                width: 98%;
+                max-height: calc(40vh - 56px);
+                overflow-x: hidden;
+            }
+            
+            #search-conf {
+                position:relative;
+                width: 98%;
             }
             input[type="search"] {
                 font-size:  calc(1vmin + 16px);
                 font-family: 'Roboto', sans-serif;
-                width: 70%;
+                width: 80%;
                 text-align: center;
                 box-sizing: border-box;
                 color: #777777;
@@ -162,6 +179,35 @@
                 padding: 24px;
             }
             
+            #add-address{
+                font-size:  calc(.75vmin + 8px);
+                font-family: 'Roboto', sans-serif;
+                font-weight: 300;
+                color: white;
+                padding-top: 4px;
+                padding-bottom: 4px;
+                margin-top: 4px;
+                margin-bottom: 4px;
+                text-align: center;
+                background-color: #F39C12;
+                margin-left: 20%;
+                margin-right: 20%;
+            }
+            #submit {
+                font-size:  calc(1vmin + 16px);
+                font-family: 'Roboto', sans-serif;
+                width: 15%;
+                min-width: 100px;
+                box-sizing: border-box;
+                color: #ffffff;
+                background-color: #F39C12;
+                text-align: center;
+                left: 50%;
+                transform: translateX(-50%);
+                position:relative;
+                margin-bottom: 16px;
+            }
+            
             @media only screen and (max-width: 800px){
                 #selectionContainer {
                     width: 100vw;
@@ -177,7 +223,7 @@
                 }
                 #map {
                     top: 48px;
-                    height: calc(100vh - 48px);
+                    height: calc(95vh - 48px);
                     position: absolute;
                 }
                 input {
@@ -190,18 +236,16 @@
                     width: 92%;
                 }
             }
-            .row {
-                margin: 0;
-            }
         </style>
 		
 		
 	</head>
 	<body>
-        <img id="logo-image" src="../resources/logo.png">
-        <img id="img-search" src="../resources/ic_search_black_48dp_2x.png">
+        <img id="logo-image" src="resources/logo.png">
+        <img id="img-search" src="resources/ic_search_black_48dp_2x.png">
         
         <script>
+            var map;
             function initMap() {
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(function (position) {
@@ -209,41 +253,43 @@
                         map.setCenter(initialLocation);
                      });
                 }
-                    var initCenter = {lat: 122.0322, lng: 37.3230};
-                    var map = new google.maps.Map(document.getElementById('map'), {
+                    var initCenter = {lat: 53.2734, lng: -7.778320310000026};
+                    map = new google.maps.Map(document.getElementById('map'), {
                           zoom: 4,
                           center: initCenter
                     });
-                    var marker = new google.maps.Marker({
-                          position: initCenter,
-                          map: map
-                    });
+                    
               }
         </script>       
         
         <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBobCvR6fD_t4KwHfSL-EjprfmuYk5QJrw&callback=initMap">
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwQXLLkxWCyoOUfwMRVkfsk6lECoFmNFk&callback=initMap">
         </script>
         <div id="map"></div>
         
         <div id="selectionContainer">        
             <div id="contentContainer">
-                    <form id="form-conf" action="/data/" method="post">
-                        <input type="search" id="addr1" name="addr1" placeholder="What are you searching for?">
-                    </form>
+                <div class="row" id="pad">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <form id="search-conf" action="/data/" method="post">
+                            <input type="search" id="search" name="search" placeholder="What are you searching for?">
+                        </form>
+                    </div>
+                    
+                </div>
                 <div class=lineseparator></div>
 
                 <div class="row">
                     <div class="col-md-6">
-                        <form id="form-conf" action="/data/" method="post">
-                            <input type="address" id="addr1" name="addr1" placeholder="Address 1">
-                            <input type="address" id="addr2" name="addr2" placeholder="Address 2">
-                            <input type="address" id="addr3" name="addr3" placeholder="Address 3">
-                            <input type="address" id="addr4" name="addr4" placeholder="Address 4">
+                        <form id="form-conf" action="/data/" method="post" onsubmit="false">
+                            <input type="address" placeholder="Your Location">
                         </form>
+                        <div id="add-address">Click to add another address</div>
                     </div>
-                    <div class="col-md-6">
-                        <label id="distanceOptions" for="distanceOptions">What's the farthest distance you prefer to go?</label>
+                    
+                    <div class="col-md-6 distance">
+                        <label id="distanceFont" for="distanceOptions">What's the farthest distance you prefer to go?</label>
                         <select id="distanceOptions">
                             <option value="1609.34">1 mile</option>
                             <option value="3218.69">2 miles</option>
@@ -257,56 +303,101 @@
                     
                     <div class="col-md-12">
                         <div class=lineseparator></div>
-                        <p><input type="submit" value="Search"></p>
+                    </div>
+                    
+                    <div class="col-md-12">
+                        <div id="submit">Search!</div>
                     </div>
                 </div>
             </div>
             
         </div>
         
-        
-        
 	</body>
     
     <script>
-        //hijack form submission
-        $("#form-conf").submit(function(e) {
-            e.preventDefault();
-            var postThis = $.post(/addrToBackend/, {
-                addr1: $('#addr1').val(),
-                addr2: $('#addr2').val()
-            });
-        });
+        $(document).ready(function() {
+            
+        var ws = new WebSocket('ws://commonalityenv.dimshig6ga.us-west-2.elasticbeanstalk.com:9000');
         
-        //get data, pu it into outputData and outputAddress
-        function getClosestData(){
-            $.ajax({
-                url: "/addrToFrontend/",
-                type: "POST",
-                dataType: "json",
-                success: function(data) {
-                    $('#outputData').html("<p>");
-                    currData = JSON.parse(data);
-                    for (var i = 0; i < currData.length; i++){
-                        var j = i+ 1;
-                        $('#outputData').append(("<div id=\"outputData\">" + j + ". " + currData[i].name +"</div>" + "<div id=\"outputAddress\">" + currData[i].address + " <p> Total distance: " + currData[i].distance + "mi") + "</div>" );
-                    }
+            ws.onopen = function() {
+                alert("connected to backend");
+              // Web Socket is connected, send data using send()
+    //            ws.send(Math.floor(Math.random() * 10000000000000001));
+    //            window.alert("connected to server. sending a crappy pseudorandom ID");
+            };
+
+            ws.onmessage = function(evt){
+                var decodeData = JSON.parse(evt.data);
+
+                for(var i = 0; i < decodeData.length; i++){
+                    var currLatLng = {lat: decodeData[i].coordinates.lat, lng: decodeData[i].coordinates.lng};
+
+
+
+                    var marker = new google.maps.Marker({
+                          position: currLatLng,
+                          map: map
+                    });
+
+                    marker.setMap(map);
                 }
-            })
-        }
-        
-        
-        $("#img-search").click(function(){
-            $("#selectionContainer").slideToggle();
+            }
+
+            $("#form-conf").submit(function(e) {
+                e.preventDefault();
+            });
+
+            $("#search-conf").submit(function(e) {
+                e.preventDefault();
+            });
+
+            //hijack form submission
+            $("#submit").click(function(e) {
+                e.preventDefault();
+                $("#selectionContainer").slideToggle();
+                var data = [];
+
+                $('#form-conf input').each(function(){
+                    data.push(($(this).val()));
+                })
+
+                ws.send(JSON.stringify({
+                    search: $("#search").val(),
+                    distanceOptions: document.getElementById("distanceOptions").value,
+                    data: {
+                        addr: JSON.stringify(data),
+                    }
+                }));
+
+
+    //            var postThis = $.post(/addrToBackend/, {
+    //                search: $("#search").val(),
+    //                distanceOptions: document.getElementById("distanceOptions").value,
+    //                data: {
+    //                    addr: JSON.stringify(data),
+    //                }
+    //            });
+            });
+
+            $('#add-address').click(function() {
+                $('#form-conf').append("<input type=\"address\" placeholder=\"Your friend's location\">");
+            });
+
+
+
+            $("#img-search").click(function(){
+                $("#selectionContainer").slideToggle();
+            });
+
+            //compensate for ios shenanigans with scrolling
+            $(document).on("focusout",function(){
+                window.scrollTo(0, 0);
+            });
+            document.ontouchmove = function (e) {
+                e.preventDefault();
+            }
         });
-        
-        //compensate for ios shenanigans with scrolling
-        $(document).on("focusout",function(){
-            window.scrollTo(0, 0);
-        });
-        document.ontouchmove = function (e) {
-            e.preventDefault();
-        }
         
     </script>
     
