@@ -214,7 +214,7 @@
             @media only screen and (max-width: 800px){
                 #selectionContainer {
                     width: 100vw;
-                    height: calc(100vh-88px);
+                    height: calc(100vh);
                     position: absolute;
                     background-color: white;
                     overflow: hidden;
@@ -227,7 +227,7 @@
                 }
                 #map {
                     top: 48px;
-                    height: calc(95vh - 48px);
+                    height: calc(100vh - 48px);
                     position: absolute;
                 }
                 input {
@@ -238,6 +238,21 @@
                 }
                 input[type="search"]:focus {
                     width: 92%;
+                }
+            }
+/*            iphone 6 fix*/
+            @media only screen and (max-width: 750px) and (min-width: 749px){
+                #selectionContainer {
+                    width: 100vw;
+                    height: calc(100vh-88px);
+                    position: absolute;
+                    background-color: white;
+                    overflow: hidden;
+                }
+                #map {
+                    top: 48px;
+                    height: calc(100vh - 92px);
+                    position: absolute;
                 }
             }
         </style>
