@@ -1,14 +1,16 @@
-.loading-screen {
+.hexagon-parent {
     top: 50%;
     left: 45%;
     transform: translate(-50%, -50%);
-    position: absolute;
+    position: fixed;
     transition: 1s;
     transform-origin: 7.5vh 0vh;
     display: inline-block;
 }
-.pentagon-parent {
-
+.fill-white {
+    height: 100vh;
+    width: 100%;
+    background-color: white;
 }
 .triangle-parent-1 {
     position: absolute;
@@ -27,9 +29,8 @@
     transform: rotateZ(120deg);
 }
 .triangle {
-    border-color: white;
-    border-left: solid 1.1547vh;
-    border-bottom: solid 1vh;
+    border-left: solid 1.1547vh black;
+    border-bottom: solid 1vh black;
 /*            border: solid 1vh;*/
     width: 11.547vh;
     height: 10vh;
