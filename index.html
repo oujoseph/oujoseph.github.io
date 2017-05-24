@@ -7,16 +7,16 @@
     <meta name="description" content="prototype of future index.html">
     <meta name="author" content="Joseph Ou">
 
-    
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400|VT323" rel="stylesheet">
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<!--    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">-->
+    <link href="/index_prototype/loadingscreen.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
     <style>
         body {
             background-color: black;
+            display: none;
         }
         ::-webkit-scrollbar { 
             display: none; 
@@ -913,6 +913,18 @@
     </style>
 </head>
     
+    <div class="loading-screen">
+        <div class="triangle-parent-1">
+            <div class="triangle"></div>
+        </div>
+        <div class="triangle-parent-2">
+            <div class="triangle"></div>
+        </div>
+        <div class="triangle-parent-3">
+            <div class="triangle"></div>
+        </div>
+    </div>
+    
     <body>
         <div id="firstAnchorMark" class="quarterPage">x</div>
         <scrollMarker0></scrollMarker0>
@@ -1107,6 +1119,13 @@
         });
         
         $(document).ready(function(){
+            $('body').css({
+                'display': 'inline-block',
+            })
+            $('loading-screen').css({
+                'display': 'none',
+            })
+            
             $('a[href^="#"]').on('click', function (e) {
                 e.preventDefault();
 

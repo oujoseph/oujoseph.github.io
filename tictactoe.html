@@ -1,0 +1,174 @@
+<html lang="en">
+	<head>
+	  <meta charset="utf-8">
+	  <title>Tic Tac Toe</title>
+	  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+  	<style>
+
+  		table {
+  			margin-left: 175px;
+  			margin-top: 70px;
+  		}
+			table, td, tr{
+			  border:1px solid black; 
+			}
+
+			td{
+			  width:70px;
+			  height:70px;
+			}
+            #td11{
+                
+            }
+            #td12{
+
+            }
+            #td13{
+
+            }
+            #td21{
+
+            }
+            #td22{
+
+            }
+            #td23{
+
+            }
+            #td31{
+
+            }
+            #td32{
+
+            }
+            #td33{
+
+            }
+		</style>
+	</head>
+	
+	<body>
+	  
+	  <!-- use table as gameboard -->
+	  <table id="tictac">
+			<tr>
+				<td id="td11"></td><td id="td12"></td><td id="td13"></td>
+			</tr>
+			<tr>
+				<td id="td21"></td><td id="td22"></td><td id="td23"></td>
+			</tr>
+			<tr>
+				<td id="td31"></td><td id="td32"></td><td id="td33"></td>
+			</tr>
+		</table>
+
+	</body>
+
+	<!-- put the business logic of the game in here -->
+	<script>
+		$(document).ready(function(){
+			console.log("ready to go!");
+            
+            var currTurn = "o";
+            var lockInputAfterWin = false;
+            
+            function alternateInput(){
+                
+                if(currTurn == "o"){
+                    currTurn = "x";
+                }
+                else {
+                    currTurn = "o";
+                }
+                return currTurn;
+            }
+            
+            $("#tictac td").on("click", function( event ) {
+                if (lockInputAfterWin == true)return;
+                if ($(this).html() == ""){
+                    $(this).html(alternateInput());
+                }
+                else return;
+            
+                
+//                horizontal
+                if (($("#td11").html() == $("#td12").html()) && 
+                    $("#td12").html() == $("#td13").html() && 
+                    $("#td13").html() != ""){
+                    
+                    highlight($("#td11"), $("#td12"), $("#td13"));
+                        return;
+                }
+                if (($("#td21").html() == $("#td22").html()) && 
+                    $("#td22").html() == $("#td23").html() && 
+                    $("#td23").html() != ""){
+                    
+                    
+                    highlight($("#td21"), $("#td22"), $("#td23"));
+                    return;
+                }
+                if (($("#td31").html() == $("#td32").html()) && 
+                    $("#td32").html() == $("#td33").html() && 
+                    $("#td33").html() != ""){
+                    
+                    
+                    highlight($("#td31"), $("#td32"), $("#td33"));
+                    return;
+                }
+//                vertical
+                if (($("#td11").html() == $("#td21").html()) && 
+                    $("#td21").html() == $("#td31").html()  && 
+                    $("#td31").html() != ""){
+                    
+                    
+                    highlight($("#td11"), $("#td21"), $("#td31"));
+                    return;
+                }
+                if (($("#td12").html() == $("#td22").html()) && 
+                    $("#td22").html() == $("#td32").html()  && 
+                    $("#td32").html() != ""){
+                    
+                    
+                    highlight($("#td12"), $("#td22"), $("#td32"));
+                    return;
+                }
+                if (($("#td13").html() == $("#td23").html()) && 
+                    $("#td23").html() == $("#td33").html()  && 
+                    $("#td33").html() != ""){
+                    
+                    
+                    highlight($("#td13"), $("#td23"), $("#td33"));
+                    return;
+                }
+                
+//                diagonal
+                if ($("#td11").html() == $("#td22").html() && 
+                    $("#td22").html() == $("#td33").html()  && 
+                    $("#td33").html() != ""){
+                    
+                    
+                    highlight($("#td11"), $("#td22"), $("#td33"));
+                    return;
+                }
+                if ($("#td13").html() == $("#td22").html() && 
+                    $("#td22").html() == $("#td31").html() && 
+                    $("#td31").html() != ""){
+                    
+                    highlight($("#td13"), $("#td22"), $("#td31"));
+                    return;
+                }
+            });
+            
+            function highlight(x, y, z){
+                lockInputAfterWin = true;
+                x.css('background-color', 'green');
+                y.css('background-color', 'green');
+                z.css('background-color', 'green');
+            }
+            
+            
+            
+		});
+	</script>
+
+</html>

@@ -1,0 +1,65 @@
+.loading-screen {
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    transition: 1s;
+    transform-origin: 7.5vh 0vh;
+    display: inline-block;
+}
+.pentagon-parent {
+
+}
+.triangle-parent-1 {
+    position: absolute;
+    transition: 1s;
+}
+.triangle-parent-2 {
+    position: absolute;
+    top: calc(7vh);
+    left: calc(14vh);
+    transform: rotateZ(-120deg);
+}
+.triangle-parent-3 {
+    position: absolute;
+    top: calc(-8.5vh);
+    left: calc(13vh);
+    transform: rotateZ(120deg);
+}
+.triangle {
+    border-color: white;
+    border-left: solid 1.1547vh;
+    border-bottom: solid 1vh;
+/*            border: solid 1vh;*/
+    width: 11.547vh;
+    height: 10vh;
+    transform: skew(30deg);
+    position: absolute;
+    animation: move 4s infinite;
+}
+@keyframes move {
+    20% {
+        transform: skew(30deg) translate(0, 0%);
+    }
+    30% {
+        transform: skew(30deg) translate(0, -50%);
+    }
+    40% {
+        transform: skew(30deg) translate(-50%, -50%);
+    }
+    50% {
+        transform: skew(30deg) translate(-50%, 50%) rotate(180deg);
+    }
+    60% {
+        transform: skew(30deg) translate(0%, 0%) rotate(180deg);
+    }
+    70% {
+        transform: skew(30deg) translate(-50%, 50%) rotate(180deg);
+    }
+    80% {
+        transform: skew(30deg) translate(-50%, -50%);
+    }
+    90% {
+        transform: skew(30deg) translate(0, -50%);
+    }
+}
