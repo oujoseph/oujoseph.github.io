@@ -13,7 +13,6 @@
         
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,200,100' rel='stylesheet' type='text/css'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        
         <style>
             body{
                 overflow: hidden;
@@ -23,7 +22,7 @@
             /* Always set the map height explicitly to define the size of the div
              * element that contains the map. */
             #map {
-                height: calc(100vh - 64px);
+                height: calc(100vh - 48px);
                 top: 48px;
                 width: 100vw;
                 z-index: 0;
@@ -336,21 +335,23 @@
     
     <script>
         $(document).ready(function() {
-            
-        var ws = new WebSocket('ws://commonalityenv.dimshig6ga.us-west-2.elasticbeanstalk.com:9000');
-        
+        var data = [];
+//        var ws = new WebSocket('ws://commonalityenv.dimshig6ga.us-west-2.elasticbeanstalk.com:9000');
+        var ws = new WebSocket('ws://localhost:9000');
             ws.onopen = function() {
-                alert("connected to backend");
+                console.log("connected to backend");
               // Web Socket is connected, send data using send()
     //            ws.send(Math.floor(Math.random() * 10000000000000001));
     //            window.alert("connected to server. sending a crappy pseudorandom ID");
             };
 
             ws.onmessage = function(evt){
+                console.log("received message: ");
                 var decodeData = JSON.parse(evt.data);
-
-                for(var i = 0; i < decodeData.length; i++){
-                    var currLatLng = {lat: decodeData[i].coordinates.lat, lng: decodeData[i].coordinates.lng};
+                console.log(decodeData);
+                
+                for(var i = 0; i < decodeData[0].length; i++){
+                    var currLatLng = {lat: decodeData[0][i].coordinates.lat, lng: decodeData[0][i].coordinates.lng};
 
 
 
@@ -375,12 +376,21 @@
             $("#submit").click(function(e) {
                 e.preventDefault();
                 $("#selectionContainer").slideToggle();
-                var data = [];
+                data = [];
 
                 $('#form-conf input').each(function(){
                     data.push(($(this).val()));
                 })
-
+                
+                console.log("sending user input to server");
+                console.log(JSON.stringify({
+                    search: $("#search").val(),
+                    distanceOptions: document.getElementById("distanceOptions").value,
+                    data: {
+                        addr: JSON.stringify(data),
+                    }
+                }));
+                
                 ws.send(JSON.stringify({
                     search: $("#search").val(),
                     distanceOptions: document.getElementById("distanceOptions").value,
