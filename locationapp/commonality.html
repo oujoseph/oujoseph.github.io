@@ -70,7 +70,12 @@
                 font-weight: 300;
                 margin: 8px;
             }
-            
+            #long-search-text {
+                font-size: calc(.7vmin + 8px);
+                font-family: 'Roboto', sans-serif;
+                font-weight: 300;
+                margin: 8px;
+            }
             #form-conf {
                 position:relative;
                 width: 98%;
@@ -137,6 +142,15 @@
                 position:relative;
             }
             
+            input[type="checkbox"] {
+                font-size:  calc(.70vmin + 8px);
+                font-family: 'Roboto', sans-serif;
+                text-align: center;
+                font-weight: 300;
+                padding: 6px 8px;
+                margin: 8px;
+                width: auto;
+            }
             .lineseparator {
                 width: 40%;
                 left: 50%;
@@ -317,8 +331,11 @@
                             <option value="32186.9">20 miles</option>
                             <option value="48280.3">30 miles</option>
                         </select>
+                        <form id="long-search" action="/data/" method="post">
+                            <label id="long-search-text" for="long-search">Perform in-depth search (7 second longer wait)</label>
+                            <input id="long-search-box" type="checkbox">
+                        </form>
                     </div>
-                    
                     <div class="col-md-12">
                         <div class=lineseparator></div>
                     </div>
@@ -335,9 +352,17 @@
     
     <script>
         $(document).ready(function() {
+        
+        var markers = [];
+        function setMapOnAll(map) {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(map);
+            }
+        }
+        
+        setMapOnAll(null);
         var data = [];
 //        var ws = new WebSocket('ws://commonalityenv.dimshig6ga.us-west-2.elasticbeanstalk.com:9000');
-        var ws = new WebSocket('ws://http://commonalityenv.dimshig6ga.us-west-2.elasticbeanstalk.com:9000');
             ws.onopen = function() {
                 console.log("connected to backend");
               // Web Socket is connected, send data using send()
@@ -352,14 +377,8 @@
                 
                 for(var i = 0; i < decodeData[0].length; i++){
                     var currLatLng = {lat: decodeData[0][i].coordinates.lat, lng: decodeData[0][i].coordinates.lng};
-
-
-
                     var marker = new google.maps.Marker({
-                          position: currLatLng,
-                          map: map
                     });
-
                     marker.setMap(map);
                 }
             }
@@ -388,7 +407,6 @@
                     distanceOptions: document.getElementById("distanceOptions").value,
                     data: {
                         addr: JSON.stringify(data),
-                    }
                 }));
                 
                 ws.send(JSON.stringify({
@@ -396,7 +414,6 @@
                     distanceOptions: document.getElementById("distanceOptions").value,
                     data: {
                         addr: JSON.stringify(data),
-                    }
                 }));
 
 
