@@ -362,7 +362,8 @@
         
         setMapOnAll(null);
         var data = [];
-//        var ws = new WebSocket('ws://commonalityenv.dimshig6ga.us-west-2.elasticbeanstalk.com:9000');
+        var ws = new WebSocket('ws://commonalityenv.dimshig6ga.us-west-2.elasticbeanstalk.com:9000');
+//        var ws = new WebSocket('ws://localhost:9000');
             ws.onopen = function() {
                 console.log("connected to backend");
               // Web Socket is connected, send data using send()
@@ -371,15 +372,28 @@
             };
 
             ws.onmessage = function(evt){
+                setMapOnAll();
                 console.log("received message: ");
                 var decodeData = JSON.parse(evt.data);
                 console.log(decodeData);
                 
+                //new gmaps destination marker
                 for(var i = 0; i < decodeData[0].length; i++){
                     var currLatLng = {lat: decodeData[0][i].coordinates.lat, lng: decodeData[0][i].coordinates.lng};
                     var marker = new google.maps.Marker({
+                        position: currLatLng,
+                        map: map
                     });
+                    markers.push(marker);
                     marker.setMap(map);
+                }
+                for (var i = 0; i < decodeData[1].length; i++){
+                    var currLatLng = {lat: decodeData[1][i][0], lng: decodeData[1][i][1]};
+                    var marker = new google.maps.Marker({
+                        position: currLatLng,
+                        map: map,
+                        icon: 'human.png'
+                    });
                 }
             }
 
@@ -407,6 +421,8 @@
                     distanceOptions: document.getElementById("distanceOptions").value,
                     data: {
                         addr: JSON.stringify(data),
+                    },
+                    longToggle: $("#long-search-box").prop('checked')
                 }));
                 
                 ws.send(JSON.stringify({
@@ -414,6 +430,8 @@
                     distanceOptions: document.getElementById("distanceOptions").value,
                     data: {
                         addr: JSON.stringify(data),
+                    },
+                    longToggle: $("#long-search-box").prop('checked')
                 }));
 
 
