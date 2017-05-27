@@ -70,6 +70,7 @@
                 font-weight: 300;
                 margin: 8px;
             }
+            
             #long-search-text {
                 font-size: calc(.7vmin + 8px);
                 font-family: 'Roboto', sans-serif;
@@ -224,6 +225,27 @@
                 margin-bottom: 16px;
             }
             
+            .info-window-title {
+                font-size: calc(.7vmin + 8px);
+                font-family: 'Roboto', sans-serif;
+                font-weight: 400;
+                margin: 8px;
+            }
+            .info-window-address {
+                font-size: calc(.5vmin + 8px);
+                font-family: 'Roboto', sans-serif;
+                font-weight: 300;
+            }
+            .info-window-price {
+                font-size: calc(.5vmin + 8px);
+                font-family: 'Roboto', sans-serif;
+                font-weight: 300;
+            }
+            .info-window-rating {
+                font-size: calc(.5vmin + 8px);
+                font-family: 'Roboto', sans-serif;
+                font-weight: 300;
+            }
             @media only screen and (max-width: 800px){
                 #selectionContainer {
                     width: 100vw;
@@ -354,6 +376,7 @@
         $(document).ready(function() {
         
         var markers = [];
+        var infowindows = [];
         function setMapOnAll(map) {
             for (var i = 0; i < markers.length; i++) {
                 markers[i].setMap(map);
@@ -361,6 +384,21 @@
         }
         
         setMapOnAll(null);
+        
+            
+        function parseInfoWindow(data){
+            currstr = '<div class="info-window-title">' + data.name + '</div>'
+            + '<div class="info-window-address">' + data.address + '</div>'
+            + '<div class="info-window-price">' + "Price: ";
+            
+            var price = "";
+            for (var i = 0; i < data.price; i++)price+="$"
+            
+            currstr += price + '</div>'
+            + '<div class="info-window-rating">' + "Rating: " + data.rating + 'stars<div>'
+            return currstr;
+        }
+            
         var data = [];
         var ws = new WebSocket('ws://commonalityenv.dimshig6ga.us-west-2.elasticbeanstalk.com:9000');
 //        var ws = new WebSocket('ws://localhost:9000');
@@ -377,6 +415,8 @@
                 var decodeData = JSON.parse(evt.data);
                 console.log(decodeData);
                 
+                
+                
                 //new gmaps destination marker
                 for(var i = 0; i < decodeData[0].length; i++){
                     var currLatLng = {lat: decodeData[0][i].coordinates.lat, lng: decodeData[0][i].coordinates.lng};
@@ -386,7 +426,17 @@
                     });
                     markers.push(marker);
                     marker.setMap(map);
+                    
+                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                        return function() {
+                            infowindow.setContent(parseInfoWindow(decodeData[0][i]));
+                            console.log(decodeData[0][i].name)
+                            infowindow.open(map, marker);
+                        }
+                    })(marker, i));
                 }
+
+                
                 for (var i = 0; i < decodeData[1].length; i++){
                     var currLatLng = {lat: decodeData[1][i][0], lng: decodeData[1][i][1]};
                     var marker = new google.maps.Marker({
@@ -394,7 +444,26 @@
                         map: map,
                         icon: 'human.png'
                     });
+                    
+                    var infowindow = new google.maps.InfoWindow({
+                        content: "loading..."
+                    });
+                    markers.push(marker);
+                    marker.setMap(map);
+                    
+                    
+                    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                        return function() {
+                            if (i == 0){
+                                    infowindow.setContent("You");
+                            }else {
+                                    infowindow.setContent("Your friend");
+                            }
+                            infowindow.open(map, marker);
+                        }
+                    })(marker, i));
                 }
+
             }
 
             $("#form-conf").submit(function(e) {
