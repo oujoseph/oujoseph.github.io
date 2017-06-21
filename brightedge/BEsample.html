@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="BrightEdge Demo">
+        <meta name="author" content="Joseph Ou">
+        
+        
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<!--        import bootstrap from the interwebs-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+/*            disable horizontal scrolling in case one of our 100vw's generate scroll bar*/
+            body {
+                overflow-x: hidden;
+                margin: 0;
+                padding: 0;
+                background-color: #fcfafb;
+                font-family: 'Open Sans', sans-serif;
+            }
+/*            brightedge blue: 019dda */
+            
+/*            text colors: */
+/*            text color: 666666*/
+/*            title text color: 333333*/
+/*            want to learn more text: 424242*/
+/*            you might also be interested in text: 797979*/
+/*            consectetur adipiscing elit text: 666666*/
+/*            we hold these truths to be self evident: 333333*/
+            
+            
+/*            greyish background color: fcfafb*/
+/*            vertical divider grey: d8d3d9*/
+            
+/*            horizontal divider top color: d5d5d5*/
+/*            horizontal divider bottom color: f0f0f0*/
+            
+            .title-bar {
+                height: 6vh;
+                background-color: #019dda;
+                width: 100vw;
+                position: absolute;
+                z-index: 1;
+            }
+            .title-bar-text {
+                left: 12.5%;
+                font-weight: 700;
+                color: white;
+                font-size: 3vh;
+                position: absolute;
+                padding-top: 1vh;
+            }
+            
+            .body-field {
+                position: absolute;
+                left: 12.5%;
+                width: 75%;
+                top: 3vh;
+                background-color: #ffffff;
+                box-shadow: 0 0  1vh #888888;
+                
+            }
+            
+            .title-icon {
+                width: 75%;
+                position: relative;
+                left: 50%;
+                transform: translate(-50%);
+                z-index: 1;
+            }
+            .content-wrapper {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+            }
+            .right-edge {
+                border-right: 2px solid #d8d3d9;
+            }
+            .text-BE-SEO-innovations-title {
+                font-size: calc(12px + 1vh);
+                color: #333333;
+            }
+            .text-BE-SEO-innovations-body {
+                font-size: calc(12px + .6vh);
+                color: #666666;
+            }
+            .content-img {
+                width: 100%;
+                padding-bottom: 12px;
+            }
+            .pad {
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 8px;
+                padding-bottom: 8px;
+            }
+            #learn-more-container {
+                position: relative;
+            }
+            #req-demo-img {
+                width: 100%;
+            }
+            #other-interest-img {
+                width: 100%;
+/*                set to 120px because we don't want giant icons dwarfing the rest of the content'*/
+                max-width: 120px;
+            }
+            .horizontal-divider-container {
+                border-top: 1px solid #d5d5d5;
+                border-bottom: 1px solid #f0f0f0;
+                width: calc(100% - 48px);
+                margin: 24px;
+            }
+            #additional-interests {
+                font-weight: 700;
+                color: #797979;
+            }
+            #additional-interests-container {
+                padding: 24px;
+                height: auto;
+            }
+            #additional-interests-img {
+                float: left;
+                padding-right: 12px;
+                width: 35%;
+                position: relative;
+            }
+            #additional-interests-title {
+                font-weight: 400;
+                font-size: calc(12px + .6vh);
+                padding-bottom: 12px;
+            }
+            #additional-interests-body {
+                font-weight: 400;
+                font-size: calc(8px + .6vh);
+            }
+            #background-overlay {
+                width: 100vw;
+                height: 100vh;
+                opacity: .9;
+                background: #000000;
+                position: fixed;
+                z-index: 9999;
+                display: none;
+            }
+            #request-demo-container {
+                width: 50vw;
+                height: calc(60vh+100px);
+                background: #ffffff;
+                left: 50%;
+                top: 12.5%;
+                transform: translate(-50%);
+                border-radius: 15px;
+                position: fixed;
+                z-index: 10000;
+                display: none;
+                overflow:hidden;
+            }
+            
+            #request-demo-title {
+                font-size: calc(24px + 2vh);
+                text-align: center;
+                width: 100%;
+                background-color: #019dda;
+                border-top-left-radius:15px;
+                border-top-right-radius: 15px;
+                color: white;
+            }
+            
+            #form-conf {
+                position:relative;
+                width: 80%;
+                height: 60vh;
+                overflow-y: scroll;
+                overflow-x: hidden;
+                left: 10%;
+                margin: 12px;
+            }
+            input {
+                width: 30%;
+                min-width: 150px;
+                box-sizing: border-box;
+                
+                margin-top: 12px;
+                margin-bottom: 12px;
+                
+                border-top: 1px solid #019dda;
+                border-left: 1px solid #019dda;
+                border-right: 1px solid #019dda;
+                border-bottom: 1px solid #019dda;
+                position:relative;
+                
+            }
+            textarea[name='Comments'] {
+                width: 80%;
+                min-width: 150px;
+                box-sizing: border-box;
+                
+                margin-top: 12px;
+                margin-bottom: 12px;
+                
+                border-top: 1px solid #019dda;
+                border-left: 1px solid #019dda;
+                border-right: 1px solid #019dda;
+                border-bottom: 1px solid #019dda;
+                position:relative;
+            }
+            
+            
+            #submit {
+                font-size:  calc(1vmin + 16px);
+                width: 15%;
+                min-width: 100px;
+                box-sizing: border-box;
+                color: #ffffff;
+                background-color: #019dda;
+                text-align: center;
+                left: 50%;
+                transform: translateX(-50%);
+                position:relative;
+                margin-bottom: 16px;
+            }
+            
+/*            992px to match bootstrap's default MD size*/
+            @media only screen and (max-width: 992px){
+                #request-demo-container {
+                    width: 80vw;
+                    height: 100vh;
+                    border-top-left-radius:0;
+                    border-top-right-radius:0;
+                    
+                    border-radius: 0;
+                    top: 0;
+                }
+                #request-demo-title {
+                
+                    border-top-left-radius:0;
+                    border-top-right-radius:0;
+                }
+                #form-conf {
+                    height: 80vh;
+            }
+            }
+        </style>
+      
+    </head>
+    <body>
+        <div id="background-overlay">
+        </div>
+        <div id="request-demo-container">
+            <div id="request-demo-title">
+                Request a Demo
+            </div>
+            
+            
+            <form id="form-conf" action="/data/" method="post" onsubmit="false">
+                First Name *<br>
+                <input type="firstname" name="First Name" required><br>
+                Last Name *<br>
+                <input type="lastname" name="Last Name" required><br>
+                Email Address *<br>
+                <input type="emailaddr" name="Email Address" required><br>
+                Company Name *<br>
+                <input type="company" name="Company Name" required><br>
+                Phone Number *<br>
+                <input type="phonenum" name="Phone Number" required><br>
+                Revenue *<br>
+                <input type="revenue" name="Company Revenue" required><br>
+                Is there anything else you would like us to know?<br>
+                <textarea name="Comments"></textarea>
+            </form>
+            <div id="submit">Submit</div>
+            
+        </div>
+        <div class="title-bar">
+            <div class="title-bar-text">BRIGHTEDGE</div>
+        </div>
+        <div class="body-field">
+            <img class="title-icon" src="mainTitle.svg">
+            
+            
+            
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-md-8 right-edge">
+                        <div class="text-BE-SEO-innovations-title pad">
+                        Top 20 Recent BrightEdge SEO Innovations
+                        </div>
+                        <div class="text-BE-SEO-innovations-body  pad">
+                        At BrightEdge our top value is customer success, and we have developed tremendous innovations to help you stay ahead of the changes in search and content marketing. As a SaaS company, our software is delivered as a subscription and each month we bring you innovative new technologies at no additional cost.
+                        </div>
+                        <div class="text-BE-SEO-innovations-body  pad">
+                        Please check out our latest Infographic that highlights the Top 20 BrightEdge 
+                        Innovations from the past 12 months — all of these great features are available in your account today! <a href="">[Download a copy in PDF]</a>
+                        </div>
+                        <div>
+                            <img class="content-img" src="mainContent.svg">
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="pad" id="learn-more-container">
+                                <img id="req-demo-img" src="requestDemo.svg">
+                        </div>
+                        <div class="horizontal-divider-container"></div>
+                        <div class="pad" id="additional-interests">
+                        You might also be interested in...
+                            <div id="additional-interests-container">
+                                <div id="additional-interests-img">
+                                    <img id="other-interest-img" src="searchManifesto.svg">
+                                </div>
+                                <div id="additional-interests-title">
+                                    We Hold these Truths to be Self Evident:
+                                </div>
+                                <div id="additional-interests-body">
+                                    Consectetur adipiscing elit. Sed ut orci ac neque tincidunt gravida non vitae tellus. Nam sem dui, varius.
+                                </div>
+                                <div id="additional-interests-body"><a href="">Read more.</a></div>
+                            </div>
+                            
+                        </div>
+                        <div class="horizontal-divider-container"></div>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </body>
+    
+    <script>
+    
+    $('#req-demo-img').click(function(){
+        console.log("demo requested");
+        $('#background-overlay').fadeToggle();
+        $('#request-demo-container').fadeToggle();
+    })
+    $('#background-overlay').click(function(){
+        console.log("demo requested");
+        $('#background-overlay').fadeToggle();
+        $('#request-demo-container').fadeToggle();
+    })
+        
+    $("#submit").click(function(e) {
+        e.preventDefault();
+        
+
+        //validInput is a sieve that will be set to false if any condition is not met
+        var validInput = true;
+        var data = [];
+        
+        $('#form-conf input').each(function(){
+            
+            if(!($(this).val())){
+                alert("Please make sure to fill in the field for " + $(this).attr('name'));
+                validInput = false;
+                return false;
+            }
+            else
+            //push the key and the value to an array of objects consisting of (key,value) pairs
+            data.push({
+                [($(this).attr('type'))]: ($(this).val())
+            });
+        });
+        data.push($('#form-conf textarea').val());
+        
+        if (validInput){
+            
+            console.log(data);
+
+            $('#background-overlay').fadeToggle();
+            $('#request-demo-container').fadeToggle();
+            //This is where POST to server should occur
+        }
+        
+    })
+    </script>
+</html>
+

@@ -1,0 +1,19 @@
+cost considerations:
+
+I used some open alternatives to proprietary elements of this project:
+
+Adobe illustrator costs at least $240 to use.
+To extract the SVG files, I used Inkscape instead, which is free and open source.
+
+Univers font costs at least $15-$35 to license. I instead used Google Fonts' similar Open Sans.
+
+
+Implementation considerations: 
+
+Every shade of grey for each font is slightly different, and I matched each color to correspond with the original.
+
+The side margins are 12.5% each in the demo. However, since it is intended to be responsive, this will be different in practice.
+
+This file expects the user to be running a browser modern enough to support SVG (Circa 2010 at the latest)
+
+The final output is an array of objects containing a key,value pair. This makes stringifying the data into json trivial for when we want to POST the data to the backend.
