@@ -21,3 +21,5 @@ The final output is an array of objects containing a key,value pair. This makes 
 There was checking for the existence of user input in the starred fields. The optional comment was not checked.
 
 I used Twitter Bootstrap to help simplify much of the responsive web design. I however did use one media query to create a mobile version of the popup modal.
+
+Usability may require tuning if used on iOS devices; issues may arise from iOS Safari's dynamically sized viewport. 
