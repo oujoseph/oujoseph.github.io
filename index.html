@@ -778,6 +778,7 @@
             top:80%;
             left: 50%;
             transform: perspective(1px) translate(-50%,-50%);
+            -webkit-perspective: 1000;
             font-weight: 100;
             opacity: 1;
         }
@@ -858,17 +859,19 @@
             top: 35%;
             left: 25%;
             transform: translate(-50%,-50%);
+            -webkit-perspective: 1000;
             opacity: 0;
             z-index:-1;
         }
-        #galleryImage {
-            background: url("images/gallery.jpg");
+        #tesselImage {
+            background: url("images/tessel.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
             top: 35%;
             left: 75%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%) scale(2); zoom: 0.5;
+            -webkit-perspective: 1000;
             opacity: 0;
             z-index:-1;
         }
@@ -880,7 +883,7 @@
             background-position: center;
             top: 75%;
             left: 75%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%) scale(2); zoom: 0.5;
             opacity: 0;
             z-index:-1;
         }
@@ -891,7 +894,7 @@
             background-position: center;
             top: 75%;
             left: 25%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%) scale(2); zoom: 0.5;
             opacity: 0;
             z-index:-1;
         }
@@ -903,7 +906,7 @@
             font-size: calc(8px + 1vmin);
             top:80%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%) scale(2); zoom: 0.5;
             font-weight: 100;
             opacity: 1;
         }
@@ -1069,12 +1072,12 @@
                 </div>
             </div>
         </a>
-        <a href="gallery.html">
-            <div id="galleryImage" class="worksContainer">
-                <div id="galleryImage"></div>
+        <a href="tessel.html">
+            <div id="tesselImage" class="worksContainer">
+                <div id="tesselImage"></div>
                 <div class="captionContainer">
-                    <div class="captionTitle">Gallery</div>
-                    <div class="captionContent">One of my hobbies is landscape photography. Here's a particularly resource heavy image gallery comprised of some of my shots (performance and visual improvements are forthcoming)</div>
+                    <div class="captionTitle">Embedded JS</div>
+                    <div class="captionContent">Some coding wizards designed an embedded chip that runs NodeJS. It's pretty awesome.</div>
                 </div>
             </div>
         </a>
@@ -1516,7 +1519,7 @@
                         'top': '-100%',
                          'background': '#c62828',
                     });
-                    $("#galleryImage").stop().animate({
+                    $("#tesselImage").stop().animate({
                         'opacity': '1',
                         'z-index':'1',
                     });
@@ -1561,7 +1564,7 @@
                     })
                 }
                 if (isEnter == 2){
-                    $("#galleryImage").stop().animate({
+                    $("#tesselImage").stop().animate({
                         'opacity': '0',
                         'z-index':'-1',
                     });

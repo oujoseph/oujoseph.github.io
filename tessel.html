@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Photos">
+    <meta name="author" content="Joseph Ou">
+
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    
+    <style>
+        body {
+            overflow-x: hidden;
+            font-family: 'Roboto', sans-serif;
+        }
+        #splash {
+            position:fixed;
+            width: 100vw;
+  		    height: 100vh;
+            background-image: url(/images/tessel.jpg);
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1;
+	    }
+        #space-page {
+            height: 70vh;
+            position: relative;
+        }
+        #title {
+            background: white;
+            font-size: calc(16px + 4vmin);
+            font-weight: 300;
+            color: #606060;
+            text-align: center;
+            padding-top: 1vh;
+            padding-bottom: 1vh;
+        }
+        
+        #grid-wrapper {
+
+        }
+        
+        #left-grid-img {
+            grid-column: 1 / 2;
+            left: 0;
+        }
+        #right-grid-img {
+            grid-column: 2 / 2;
+/*            right: 0;*/
+        }
+        #desert-shot-picture {
+            height: 25vmin;
+            float: right;
+            border-radius: 4px;
+            margin-right: 15vw;
+        }
+        
+        video {
+            object-fit: cover;
+            height: 25vmin;
+            border-radius: 4px;
+            margin-left: 15vw;
+        }
+        #icon-bar {
+            position: relative;
+            margin-top: -1vh;
+            display: grid;
+            grid-template-columns: 2;
+        }
+        .content-box {
+            background: white;
+            margin: 20px;
+            padding: 20px;
+            
+        }
+        #content-first-margin {
+            margin-top: -2vh;
+        }
+        .content {
+            color: #606060;
+            font-weight: 300;
+            font-size: calc(8px + 1vmin);
+            margin: 16px;
+        }
+    </style>
+    
+</head>
+    <body>
+        <div id="splash"></div>
+        <div id="space-page"></div>
+        <div id="title-start">
+            <div id="title">Embedded Systems... in JavaScript?!?</div>
+            <div id="icon-bar">
+                <div id="left-grid-img">
+                    <div class="video-container">
+                        <video height="100%" zoom="5" preload="auto" autoplay="true" loop="true" muted="true" volume="0" poster="/video/smiley_fallback.jpg">
+                            <source src="/video/smiley.mp4" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2">
+                        </video>
+                    </div>
+                </div>
+                <div id="right-grid-img">
+                    <img id="desert-shot-picture" src="images/tessel2.jpg" height="100%">
+                </div>
+            </div>
+        </div>
+        <div class="content-box" id="content-first-margin">
+            <div class="content">One day, a friend asked me how hard it was to make a standalone dot matrix mass transit ETA sign. He wanted to pull transit data from the web and display it as if he were standing in a mass transit station. Approaching the problem from an engineer's mindset, I naturally went the path of least resistance. "Do you need a real display, or can we simulate it? The real thing could take you months to finish from scratch, but if we fake it, it's a 30 minute project." </div>
+            <div class="content">Rather than imagining the hours it would take to meticulously pore over mazes of design docs and pinout diagrams, I began to wonder if anyone ever tried coding an embedded board in JavaScript. If done right, you could take the abstraction and the countless frameworks, combine it with the ability to handle low level hardware, and make embedded systems programming quick and painless. As it turns out, such a board exists, and it's called the Tessel.</div>
+            
+            <div class="content">The Tessel is a pretty fantastic piece of hardware. This 2x2 inch square runs NodeJS and supports NPM right out of the box, and features several USB ports and pins for low-level IO. An SoC commonly found in internet routers does the heavy lifting, while a second processor commonly used in arduinos does real time IO. (That's something a Raspberry Pi doesn't have) To sweeten the deal, not only is the Tessel a NodeJS based webserver, it also functions as a standalone internet router. Yep-- that's right. With a little bit of imagination, you can connect to the Tessel from any device via wifi, pull a webpage, and use websockets to make a fast and easy remote control for a Tessel powered Mars rover. No extra hardware required. Well, maybe not quite.</div>
+        </div>
+        <div class="content-box">
+            <div class="content">The day my Tessel arrived, I tried to make a small Google home/Alexa clone. As it turns out, Espeak, a text to speech program, was included in one of the basic AV libraries, which also supported USB microphone and speaker. Speech to text, however, was a bigger issue. Several hours of fruitless labor consisting of incompatible dependencies, deprecated APIs, and high usage costs steered me away from speech to text. Instead, my "smart" assistant now reads me the weather forecast when I wave my hand in front of a proximity sensor... at least it smiles at me.</div>
+        </div>
+    </body>
+</html>
