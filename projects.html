@@ -96,6 +96,12 @@
             background-size: contain;
             background-position: center;
         }
+        #ebayImage {
+            background: url("Projects/EbayApp.jpg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
         #defaultImage {
             background: url("images/milky_way.jpg");
             background-repeat: no-repeat;
@@ -119,6 +125,32 @@
         <h1 class="base-text">Projects I've Worked On</h1>
         <div class="worksContainer">
             <div class="row">
+                <div class="base-text containerTitle">Ebay Deal Tracker</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="ebayImage" class="containerImage"></div>
+                </div>
+                <div class="col-md-8">
+                    <div class="base-text containerText row">
+                        There's a joke in the photography community. It goes like this. Q: "How do you make a small fortune doing photography?" A: "Sell all your gear". Camera gear is expensive; lenses range from hundreds to well into the thousands of dollars. But, camera lenses depreciate very slowly. If you play your cards right, it's surprisingly easy to buy used lenses, use them for a couple years, and finally resell them to break even or even make a profit. 
+                    </div>
+                    
+                    <div class="base-text containerText row">
+                        I've spent my fair share of time obsessing over gear. It's a classic case of bad GAS, or "Gear Acquisition Syndrome". I've spent hours poring through Ebay listings looking for that killer deal, and recently, I figured why not let a machine do it for me? So I wrote an Ebay tracker in Nodejs. It pulls data from the Ebay Finding API every 17.5 seconds (Ebay sets a 5000/day API call limit on non-validated applications) and, using the Gmail Javascript API, sends me an email with every new listing that it finds. It puts every listing it sees into a hashmap to efficiently check if it's a new listing, guaranteeing that I only get at maximum one email per listing. 
+                    </div>
+                    <div class="base-text containerText row">
+                        Next steps are to add multi-user and multi-listing functionality. Will use express-session on NPM for user management. Then afterwards, I'll implement a web interface with websockets for the sweet browser window live updates. I'm trying to keep this project free for now, so I figure I'll use a workaround to the lackluster free DB options in Heroku-- I will simply utilize the free 5gb of storage from Storj, and upload my own MySQL DB for user data storage. That will also solve an issue I have with Heroku's lack of built in permanent storage.
+                    </div>
+                    <div class="base-text containerText row">
+                        Eventually I'd like to make an iOS app and put it on the app store. Perhaps add a subscription model for Ebay power users to take advantage of the functionality.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="worksContainer">
+            <div class="row">
                 <div class="base-text containerTitle">Commonality: an App</div>
             </div>
             <div class="row">
@@ -127,6 +159,8 @@
                 </div>
                 <div class="col-md-8">
                     <div class="base-text containerText row">
+                        NOTE: I HAVE SHUT THIS DOWN BECAUSE AWS STARTED CHARGING ME AFTER THE FREE YEAR. I WILL EVENTUALLY MIGRATE THIS TO A FREE HEROKU DYNO.
+                        
                         While I was interviewing for a company, the interviewer gave me an interesting engineering assignment that indirectly inspired this app. When complete, it will take a search term, several addresses, and a maximum distance. Then, it will find search terms that are within the maximum distance of each address, making travel and coordination easier for all parties involved.
                     </div>
                     
